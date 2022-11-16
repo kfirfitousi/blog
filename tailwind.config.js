@@ -14,7 +14,7 @@ module.exports = {
           "20%": {
             zIndex: 0,
             width: 0,
-            height: "calc(100%-4px)",
+            height: "100%",
             borderRadius: "0.4rem 0 0 0.4rem",
           },
           "100%": {

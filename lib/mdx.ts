@@ -150,3 +150,5 @@ const BlogSource = createMdxSource({
 });
 
 export default BlogSource;
+
+export type MdxNode = Awaited<ReturnType<typeof BlogSource.getMdxNode>>;
