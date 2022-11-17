@@ -18,7 +18,7 @@ export default function RootLayout({
       className={clsx("bg-slate-300 dark:bg-slate-500", inter.className)}
     >
       <head />
-      <body className="h-screen flex-grow grid grid-rows-[5rem_1fr_5rem] grid-cols-[1fr_minmax(600px,3fr)_1fr]">
+      <body className="h-screen flex-grow grid grid-rows-[fit-content_1fr_fit-content] grid-cols-[1fr_minmax(600px,3fr)_1fr]">
         {/* header */}
         <div className="col-span-3 sm:col-span-1 col-start-2 row-span-1 bg-slate-200 dark:bg-slate-700">
           <Header />

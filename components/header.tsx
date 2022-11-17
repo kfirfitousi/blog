@@ -10,7 +10,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="h-full flex flex-row justify-between items-center px-8 py-auto">
+    <header className="h-full flex flex-row justify-between items-center p-8">
       {pathname?.startsWith("/blog") && (
         <Link
           href="/"
