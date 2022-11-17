@@ -8,7 +8,7 @@ export function PostTags({ tags }: PostTagsProps) {
       {tags.map((tag) => (
         <span
           key={tag}
-          className="w-fit px-2 py-1 text-xs text-slate-100 bg-slate-600 rounded"
+          className="w-fit px-2 py-1 text-xs text-slate-100 dark:text-slate-700 bg-slate-600 dark:bg-slate-300 rounded"
         >
           {tag}
         </span>

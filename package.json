@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/font": "^13.0.3",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
@@ -21,6 +22,7 @@
     "lucide-react": "^0.101.0",
     "next": "13.0.3",
     "next-mdx-remote": "^4.2.0",
+    "next-themes": "^0.2.1",
     "node-cache": "^5.1.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",

@@ -17,6 +17,7 @@ export default async function Head({
     <>
       <title>{post.frontMatter.title}</title>
       <meta name="description" content={post.frontMatter.excerpt} />
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
     </>
   );
 }
