@@ -38,7 +38,7 @@ export default function RootLayout({
         <div
           className="
               hidden sm:block col-span-1 col-start-1 row-span-3 row-start-1
-              bg-gradient-to-r from-slate-400 via-slate-500 to-slate-900 
+              bg-gradient-to-r from-slate-400 via-slate-500 to-slate-800 
               dark:from-slate-300 dark:via-slate-400 dark:to-slate-500"
         ></div>
 
@@ -46,7 +46,7 @@ export default function RootLayout({
         <div
           className="
               hidden sm:block col-span-1 col-start-3 row-span-3 row-start-1
-              bg-gradient-to-l from-slate-400 via-slate-500 to-slate-900 
+              bg-gradient-to-l from-slate-400 via-slate-500 to-slate-800 
               dark:from-slate-300 dark:via-slate-400 dark:to-slate-500"
         ></div>
       </body>
