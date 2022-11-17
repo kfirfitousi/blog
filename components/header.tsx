@@ -14,10 +14,10 @@ export function Header() {
       {pathname?.startsWith("/blog") && (
         <Link
           href="/"
-          className="w-fit flex flex-row space-x-1 text-slate-700 hover:text-slate-500 dark:text-slate-200 dark:hover:text-slate-400"
+          className="w-fit h-full flex flex-row items-center space-x-1 text-slate-700 hover:text-slate-500 dark:text-slate-200 dark:hover:text-slate-400"
         >
-          <ArrowLeft />
-          <label className="cursor-pointer">Back</label>
+          <ArrowLeft className="w-10 h-10 sm:w-6 sm:h-6" />
+          <label className="cursor-pointer text-xl sm:text-sm">Back</label>
         </Link>
       )}
 

@@ -18,7 +18,7 @@ export default function RootLayout({
       className={clsx("bg-slate-300 dark:bg-slate-500", inter.className)}
     >
       <head />
-      <body className="h-screen flex-grow grid grid-rows-[4rem_1fr_5rem] grid-cols-[1fr_minmax(600px,3fr)_1fr]">
+      <body className="h-screen flex-grow grid grid-rows-[5rem_1fr_5rem] grid-cols-[1fr_minmax(600px,3fr)_1fr]">
         {/* header */}
         <div className="col-span-3 sm:col-span-1 col-start-2 row-span-1 bg-slate-200 dark:bg-slate-700">
           <Header />
@@ -38,7 +38,7 @@ export default function RootLayout({
         <div
           className="
               hidden sm:block col-span-1 col-start-1 row-span-3 row-start-1
-              bg-gradient-to-r from-slate-200 via-slate-500 to-slate-900 
+              bg-gradient-to-r from-slate-400 via-slate-500 to-slate-900 
               dark:from-slate-300 dark:via-slate-400 dark:to-slate-500"
         ></div>
 
@@ -46,7 +46,7 @@ export default function RootLayout({
         <div
           className="
               hidden sm:block col-span-1 col-start-3 row-span-3 row-start-1
-              bg-gradient-to-l from-slate-200 via-slate-500 to-slate-900 
+              bg-gradient-to-l from-slate-400 via-slate-500 to-slate-900 
               dark:from-slate-300 dark:via-slate-400 dark:to-slate-500"
         ></div>
       </body>

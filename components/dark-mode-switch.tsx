@@ -19,7 +19,11 @@ export function DarkModeSwitch() {
       onClick={toggleDarkMode}
       className="ml-auto text-slate-700 hover:text-slate-500 dark:text-slate-200 dark:hover:text-slate-400"
     >
-      {isDarkMode ? <Sun /> : <Moon />}
+      {isDarkMode ? (
+        <Sun className="w-10 h-10 sm:w-6 sm:h-6" />
+      ) : (
+        <Moon className="w-10 h-10 sm:w-6 sm:h-6" />
+      )}
       <label className="sr-only">Toggle dark mode</label>
     </button>
   );
