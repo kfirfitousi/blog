@@ -5,7 +5,7 @@ import { Footer } from "@/components/footer";
 import { Inter } from "@next/font/google";
 import clsx from "clsx";
 
-const inter = Inter();
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
