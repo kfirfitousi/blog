@@ -19,11 +19,11 @@ export function PostCard({ post }: PostCardProps) {
     >
       <article className="flex flex-col space-y-4 px-10 py-3 rounded bg-slate-100 dark:bg-slate-500 m-[2px] relative z-10">
         <div className="flex flex-col space-y-2">
-          <h2 className="text-slate-800 dark:text-rose-50 text-3xl font-bold leading-normal">
+          <h2 className="text-slate-800 dark:text-rose-50 text-2xl sm:text-3xl font-bold leading-normal">
             {post.frontMatter.title}
           </h2>
 
-          <p className="text-2xl sm:text-base text-slate-600 dark:text-rose-50">
+          <p className="text-xl sm:text-base text-slate-600 dark:text-rose-50">
             {post.frontMatter.excerpt}
           </p>
 
