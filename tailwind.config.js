@@ -3,6 +3,10 @@ module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-red-hat)"],
+        serif: ["var(--font-newsreader)"],
+      },
       keyframes: {
         "show-border": {
           "0%": {
@@ -32,4 +36,13 @@ module.exports = {
   },
   plugins: [require("@tailwindcss/typography")],
   darkMode: "class",
+  safelist: [
+    "prose-sm",
+    "prose-base",
+    "prose-lg",
+    "prose-xl",
+    "prose-2xl",
+    "font-sans",
+    "font-serif",
+  ],
 };

@@ -1,27 +1,105 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { useThemeStore } from "@/stores/theme-store";
+import shallow from "zustand/shallow";
+import clsx from "clsx";
 
-import { DarkModeSwitch } from "./dark-mode-switch";
-import { ArrowLeft } from "lucide-react";
+import {
+  ArrowLeft,
+  PlusSquare,
+  MinusSquare,
+  Type,
+  Sun,
+  Moon,
+} from "lucide-react";
 import Link from "next/link";
 
 export function Header() {
   const pathname = usePathname();
+  const isPost = pathname?.startsWith("/blog/");
+
+  const {
+    dark,
+    serif,
+    fontSize,
+    toggleTheme,
+    toggleSerif,
+    increaseFontSize,
+    decreaseFontSize,
+  } = useThemeStore(
+    (state) => ({
+      dark: state.dark,
+      serif: state.serif,
+      fontSize: state.fontSize,
+      toggleTheme: state.toggleTheme,
+      toggleSerif: state.toggleSerif,
+      increaseFontSize: state.increaseFontSize,
+      decreaseFontSize: state.decreaseFontSize,
+    }),
+    shallow
+  );
+
+  const toggleDarkMode = () => {
+    toggleTheme();
+    const html = document.querySelector("html");
+    if (html) {
+      html.classList.toggle("dark");
+    }
+  };
 
   return (
-    <header className="h-full flex flex-row justify-between items-center p-8">
-      {pathname?.startsWith("/blog") && (
-        <Link
-          href="/"
-          className="w-fit h-full flex flex-row items-center space-x-1 text-slate-700 hover:text-slate-500 dark:text-slate-200 dark:hover:text-slate-400"
-        >
-          <ArrowLeft className="w-10 h-10 sm:w-6 sm:h-6" />
-          <label className="cursor-pointer text-xl sm:text-sm">Back</label>
-        </Link>
+    <header className="h-full flex flex-row space-x-1 items-center p-8 text-slate-700 dark:text-rose-50">
+      {isPost && (
+        <>
+          <Link
+            href="/"
+            className="w-fit h-full mr-auto flex flex-row items-center space-x-1 hover:text-rose-600 dark:hover:text-rose-400"
+          >
+            <ArrowLeft className="w-8 h-8 sm:w-6 sm:h-6" />
+            <label className="cursor-pointer text-xl sm:text-sm">Back</label>
+          </Link>
+          <button
+            onClick={decreaseFontSize}
+            disabled={fontSize === "sm"}
+            className="group"
+          >
+            <MinusSquare className="w-8 h-8 sm:w-6 sm:h-6 hover:text-rose-600 dark:hover:text-rose-400 group-disabled:text-rose-600 dark:group-disabled:text-rose-400" />
+            <label className="sr-only">Decrease font size</label>
+          </button>
+          <button
+            onClick={increaseFontSize}
+            disabled={fontSize === "2xl"}
+            className="group"
+          >
+            <PlusSquare className="w-8 h-8 sm:w-6 sm:h-6 hover:text-rose-600 dark:hover:text-rose-400 group-disabled:text-rose-600 dark:group-disabled:text-rose-400" />
+            <label className="sr-only">Increase font size</label>
+          </button>
+          <button onClick={toggleSerif}>
+            <Type
+              className={clsx(
+                serif
+                  ? "text-rose-600 dark:text-rose-400"
+                  : "hover:text-rose-600 dark:hover:text-rose-400",
+                "w-8 h-8 sm:w-6 sm:h-6"
+              )}
+            />
+            <label className="sr-only">Toggle serif font</label>
+          </button>
+        </>
       )}
 
-      <DarkModeSwitch />
+      <button
+        onClick={toggleDarkMode}
+        className="ml-auto hover:text-rose-600 dark:hover:text-rose-400"
+      >
+        {dark ? (
+          <Sun className="w-8 h-8 sm:w-6 sm:h-6" />
+        ) : (
+          <Moon className="w-8 h-8 sm:w-6 sm:h-6" />
+        )}
+        <label className="sr-only">Toggle dark mode</label>
+      </button>
     </header>
   );
 }

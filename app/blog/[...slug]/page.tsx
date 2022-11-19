@@ -1,12 +1,14 @@
 import "@/styles/hljs.css";
+import "@/styles/code-title.css";
 
 import { notFound } from "next/navigation";
 import { serialize } from "next-mdx-remote/serialize";
 import rehypeHighlight from "rehype-highlight";
+import rehypeCodeTitles from "rehype-code-titles";
 import BlogSource from "@/lib/mdx";
 
 import { MdxContent } from "@/components/mdx-content";
-import { PostTags } from "@/components/post-tags";
+import { PostIntro } from "@/components/post-intro";
 
 interface PostPageProps {
   params: {
@@ -32,29 +34,17 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   const mdx = await serialize(post.content, {
-    mdxOptions: { rehypePlugins: [rehypeHighlight] },
+    mdxOptions: { rehypePlugins: [rehypeCodeTitles, rehypeHighlight] },
   });
 
   return (
     <article className="px-8">
-      <div className="flex flex-col space-y-4 p-3">
-        <h1 className="text-slate-800 dark:text-slate-200 md:leading-12 text-5xl font-bold leading-[1.2] sm:text-4xl md:text-5xl">
-          {post.frontMatter.title}
-        </h1>
-        <p className="text-lg sm:text-base text-slate-600 dark:text-slate-300">
-          Published {new Date(post.frontMatter.date).toLocaleDateString()}
-        </p>
-        <PostTags tags={post.frontMatter.tags} />
-      </div>
-      <div
-        className="
-          pt-8 prose prose-slate dark:prose-invert prose-2xl md:prose-lg lg:prose-xl max-w-none 
-          prose-pre:p-0 sm:prose-pre:p-0 md:prose-pre:p-0 lg:prose-pre:p-0 
-          prose-blockquote:border-l-slate-800 dark:prose-blockquote:border-l-slate-300
-          prose-a:no-underline prose-li:marker:text-slate-600 dark:prose-li:marker:text-slate-400"
-      >
-        <MdxContent source={mdx} />
-      </div>
+      <PostIntro
+        title={post.frontMatter.title}
+        date={post.frontMatter.date}
+        tags={post.frontMatter.tags}
+      />
+      <MdxContent source={mdx} />
     </article>
   );
 }

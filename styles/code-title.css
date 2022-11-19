@@ -1,0 +1,21 @@
+.rehype-code-title {
+  font-size: 1rem;
+  background-color: #fda4af;
+  color: #1e293b;
+  width: fit-content;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  padding: 0.1rem 0.75rem;
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+html.dark .rehype-code-title {
+  background-color: #ffe4e6;
+  color: #334155;
+}
+
+pre {
+  padding: 0 !important;
+  margin-top: 0 !important;
+}
