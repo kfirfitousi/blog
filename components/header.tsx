@@ -55,7 +55,7 @@ export function Header() {
             href="/"
             className="w-fit h-full mr-auto flex flex-row items-center space-x-1 hover:text-rose-600 dark:hover:text-rose-400"
           >
-            <ArrowLeft className="w-8 h-8 sm:w-6 sm:h-6" />
+            <ArrowLeft className="w-8 h-8 sm:w-6 sm:h-6" aria-label="Back" />
             <label className="cursor-pointer text-xl sm:text-sm">Back</label>
           </Link>
           <button
@@ -63,16 +63,20 @@ export function Header() {
             disabled={fontSize === "sm"}
             className="group"
           >
-            <MinusSquare className="w-8 h-8 sm:w-6 sm:h-6 hover:text-rose-600 dark:hover:text-rose-400 group-disabled:text-rose-600 dark:group-disabled:text-rose-400" />
-            <label className="sr-only">Decrease font size</label>
+            <MinusSquare
+              className="w-8 h-8 sm:w-6 sm:h-6 hover:text-rose-600 dark:hover:text-rose-400 group-disabled:text-rose-600 dark:group-disabled:text-rose-400"
+              aria-label="Decrease font size"
+            />
           </button>
           <button
             onClick={increaseFontSize}
             disabled={fontSize === "2xl"}
             className="group"
           >
-            <PlusSquare className="w-8 h-8 sm:w-6 sm:h-6 hover:text-rose-600 dark:hover:text-rose-400 group-disabled:text-rose-600 dark:group-disabled:text-rose-400" />
-            <label className="sr-only">Increase font size</label>
+            <PlusSquare
+              className="w-8 h-8 sm:w-6 sm:h-6 hover:text-rose-600 dark:hover:text-rose-400 group-disabled:text-rose-600 dark:group-disabled:text-rose-400"
+              aria-label="Increase font size"
+            />
           </button>
           <button onClick={toggleSerif}>
             <Type
@@ -82,8 +86,8 @@ export function Header() {
                   : "hover:text-rose-600 dark:hover:text-rose-400",
                 "w-8 h-8 sm:w-6 sm:h-6"
               )}
+              aria-label="Toggle serif font"
             />
-            <label className="sr-only">Toggle serif font</label>
           </button>
         </>
       )}
@@ -93,11 +97,10 @@ export function Header() {
         className="ml-auto hover:text-rose-600 dark:hover:text-rose-400"
       >
         {dark ? (
-          <Sun className="w-8 h-8 sm:w-6 sm:h-6" />
+          <Sun className="w-8 h-8 sm:w-6 sm:h-6" aria-label="Switch to light mode" />
         ) : (
-          <Moon className="w-8 h-8 sm:w-6 sm:h-6" />
+          <Moon className="w-8 h-8 sm:w-6 sm:h-6" aria-label="Switch to dark mode" />
         )}
-        <label className="sr-only">Toggle dark mode</label>
       </button>
     </header>
   );
