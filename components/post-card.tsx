@@ -1,4 +1,8 @@
+"use client";
+
 import { type BlogMdxNode } from "@/lib/mdx-sources";
+import { useThemeStore } from "@/stores/theme-store";
+import clsx from "clsx";
 
 import { PostTags } from "./post-tags";
 import { Calendar } from "lucide-react";
@@ -9,6 +13,8 @@ interface PostCardProps {
 }
 
 export function PostCard({ post }: PostCardProps) {
+  const serif = useThemeStore((state) => state.serif);
+
   if (!post) return null;
 
   return (
@@ -17,7 +23,12 @@ export function PostCard({ post }: PostCardProps) {
       href={post.url}
       className="group relative w-full h-full"
     >
-      <article className="flex flex-col space-y-4 px-10 py-3 rounded bg-slate-100 dark:bg-slate-500 m-[2px] relative z-10">
+      <article
+        className={clsx(
+          serif && "font-serif",
+          "flex flex-col space-y-4 px-10 py-3 rounded bg-slate-100 dark:bg-slate-500 m-[2px] relative z-10"
+        )}
+      >
         <div className="flex flex-col space-y-2">
           <h2 className="text-slate-800 dark:text-rose-50 text-2xl sm:text-3xl font-bold leading-normal">
             {post.frontMatter.title}
