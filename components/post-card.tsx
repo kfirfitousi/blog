@@ -2,7 +2,7 @@ import { type BlogMdxNode } from "@/lib/mdx";
 
 import { PostTags } from "./post-tags";
 import Link from "next/link";
-import { Calendar, Gem } from "lucide-react";
+import { Calendar } from "lucide-react";
 
 interface PostCardProps {
   post: BlogMdxNode;
