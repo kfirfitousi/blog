@@ -9,14 +9,15 @@ export default async function Head({
 }) {
   const post = await BlogSource.getMdxNode(params.slug);
 
-  if (!post) {
-    return null;
-  }
-
   return (
     <>
-      <title>{post.frontMatter.title}</title>
-      <meta name="description" content={post.frontMatter.excerpt} />
+      <title>
+        {`Kfir's Blog | ${post?.frontMatter.title ?? "Post Not Found"}`}
+      </title>
+      <meta
+        name="description"
+        content={post?.frontMatter.excerpt ?? "Post not found"}
+      />
       <meta content="width=device-width, initial-scale=1" name="viewport" />
     </>
   );
