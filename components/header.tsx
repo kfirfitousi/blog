@@ -61,45 +61,54 @@ export function Header() {
           <button
             onClick={decreaseFontSize}
             disabled={fontSize === "sm"}
-            className="group"
+            className="hover:text-rose-600 dark:hover:text-rose-400 disabled:text-rose-600 dark:disabled:text-rose-400"
           >
             <MinusSquare
-              className="w-8 h-8 sm:w-6 sm:h-6 hover:text-rose-600 dark:hover:text-rose-400 group-disabled:text-rose-600 dark:group-disabled:text-rose-400"
+              className="w-8 h-8 sm:w-6 sm:h-6"
               aria-label="Decrease font size"
             />
           </button>
           <button
             onClick={increaseFontSize}
             disabled={fontSize === "2xl"}
-            className="group"
+            className="hover:text-rose-600 dark:hover:text-rose-400 group-disabled:text-rose-600 dark:group-disabled:text-rose-400"
           >
             <PlusSquare
-              className="w-8 h-8 sm:w-6 sm:h-6 hover:text-rose-600 dark:hover:text-rose-400 group-disabled:text-rose-600 dark:group-disabled:text-rose-400"
+              className="w-8 h-8 sm:w-6 sm:h-6"
               aria-label="Increase font size"
-            />
-          </button>
-          <button onClick={toggleSerif}>
-            <Type
-              className={clsx(
-                serif
-                  ? "text-rose-600 dark:text-rose-400"
-                  : "hover:text-rose-600 dark:hover:text-rose-400",
-                "w-8 h-8 sm:w-6 sm:h-6"
-              )}
-              aria-label="Toggle serif font"
             />
           </button>
         </>
       )}
 
       <button
+        onClick={toggleSerif}
+        className={clsx(
+          serif
+            ? "text-rose-600 dark:text-rose-400"
+            : "hover:text-rose-600 dark:hover:text-rose-400",
+          "ml-auto"
+        )}
+      >
+        <Type
+          className="w-8 h-8 sm:w-6 sm:h-6"
+          aria-label="Toggle serif font"
+        />
+      </button>
+      <button
         onClick={toggleDarkAndApply}
-        className="ml-auto hover:text-rose-600 dark:hover:text-rose-400"
+        className="hover:text-rose-600 dark:hover:text-rose-400"
       >
         {dark ? (
-          <Sun className="w-8 h-8 sm:w-6 sm:h-6" aria-label="Switch to light mode" />
+          <Sun
+            className="w-8 h-8 sm:w-6 sm:h-6"
+            aria-label="Switch to light mode"
+          />
         ) : (
-          <Moon className="w-8 h-8 sm:w-6 sm:h-6" aria-label="Switch to dark mode" />
+          <Moon
+            className="w-8 h-8 sm:w-6 sm:h-6"
+            aria-label="Switch to dark mode"
+          />
         )}
       </button>
     </header>
