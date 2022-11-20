@@ -71,7 +71,7 @@ export function Header() {
           <button
             onClick={increaseFontSize}
             disabled={fontSize === "2xl"}
-            className="hover:text-rose-600 dark:hover:text-rose-400 group-disabled:text-rose-600 dark:group-disabled:text-rose-400"
+            className="hover:text-rose-600 dark:hover:text-rose-400 disabled:text-rose-600 dark:disabled:text-rose-400"
           >
             <PlusSquare
               className="w-8 h-8 sm:w-6 sm:h-6"
