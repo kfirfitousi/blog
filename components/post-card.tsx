@@ -29,7 +29,7 @@ export function PostCard({ post }: PostCardProps) {
 
           <p className="inline-flex items-center space-x-1 text-slate-600 dark:text-slate-200">
             <Calendar className="w-4 h-4" />
-            <span>
+            <span className="text-sm">
               Published{" "}
               {new Date(post.frontMatter.date).toLocaleDateString("en-US", {
                 month: "long",
