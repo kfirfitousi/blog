@@ -135,20 +135,3 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
     getAllMdxNodes,
   };
 }
-
-const BlogSource = createMdxSource({
-  contentPath: "content/blog",
-  basePath: "/blog",
-  sortBy: "date",
-  sortOrder: "desc",
-  frontMatter: z.object({
-    title: z.string(),
-    date: z.string(),
-    excerpt: z.string(),
-    tags: z.array(z.string()),
-  }),
-});
-
-export default BlogSource;
-
-export type BlogMdxNode = Awaited<ReturnType<typeof BlogSource.getMdxNode>>;

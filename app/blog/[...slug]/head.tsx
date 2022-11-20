@@ -1,4 +1,4 @@
-import BlogSource from "@/lib/mdx";
+import BlogSource from "@/lib/mdx-sources";
 
 export default async function Head({
   params,

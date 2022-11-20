@@ -40,7 +40,12 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
           "text-lg sm:text-base text-slate-600 dark:text-slate-200"
         )}
       >
-        Published {new Date(date).toLocaleDateString("en-US")}
+        Published{" "}
+        {new Date(date).toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        })}
       </p>
       <PostTags
         tags={tags}

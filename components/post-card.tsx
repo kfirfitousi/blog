@@ -1,4 +1,4 @@
-import { type BlogMdxNode } from "@/lib/mdx";
+import { type BlogMdxNode } from "@/lib/mdx-sources";
 
 import { PostTags } from "./post-tags";
 import Link from "next/link";
@@ -30,7 +30,12 @@ export function PostCard({ post }: PostCardProps) {
           <p className="inline-flex items-center space-x-1 text-slate-600 dark:text-slate-200">
             <Calendar className="w-4 h-4" />
             <span>
-              Published {new Date(post.frontMatter.date).toLocaleDateString()}
+              Published{" "}
+              {new Date(post.frontMatter.date).toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
             </span>
           </p>
         </div>

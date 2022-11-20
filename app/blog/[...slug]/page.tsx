@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { serialize } from "next-mdx-remote/serialize";
 import rehypeHighlight from "rehype-highlight";
 import rehypeCodeTitles from "rehype-code-titles";
-import BlogSource from "@/lib/mdx";
+import BlogSource from "@/lib/mdx-sources";
 
 import { MdxContent } from "@/components/mdx-content";
 import { PostIntro } from "@/components/post-intro";

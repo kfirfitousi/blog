@@ -1,4 +1,4 @@
-import BlogSource from "@/lib/mdx";
+import BlogSource from "@/lib/mdx-sources";
 
 import { PostCard } from "@/components/post-card";
 import { Waves } from "lucide-react";
