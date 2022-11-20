@@ -9,7 +9,7 @@ interface ThemeState {
   dark: boolean;
   serif: boolean;
   fontSize: FontSize;
-  toggleTheme: () => void;
+  toggleDark: () => void;
   toggleSerif: () => void;
   increaseFontSize: () => void;
   decreaseFontSize: () => void;
@@ -20,7 +20,7 @@ export const useThemeStore = create<ThemeState>()(
     dark: false,
     serif: false,
     fontSize: "lg",
-    toggleTheme: () =>
+    toggleDark: () =>
       set((themeState) => ({
         dark: !themeState.dark,
       })),

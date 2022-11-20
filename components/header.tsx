@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { useSelectedLayoutSegment } from "next/navigation";
 import { useThemeStore } from "@/stores/theme-store";
 import shallow from "zustand/shallow";
 import clsx from "clsx";
@@ -16,14 +16,13 @@ import {
 import Link from "next/link";
 
 export function Header() {
-  const pathname = usePathname();
-  const isPost = pathname?.startsWith("/blog/");
+  const isPostPage = useSelectedLayoutSegment() === "blog";
 
   const {
     dark,
     serif,
     fontSize,
-    toggleTheme,
+    toggleDark,
     toggleSerif,
     increaseFontSize,
     decreaseFontSize,
@@ -32,7 +31,7 @@ export function Header() {
       dark: state.dark,
       serif: state.serif,
       fontSize: state.fontSize,
-      toggleTheme: state.toggleTheme,
+      toggleDark: state.toggleDark,
       toggleSerif: state.toggleSerif,
       increaseFontSize: state.increaseFontSize,
       decreaseFontSize: state.decreaseFontSize,
@@ -40,8 +39,8 @@ export function Header() {
     shallow
   );
 
-  const toggleDarkMode = () => {
-    toggleTheme();
+  const toggleDarkAndApply = () => {
+    toggleDark();
     const html = document.querySelector("html");
     if (html) {
       html.classList.toggle("dark");
@@ -50,7 +49,7 @@ export function Header() {
 
   return (
     <header className="h-full flex flex-row space-x-1 items-center p-8 text-slate-700 dark:text-rose-50">
-      {isPost && (
+      {isPostPage && (
         <>
           <Link
             href="/"
@@ -90,7 +89,7 @@ export function Header() {
       )}
 
       <button
-        onClick={toggleDarkMode}
+        onClick={toggleDarkAndApply}
         className="ml-auto hover:text-rose-600 dark:hover:text-rose-400"
       >
         {dark ? (
