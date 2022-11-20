@@ -20,7 +20,29 @@ const components = {
       </span>
     </Link>
   ),
-  Image: Image,
+  img: ({ src, alt }: HTMLProps<HTMLImageElement>) => {
+    const caption = alt?.startsWith("$") ? alt.slice(1) : null;
+
+    return (
+      <section className="flex flex-col mt-3 mb-6 rounded border bg-slate-300 bg-opacity-20 border-slate-300 dark:bg-rose-50 dark:border-slate-600 dark:bg-opacity-10">
+        <div className="relative w-full aspect-video">
+          <Image
+            src={src || ""}
+            alt={caption || alt || ""}
+            fill
+            style={{ objectFit: "contain" }}
+            className="m-0"
+          />
+        </div>
+        {caption && (
+          <figcaption className="px-2 py-1 text-center text-sm sm:text-base m-0 rounded-b-md text-slate-700 bg-slate-300 bg-opacity-50 dark:text-rose-50 dark:bg-rose-50 dark:bg-opacity-10">
+            {caption}
+          </figcaption>
+        )}
+      </section>
+    );
+  },
+  p: ({ children }: HTMLProps<HTMLParagraphElement>) => <div>{children}</div>,
 };
 
 export function MdxContent({ source }: MdxContentProps) {
