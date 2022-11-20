@@ -24,7 +24,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={clsx(
-        "bg-slate-300 dark:bg-slate-500 font-sans",
+        "bg-slate-400 font-sans",
         fontSans.variable,
         fontSerif.variable
       )}
