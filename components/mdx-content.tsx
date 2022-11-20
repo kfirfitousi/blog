@@ -6,6 +6,7 @@ import { type HTMLProps } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
+import { Link as LinkIcon } from "lucide-react";
 import clsx from "clsx";
 
 interface MdxContentProps {
@@ -13,6 +14,19 @@ interface MdxContentProps {
 }
 
 const components = {
+  p: ({ children }: HTMLProps<HTMLParagraphElement>) => <div>{children}</div>,
+  h2: ({ children }: HTMLProps<HTMLHeadingElement>) => {
+    const id = children?.toString().toLowerCase().replace(/ /g, "-");
+
+    return (
+      <h2 id={id} className="group inline-flex space-x-1 items-baseline">
+        <a href={`#${id}`} className="no-underline group-hover:underline">
+          {children}
+        </a>
+        <LinkIcon className="w-4 h-4 hidden group-hover:block" />
+      </h2>
+    );
+  },
   a: ({ href, children }: HTMLProps<HTMLAnchorElement>) => (
     <Link href={href || "#"} className="no-underline">
       <span className="text-rose-700 dark:text-rose-300 hover:text-rose-400 dark:hover:text-rose-600 underline">
@@ -42,7 +56,6 @@ const components = {
       </section>
     );
   },
-  p: ({ children }: HTMLProps<HTMLParagraphElement>) => <div>{children}</div>,
 };
 
 export function MdxContent({ source }: MdxContentProps) {
