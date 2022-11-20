@@ -20,7 +20,10 @@ const components = {
 
     return (
       <h2 id={id} className="group inline-flex space-x-1 items-baseline">
-        <a href={`#${id}`} className="no-underline group-hover:underline">
+        <a
+          href={`#${id}`}
+          className="text-slate-800 dark:text-rose-100 no-underline group-hover:underline"
+        >
           {children}
         </a>
         <LinkIcon className="w-4 h-4 hidden group-hover:block" />
