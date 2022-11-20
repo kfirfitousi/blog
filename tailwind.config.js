@@ -3,6 +3,7 @@ module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      // see app/layout.tsx
       fontFamily: {
         sans: ["var(--font-red-hat)"],
         serif: ["var(--font-newsreader)"],
@@ -31,18 +32,23 @@ module.exports = {
       },
       animation: {
         border: "show-border 0.5s ease-in-out forwards",
+        "border-fast": "show-border 0.25s ease-in-out forwards",
       },
     },
   },
+  // used for markdown styling
   plugins: [require("@tailwindcss/typography")],
+
+  // enables dark mode
   darkMode: "class",
+
+  // these classes are added conditionally so we don't want to purge them
   safelist: [
     "prose-sm",
     "prose-base",
     "prose-lg",
     "prose-xl",
     "prose-2xl",
-    "font-sans",
     "font-serif",
   ],
 };

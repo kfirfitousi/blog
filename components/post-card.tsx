@@ -1,8 +1,8 @@
 import { type BlogMdxNode } from "@/lib/mdx-sources";
 
 import { PostTags } from "./post-tags";
-import Link from "next/link";
 import { Calendar } from "lucide-react";
+import Link from "next/link";
 
 interface PostCardProps {
   post: BlogMdxNode;
@@ -41,7 +41,7 @@ export function PostCard({ post }: PostCardProps) {
         </div>
         <PostTags tags={post.frontMatter.tags} className="text-sm sm:text-xs" />
       </article>
-      <div className="absolute z-20 inset-0 bg-slate-700 dark:bg-rose-50 w-4 h-[calc(100%-4px)] my-auto rounded-l group-hover:animate-border"></div>
+      <div className="absolute z-20 inset-0 bg-slate-700 dark:bg-rose-50 w-4 h-[calc(100%-4px)] my-auto rounded-l group-hover:animate-border group-focus:animate-border-fast"></div>
     </Link>
   );
 }
