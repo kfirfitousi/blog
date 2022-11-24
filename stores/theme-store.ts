@@ -40,6 +40,7 @@ export const useThemeStore = create<ThemeState>()(
           : {
               fontSize: fontSizes[index + 1],
               isFontSizeMax: index === fontSizes.length - 2,
+              isFontSizeMin: false,
             };
       }),
     decreaseFontSize: () =>
@@ -50,6 +51,7 @@ export const useThemeStore = create<ThemeState>()(
           : {
               fontSize: fontSizes[index - 1],
               isFontSizeMin: index === 1,
+              isFontSizeMax: false,
             };
       }),
   }))
