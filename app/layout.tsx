@@ -49,20 +49,18 @@ export default function RootLayout({
 
         {/* left column */}
         <div
-          className="
-              hidden sm:block col-span-1 col-start-1 row-span-3 row-start-1
-              bg-gradient-to-r from-slate-400 via-slate-500 to-slate-700 
-              dark:from-slate-300 dark:via-slate-400 dark:to-slate-500"
+          className="hidden sm:block col-span-1 col-start-1 row-span-3 row-start-1
+            bg-gradient-to-r from-slate-400 via-slate-500 to-slate-700 
+            dark:from-slate-300 dark:via-slate-400 dark:to-slate-500"
         >
           <div className="invisible dark:visible w-full h-full bg-opacity-5 bg-gradient-to-r from-rose-50 to-transparent" />
         </div>
 
         {/* right column */}
         <div
-          className="
-              hidden sm:block col-span-1 col-start-3 row-span-3 row-start-1
-              bg-gradient-to-l from-slate-400 via-slate-500 to-slate-700 
-              dark:from-slate-300 dark:via-slate-400 dark:to-slate-500"
+          className="hidden sm:block col-span-1 col-start-3 row-span-3 row-start-1
+            bg-gradient-to-l from-slate-400 via-slate-500 to-slate-700 
+            dark:from-slate-300 dark:via-slate-400 dark:to-slate-500"
         >
           <div className="invisible dark:visible w-full h-full bg-opacity-5 bg-gradient-to-l from-rose-50 to-transparent" />
         </div>

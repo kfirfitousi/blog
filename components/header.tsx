@@ -1,6 +1,6 @@
 "use client";
 
-import { useSelectedLayoutSegment } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useThemeStore } from "@/stores/theme-store";
 import shallow from "zustand/shallow";
 import clsx from "clsx";
@@ -16,7 +16,7 @@ import {
 import Link from "next/link";
 
 export function Header() {
-  const isPostPage = useSelectedLayoutSegment() === "blog";
+  const isPostPage = usePathname() !== "/";
 
   const {
     isDark,
@@ -44,10 +44,7 @@ export function Header() {
 
   const toggleDarkAndApply = () => {
     toggleDark();
-    const html = document.querySelector("html");
-    if (html) {
-      html.classList.toggle("dark");
-    }
+    document.querySelector("html")?.classList.toggle("dark");
   };
 
   return (
