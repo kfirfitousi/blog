@@ -1,7 +1,7 @@
 "use client";
 
-import { PostTags } from "./post-tags";
 import { useThemeStore } from "@/stores/theme-store";
+import { PostTags } from "./post-tags";
 import clsx from "clsx";
 
 interface PostIntroProps {

@@ -1,7 +1,6 @@
-import BlogSource from "@/lib/mdx-sources";
-
+import { BlogSource } from "@/lib/mdx-sources";
+import { BlogTitle } from "@/components/blog-title";
 import { PostCard } from "@/components/post-card";
-import BlogTitle from "@/components/blog-title";
 
 export default async function Home() {
   const posts = await BlogSource.getAllMdxNodes();

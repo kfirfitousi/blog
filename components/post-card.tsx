@@ -2,11 +2,10 @@
 
 import { type BlogMdxNode } from "@/lib/mdx-sources";
 import { useThemeStore } from "@/stores/theme-store";
-import clsx from "clsx";
-
-import { PostTags } from "./post-tags";
+import { PostTags } from "@/components/post-tags";
 import { Calendar } from "lucide-react";
 import Link from "next/link";
+import clsx from "clsx";
 
 interface PostCardProps {
   post: BlogMdxNode;

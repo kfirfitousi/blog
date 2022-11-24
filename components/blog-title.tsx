@@ -1,15 +1,14 @@
 "use client";
 
 import { useThemeStore } from "@/stores/theme-store";
-import clsx from "clsx";
-
 import { Waves } from "lucide-react";
+import clsx from "clsx";
 
 interface BlogTitleProps {
   title: string;
 }
 
-export default function BlogTitle({ title }: BlogTitleProps) {
+export function BlogTitle({ title }: BlogTitleProps) {
   const isSerif = useThemeStore((state) => state.isSerif);
 
   return (
