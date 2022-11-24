@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { AnalyticsWrapper } from "@/components/analytics";
 import { Red_Hat_Display, Newsreader } from "@next/font/google";
 import clsx from "clsx";
 
@@ -65,6 +66,8 @@ export default function RootLayout({
         >
           <div className="invisible dark:visible w-full h-full bg-opacity-5 bg-gradient-to-l from-rose-50 to-transparent" />
         </div>
+
+        <AnalyticsWrapper />
       </body>
     </html>
   );
