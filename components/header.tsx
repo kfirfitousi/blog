@@ -19,18 +19,21 @@ export function Header() {
   const isPostPage = useSelectedLayoutSegment() === "blog";
 
   const {
-    dark,
-    serif,
-    fontSize,
+    isDark,
+    isSerif,
+    isFontSizeMin,
+    isFontSizeMax,
     toggleDark,
     toggleSerif,
     increaseFontSize,
     decreaseFontSize,
   } = useThemeStore(
     (state) => ({
-      dark: state.dark,
-      serif: state.serif,
+      isDark: state.isDark,
+      isSerif: state.isSerif,
       fontSize: state.fontSize,
+      isFontSizeMin: state.isFontSizeMin,
+      isFontSizeMax: state.isFontSizeMax,
       toggleDark: state.toggleDark,
       toggleSerif: state.toggleSerif,
       increaseFontSize: state.increaseFontSize,
@@ -60,7 +63,7 @@ export function Header() {
           </Link>
           <button
             onClick={decreaseFontSize}
-            disabled={fontSize === "sm"}
+            disabled={isFontSizeMin}
             className="hover:text-rose-600 dark:hover:text-rose-400 disabled:text-rose-600 dark:disabled:text-rose-400"
           >
             <MinusSquare
@@ -70,7 +73,7 @@ export function Header() {
           </button>
           <button
             onClick={increaseFontSize}
-            disabled={fontSize === "2xl"}
+            disabled={isFontSizeMax}
             className="hover:text-rose-600 dark:hover:text-rose-400 disabled:text-rose-600 dark:disabled:text-rose-400"
           >
             <PlusSquare
@@ -84,7 +87,7 @@ export function Header() {
       <button
         onClick={toggleSerif}
         className={clsx(
-          serif
+          isSerif
             ? "text-rose-600 dark:text-rose-400"
             : "hover:text-rose-600 dark:hover:text-rose-400",
           "ml-auto"
@@ -99,7 +102,7 @@ export function Header() {
         onClick={toggleDarkAndApply}
         className="hover:text-rose-600 dark:hover:text-rose-400"
       >
-        {dark ? (
+        {isDark ? (
           <Sun
             className="w-8 h-8 sm:w-6 sm:h-6"
             aria-label="Switch to light mode"

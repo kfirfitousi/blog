@@ -6,9 +6,11 @@ const fontSizes = ["sm", "base", "lg", "xl", "2xl"] as const;
 type FontSize = typeof fontSizes[number];
 
 interface ThemeState {
-  dark: boolean;
-  serif: boolean;
+  isDark: boolean;
+  isSerif: boolean;
   fontSize: FontSize;
+  isFontSizeMin: boolean;
+  isFontSizeMax: boolean;
   toggleDark: () => void;
   toggleSerif: () => void;
   increaseFontSize: () => void;
@@ -17,30 +19,38 @@ interface ThemeState {
 
 export const useThemeStore = create<ThemeState>()(
   devtools((set) => ({
-    dark: false,
-    serif: false,
+    isDark: false,
+    isSerif: false,
     fontSize: "lg",
+    isFontSizeMin: false,
+    isFontSizeMax: false,
     toggleDark: () =>
       set((themeState) => ({
-        dark: !themeState.dark,
+        isDark: !themeState.isDark,
       })),
     toggleSerif: () =>
       set((themeState) => ({
-        serif: !themeState.serif,
+        isSerif: !themeState.isSerif,
       })),
     increaseFontSize: () =>
       set((state) => {
         const index = fontSizes.indexOf(state.fontSize);
-        return {
-          fontSize: fontSizes[index + 1] ?? state.fontSize,
-        };
+        return state.isFontSizeMax
+          ? state
+          : {
+              fontSize: fontSizes[index + 1],
+              isFontSizeMax: index === fontSizes.length - 2,
+            };
       }),
     decreaseFontSize: () =>
       set((state) => {
         const index = fontSizes.indexOf(state.fontSize);
-        return {
-          fontSize: fontSizes[index - 1] ?? state.fontSize,
-        };
+        return state.isFontSizeMin
+          ? state
+          : {
+              fontSize: fontSizes[index - 1],
+              isFontSizeMin: index === 1,
+            };
       }),
   }))
 );

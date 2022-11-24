@@ -11,14 +11,14 @@ interface PostIntroProps {
 }
 
 export function PostIntro({ title, date, tags }: PostIntroProps) {
-  const serif = useThemeStore((state) => state.serif);
   const fontSize = useThemeStore((state) => state.fontSize);
+  const isSerif = useThemeStore((state) => state.isSerif);
 
   return (
     <div className="flex flex-col space-y-4 p-3">
       <h1
         className={clsx(
-          serif && "font-serif",
+          isSerif && "font-serif",
           fontSize === "sm" && "text-xl sm:text-2xl md:text-3xl",
           fontSize === "base" && "text-2xl sm:text-3xl md:text-4xl",
           fontSize === "lg" && "text-3xl sm:text-4xl md:text-5xl",
@@ -31,7 +31,7 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
       </h1>
       <p
         className={clsx(
-          serif && "font-serif",
+          isSerif && "font-serif",
           fontSize === "sm" && "text-xs sm:text-sm",
           fontSize === "base" && "text-sm sm:text-base",
           fontSize === "lg" && "text-base sm:text-lg",
@@ -50,7 +50,7 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
       <PostTags
         tags={tags}
         className={clsx(
-          serif && "font-serif",
+          isSerif && "font-serif",
           fontSize === "sm" && "text-xs",
           fontSize === "base" && "text-sm sm:text-xs",
           fontSize === "lg" && "text-base sm:text-sm",

@@ -13,7 +13,7 @@ interface PostCardProps {
 }
 
 export function PostCard({ post }: PostCardProps) {
-  const serif = useThemeStore((state) => state.serif);
+  const isSerif = useThemeStore((state) => state.isSerif);
 
   if (!post) return null;
 
@@ -25,7 +25,7 @@ export function PostCard({ post }: PostCardProps) {
     >
       <article
         className={clsx(
-          serif && "font-serif",
+          isSerif && "font-serif",
           "flex flex-col space-y-4 px-10 py-3 rounded bg-slate-100 dark:bg-slate-500 m-[2px] relative z-10"
         )}
       >
