@@ -30,18 +30,18 @@ export function PostCard({ post }: PostCardProps) {
       >
         <div className="flex flex-col space-y-2">
           <h2 className="text-slate-800 dark:text-rose-50 text-2xl sm:text-3xl font-bold leading-normal">
-            {post.frontMatter.title}
+            {post.frontmatter.title}
           </h2>
 
           <p className="text-xl sm:text-base text-slate-600 dark:text-rose-50">
-            {post.frontMatter.excerpt}
+            {post.frontmatter.excerpt}
           </p>
 
           <p className="inline-flex items-center space-x-1 text-slate-600 dark:text-slate-200">
             <Calendar className="w-4 h-4" />
             <span className="text-sm">
               Published{" "}
-              {new Date(post.frontMatter.date).toLocaleDateString("en-US", {
+              {new Date(post.frontmatter.date).toLocaleDateString("en-US", {
                 month: "long",
                 day: "numeric",
                 year: "numeric",
@@ -49,7 +49,7 @@ export function PostCard({ post }: PostCardProps) {
             </span>
           </p>
         </div>
-        <PostTags tags={post.frontMatter.tags} className="text-sm sm:text-xs" />
+        <PostTags tags={post.frontmatter.tags} className="text-sm sm:text-xs" />
       </article>
       <div className="absolute z-20 inset-0 bg-slate-700 dark:bg-rose-50 w-4 h-[calc(100%-4px)] my-auto rounded-l group-hover:animate-border group-focus:animate-border-fast"></div>
     </Link>

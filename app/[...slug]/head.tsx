@@ -12,11 +12,11 @@ export default async function Head({
   return (
     <>
       <title>
-        {`Kfir's Blog | ${post?.frontMatter.title ?? "Post Not Found"}`}
+        {`Kfir's Blog | ${post?.frontmatter.title ?? "Post Not Found"}`}
       </title>
       <meta
         name="description"
-        content={post?.frontMatter.excerpt ?? "Post not found"}
+        content={post?.frontmatter.excerpt ?? "Post not found"}
       />
       <meta content="width=device-width, initial-scale=1" name="viewport" />
     </>

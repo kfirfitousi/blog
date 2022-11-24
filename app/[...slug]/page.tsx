@@ -2,12 +2,9 @@ import "@/styles/hljs.css";
 import "@/styles/code-title.css";
 
 import { notFound } from "next/navigation";
-import { serialize } from "next-mdx-remote/serialize";
 import { BlogSource } from "@/lib/mdx-sources";
 import { MdxContent } from "@/components/mdx-content";
 import { PostIntro } from "@/components/post-intro";
-import rehypeHighlight from "rehype-highlight";
-import rehypeCodeTitles from "rehype-code-titles";
 
 interface PostPageProps {
   params: {
@@ -18,7 +15,7 @@ interface PostPageProps {
 export async function generateStaticParams(): Promise<
   PostPageProps["params"][]
 > {
-  const files = await BlogSource.getMdxFiles();
+  const files = await BlogSource.getAllMdxFiles();
 
   return files.map((file) => ({
     slug: file.slug.split("/"),
@@ -32,18 +29,14 @@ export default async function PostPage({ params }: PostPageProps) {
     notFound();
   }
 
-  const mdx = await serialize(post.content, {
-    mdxOptions: { rehypePlugins: [rehypeCodeTitles, rehypeHighlight] },
-  });
-
   return (
     <article className="min-h-[calc(100vh-176px)] px-8">
       <PostIntro
-        title={post.frontMatter.title}
-        date={post.frontMatter.date}
-        tags={post.frontMatter.tags}
+        title={post.frontmatter.title}
+        date={post.frontmatter.date}
+        tags={post.frontmatter.tags}
       />
-      <MdxContent source={mdx} />
+      <MdxContent source={post.serialized} />
     </article>
   );
 }

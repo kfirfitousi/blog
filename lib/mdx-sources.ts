@@ -6,7 +6,7 @@ export const BlogSource = createMdxSource({
   basePath: "/",
   sortBy: "date",
   sortOrder: "desc",
-  frontMatter: z.object({
+  frontmatter: z.object({
     title: z.string(),
     date: z.string(),
     excerpt: z.string(),

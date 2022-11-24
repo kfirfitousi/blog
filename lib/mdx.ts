@@ -1,11 +1,13 @@
+import { type MDXRemoteSerializeResult } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import rehypeCodeTitles from "rehype-code-titles";
+import rehypeHighlight from "rehype-highlight";
 import { promises as fs } from "fs";
-import z from "zod";
-import hasha from "hasha";
-import glob from "fast-glob";
-import path from "path";
 import NodeCache from "node-cache";
-import { VFile } from "vfile";
-import { matter } from "vfile-matter";
+import glob from "fast-glob";
+import hasha from "hasha";
+import path from "path";
+import z from "zod";
 
 const mdxCache = new NodeCache();
 
@@ -14,7 +16,7 @@ export interface Source<TFrontmatter extends z.ZodType> {
   basePath: string;
   sortBy: keyof z.infer<TFrontmatter>;
   sortOrder: "asc" | "desc";
-  frontMatter: TFrontmatter;
+  frontmatter: TFrontmatter;
 }
 
 interface MdxFile {
@@ -26,8 +28,8 @@ interface MdxFile {
 interface MdxFileData<TFrontmatter extends z.ZodType> {
   raw: string;
   hash: string;
-  frontMatter: TFrontmatter;
-  content: string;
+  frontmatter: TFrontmatter;
+  serialized: MDXRemoteSerializeResult;
 }
 
 export function createMdxSource<TFrontmatter extends z.ZodType>(
@@ -35,23 +37,24 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
 ) {
   const { contentPath, basePath, sortBy, sortOrder } = source;
 
-  async function getMdxFiles() {
+  async function getAllMdxFiles() {
     const files = await glob(`${contentPath}/**/*.{md,mdx}`);
 
     if (!files.length) return [];
 
     return files.map((filepath) => {
-      let slug = filepath
+      const slug = filepath
         .replace(contentPath, "")
         .replace(/^\/+/, "")
-        .replace(new RegExp(path.extname(filepath) + "$"), "");
+        .replace(new RegExp(path.extname(filepath) + "$"), "")
+        .replace(/\/?index$/, "");
 
-      slug = slug.replace(/\/?index$/, "");
+      const url = `${basePath?.replace(/\/$/, "")}/${slug}`;
 
       return {
         filepath,
         slug,
-        url: `${basePath?.replace(/\/$/, "")}/${slug}`,
+        url,
       };
     });
   }
@@ -68,18 +71,18 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
       return cachedContent;
     }
 
-    const vfile = new VFile({ value: raw });
-    matter(vfile, { strip: true });
+    const serialized = await serialize(raw, {
+      mdxOptions: { rehypePlugins: [rehypeCodeTitles, rehypeHighlight] },
+      parseFrontmatter: true,
+    });
 
-    const frontMatter = source.frontMatter.parse(
-      vfile.data.matter
-    ) as z.infer<TFrontmatter>;
+    const frontmatter = source.frontmatter.parse(serialized.frontmatter);
 
     const fileData = {
       raw,
-      frontMatter,
       hash,
-      content: String(vfile.value),
+      frontmatter,
+      serialized,
     };
 
     mdxCache.set(hash, fileData);
@@ -90,7 +93,7 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
   async function getMdxNode(slug: string | string[]) {
     const _slug = Array.isArray(slug) ? slug.join("/") : slug;
 
-    const files = await getMdxFiles();
+    const files = await getAllMdxFiles();
     if (!files?.length) return null;
 
     const [file] = files.filter((file) => file.slug === _slug);
@@ -105,7 +108,7 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
   }
 
   async function getAllMdxNodes() {
-    const files = await getMdxFiles();
+    const files = await getAllMdxFiles();
 
     if (!files.length) return [];
 
@@ -118,10 +121,10 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
     const adjust = sortOrder === "desc" ? -1 : 1;
     return nodes.sort((a, b) => {
       if (!a || !b) return 0;
-      if (a.frontMatter[sortBy] < b.frontMatter[sortBy]) {
+      if (a.frontmatter[sortBy] < b.frontmatter[sortBy]) {
         return -1 * adjust;
       }
-      if (a.frontMatter[sortBy] > b.frontMatter[sortBy]) {
+      if (a.frontmatter[sortBy] > b.frontmatter[sortBy]) {
         return 1 * adjust;
       }
       return 0;
@@ -129,7 +132,7 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
   }
 
   return {
-    getMdxFiles,
+    getAllMdxFiles,
     getFileData,
     getMdxNode,
     getAllMdxNodes,
