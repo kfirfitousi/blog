@@ -19,20 +19,20 @@ const components = {
     const id = children?.toString().toLowerCase().replace(/ /g, "-");
 
     return (
-      <h2 id={id} className="group inline-flex space-x-1 items-baseline">
+      <h2 id={id} className="group inline-flex space-x-1.5 items-center">
         <a
           href={`#${id}`}
           className="text-slate-800 dark:text-rose-100 no-underline group-hover:underline"
         >
           {children}
         </a>
-        <LinkIcon className="w-4 h-4 hidden group-hover:block" />
+        <LinkIcon className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:text-slate-800 dark:group-hover:text-rose-100" />
       </h2>
     );
   },
   a: ({ href, children }: HTMLProps<HTMLAnchorElement>) => (
     <Link href={href || "#"} className="no-underline">
-      <span className="text-rose-700 dark:text-rose-300 hover:text-rose-400 dark:hover:text-rose-600 underline">
+      <span className="text-rose-700 dark:text-rose-300 hover:text-rose-500 dark:hover:text-rose-400 underline">
         {children}
       </span>
     </Link>
