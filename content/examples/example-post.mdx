@@ -2,50 +2,62 @@
 title: Example Post
 date: "2022-11-10"
 excerpt: This is an example post.
-tags: ["example", "blog", "post", "test"]
+tags: ["example", "blog", "post"]
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+# H1 Heading
 
-## This is a title
+## H2 Heading
 
-This is a paragraph, it can contain **bold text**, _italic text_, and [links](https://example.com).  
-This is the second line of the paragraph.  
-In total, this paragraph has three lines.
+### H3 Heading
 
-### This is a smaller title
+#### H4 Heading
 
-- this
-  - is
-- an
-  - unordered
-  - list
+This is a paragraph, it can contain **bold text**, _italic text_, and [links](https://example.com).
 
-1. and
-   1. this
-2. is
-   1. an
-   2. ordered
-3. list
+### Unordered List
 
-#### This title is even smaller than the previous one
+- Item 1
+  - Item 1.1
+- Item 2
+  - Item 2.1
+  - Item 2.2
+- Item 3
 
-```tsx:lib/exmaple.ts
-// This is a tsx code block
+### Ordered List
+
+1. Item 1
+   1. Item 1.1
+2. Item 2
+   1. Item 2.1
+   2. Item 2.2
+3. Item 3
+
+### Code Blocks
+
+```tsx
+// This is a tsx code block with no label
 const example = "This is an example";
 
 export default example;
 ```
 
-> This is a quote
+```python:example.py
+# This is a python code block with a label
+example = "This is an example"
 
-Here are some images:
+print(example)
+```
+
+### Block Quotes
+
+> "A block quote is a quotation in a written document, that is set off from the main text as a paragraph, or block of text." - Wikipedia 
+
+### Images
 
 ![Example image with no caption](https://images.unsplash.com/photo-1646974708582-3dced57e0a25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=50)
 
-![$Example image with a caption](https://images.unsplash.com/photo-1506057213367-028a17ec52e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80)
+![Example image with a caption$$This is a caption for the image above](https://images.unsplash.com/photo-1506057213367-028a17ec52e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80)
 
-This is a portrait image:
-![$Portrait image example](https://images.unsplash.com/photo-1664136254860-26a42dbb2463?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80)
+![Portrait image example$$Portrait image example](https://images.unsplash.com/photo-1664136254860-26a42dbb2463?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80)
 
-And that is the end of this post.

@@ -2,6 +2,7 @@ import { type MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypeHighlight from "rehype-highlight";
+import remarkGfm from "remark-gfm";
 import { promises as fs } from "fs";
 import NodeCache from "node-cache";
 import glob from "fast-glob";
@@ -72,7 +73,7 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
     }
 
     const serialized = await serialize(raw, {
-      mdxOptions: { rehypePlugins: [rehypeCodeTitles, rehypeHighlight] },
+      mdxOptions: { rehypePlugins: [remarkGfm, rehypeCodeTitles, rehypeHighlight] },
       parseFrontmatter: true,
     });
 
