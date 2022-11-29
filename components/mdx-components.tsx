@@ -16,11 +16,14 @@ function img({ src, alt }: HTMLProps<HTMLImageElement>) {
   const [_alt, caption] = alt?.split("$$") || [];
 
   return (
-    <figure className="flex flex-col mt-3 mb-6 rounded border bg-slate-300 bg-opacity-20 border-slate-300 dark:bg-rose-50 dark:border-slate-600 dark:bg-opacity-10">
+    <figure
+      className="flex flex-col mt-3 mb-6 rounded border bg-slate-300 bg-opacity-20 border-slate-300 dark:bg-rose-50 dark:border-slate-600 dark:bg-opacity-10"
+      aria-label={_alt}
+    >
       <div className="relative w-full aspect-video">
         <Image
           src={src || ""}
-          alt={_alt || ""}
+          alt={_alt}
           fill
           style={{ objectFit: "contain" }}
           className="m-0"

@@ -4,8 +4,9 @@
 
 .rehype-code-title {
   font-size: 1rem;
-  background-color: #fda4af;
-  color: #1e293b;
+  border-width: 2px 2px 0 2px;
+  border-color: #475569;
+  color: #475569;
   width: fit-content;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
@@ -15,8 +16,8 @@
 }
 
 html.dark .rehype-code-title {
-  background-color: #ffe4e6;
-  color: #334155;
+  border-color: #ffe4e6;
+  color: #ffe4e6;
 }
 
 pre {
