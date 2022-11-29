@@ -2,6 +2,7 @@
 
 import { type BlogMdxNode } from "@/lib/mdx-sources";
 import { useThemeStore } from "@/stores/theme-store";
+import { formatDate } from "@/lib/utils";
 import { PostTags } from "@/components/post-tags";
 import { Calendar } from "lucide-react";
 import Link from "next/link";
@@ -17,11 +18,7 @@ export function PostCard({ post }: PostCardProps) {
   if (!post) return null;
 
   return (
-    <Link
-      key={post.slug}
-      href={post.url}
-      className="group relative w-full h-full"
-    >
+    <Link href={post.url} className="group relative w-full h-full">
       <article
         className={clsx(
           isSerif && "font-serif",
@@ -40,12 +37,7 @@ export function PostCard({ post }: PostCardProps) {
           <p className="inline-flex items-center space-x-1 text-slate-600 dark:text-slate-200">
             <Calendar className="w-4 h-4" />
             <span className="text-sm">
-              Published{" "}
-              {new Date(post.frontmatter.date).toLocaleDateString("en-US", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
+              Published {formatDate(post.frontmatter.date)}
             </span>
           </p>
         </div>
