@@ -1,0 +1,12 @@
+/*
+  styles for remark-gfm plugin
+*/
+
+ul.contains-task-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul.contains-task-list li ul {
+  padding-left: 1rem;
+}

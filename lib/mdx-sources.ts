@@ -1,4 +1,4 @@
-import { createMdxSource } from "./mdx";
+import { createMdxSource } from "@/lib/mdx";
 import z from "zod";
 
 export const BlogSource = createMdxSource({

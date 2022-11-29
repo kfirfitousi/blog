@@ -1,51 +1,98 @@
 ---
-title: Example Post With Very Long Title - This Title Has So Many Words In It
+title: Example Post With a Long Title and a Long Excerpt
 date: "2022-11-13"
-excerpt: This is just an example post.
-tags: ["example", "blog", "post", "test"]
+excerpt: This example post shows the different elements that can be used, like headings, paragraphs, blockquotes, code blocks, images, and more.
+tags: ["example", "blog", "post", "markdown elements"]
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+# Heading 1
 
-## This is a title
+## Heading 2
 
-This is a paragraph, it can contain **bold text**, _italic text_, and [links](https://example.com).  
-This is the second line of the paragraph.  
-In total, this paragraph has three lines.
+### Heading 3
 
-### This is a smaller title
+#### Heading 4
 
-- this
-  - is
-- an
-  - unordered
-  - list
+This is a paragraph, it can contain **bold text**, _italic text_, ~~strikethrough text~~ and [links](https://example.com).  
+This is a footnote.[^1] Here is another footnote.[^2]
 
-1. and
-   1. this
-2. is
-   1. an
-   2. ordered
-3. list
+---
 
-#### This title is even smaller than the previous one
+### Code Blocks
 
-```tsx:lib/exmaple.ts
-// This is a tsx code block
+```tsx
+// This is a tsx code block with no label
 const example = "This is an example";
 
 export default example;
 ```
 
-> This is a quote
+```python:example.py
+# This is a python code block with a label
+example = "This is an example"
 
-Here are some images:
+print(example)
+```
+
+---
+
+### Block Quotes
+
+> "A block quote is a quotation in a written document, that is set off from the main text as a paragraph, or block of text." - Wikipedia
+
+---
+
+### Images
 
 ![Example image with no caption](https://images.unsplash.com/photo-1646974708582-3dced57e0a25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=50)
 
-![$Example image with a caption](https://images.unsplash.com/photo-1506057213367-028a17ec52e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80)
+![Example image with a caption$$This is a caption for the image above](https://images.unsplash.com/photo-1506057213367-028a17ec52e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80)
 
-This is a portrait image:
-![$Portrait image example](https://images.unsplash.com/photo-1664136254860-26a42dbb2463?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80)
+![Portrait image example$$Portrait image example](https://images.unsplash.com/photo-1664136254860-26a42dbb2463?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80)
 
-And that is the end of this post.
+---
+
+### Lists
+
+#### Unordered List
+
+- Item 1
+  - Item 1.1
+- Item 2
+  - Item 2.1
+  - Item 2.2
+- Item 3
+
+#### Ordered List
+
+1. Item 1
+   1. Item 1.1
+2. Item 2
+   1. Item 2.1
+   2. Item 2.2
+3. Item 3
+
+---
+
+### Tables
+
+| Header 1 | Header 2 | Header 3 |
+| -------- | -------- | -------- |
+| Cell 1   | Cell 2   | Cell 3   |
+| Cell 4   | Cell 5   | Cell 6   |
+| Cell 7   | Cell 8   | Cell 9   |
+
+---
+
+### Task List
+
+- [x] Task 1
+  - [x] Task 1.1
+- [ ] Task 2
+  - [ ] Task 2.1
+  - [ ] Task 2.2
+
+---
+
+[^1]: This is the footnote.
+[^2]: This is the second footnote.
