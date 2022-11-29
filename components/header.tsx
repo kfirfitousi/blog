@@ -48,10 +48,7 @@ export function Header() {
   };
 
   return (
-    <header
-      id="header"
-      className="h-full flex flex-row space-x-1 items-center p-8 text-slate-700 dark:text-rose-50"
-    >
+    <header className="h-full flex flex-row space-x-1 items-center p-8 text-slate-700 dark:text-rose-50">
       {isPostPage && (
         <>
           <Link
