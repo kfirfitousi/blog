@@ -1,54 +1,17 @@
 import { type HTMLProps } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { Link as LinkIcon } from "lucide-react";
 
-function p({ children }: HTMLProps<HTMLParagraphElement>) {
-  return <div>{children}</div>;
+/**
+ * use div instead of p elements since p elements have restrictions on what
+ * elements can be nested inside them
+ */
+function p(props: HTMLProps<HTMLParagraphElement>) {
+  return <div {...props}>{props.children}</div>;
 }
 
-function h1({ children }: HTMLProps<HTMLHeadingElement>) {
-  const id = children?.toString().toLowerCase().replace(/ /g, "-");
-
-  return (
-    <h1 id={id} className="group flex space-x-1.5 items-center">
-      <a
-        href={`#${id}`}
-        className="text-slate-800 dark:text-rose-100 no-underline group-hover:underline"
-      >
-        {children}
-      </a>
-      <LinkIcon className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:text-slate-800 dark:group-hover:text-rose-100" />
-    </h1>
-  );
-}
-
-function h2({ children }: HTMLProps<HTMLHeadingElement>) {
-  const id = children?.toString().toLowerCase().replace(/ /g, "-");
-
-  return (
-    <h2 id={id} className="group flex space-x-1.5 items-center">
-      <a
-        href={`#${id}`}
-        className="text-slate-800 dark:text-rose-100 no-underline group-hover:underline"
-      >
-        {children}
-      </a>
-      <LinkIcon className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:text-slate-800 dark:group-hover:text-rose-100" />
-    </h2>
-  );
-}
-
-function a({ href, children }: HTMLProps<HTMLAnchorElement>) {
-  return (
-    <Link href={href || "#"} className="no-underline">
-      <span className="text-rose-700 dark:text-rose-300 hover:text-rose-500 dark:hover:text-rose-400 underline">
-        {children}
-      </span>
-    </Link>
-  );
-}
-
+/**
+ * image component that uses next/image, with optional caption
+ */
 function img({ src, alt }: HTMLProps<HTMLImageElement>) {
   const [_alt, caption] = alt?.split("$$") || [];
 
@@ -72,4 +35,4 @@ function img({ src, alt }: HTMLProps<HTMLImageElement>) {
   );
 }
 
-export const MdxComponents = { p, h1, h2, a, img };
+export const MdxComponents = { p, img };

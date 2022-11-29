@@ -5,33 +5,18 @@ excerpt: This is another example post.
 tags: ["example", "blog", "post"]
 ---
 
-# H1 Heading
+# Heading 1
 
-## H2 Heading
+## Heading 2
 
-### H3 Heading
+### Heading 3
 
-#### H4 Heading
+#### Heading 4
 
-This is a paragraph, it can contain **bold text**, _italic text_, and [links](https://example.com).
+This is a paragraph, it can contain **bold text**, _italic text_, ~~strikethrough text~~ and [links](https://example.com).  
+This is a footnote.[^1] Here is another footnote.[^2]
 
-### Unordered List
-
-- Item 1
-  - Item 1.1
-- Item 2
-  - Item 2.1
-  - Item 2.2
-- Item 3
-
-### Ordered List
-
-1. Item 1
-   1. Item 1.1
-2. Item 2
-   1. Item 2.1
-   2. Item 2.2
-3. Item 3
+---
 
 ### Code Blocks
 
@@ -49,9 +34,13 @@ example = "This is an example"
 print(example)
 ```
 
+---
+
 ### Block Quotes
 
 > "A block quote is a quotation in a written document, that is set off from the main text as a paragraph, or block of text." - Wikipedia
+
+---
 
 ### Images
 
@@ -60,3 +49,50 @@ print(example)
 ![Example image with a caption$$This is a caption for the image above](https://images.unsplash.com/photo-1506057213367-028a17ec52e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80)
 
 ![Portrait image example$$Portrait image example](https://images.unsplash.com/photo-1664136254860-26a42dbb2463?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80)
+
+---
+
+### Lists
+
+#### Unordered List
+
+- Item 1
+  - Item 1.1
+- Item 2
+  - Item 2.1
+  - Item 2.2
+- Item 3
+
+#### Ordered List
+
+1. Item 1
+   1. Item 1.1
+2. Item 2
+   1. Item 2.1
+   2. Item 2.2
+3. Item 3
+
+---
+
+### Tables
+
+| Header 1 | Header 2 | Header 3 |
+| -------- | -------- | -------- |
+| Cell 1   | Cell 2   | Cell 3   |
+| Cell 4   | Cell 5   | Cell 6   |
+| Cell 7   | Cell 8   | Cell 9   |
+
+---
+
+### Task List
+
+- [x] Task 1
+  - [x] Task 1.1
+- [ ] Task 2
+  - [ ] Task 2.1
+  - [ ] Task 2.2
+
+---
+
+[^1]: This is the footnote.
+[^2]: This is the second footnote.

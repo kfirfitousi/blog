@@ -19,7 +19,8 @@ export function MdxContent({ source }: MdxContentProps) {
         isSerif && "font-serif",
         `prose prose-${fontSize} prose-slate dark:prose-invert dark:text-rose-50 dark:prose-headings:text-rose-100
         prose-blockquote:border-l-slate-800 dark:prose-blockquote:text-rose-50 dark:prose-blockquote:border-l-slate-300 
-        prose-li:marker:text-slate-600 dark:prose-li:marker:text-slate-400 prose-li:my-0 prose-ul:my-1
+        prose-li:marker:text-slate-600 dark:prose-li:marker:text-slate-400 prose-li:my-0 prose-ul:my-1 
+        prose-a:no-underline prose-a:text-rose-700 dark:prose-a:text-rose-500 prose-hr:border-slate-700 dark:prose-hr:border-slate-300
         max-w-none py-8`
       )}
     >
