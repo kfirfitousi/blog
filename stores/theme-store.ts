@@ -24,35 +24,31 @@ export const useThemeStore = create<ThemeState>()(
     fontSize: "lg",
     isFontSizeMin: false,
     isFontSizeMax: false,
-    toggleDark: () =>
-      set((themeState) => ({
-        isDark: !themeState.isDark,
-      })),
-    toggleSerif: () =>
-      set((themeState) => ({
-        isSerif: !themeState.isSerif,
-      })),
+    toggleDark: () => set((themeState) => ({ isDark: !themeState.isDark })),
+    toggleSerif: () => set((themeState) => ({ isSerif: !themeState.isSerif })),
     increaseFontSize: () =>
       set((state) => {
+        if (state.isFontSizeMax) return state;
+
         const index = fontSizes.indexOf(state.fontSize);
-        return state.isFontSizeMax
-          ? state
-          : {
-              fontSize: fontSizes[index + 1],
-              isFontSizeMax: index === fontSizes.length - 2,
-              isFontSizeMin: false,
-            };
+
+        return {
+          fontSize: fontSizes[index + 1],
+          isFontSizeMax: index === fontSizes.length - 2,
+          isFontSizeMin: false,
+        };
       }),
     decreaseFontSize: () =>
       set((state) => {
+        if (state.isFontSizeMin) return state;
+
         const index = fontSizes.indexOf(state.fontSize);
-        return state.isFontSizeMin
-          ? state
-          : {
-              fontSize: fontSizes[index - 1],
-              isFontSizeMin: index === 1,
-              isFontSizeMax: false,
-            };
+
+        return {
+          fontSize: fontSizes[index - 1],
+          isFontSizeMin: index === 1,
+          isFontSizeMax: false,
+        };
       }),
   }))
 );
