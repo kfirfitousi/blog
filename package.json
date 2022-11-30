@@ -19,7 +19,6 @@
     "fast-glob": "^3.2.12",
     "hasha": "^5.2.2",
     "hastscript": "^7.1.0",
-    "highlight.js": "^11.6.0",
     "lucide-react": "^0.101.0",
     "next": "13.0.3",
     "next-mdx-remote": "^4.2.0",
