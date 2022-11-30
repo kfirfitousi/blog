@@ -1,12 +1,12 @@
 import { BlogSource } from "@/lib/mdx-sources";
 
-export default async function Head({
-  params,
-}: {
+interface PostHeadProps {
   params: {
     slug: string[];
   };
-}) {
+}
+
+export default async function PostHead({ params }: PostHeadProps) {
   const post = await BlogSource.getMdxNode(params.slug);
 
   return (
