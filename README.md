@@ -1,6 +1,8 @@
 [![Kfir's Blog](https://user-images.githubusercontent.com/37262772/204767416-1db33462-fb40-49a0-8f5d-37d14fd3134e.png)](https://blog.kfirfitousi.com)  
 ![Build Status](https://img.shields.io/github/deployments/kfirfitousi/blog/production?label=build&logo=vercel&style=for-the-badge)
 ![Website Status](https://img.shields.io/website?down_color=lightgrey&logo=vercel&style=for-the-badge&url=https%3A%2F%2Fblog.kfirfitousi.com)
+![Stars](https://img.shields.io/github/stars/kfirfitousi/blog?color=yellow&logo=github&style=for-the-badge)
+![License](https://img.shields.io/github/license/kfirfitousi/blog?color=blue&style=for-the-badge)
 
 Blog app built with Next.js 13, TypeScript, next-mdx-remote, Zustand and TailwindCSS.  
 
