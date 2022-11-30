@@ -6,4 +6,8 @@
     [data-nextjs-scroll-focus-boundary] {
         height: 100%;
     }
+
+    * {
+        @apply transition-colors duration-300 ease-in-out
+    }
 }
