@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="relative h-full flex flex-row items-center justify-center space-x-6 p-8 text-slate-700 dark:text-rose-50">
+    <footer className="relative h-full flex flex-row items-center justify-center p-8 text-slate-700 dark:text-rose-50">
       <button
         onClick={() => {
           document.body.scrollTop = 0;
@@ -24,7 +24,7 @@ export function Footer() {
           aria-label="My GitHub profile"
         />
       </Link>
-      <Link href="https://www.linkedin.com/in/kfirp">
+      <Link href="https://www.linkedin.com/in/kfirp" className="ml-6">
         <Linkedin
           className="hover:text-rose-600 dark:hover:text-rose-400"
           aria-label="My LinkedIn profile"
