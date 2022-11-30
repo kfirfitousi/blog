@@ -3,20 +3,18 @@
 */
 
 .rehype-code-title {
-  border-width: 2px 2px 0 2px;
-  border-color: #475569;
-  color: #475569;
+  background-color: #fff;
+  color: #000;
   width: fit-content;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   padding: 0.1rem 0.75rem;
-  margin-left: 1.5rem;
-  margin-top: 1rem;
+  margin: 0 1rem 0.1rem 1.5rem;
 }
 
 html.dark .rehype-code-title {
-  border-color: #ffe4e6;
-  color: #ffe4e6;
+  background-color: #22272e;
+  color: #adbac7;
 }
 
 pre {
