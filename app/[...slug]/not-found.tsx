@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="min-h-[calc(100vh-176px)] pb-28 flex flex-col space-y-2 justify-center items-center">
+    <div className="h-full pb-28 flex flex-col space-y-2 justify-center items-center">
       <FileQuestion className="w-24 h-24 text-slate-800 dark:text-rose-100" />
       <h2 className="text-3xl font-bold text-slate-800 dark:text-rose-50">
         Post not found

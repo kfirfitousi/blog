@@ -33,7 +33,7 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <article className="min-h-[calc(100vh-176px)] px-8">
+    <article className="h-full px-8">
       <PostIntro
         title={post.frontmatter.title}
         date={post.frontmatter.date}

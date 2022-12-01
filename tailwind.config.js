@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
@@ -34,6 +36,10 @@ module.exports = {
         border: "show-border 0.5s ease-in-out forwards",
         "border-fast": "show-border 0.25s ease-in-out forwards",
       },
+    },
+    screens: {
+      xs: "475px",
+      ...defaultTheme.screens,
     },
   },
   // used for markdown styling

@@ -85,7 +85,7 @@ export function Header() {
             <label className="cursor-pointer text-sm">Back</label>
           </Link>
 
-          <Link href="/" className="hidden sm:block flex-grow">
+          <Link href="/" className="hidden xs:block flex-grow">
             <BlogTitle small title="Kfir's Blog" />
           </Link>
         </>

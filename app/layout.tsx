@@ -31,7 +31,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       )}
     >
       <head />
-      <body className="min-h-screen flex-grow grid grid-rows-[auto_1fr_auto] grid-cols-1 sm:grid-cols-[1fr_minmax(600px,3fr)_1fr] bg-slate-200 dark:bg-slate-700">
+      <body className="min-h-screen grid grid-rows-[auto_minmax(calc(100vh-180px),1fr)_auto] grid-cols-1 sm:grid-cols-[1fr_minmax(640px,3fr)_1fr] bg-slate-200 dark:bg-slate-700">
         {/* header */}
         <section className="h-full sticky top-0 z-30 self-start col-span-1 sm:col-span-1 sm:col-start-2 row-span-1 row-start-1">
           <Header />
