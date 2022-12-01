@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { BlogSource } from "@/lib/mdx-sources";
 import { MdxContent } from "@/components/mdx-content";
 import { PostIntro } from "@/components/post-intro";
+import Comments from "@/components/comments";
 
 interface PostPageProps {
   params: {
@@ -39,6 +40,7 @@ export default async function PostPage({ params }: PostPageProps) {
         tags={post.frontmatter.tags}
       />
       <MdxContent source={post.serialized} />
+      <Comments />
     </article>
   );
 }
