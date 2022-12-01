@@ -14,6 +14,7 @@ export function Comments() {
     scriptElementLight.setAttribute("crossorigin", "annonymous");
     scriptElementLight.setAttribute("repo", "kfirfitousi/blog");
     scriptElementLight.setAttribute("issue-term", "pathname");
+    scriptElementLight.setAttribute("label", "Comments");
     scriptElementLight.setAttribute("theme", "github-light");
 
     utterancesRefLight.current?.childElementCount === 0 &&
@@ -26,6 +27,7 @@ export function Comments() {
     scriptElementDark.setAttribute("crossorigin", "annonymous");
     scriptElementDark.setAttribute("repo", "kfirfitousi/blog");
     scriptElementDark.setAttribute("issue-term", "pathname");
+    scriptElementDark.setAttribute("label", "Comments");
     scriptElementDark.setAttribute("theme", "github-dark-orange");
 
     utterancesRefDark.current?.childElementCount === 0 &&
