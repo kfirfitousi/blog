@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export default function Comments() {
+export function Comments() {
   const utterancesRefDark = useRef<HTMLDivElement>(null);
   const utterancesRefLight = useRef<HTMLDivElement>(null);
 

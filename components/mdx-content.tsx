@@ -14,7 +14,7 @@ export function MdxContent({ source }: MdxContentProps) {
   const isSerif = useThemeStore((state) => state.isSerif);
 
   return (
-    <div
+    <section
       className={clsx(
         isSerif && "font-serif",
         `prose prose-${fontSize} prose-slate dark:prose-invert dark:text-rose-50 dark:prose-headings:text-rose-50
@@ -25,6 +25,6 @@ export function MdxContent({ source }: MdxContentProps) {
       )}
     >
       <MDXRemote {...source} components={MdxComponents} />
-    </div>
+    </section>
   );
 }

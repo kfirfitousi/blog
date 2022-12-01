@@ -16,7 +16,7 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
   const isSerif = useThemeStore((state) => state.isSerif);
 
   return (
-    <div className="flex flex-col space-y-4 p-3">
+    <section className="flex flex-col space-y-4 p-3">
       <h1
         className={clsx(
           isSerif && "font-serif",
@@ -54,6 +54,6 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
           fontSize === "2xl" && "text-base"
         )}
       />
-    </div>
+    </section>
   );
 }
