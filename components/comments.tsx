@@ -3,21 +3,39 @@
 import { useEffect, useRef } from "react";
 
 export default function Comments() {
-  const utterancesRef = useRef<HTMLDivElement>(null);
+  const utterancesRefDark = useRef<HTMLDivElement>(null);
+  const utterancesRefLight = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const scriptElement = document.createElement("script");
-    scriptElement.src = "https://utteranc.es/client.js";
-    scriptElement.async = true;
-    scriptElement.defer = true;
-    scriptElement.setAttribute("crossorigin", "annonymous");
-    scriptElement.setAttribute("repo", "kfirfitousi/blog");
-    scriptElement.setAttribute("issue-term", "pathname");
-    scriptElement.setAttribute("theme", "github-light");
+    const scriptElementLight = document.createElement("script");
+    scriptElementLight.src = "https://utteranc.es/client.js";
+    scriptElementLight.async = true;
+    scriptElementLight.defer = true;
+    scriptElementLight.setAttribute("crossorigin", "annonymous");
+    scriptElementLight.setAttribute("repo", "kfirfitousi/blog");
+    scriptElementLight.setAttribute("issue-term", "pathname");
+    scriptElementLight.setAttribute("theme", "github-light");
 
-    utterancesRef.current?.childElementCount === 0 &&
-      utterancesRef.current?.appendChild(scriptElement);
+    utterancesRefLight.current?.childElementCount === 0 &&
+      utterancesRefLight.current?.appendChild(scriptElementLight);
+
+    const scriptElementDark = document.createElement("script");
+    scriptElementDark.src = "https://utteranc.es/client.js";
+    scriptElementDark.async = true;
+    scriptElementDark.defer = true;
+    scriptElementDark.setAttribute("crossorigin", "annonymous");
+    scriptElementDark.setAttribute("repo", "kfirfitousi/blog");
+    scriptElementDark.setAttribute("issue-term", "pathname");
+    scriptElementDark.setAttribute("theme", "github-dark-orange");
+
+    utterancesRefDark.current?.childElementCount === 0 &&
+      utterancesRefDark.current?.appendChild(scriptElementDark);
   }, []);
 
-  return <section ref={utterancesRef} />;
+  return (
+    <section>
+      <div ref={utterancesRefLight} className="block dark:hidden" />
+      <div ref={utterancesRefDark} className="hidden dark:block" />
+    </section>
+  );
 }
