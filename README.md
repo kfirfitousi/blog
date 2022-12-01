@@ -18,3 +18,4 @@ Blog app built with Next.js 13, TypeScript, next-mdx-remote, Zustand and Tailwin
 
 - [ ] Add pagination to home page
 - [ ] Persist reading mode preferences on refresh
+- [ ] End-to-end testing with Playwright
