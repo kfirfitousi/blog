@@ -4,7 +4,7 @@
 ![Stars](https://img.shields.io/github/stars/kfirfitousi/blog?color=yellow&logo=github&style=for-the-badge)
 ![License](https://img.shields.io/github/license/kfirfitousi/blog?color=blue&style=for-the-badge)
 
-Blog app built with Next.js 13, TypeScript, next-mdx-remote, Zustand and TailwindCSS.  
+Blog app built with Next.js 13, TypeScript, next-mdx-remote, Zustand and TailwindCSS.
 
 ## Features
 
@@ -13,3 +13,8 @@ Blog app built with Next.js 13, TypeScript, next-mdx-remote, Zustand and Tailwin
 - [x] Support for .mdx files with frontmatter
 - [x] GitHub flavored markdown and code blocks with titles and syntax-highlighting
 - [x] Fully type-safe and easily extendible
+
+## Planned Features
+
+- [ ] Add pagination to home page
+- [ ] Persist reading mode preferences on refresh
