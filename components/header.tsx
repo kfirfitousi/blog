@@ -81,8 +81,8 @@ export function Header() {
             href="/"
             className="w-28 h-full flex flex-row items-center space-x-1 hover:text-rose-600 dark:hover:text-rose-400"
           >
-            <ArrowLeft className="w-8 h-8 sm:w-6 sm:h-6" aria-label="Back" />
-            <label className="cursor-pointer text-xl sm:text-sm">Back</label>
+            <ArrowLeft className="w-6 sm:h-6" aria-label="Back" />
+            <label className="cursor-pointer text-sm">Back</label>
           </Link>
 
           <Link href="/" className="hidden sm:block flex-grow">
@@ -100,7 +100,7 @@ export function Header() {
               className="hover:text-rose-600 dark:hover:text-rose-400 disabled:text-rose-600 dark:disabled:text-rose-400"
             >
               <MinusSquare
-                className="w-8 h-8 sm:w-6 sm:h-6"
+                className="w-6 sm:h-6"
                 aria-label="Decrease font size"
               />
             </button>
@@ -110,7 +110,7 @@ export function Header() {
               className="hover:text-rose-600 dark:hover:text-rose-400 disabled:text-rose-600 dark:disabled:text-rose-400"
             >
               <PlusSquare
-                className="w-8 h-8 sm:w-6 sm:h-6"
+                className="w-6 sm:h-6"
                 aria-label="Increase font size"
               />
             </button>
@@ -126,25 +126,16 @@ export function Header() {
             "ml-auto"
           )}
         >
-          <Type
-            className="w-8 h-8 sm:w-6 sm:h-6"
-            aria-label="Toggle serif font"
-          />
+          <Type className="w-6 sm:h-6" aria-label="Toggle serif font" />
         </button>
         <button
           onClick={toggleDarkAndApply}
           className="hover:text-rose-600 dark:hover:text-rose-400"
         >
           {isDark ? (
-            <Sun
-              className="w-8 h-8 sm:w-6 sm:h-6"
-              aria-label="Switch to light mode"
-            />
+            <Sun className="w-6 sm:h-6" aria-label="Switch to light mode" />
           ) : (
-            <Moon
-              className="w-8 h-8 sm:w-6 sm:h-6"
-              aria-label="Switch to dark mode"
-            />
+            <Moon className="w-6 sm:h-6" aria-label="Switch to dark mode" />
           )}
         </button>
       </div>

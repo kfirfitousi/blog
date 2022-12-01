@@ -25,7 +25,7 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
           fontSize === "lg" && "text-3xl sm:text-4xl md:text-5xl",
           fontSize === "xl" && "text-4xl sm:text-5xl md:text-6xl",
           fontSize === "2xl" && "text-5xl sm:text-6xl",
-          "text-slate-800 dark:text-rose-50 font-bold"
+          "text-slate-800 dark:text-rose-50 font-bold drop-shadow-sm"
         )}
       >
         {title}
@@ -38,7 +38,7 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
           fontSize === "lg" && "text-base sm:text-lg",
           fontSize === "xl" && "text-lg sm:text-xl",
           fontSize === "2xl" && "text-xl sm:text-2xl",
-          "text-lg sm:text-base text-slate-600 dark:text-slate-200"
+          "text-slate-600 dark:text-slate-200"
         )}
       >
         Published {formatDate(date)}
@@ -48,10 +48,10 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
         className={clsx(
           isSerif && "font-serif",
           fontSize === "sm" && "text-xs",
-          fontSize === "base" && "text-sm sm:text-xs",
-          fontSize === "lg" && "text-base sm:text-sm",
-          fontSize === "xl" && "text-lg sm:text-base",
-          fontSize === "2xl" && "text-xl sm:text-lg"
+          fontSize === "base" && "text-sm",
+          fontSize === "lg" && "text-sm",
+          fontSize === "xl" && "text-base",
+          fontSize === "2xl" && "text-base"
         )}
       />
     </div>

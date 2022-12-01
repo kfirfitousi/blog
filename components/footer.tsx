@@ -14,19 +14,19 @@ export function Footer() {
         className="w-fit absolute inset-8"
       >
         <ArrowUp
-          className="hover:text-rose-600 dark:hover:text-rose-400"
+          className="w-6 h-6 hover:text-rose-600 dark:hover:text-rose-400"
           aria-label="Scroll to top"
         />
       </button>
       <Link href="https://www.github.com/kfirfitousi">
         <Github
-          className="hover:text-rose-600 dark:hover:text-rose-400"
+          className="w-6 h-6 hover:text-rose-600 dark:hover:text-rose-400"
           aria-label="My GitHub profile"
         />
       </Link>
       <Link href="https://www.linkedin.com/in/kfirp" className="ml-6">
         <Linkedin
-          className="hover:text-rose-600 dark:hover:text-rose-400"
+          className="w-6 h-6 hover:text-rose-600 dark:hover:text-rose-400"
           aria-label="My LinkedIn profile"
         />
       </Link>

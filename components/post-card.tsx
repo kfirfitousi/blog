@@ -30,7 +30,7 @@ export function PostCard({ post }: PostCardProps) {
             {post.frontmatter.title}
           </h2>
 
-          <p className="text-xl sm:text-base text-slate-600 dark:text-rose-50">
+          <p className="text-slate-600 dark:text-rose-50">
             {post.frontmatter.excerpt}
           </p>
 

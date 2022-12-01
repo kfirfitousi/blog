@@ -25,7 +25,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html
       lang="en"
       className={clsx(
-        "overscroll-none overflow-auto font-sans",
+        "overscroll-none overflow-auto scroll-pt-16 font-sans",
         fontSans.variable,
         fontSerif.variable
       )}
