@@ -25,15 +25,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html
       lang="en"
       className={clsx(
-        "bg-slate-400 font-sans",
+        "overscroll-none overflow-auto font-sans",
         fontSans.variable,
         fontSerif.variable
       )}
     >
       <head />
-      <body className="h-screen flex-grow grid grid-rows-[fit-content_1fr_fit-content] grid-cols-1 sm:grid-cols-[1fr_minmax(600px,3fr)_1fr]">
+      <body className="min-h-screen flex-grow grid grid-rows-[auto_1fr_auto] grid-cols-1 sm:grid-cols-[1fr_minmax(600px,3fr)_1fr] bg-slate-200 dark:bg-slate-700">
         {/* header */}
-        <div className="col-span-1 sm:col-span-1 sm:col-start-2 row-span-1 row-start-1 bg-slate-200 dark:bg-slate-700">
+        <div className="h-full sticky top-0 z-30 self-start col-span-1 sm:col-span-1 sm:col-start-2 row-span-1 row-start-1">
           <Header />
         </div>
 
