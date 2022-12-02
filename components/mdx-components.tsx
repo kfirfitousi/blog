@@ -1,18 +1,17 @@
-import { type HTMLProps } from "react";
 import Image from "next/image";
-
+import { CopyCode } from "@/components/copy-code";
 /**
  * use div instead of p elements since p elements have restrictions on what
  * elements can be nested inside them
  */
-function p(props: HTMLProps<HTMLParagraphElement>) {
+function p(props: React.HTMLProps<HTMLParagraphElement>) {
   return <div {...props}>{props.children}</div>;
 }
 
 /**
  * image component that uses next/image, with optional caption
  */
-function img({ src, alt }: HTMLProps<HTMLImageElement>) {
+function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
   const [_alt, caption] = alt?.split("$$") || [];
 
   return (
@@ -38,4 +37,13 @@ function img({ src, alt }: HTMLProps<HTMLImageElement>) {
   );
 }
 
-export const MdxComponents = { p, img };
+function pre({ children }: React.HTMLProps<HTMLPreElement>) {
+  return (
+    <pre className="relative pr-4">
+      <CopyCode codeElement={children as React.ReactElement} />
+      {children}
+    </pre>
+  );
+}
+
+export const MdxComponents = { p, img, pre };
