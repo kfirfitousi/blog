@@ -11,18 +11,7 @@ export function CopyCode({ codeElement }: CopyCodeProps) {
   const [isCopied, setIsCopied] = useState(false);
 
   const copy = () => {
-    const _children = codeElement.props.children as React.ReactElement[];
-
-    const text = Array.from(_children).reduce(function (acc, curr) {
-      if (typeof curr === "string") {
-        acc += curr;
-      } else if ("props" in curr) {
-        acc += curr.props.children;
-      }
-      return acc;
-    }, "");
-
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(extractText(codeElement));
 
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);
@@ -47,3 +36,15 @@ export function CopyCode({ codeElement }: CopyCodeProps) {
     </button>
   );
 }
+
+const extractText = (element: React.ReactElement): string => {
+  if (typeof element === "string") {
+    return element as string;
+  }
+  if (element.props.children) {
+    return (Array.from(element.props.children) as React.ReactElement[])
+      .map(extractText)
+      .join("");
+  }
+  return "";
+};
