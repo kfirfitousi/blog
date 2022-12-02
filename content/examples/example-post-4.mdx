@@ -2,7 +2,7 @@
 title: Example Post With a Long Title and a Long Excerpt
 date: "2022-11-13"
 excerpt: This example post shows the different elements that can be used, like headings, paragraphs, blockquotes, code blocks, images, and more.
-tags: ["example", "blog", "post", "markdown elements"]
+tags: ["example", "blog", "post", "markdown", "mdx"]
 ---
 
 # Heading 1
@@ -22,9 +22,27 @@ This is a footnote.[^1] Here is another footnote.[^2]
 
 ```tsx
 // This is a tsx code block with no label
-const example = "This is an example";
+import { BlogSource } from "@/lib/mdx-sources";
+import { BlogTitle } from "@/components/blog-title";
+import { PostCard } from "@/components/post-card";
 
-export default example;
+export default async function Home() {
+  const posts = await BlogSource.getAllMdxNodes();
+
+  return (
+    <div className="h-full flex flex-col space-y-4 px-6 sm:px-12 pb-12">
+      <section className="col-span-3 mx-auto pb-8 md:pb-12">
+        <BlogTitle title="Kfir's Blog" />
+      </section>
+      <section className="w-full col-start-2 flex flex-col space-y-4">
+        {posts.map((post) => (
+          <PostCard key={post?.slug} post={post} />
+        ))}
+      </section>
+    </div>
+  );
+}
+
 ```
 
 ```python:example.py

@@ -2,7 +2,7 @@
 title: Example Post 2
 date: "2022-11-11"
 excerpt: This is another example post.
-tags: ["example", "blog", "post"]
+tags: ["example"]
 ---
 
 # Heading 1
@@ -20,15 +20,33 @@ This is a footnote.[^1] Here is another footnote.[^2]
 
 ### Code Blocks
 
-```tsx
-// This is a tsx code block with no label
-const example = "This is an example";
+```tsx:app/page.tsx
+// This is a tsx code block with a label
+import { BlogSource } from "@/lib/mdx-sources";
+import { BlogTitle } from "@/components/blog-title";
+import { PostCard } from "@/components/post-card";
 
-export default example;
+export default async function Home() {
+  const posts = await BlogSource.getAllMdxNodes();
+
+  return (
+    <div className="h-full flex flex-col space-y-4 px-6 sm:px-12 pb-12">
+      <section className="col-span-3 mx-auto pb-8 md:pb-12">
+        <BlogTitle title="Kfir's Blog" />
+      </section>
+      <section className="w-full col-start-2 flex flex-col space-y-4">
+        {posts.map((post) => (
+          <PostCard key={post?.slug} post={post} />
+        ))}
+      </section>
+    </div>
+  );
+}
+
 ```
 
-```python:example.py
-# This is a python code block with a label
+```python
+# This is a python code block with no label
 example = "This is an example"
 
 print(example)
