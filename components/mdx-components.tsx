@@ -16,7 +16,7 @@ function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
 
   return (
     <figure
-      className="w-full aspect-video flex flex-col mt-3 mb-6 rounded border bg-slate-300 bg-opacity-20 border-slate-300 dark:bg-rose-50 dark:border-slate-600 dark:bg-opacity-5"
+      className="w-full max-w-3xl aspect-video mx-auto mt-3 mb-6 flex flex-col rounded border bg-slate-300 bg-opacity-20 border-slate-300 dark:bg-rose-50 dark:border-slate-600 dark:bg-opacity-5"
       aria-label={_alt}
     >
       <div className="relative w-full h-full">
@@ -29,7 +29,7 @@ function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
         />
       </div>
       {caption && (
-        <figcaption className="w-full px-6 py-1 text-center m-0 rounded-md text-slate-700 bg-slate-300 bg-opacity-50 dark:text-rose-50 dark:bg-rose-50 dark:bg-opacity-10">
+        <figcaption className="w-full px-6 py-1 text-center m-0 rounded-b-[3px] text-slate-700 bg-slate-300 bg-opacity-50 dark:text-rose-50 dark:bg-rose-50 dark:bg-opacity-10">
           {caption}
         </figcaption>
       )}
@@ -39,7 +39,7 @@ function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
 
 function pre({ children }: React.HTMLProps<HTMLPreElement>) {
   return (
-    <pre className="relative">
+    <pre className="relative max-w-3xl mx-auto">
       <CopyCode codeElement={children as React.ReactElement} />
       {children}
     </pre>

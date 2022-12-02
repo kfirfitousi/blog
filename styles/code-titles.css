@@ -6,6 +6,9 @@
   background-color: #f1f5f9;
   color: #24292e;
   width: 100%;
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   padding: 0.1rem 0.75rem;
