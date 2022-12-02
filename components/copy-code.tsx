@@ -30,17 +30,17 @@ export function CopyCode({ codeElement }: CopyCodeProps) {
 
   return (
     <button
-      className="w-4 h-4 absolute inset-y-2 right-4"
+      className="w-7 h-7 flex items-center justify-center absolute inset-y-1 right-1 rounded bg-white dark:bg-[#22272E]"
       onClick={() => !isCopied && copy()}
     >
       {isCopied ? (
         <Check
-          className="text-rose-500 fill-white dark:text-rose-400 dark:fill-[#22272E] animate-pulse"
+          className="w-6 h-6 text-rose-600 dark:text-rose-400 animate-pulse"
           aria-hidden
         />
       ) : (
         <Copy
-          className="text-slate-300 fill-white dark:text-slate-700 dark:fill-[#22272E] hover:text-rose-500 dark:hover:text-rose-400"
+          className="w-6 h-6 text-slate-300 dark:text-slate-700 hover:text-rose-600 dark:hover:text-rose-400"
           aria-label="Copy code"
         />
       )}

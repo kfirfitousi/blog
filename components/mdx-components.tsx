@@ -39,7 +39,7 @@ function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
 
 function pre({ children }: React.HTMLProps<HTMLPreElement>) {
   return (
-    <pre className="relative pr-4">
+    <pre className="relative">
       <CopyCode codeElement={children as React.ReactElement} />
       {children}
     </pre>
