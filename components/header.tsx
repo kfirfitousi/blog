@@ -35,7 +35,6 @@ export function Header() {
     (state) => ({
       isDark: state.isDark,
       isSerif: state.isSerif,
-      fontSize: state.fontSize,
       isFontSizeMin: state.isFontSizeMin,
       isFontSizeMax: state.isFontSizeMax,
       toggleDark: state.toggleDark,
@@ -68,36 +67,36 @@ export function Header() {
       ref={headerRef}
       className={clsx(
         headerRef.current && scrollTop > headerRef.current.clientHeight
-          ? "py-2 border-b border-b-slate-300 dark:border-b-slate-500"
+          ? "border-b border-b-slate-300 py-2 dark:border-b-slate-500"
           : "py-8",
-        "px-8 flex flex-row items-center justify-between",
+        "flex flex-row items-center justify-between px-8",
         "transition-[padding,background-color] duration-300 ease-in-out",
-        "backdrop-blur bg-transparent text-slate-700 dark:text-rose-50"
+        "bg-transparent text-slate-700 backdrop-blur dark:text-rose-50"
       )}
     >
       {isPostPage && (
         <>
           <Link
             href="/"
-            className="w-28 h-full flex flex-row items-center space-x-1 hover:text-rose-600 dark:hover:text-rose-400"
+            className="flex h-full w-28 flex-row items-center space-x-1 hover:text-rose-600 dark:hover:text-rose-400"
           >
             <ArrowLeft className="w-6 sm:h-6" aria-label="Back" />
             <label className="cursor-pointer text-sm">Back</label>
           </Link>
 
-          <Link href="/" className="hidden xs:block flex-grow">
+          <Link href="/" className="hidden flex-grow xs:block">
             <BlogTitle small title="Kfir's Blog" />
           </Link>
         </>
       )}
 
-      <div className="ml-auto w-28 flex flex-row items-center justify-end space-x-1">
+      <div className="ml-auto flex w-28 flex-row items-center justify-end space-x-1">
         {isPostPage && (
           <>
             <button
               onClick={decreaseFontSize}
               disabled={isFontSizeMin}
-              className="hover:text-rose-600 dark:hover:text-rose-400 disabled:text-rose-600 dark:disabled:text-rose-400"
+              className="hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400"
             >
               <MinusSquare
                 className="w-6 sm:h-6"
@@ -107,7 +106,7 @@ export function Header() {
             <button
               onClick={increaseFontSize}
               disabled={isFontSizeMax}
-              className="hover:text-rose-600 dark:hover:text-rose-400 disabled:text-rose-600 dark:disabled:text-rose-400"
+              className="hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400"
             >
               <PlusSquare
                 className="w-6 sm:h-6"

@@ -16,10 +16,10 @@ function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
 
   return (
     <figure
-      className="w-full max-w-3xl aspect-video mx-auto mt-3 mb-6 flex flex-col rounded border bg-slate-300 bg-opacity-20 border-slate-300 dark:bg-rose-50 dark:border-slate-600 dark:bg-opacity-5"
+      className="mx-auto mt-3 mb-6 flex aspect-video w-full max-w-3xl flex-col rounded border border-slate-300 bg-slate-300 bg-opacity-20 dark:border-slate-600 dark:bg-rose-50 dark:bg-opacity-5"
       aria-label={_alt}
     >
-      <div className="relative w-full h-full">
+      <div className="relative h-full w-full">
         <Image
           src={src || ""}
           alt={_alt}
@@ -29,7 +29,7 @@ function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
         />
       </div>
       {caption && (
-        <figcaption className="w-full px-6 py-1 text-center m-0 rounded-b-[3px] text-slate-700 bg-slate-300 bg-opacity-50 dark:text-rose-50 dark:bg-rose-50 dark:bg-opacity-10">
+        <figcaption className="m-0 w-full rounded-b-[3px] bg-slate-300 bg-opacity-50 px-6 py-1 text-center text-slate-700 dark:bg-rose-50 dark:bg-opacity-10 dark:text-rose-50">
           {caption}
         </figcaption>
       )}
@@ -39,7 +39,7 @@ function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
 
 function pre({ children }: React.HTMLProps<HTMLPreElement>) {
   return (
-    <pre className="relative max-w-3xl mx-auto">
+    <pre className="relative mx-auto max-w-3xl">
       <CopyCode codeElement={children as React.ReactElement} />
       {children}
     </pre>

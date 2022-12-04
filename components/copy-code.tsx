@@ -19,17 +19,17 @@ export function CopyCode({ codeElement }: CopyCodeProps) {
 
   return (
     <button
-      className="w-7 h-7 flex items-center justify-center absolute inset-y-1 right-1 rounded bg-white dark:bg-[#22272E]"
+      className="absolute inset-y-1 right-1 flex h-7 w-7 items-center justify-center rounded bg-white dark:bg-[#22272E]"
       onClick={() => !isCopied && copy()}
     >
       {isCopied ? (
         <Check
-          className="w-6 h-6 text-rose-600 dark:text-rose-400 animate-pulse"
+          className="h-6 w-6 animate-pulse text-rose-600 dark:text-rose-400"
           aria-hidden
         />
       ) : (
         <Copy
-          className="w-6 h-6 text-slate-300 dark:text-slate-700 hover:text-rose-600 dark:hover:text-rose-400"
+          className="h-6 w-6 text-slate-300 hover:text-rose-600 dark:text-slate-700 dark:hover:text-rose-400"
           aria-label="Copy code"
         />
       )}

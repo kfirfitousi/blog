@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { AnalyticsWrapper } from "@/components/analytics";
+import { Analytics } from "@/components/analytics";
 import { Red_Hat_Display, Newsreader } from "@next/font/google";
 import clsx from "clsx";
 
@@ -25,47 +25,47 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html
       lang="en"
       className={clsx(
-        "overscroll-none overflow-auto scroll-pt-16 font-sans",
+        "scroll-pt-16 overflow-auto overscroll-none font-sans",
         fontSans.variable,
         fontSerif.variable
       )}
     >
       <head />
-      <body className="min-h-screen grid grid-rows-[auto_minmax(calc(100vh-180px),1fr)_auto] grid-cols-1 sm:grid-cols-[1fr_minmax(640px,1024px)_1fr] bg-slate-200 dark:bg-slate-700">
+      <body className="grid min-h-screen grid-cols-1 grid-rows-[auto_minmax(calc(100vh-180px),1fr)_auto] bg-slate-200 dark:bg-slate-700 sm:grid-cols-[1fr_minmax(640px,1024px)_1fr]">
         {/* header */}
-        <section className="h-full sticky top-0 z-30 self-start col-span-1 sm:col-span-1 sm:col-start-2 row-span-1 row-start-1">
+        <section className="sticky top-0 z-30 col-span-1 row-span-1 row-start-1 h-full self-start sm:col-start-2">
           <Header />
         </section>
 
         {/* main content */}
-        <main className="col-span-1 row-start-2 sm:col-start-2 bg-slate-200 dark:bg-slate-700">
+        <main className="col-span-1 row-start-2 bg-slate-200 dark:bg-slate-700 sm:col-start-2">
           {children}
         </main>
 
         {/* footer */}
-        <section className="col-span-3 sm:col-span-1 sm:col-start-2 row-span-1 row-start-3 bg-slate-200 dark:bg-slate-700">
+        <section className="col-span-3 row-span-1 row-start-3 bg-slate-200 dark:bg-slate-700 sm:col-span-1 sm:col-start-2">
           <Footer />
         </section>
 
         {/* left column */}
         <div
-          className="hidden sm:block col-span-1 col-start-1 row-span-3 row-start-1
-            bg-gradient-to-r from-slate-400 via-slate-500 to-slate-700 
-            dark:from-slate-300 dark:via-slate-400 dark:to-slate-500"
+          className="col-span-1 col-start-1 row-span-3 row-start-1 hidden bg-gradient-to-r
+            from-slate-400 via-slate-500 to-slate-700 dark:from-slate-300 
+            dark:via-slate-400 dark:to-slate-500 sm:block"
         >
-          <div className="invisible dark:visible w-full h-full bg-opacity-5 bg-gradient-to-r from-rose-50 to-transparent" />
+          <div className="invisible h-full w-full bg-opacity-5 bg-gradient-to-r from-rose-50 to-transparent dark:visible" />
         </div>
 
         {/* right column */}
         <div
-          className="hidden sm:block col-span-1 col-start-3 row-span-3 row-start-1
-            bg-gradient-to-l from-slate-400 via-slate-500 to-slate-700 
-            dark:from-slate-300 dark:via-slate-400 dark:to-slate-500"
+          className="col-span-1 col-start-3 row-span-3 row-start-1 hidden bg-gradient-to-l
+            from-slate-400 via-slate-500 to-slate-700 dark:from-slate-300 
+            dark:via-slate-400 dark:to-slate-500 sm:block"
         >
-          <div className="invisible dark:visible w-full h-full bg-opacity-5 bg-gradient-to-l from-rose-50 to-transparent" />
+          <div className="invisible h-full w-full bg-opacity-5 bg-gradient-to-l from-rose-50 to-transparent dark:visible" />
         </div>
 
-        <AnalyticsWrapper />
+        <Analytics />
       </body>
     </html>
   );

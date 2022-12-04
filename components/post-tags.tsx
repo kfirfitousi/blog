@@ -7,11 +7,11 @@ interface PostTagsProps {
 
 export function PostTags({ tags, className }: PostTagsProps) {
   return (
-    <p className={clsx(className, "flex flex-row gap-1 flex-wrap")}>
+    <p className={clsx(className, "flex flex-row flex-wrap gap-1")}>
       {tags.map((tag) => (
         <span
           key={tag}
-          className="w-fit px-2 py-1 text-slate-100 dark:text-slate-900 bg-slate-600 dark:bg-rose-50 rounded whitespace-nowrap"
+          className="w-fit whitespace-nowrap rounded bg-slate-600 px-2 py-1 text-slate-100 dark:bg-rose-50 dark:text-slate-900"
         >
           {tag}
         </span>

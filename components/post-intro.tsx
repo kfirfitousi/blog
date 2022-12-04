@@ -25,7 +25,7 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
           fontSize === "lg" && "text-3xl sm:text-4xl md:text-5xl",
           fontSize === "xl" && "text-4xl sm:text-5xl md:text-6xl",
           fontSize === "2xl" && "text-5xl sm:text-6xl",
-          "text-slate-800 dark:text-rose-50 font-bold drop-shadow-sm"
+          "font-bold text-slate-800 drop-shadow-sm dark:text-rose-50"
         )}
       >
         {title}

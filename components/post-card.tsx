@@ -18,15 +18,15 @@ export function PostCard({ post }: PostCardProps) {
   if (!post) return null;
 
   return (
-    <Link href={post.url} className="group relative w-full h-full">
+    <Link href={post.url} className="group relative h-full w-full">
       <article
         className={clsx(
           isSerif && "font-serif",
-          "flex flex-col space-y-4 px-10 py-3 rounded bg-slate-100 dark:bg-slate-500 m-[2px] relative z-10"
+          "relative z-10 m-[2px] flex flex-col space-y-4 rounded bg-slate-100 px-10 py-3 dark:bg-slate-500"
         )}
       >
         <div className="flex flex-col space-y-2">
-          <h2 className="text-slate-800 dark:text-rose-50 text-2xl sm:text-3xl font-bold leading-normal">
+          <h2 className="text-2xl font-bold leading-normal text-slate-800 dark:text-rose-50 sm:text-3xl">
             {post.frontmatter.title}
           </h2>
 
@@ -35,7 +35,7 @@ export function PostCard({ post }: PostCardProps) {
           </p>
 
           <p className="inline-flex items-center space-x-1 text-slate-600 dark:text-slate-200">
-            <Calendar className="w-4 h-4" />
+            <Calendar className="h-4 w-4" />
             <span className="text-sm">
               Published {formatDate(post.frontmatter.date)}
             </span>
@@ -43,7 +43,7 @@ export function PostCard({ post }: PostCardProps) {
         </div>
         <PostTags tags={post.frontmatter.tags} className="text-sm sm:text-xs" />
       </article>
-      <div className="absolute z-20 inset-0 bg-slate-700 dark:bg-rose-50 w-4 h-[calc(100%-4px)] my-auto rounded-l group-hover:animate-border group-focus:animate-border-fast"></div>
+      <div className="absolute inset-0 z-20 my-auto h-[calc(100%-4px)] w-4 rounded-l bg-slate-700 group-hover:animate-border group-focus:animate-border-fast dark:bg-rose-50"></div>
     </Link>
   );
 }

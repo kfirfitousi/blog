@@ -15,14 +15,14 @@ export function BlogTitle({ title, small }: BlogTitleProps) {
   return (
     <div
       className={clsx(
-        "w-full inline-flex justify-center space-x-",
+        "inline-flex w-full justify-center",
         small ? "items-center" : "items-baseline"
       )}
     >
       <Waves
         className={clsx(
-          small ? "w-4 h-4" : "w-8 h-8",
-          "text-rose-700 dark:text-rose-50 text-opacity-40"
+          small ? "h-4 w-4" : "h-8 w-8",
+          "text-rose-700 text-opacity-40 dark:text-rose-50"
         )}
         aria-hidden="true"
       />
@@ -31,16 +31,16 @@ export function BlogTitle({ title, small }: BlogTitleProps) {
           isSerif && "font-serif",
           small
             ? "mx-0.5 text-lg font-semibold"
-            : "mx-2 pb-1.5 text-5xl sm:text-6xl font-bold",
-          "text-slate-800 dark:text-rose-50 text-center drop-shadow-sm whitespace-nowrap"
+            : "mx-2 pb-1.5 text-5xl font-bold sm:text-6xl",
+          "whitespace-nowrap text-center text-slate-800 drop-shadow-sm dark:text-rose-50"
         )}
       >
         {title}
       </h1>
       <Waves
         className={clsx(
-          small ? "w-4 h-4" : "w-8 h-8",
-          "text-rose-700 dark:text-rose-50 text-opacity-40"
+          small ? "h-4 w-4" : "h-8 w-8",
+          "text-rose-700 text-opacity-40 dark:text-rose-50"
         )}
         aria-hidden="true"
       />
