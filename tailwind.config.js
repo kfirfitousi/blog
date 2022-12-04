@@ -3,10 +3,19 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+
+  plugins: [
+    // used for markdown prose styling; see components/mdx-content.tsx
+    require("@tailwindcss/typography"),
+  ],
+
+  // enables dark mode
+  darkMode: "class",
+
   theme: {
     extend: {
-      // see app/layout.tsx
       fontFamily: {
+        // uses @font/google; see app/layout.tsx
         sans: ["var(--font-red-hat)"],
         serif: ["var(--font-newsreader)"],
       },
@@ -33,6 +42,7 @@ module.exports = {
         },
       },
       animation: {
+        // border animation used in components/post-card.tsx
         border: "show-border 0.5s ease-in-out forwards",
         "border-fast": "show-border 0.25s ease-in-out forwards",
       },
@@ -42,19 +52,4 @@ module.exports = {
       ...defaultTheme.screens,
     },
   },
-  // used for markdown styling
-  plugins: [require("@tailwindcss/typography")],
-
-  // enables dark mode
-  darkMode: "class",
-
-  // these classes are added conditionally so we don't want to purge them
-  safelist: [
-    "prose-sm",
-    "prose-base",
-    "prose-lg",
-    "prose-xl",
-    "prose-2xl",
-    "font-serif",
-  ],
 };
