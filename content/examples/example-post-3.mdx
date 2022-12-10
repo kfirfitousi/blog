@@ -20,8 +20,8 @@ This is a footnote.[^1] Here is another footnote.[^2]
 
 ### Code Blocks
 
-```tsx
-// This is a tsx code block with no label
+```tsx:app/page.tsx
+// This is a tsx code block with a label
 import { BlogSource } from "@/lib/mdx-sources";
 import { BlogTitle } from "@/components/blog-title";
 import { PostCard } from "@/components/post-card";
@@ -44,8 +44,8 @@ export default async function Home() {
 }
 ```
 
-```python:example.py
-# This is a python code block with a label
+```python
+# This is a python code block with no label
 example = "This is an example"
 
 print(example)
@@ -61,11 +61,11 @@ print(example)
 
 ### Images
 
-![Example image with no caption](https://images.unsplash.com/photo-1646974708582-3dced57e0a25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=50)
+![Example image with no caption {{ w: 600, h: 400 }}](https://images.unsplash.com/photo-1646974708582-3dced57e0a25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=50)
 
-![Example image with a caption$$This is a caption for the image above](https://images.unsplash.com/photo-1506057213367-028a17ec52e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80)
+![Example image with a caption {{ w: 600, h: 400, cap: "This is a caption for the image above" }}](https://images.unsplash.com/photo-1506057213367-028a17ec52e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80)
 
-![Portrait image example$$Portrait image example](https://images.unsplash.com/photo-1664136254860-26a42dbb2463?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80)
+![Portrait image example {{ w: 400, h: 700, cap: "Portrait image example" }}](https://images.unsplash.com/photo-1664136254860-26a42dbb2463?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80)
 
 ---
 

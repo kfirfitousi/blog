@@ -52,4 +52,7 @@ module.exports = {
       ...defaultTheme.screens,
     },
   },
+
+  // these classes are added conditinally so they need to be whitelisted
+  safelist: ["prose-sm", "prose-base", "prose-lg", "prose-xl", "prose-2xl"],
 };

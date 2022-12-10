@@ -9,6 +9,7 @@
   max-width: 768px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 1rem;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   padding: 0.1rem 0.75rem;
@@ -25,4 +26,9 @@ html.dark .rehype-code-title {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   margin-top: 1px !important;
+}
+
+.rehype-code-title + pre > code {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
