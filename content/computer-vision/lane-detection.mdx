@@ -268,13 +268,13 @@ Here is what the lines look like after cropping:
 
 ![Cropped lane lines {{ w: 700, h: 393, cap: "Lines are cropped to fit the road" }}](/images/computer-vision/lane-detection/lines-cropped.webp)
 
-To draw the lines, we use the `line` function, which takes the frame to draw on, the start and end points, the color, and the line width as arguments.
+To draw the lines, we use the `line` function, which takes the image to draw on, the start and end points, the color, and the line width as arguments.
 
 ```python
 if left_lines is not None:
-            cv2.line(lanes_image, (x1, y1), (x2, y2), (255, 0, 0), 10)
+    cv2.line(lanes_image, (x1, y1), (x2, y2), (255, 0, 0), 10)
 if right_lines is not None:
-            cv2.line(lanes_image, (x3, y3), (x4, y4), (255, 0, 0), 10)
+    cv2.line(lanes_image, (x3, y3), (x4, y4), (255, 0, 0), 10)
 ```
 
 Next, we want fill the area between the lines. We use the `fillPoly` function to draw a polygon using the 4 points we calculated earlier.
@@ -286,7 +286,7 @@ if left_lines is not None and right_lines is not None:
     cv2.fillPoly(lanes_image, [points], (225, 225, 225))
 ```
 
-Finally, we use the `addWeighted` function to add the new frame to the original frame with a specified opacity.
+Finally, we use the `addWeighted` function to add the lanes image on top of the original frame with an opacity of 0.4.
 
 ```python
 frame_with_lane_markings = cv2.addWeighted(
