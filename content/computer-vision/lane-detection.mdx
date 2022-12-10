@@ -6,7 +6,7 @@ tags: ["computer vision", "opencv", "python", "hough transform"]
 ---
 
 We are going to use [OpenCV](https://opencv.org/) to detect lanes and lane changes in a dashcam video.  
-The code for this project is available on [GitHub](https://github.com/kfirfitousi/LaneDetection), and the result can be seen [on Youtube](https://www.youtube.com/watch?v=VzFcshSwI1E).
+The code for this project is available on [GitHub](https://github.com/kfirfitousi/LaneDetection), and the result can be seen on [Youtube](https://www.youtube.com/watch?v=VzFcshSwI1E).
 
 ### Table of Contents
 
@@ -125,7 +125,7 @@ In the final step, we can see the edges of the lane markings. Now we can use the
 Straight lines are typically represented using the **cartesian coordinate system**. In this system, a line is represented by the equation **y = mx + b**, where **m** is the slope and **b** is the y-intercept.
 However, this representation has one major drawback: vertical lines have an infinite slope, which means that they cannot be represented by this equation.  
 Since we need the ability to detect vertical lines, we have to use a different system.  
-The Hough Transform uses the **polar coordinate system** to represent lines. In this system, a line is represented by the equation **ρ = xcosθ + ysinθ**, where **ρ** is the distance from the origin and **θ** is the angle between the line and the x-axis, measured in radians.
+The Hough Transform uses the **polar coordinate system** to represent lines. In this system, a line is represented by the equation **ρ = xcosθ + ysinθ**, where **ρ** is the distance from the origin and **θ** is the angle between the **ρ** line and the x-axis (measured in radians).
 
 ![Polar coordinate system {{ w: 700, h: 393, cap: "The polar coordinate system. Note that in images, the origin (0,0) sits at the top left, and not the bottom left as you might expect." }}](/images/computer-vision/lane-detection/polar-coordinates.webp)
 
@@ -142,9 +142,9 @@ right_lines = cv2.HoughLines(
 
 We are using the following parameters:
 
-- `ρ = 1` - This is the resolution of the **ρ** parameter. The higher the value, the more accurate the lines will be, but the more lines will be detected.
-- `θ = np.pi/180` - This is the resolution of the **θ** parameter. The higher the value, the more accurate the lines will be, but the more lines will be detected.
-- `threshold = 100` - This is the minimum number of pixels that need to be on a line for it to be detected.
+- `ρ` is set to 1 - This is the resolution of the **ρ** parameter. The higher the value, the more accurate the lines will be, but the more lines will be detected.
+- `θ` is set to π/180 (1 degree) - This is the resolution of the **θ** parameter. The higher the value, the more accurate the lines will be, but the more lines will be detected.
+- `threshold` is set to 100 - This is the minimum number of pixels that need to be on a line for it to be detected.
 - `min_theta` and `max_theta` - These are the minimum and maximum values of **θ** that we want to detect.
 
 <br />
@@ -202,13 +202,13 @@ left_theta = np.average([line[0][1]
 ## Marking the Lanes
 
 Now that we have a line on each side, we can start drawing them on the frame.  
-We don't want to draw the lines directly on the frame, because we want to control their opacity. We can do this by creating a new frame to draw on, and then use the `addWeighted` function to add the new frame to the original frame with a specified opacity.
+We don't want to draw the lines directly on the frame, because we want to control their opacity. We can do this by creating a new image to draw on, and then use the `addWeighted` function to add the new frame to the original frame with a specified opacity.
 
 ```python
 lanes_image = np.zeros_like(frame)
 ```
 
-This creates a new frame that is the same size as the original frame, but with all pixels set to black.
+This creates a new image that is the same size as the frame, but with all pixels set to black.
 
 <br />
 
