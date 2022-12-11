@@ -9,16 +9,20 @@ interface PostHeadProps {
 export default async function PostHead({ params }: PostHeadProps) {
   const post = await BlogSource.getMdxNode(params.slug);
 
+  const { title, excerpt } = post?.frontmatter ?? {
+    title: "Post Not Found",
+    excerpt: "Post not found",
+  };
+
   return (
     <>
-      <title>
-        {`Kfir's Blog | ${post?.frontmatter.title ?? "Post Not Found"}`}
-      </title>
-      <meta
-        name="description"
-        content={post?.frontmatter.excerpt ?? "Post not found"}
-      />
+      <title>{`Kfir's Blog | ${title}`}</title>
+      <meta name="description" content={excerpt} />
       <meta content="width=device-width, initial-scale=1" name="viewport" />
+      <meta
+        property="og:image"
+        content={`https://blog.kfirfitousi.com/api/og?title=${title}&subtitle=${excerpt}`}
+      />
     </>
   );
 }
