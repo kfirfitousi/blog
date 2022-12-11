@@ -125,7 +125,7 @@ export default async function Home() {
   // Get the serialized content and frontmatter
   const { serialized, frontmatter } = await getPost("content/post.mdx");
 
-  return return (
+  return (
     <div style={{ maxWidth: 600, margin: "auto" }}>
       <h1>{frontmatter.title}</h1>
       <p>Published {frontmatter.date}</p>
