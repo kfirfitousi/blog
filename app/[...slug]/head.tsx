@@ -23,6 +23,10 @@ export default async function PostHead({ params }: PostHeadProps) {
         property="og:image"
         content={`https://blog.kfirfitousi.com/api/og?title=${title}&subtitle=${excerpt}`}
       />
+      <meta
+        name="twitter:image"
+        content={`https://blog.kfirfitousi.com/api/og?title=${title}&subtitle=${excerpt}`}
+      />
     </>
   );
 }
