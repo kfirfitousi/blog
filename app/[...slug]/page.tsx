@@ -1,7 +1,4 @@
-import "@/styles/hljs.css";
-import "@/styles/code-titles.css";
-import "@/styles/heading-links.css";
-import "@/styles/github-flavor.css";
+import "@/styles/markdown.css";
 
 import { notFound } from "next/navigation";
 import { BlogSource } from "@/lib/mdx-sources";
