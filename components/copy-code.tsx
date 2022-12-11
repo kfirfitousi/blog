@@ -37,14 +37,34 @@ export function CopyCode({ codeElement }: CopyCodeProps) {
   );
 }
 
-const extractText = (element: React.ReactElement): string => {
+/**
+ * Extracts the text from a ReactElement
+ * @param element the element to extract the text from
+ * @returns the extracted text
+ */
+const extractText = (element: React.ReactElement | string): string => {
+  // If the element is a string, return it
   if (typeof element === "string") {
-    return element as string;
+    return element;
   }
-  if (element.props.children) {
-    return (Array.from(element.props.children) as React.ReactElement[])
-      .map(extractText)
+
+  // If the element is a ReactElement, check if it has children
+  // If the children is a single string, return it
+  if (typeof element.props.children === "string") {
+    return element.props.children;
+  }
+
+  // If the children is an array, map over it and extract the text
+  if (Array.isArray(element.props.children)) {
+    return (element.props.children as (React.ReactElement | string)[])
+      .map((child) => extractText(child))
       .join("");
   }
+
+  // If the children is an object (ReactElement), extract the text from it recursively
+  if (typeof element.props.children === "object") {
+    return extractText(element.props.children);
+  }
+
   return "";
 };
