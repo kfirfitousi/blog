@@ -12,10 +12,9 @@ function p(props: React.HTMLProps<HTMLParagraphElement>) {
 
 /**
  * image component that uses next/image, with optional caption and width/height
+ * example usage: ![alt text {{ w: 600, h: 300, cap: "caption text" }}](/path/to/image)
  */
 function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
-  // example usage: ![alt text {{ w: 600, h: 300, cap: "caption text" }}](/path/to/image)
-
   const _alt = (alt?.split("{")[0].trim() ?? alt) || "";
   const props = alt?.split("{")[1];
   const width = parseInt(props?.match(/(?<=w:\s?)\d+/g)?.[0] || "700");
