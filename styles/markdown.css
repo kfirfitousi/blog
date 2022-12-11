@@ -101,16 +101,7 @@ pre code.hljs {
   padding: 0.75rem;
 }
 
-/*!
-  Theme: GitHub
-  Description: Light theme as seen on github.com
-  Author: github.com
-  Maintainer: @Hirse
-  Updated: 2021-05-15
-
-  Outdated base version: https://github.com/primer/github-syntax-light
-  Current colors taken from GitHub's CSS
-*/
+// Theme: GitHub Light
 .hljs {
   color: #24292e;
   background: #fff;
@@ -189,15 +180,7 @@ pre code.hljs {
   background-color: #ffeef0;
 }
 
-/*!
-  Theme: GitHub Dark Dimmed
-  Description: Dark dimmed theme as seen on github.com
-  Author: github.com
-  Maintainer: @Hirse
-  Updated: 2021-05-15
-
-  Colors taken from GitHub's CSS
-*/
+// Theme: GitHub Dark Dimmed
 html.dark .hljs {
   color: #adbac7;
   background: #22272e;
