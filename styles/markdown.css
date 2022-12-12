@@ -1,3 +1,93 @@
+/*
+  styles for remark-gfm plugin
+*/
+
+ul.contains-task-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul.contains-task-list li ul {
+  padding-left: 1rem;
+}
+
+/*
+  styles for rehype-autolink-headings plugin
+*/
+
+h1,
+h2,
+h3 {
+  display: flex;
+  align-items: center;
+}
+
+:is(h1, h2, h3) a > svg {
+  opacity: 0.2;
+}
+
+html.dark :is(h1, h2, h3) a > svg {
+  opacity: 0.4;
+}
+
+:is(h1, h2, h3):hover a > svg,
+html.dark :is(h1, h2, h3):hover a > svg {
+  opacity: 1;
+}
+
+h1 a > svg {
+  margin-left: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+h2 a > svg {
+  margin-left: 0.4rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+h3 a > svg {
+  margin-left: 0.3rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+/*
+  styles for rehype-code-titles plugin
+*/
+
+.rehype-code-title {
+  background-color: #f1f5f9;
+  color: #475569;
+  width: 100%;
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  padding: 0.1rem 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+html.dark .rehype-code-title {
+  background-color: #475569;
+  color: #adbac7;
+}
+
+.rehype-code-title + pre {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: 1px !important;
+}
+
+.rehype-code-title + pre > code {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 /* 
   styles for rehype-highlight plugin
 */
@@ -11,16 +101,7 @@ pre code.hljs {
   padding: 0.75rem;
 }
 
-/*!
-  Theme: GitHub
-  Description: Light theme as seen on github.com
-  Author: github.com
-  Maintainer: @Hirse
-  Updated: 2021-05-15
-
-  Outdated base version: https://github.com/primer/github-syntax-light
-  Current colors taken from GitHub's CSS
-*/
+// Theme: GitHub Light
 .hljs {
   color: #24292e;
   background: #fff;
@@ -99,15 +180,7 @@ pre code.hljs {
   background-color: #ffeef0;
 }
 
-/*!
-  Theme: GitHub Dark Dimmed
-  Description: Dark dimmed theme as seen on github.com
-  Author: github.com
-  Maintainer: @Hirse
-  Updated: 2021-05-15
-
-  Colors taken from GitHub's CSS
-*/
+// Theme: GitHub Dark Dimmed
 html.dark .hljs {
   color: #adbac7;
   background: #22272e;
