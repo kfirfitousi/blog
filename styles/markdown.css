@@ -101,7 +101,7 @@ pre code.hljs {
   padding: 0.75rem;
 }
 
-// Theme: GitHub Light
+/* Theme: GitHub Light */
 .hljs {
   color: #24292e;
   background: #fff;
@@ -180,7 +180,7 @@ pre code.hljs {
   background-color: #ffeef0;
 }
 
-// Theme: GitHub Dark Dimmed
+/* Theme: GitHub Dark Dimmed */
 html.dark .hljs {
   color: #adbac7;
   background: #22272e;
