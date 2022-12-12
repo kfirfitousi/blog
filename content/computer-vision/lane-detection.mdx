@@ -129,7 +129,7 @@ The Hough Transform uses the **polar coordinate system** to represent lines. In 
 
 ![Polar coordinate system {{ w: 700, h: 393, cap: "The polar coordinate system. Note that in images, the origin (0,0) sits at the top left, and not the bottom left as you might expect." }}](/images/computer-vision/lane-detection/polar-coordinates.webp)
 
-Left lane marking are either vertical or slanted to the right, so in this representation, their **θ** will be between 0 and 7π/18 radians (70 degrees). Right lane markings are either vertical or slanted to the left, so their **θ** will be between 11π/18 radians (110 degrees) and π radians (180 degrees).  
+Left lane markings are either vertical or slanted to the right, so in this representation, their **θ** will be between 0 and 7π/18 radians (70 degrees). Right lane markings are either vertical or slanted to the left, so their **θ** will be between 11π/18 radians (110 degrees) and π radians (180 degrees).  
 The lines with **θ** between 7π/18 and 11π/18 radians are horizontal lines, which are not lane markings and can be ignored.  
 We can use this information and the `HoughLines` function to find the left and right lines in the frame:
 
@@ -167,7 +167,7 @@ If no lines are detected, we can use the previous frame’s lines. Since we know
 
 ```python
 if left_lines is None and len(prev_left_lines) > 0:
-            left_lines = np.array([[prev_left_lines[-1][0]]])
+    left_lines = np.array([[prev_left_lines[-1][0]]])
 # do the same for the right lines
 ```
 
@@ -361,11 +361,10 @@ if lane_change_right or lane_change_left:
 ## Video Result
 
 <iframe
-  width="700"
-  height="393"
   src="https://www.youtube.com/embed/VzFcshSwI1E"
   title="YouTube video player"
-  className="mx-auto rounded"
+  className="w-full rounded"
+  style={{ aspectRatio: "16/9" }}
 />
 
 <br />
