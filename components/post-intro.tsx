@@ -1,7 +1,7 @@
 "use client";
 
 import { useThemeStore } from "@/stores/theme-store";
-import { formatDate, relativeDate } from "@/lib/dates";
+import { formatDate, relativeTime } from "@/lib/dates";
 import { PostTags } from "@/components/post-tags";
 import clsx from "clsx";
 
@@ -42,7 +42,7 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
         )}
       >
         Published {formatDate(date)}
-        <span className="text-slate-500"> • {relativeDate(date)}</span>
+        <span className="text-slate-500"> • {relativeTime(date)}</span>
       </p>
       <PostTags
         tags={tags}

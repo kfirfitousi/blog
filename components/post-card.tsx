@@ -2,7 +2,7 @@
 
 import { type BlogMdxNode } from "@/lib/mdx-sources";
 import { useThemeStore } from "@/stores/theme-store";
-import { formatDate, relativeDate, isFresh } from "@/lib/dates";
+import { formatDate, relativeTime, isFresh } from "@/lib/dates";
 import { PostTags } from "@/components/post-tags";
 import { Calendar } from "lucide-react";
 import Link from "next/link";
@@ -47,7 +47,7 @@ export function PostCard({ post }: PostCardProps) {
             <span className="text-sm">
               Published {formatDate(post.frontmatter.date)}{" "}
               <span className="hidden text-slate-500 dark:text-slate-300 xs:inline">
-                • {relativeDate(post.frontmatter.date)}
+                • {relativeTime(post.frontmatter.date)}
               </span>
             </span>
           </p>

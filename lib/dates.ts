@@ -10,7 +10,7 @@ export function formatDate(date: string) {
   });
 }
 
-export function relativeDate(date: string) {
+export function relativeTime(date: string) {
   const timeDiff = new Date(date).getTime() - new Date().getTime();
 
   const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24)) + 1;
