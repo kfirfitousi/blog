@@ -1,26 +1,22 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+import { useSelectedLayoutSegments } from "next/navigation";
 import { useThemeStore } from "@/stores/theme-store";
+import { useSearchStore } from "@/stores/search-store";
 import shallow from "zustand/shallow";
 import clsx from "clsx";
 
 import Link from "next/link";
 import { BlogTitle } from "./blog-title";
-import {
-  ArrowLeft,
-  PlusSquare,
-  MinusSquare,
-  Type,
-  Sun,
-  Moon,
-} from "lucide-react";
+import { PlusSquare, MinusSquare, Type, Sun, Moon, Search } from "lucide-react";
 
 export function Header() {
-  const isPostPage = usePathname() !== "/";
-  const headerRef = useRef<HTMLDivElement>(null);
+  const layoutSegment = useSelectedLayoutSegments();
+  const isPostPage = layoutSegment[0] === "posts" && layoutSegment[1];
   const [scrollTop, setScrollTop] = useState(0);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const toggleSearch = useSearchStore((state) => state.toggleSearch);
 
   const {
     isDark,
@@ -67,30 +63,39 @@ export function Header() {
       ref={headerRef}
       className={clsx(
         headerRef.current && scrollTop > headerRef.current.clientHeight
-          ? "border-b border-b-slate-300 py-2 dark:border-b-slate-500"
+          ? "border-b border-b-slate-400 py-2 dark:border-b-slate-500"
           : "py-8",
-        "flex flex-row items-center justify-between px-8",
+        "flex flex-row items-center justify-between px-4 sm:px-8",
         "transition-[padding,background-color] duration-300 ease-in-out",
         "bg-transparent text-slate-700 backdrop-blur dark:text-rose-50"
       )}
     >
-      {isPostPage && (
-        <>
-          <Link
-            href="/"
-            className="flex h-full w-28 flex-row items-center space-x-1 hover:text-rose-600 dark:hover:text-rose-400"
-          >
-            <ArrowLeft className="w-6 sm:h-6" aria-label="Back" />
-            <label className="cursor-pointer text-sm">Back</label>
-          </Link>
+      <nav className="flex flex-grow flex-row items-center space-x-4 xs:ml-[136px] xs:justify-center">
+        <Link
+          href="/posts"
+          className="order-2 font-semibold hover:text-rose-600 dark:hover:text-rose-400 xs:order-1"
+        >
+          Posts
+        </Link>
+        <Link href="/" className="order-1 max-xs:!ml-0 max-xs:!mr-2 xs:order-2">
+          <BlogTitle small title="Kfir's Blog" />
+        </Link>
+        <Link
+          href="#"
+          className="order-3 font-semibold hover:text-rose-600 dark:hover:text-rose-400"
+        >
+          About
+        </Link>
+      </nav>
 
-          <Link href="/" className="hidden flex-grow xs:block">
-            <BlogTitle small title="Kfir's Blog" />
-          </Link>
-        </>
-      )}
+      <div className="ml-auto flex w-fit flex-row items-center justify-end space-x-1">
+        <button
+          onClick={toggleSearch}
+          className="hover:text-rose-600 dark:hover:text-rose-400"
+        >
+          <Search className="h-6 w-6" aria-label="Search Posts" />
+        </button>
 
-      <div className="ml-auto flex w-28 flex-row items-center justify-end space-x-1">
         {isPostPage && (
           <>
             <button
@@ -99,7 +104,7 @@ export function Header() {
               className="hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400"
             >
               <MinusSquare
-                className="w-6 sm:h-6"
+                className="h-6 w-6"
                 aria-label="Decrease font size"
               />
             </button>
@@ -108,10 +113,7 @@ export function Header() {
               disabled={isFontSizeMax}
               className="hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400"
             >
-              <PlusSquare
-                className="w-6 sm:h-6"
-                aria-label="Increase font size"
-              />
+              <PlusSquare className="h-6 w-6" aria-label="Increase font size" />
             </button>
           </>
         )}
@@ -125,16 +127,16 @@ export function Header() {
             "ml-auto"
           )}
         >
-          <Type className="w-6 sm:h-6" aria-label="Toggle serif font" />
+          <Type className="h-6 w-6" aria-label="Toggle serif font" />
         </button>
         <button
           onClick={toggleDarkAndApply}
           className="hover:text-rose-600 dark:hover:text-rose-400"
         >
           {isDark ? (
-            <Sun className="w-6 sm:h-6" aria-label="Switch to light mode" />
+            <Sun className="h-6 w-6" aria-label="Switch to light mode" />
           ) : (
-            <Moon className="w-6 sm:h-6" aria-label="Switch to dark mode" />
+            <Moon className="h-6 w-6" aria-label="Switch to dark mode" />
           )}
         </button>
       </div>

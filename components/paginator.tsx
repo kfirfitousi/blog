@@ -1,0 +1,76 @@
+"use client";
+
+import { useState } from "react";
+import { BlogMdxNode } from "@/lib/mdx-sources";
+import { PostCard } from "@/components/post-card";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+
+type PaginatorProps = {
+  posts: BlogMdxNode[];
+  postPerPage: number;
+};
+
+export function Paginator({ posts, postPerPage }: PaginatorProps) {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  if (!posts) return null;
+
+  const controls = (withScroll = false) => (
+    <div className="flex flex-row items-center justify-between space-x-16">
+      <button
+        onClick={() => {
+          setCurrentPage(currentPage - 1);
+          if (withScroll) {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+          }
+        }}
+        disabled={currentPage === 1}
+        className="flex flex-row text-slate-600 enabled:hover:text-rose-600 disabled:text-slate-400 dark:text-slate-300 dark:enabled:hover:text-rose-400 dark:disabled:text-slate-500"
+      >
+        <ArrowLeft />
+        Previous
+      </button>
+      <div className="flex flex-row space-x-2 text-3xl">
+        {Array.from("•".repeat(currentPage)).map((_, i) => (
+          <span key={i} className="text-slate-800 dark:text-slate-300">
+            •
+          </span>
+        ))}
+        {Array.from(
+          "•".repeat(Math.ceil(posts.length / postPerPage) - currentPage)
+        ).map((_, i) => (
+          <span key={i} className="text-slate-400 dark:text-slate-500">
+            •
+          </span>
+        ))}
+      </div>
+      <button
+        onClick={() => {
+          setCurrentPage(currentPage + 1);
+          if (withScroll) {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+          }
+        }}
+        disabled={currentPage === Math.ceil(posts.length / postPerPage)}
+        className="flex flex-row text-slate-600 enabled:hover:text-rose-600 disabled:text-slate-400 dark:text-slate-300 dark:enabled:hover:text-rose-400 dark:disabled:text-slate-500"
+      >
+        Next
+        <ArrowRight />
+      </button>
+    </div>
+  );
+
+  return (
+    <section className="flex w-full flex-col space-y-4">
+      {controls()}
+      {posts
+        .slice((currentPage - 1) * postPerPage, currentPage * postPerPage)
+        .map((post) => (
+          <PostCard key={post?.slug} post={post} />
+        ))}
+      {controls(true)}
+    </section>
+  );
+}

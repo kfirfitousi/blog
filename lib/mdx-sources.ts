@@ -3,7 +3,7 @@ import z from "zod";
 
 export const BlogSource = createMdxSource({
   contentPath: "content",
-  basePath: "/",
+  basePath: "/posts",
   sortBy: "date",
   sortOrder: "desc",
   frontmatter: z.object({

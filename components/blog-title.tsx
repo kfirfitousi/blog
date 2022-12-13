@@ -22,7 +22,7 @@ export function BlogTitle({ title, small }: BlogTitleProps) {
       <Waves
         className={clsx(
           small ? "h-4 w-4" : "h-8 w-8",
-          "text-rose-700 text-opacity-40 dark:text-rose-50"
+          "text-rose-700 text-opacity-40 dark:text-rose-400"
         )}
         aria-hidden="true"
       />
@@ -32,7 +32,7 @@ export function BlogTitle({ title, small }: BlogTitleProps) {
           small
             ? "mx-0.5 text-lg font-semibold"
             : "mx-2 pb-1.5 text-5xl font-bold sm:text-6xl",
-          "whitespace-nowrap text-center text-slate-800 drop-shadow-sm dark:text-rose-50"
+          "whitespace-nowrap text-center text-slate-800 drop-shadow-sm hover:text-rose-600 dark:text-rose-50 dark:hover:text-rose-400"
         )}
       >
         {title}
@@ -40,7 +40,7 @@ export function BlogTitle({ title, small }: BlogTitleProps) {
       <Waves
         className={clsx(
           small ? "h-4 w-4" : "h-8 w-8",
-          "text-rose-700 text-opacity-40 dark:text-rose-50"
+          "text-rose-700 text-opacity-40 dark:text-rose-400"
         )}
         aria-hidden="true"
       />

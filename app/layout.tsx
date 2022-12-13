@@ -3,6 +3,8 @@ import "@/styles/globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Analytics } from "@/components/analytics";
+import { Search } from "@/components/search";
+import { BlogSource } from "@/lib/mdx-sources";
 import { Red_Hat_Display, Newsreader } from "@next/font/google";
 import clsx from "clsx";
 
@@ -20,7 +22,9 @@ interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default async function RootLayout({ children }: RootLayoutProps) {
+  const posts = await BlogSource.getAllMdxNodes();
+
   return (
     <html
       lang="en"
@@ -65,6 +69,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <div className="invisible h-full w-full bg-opacity-5 bg-gradient-to-l from-rose-50 to-transparent dark:visible" />
         </div>
 
+        <Search posts={posts}/>
         <Analytics />
       </body>
     </html>

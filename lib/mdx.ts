@@ -58,9 +58,7 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
     });
   }
 
-  async function getFileData(
-    file: MdxFile
-  ): Promise<MdxFileData<z.infer<TFrontmatter>>> {
+  async function getFileData(file: MdxFile) {
     const raw = await fs.readFile(file.filepath, "utf-8");
     const hash = hasha(raw.toString());
 
@@ -82,7 +80,7 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
       hash,
       frontmatter,
       serialized,
-    };
+    } as MdxFileData<z.infer<TFrontmatter>>;
 
     mdxCache.set(hash, fileData);
 
