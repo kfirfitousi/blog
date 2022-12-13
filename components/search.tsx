@@ -30,14 +30,14 @@ export function Search({ posts }: SearchProps) {
   if (!isSearching) return null;
 
   return (
-    <section className="fixed left-1/2 top-1/2 z-50 flex h-fit max-h-[600px] w-4/5 max-w-3xl -translate-x-1/2 -translate-y-1/2 flex-col rounded-md border border-slate-600 bg-slate-200 bg-opacity-70 p-4 backdrop-blur dark:border-slate-500 dark:bg-slate-800 dark:bg-opacity-70">
+    <section className="fixed left-1/2 top-1/2 z-50 flex h-fit max-h-[600px] w-4/5 max-w-3xl -translate-x-1/2 -translate-y-1/2 flex-col rounded-md border-2 border-slate-400 bg-slate-200 bg-opacity-70 p-4 backdrop-blur-md dark:border-slate-500 dark:bg-slate-600 dark:bg-opacity-70">
       <div className="mb-2 flex h-fit flex-row items-center">
         <input
           ref={inputRef}
           type="text"
           className={clsx(
             sortedPosts.length > 0 ? "text-2xl" : "text-4xl",
-            "w-full rounded border border-slate-400 bg-slate-100 px-2 text-slate-700 dark:border-slate-600 dark:bg-slate-700 dark:text-rose-50"
+            "w-full rounded border border-slate-400 bg-slate-100 px-2 text-slate-700 dark:border-slate-500 dark:bg-slate-700 dark:text-rose-50"
           )}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
@@ -71,7 +71,7 @@ export function Search({ posts }: SearchProps) {
             <Link
               key={post.slug}
               href={`/posts/${post.slug}`}
-              className="flex h-fit flex-col rounded py-2 px-8 transition-none even:bg-slate-300 even:bg-opacity-60 hover:bg-slate-500 hover:bg-opacity-60 dark:even:bg-slate-600 dark:even:bg-opacity-60 dark:hover:bg-slate-400 dark:hover:bg-opacity-60"
+              className="flex h-fit flex-col rounded py-2 px-8 transition-none even:bg-slate-400 even:bg-opacity-40 hover:bg-slate-500 hover:bg-opacity-50 dark:even:bg-slate-700 dark:even:bg-opacity-60 dark:hover:bg-slate-400 dark:hover:bg-opacity-40"
               onClick={toggleSearch}
             >
               <span className="text-xl font-semibold text-slate-800 dark:text-rose-100">
