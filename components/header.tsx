@@ -73,7 +73,8 @@ export function Header() {
       <nav
         className={clsx(
           isSerif && "font-serif",
-          "flex flex-grow flex-row items-center space-x-4 xs:ml-[136px] xs:justify-center"
+          isPostPage ? "xs:ml-[136px]" : "xs:ml-[80px]",
+          "flex flex-grow flex-row items-center space-x-4  xs:justify-center"
         )}
       >
         <Link

@@ -20,8 +20,10 @@ export function Paginator({ posts, postPerPage }: PaginatorProps) {
 
   const controls = (withScroll = false) => (
     <div
-      className={clsx(isSerif && "font-serif",
-        "flex flex-row items-center justify-between space-x-16")}
+      className={clsx(
+        isSerif && "font-serif",
+        "flex flex-row items-center justify-between"
+      )}
     >
       <button
         onClick={() => {
@@ -32,12 +34,12 @@ export function Paginator({ posts, postPerPage }: PaginatorProps) {
           }
         }}
         disabled={currentPage === 1}
-        className="flex flex-row text-slate-600 enabled:hover:text-rose-600 disabled:text-slate-400 dark:text-slate-300 dark:enabled:hover:text-rose-400 dark:disabled:text-slate-500"
+        className="flex flex-row space-x-1 text-slate-600 enabled:hover:text-rose-600 disabled:text-slate-400 dark:text-slate-300 dark:enabled:hover:text-rose-400 dark:disabled:text-slate-500"
       >
         <ArrowLeft />
-        Previous
+        <span>Previous</span>
       </button>
-      <div className="flex flex-row space-x-2 text-3xl">
+      <div className="flex -translate-x-1/2 scale-150 flex-row space-x-2">
         {Array.from("•".repeat(currentPage)).map((_, i) => (
           <span key={i} className="text-slate-800 dark:text-slate-300">
             •
@@ -60,9 +62,9 @@ export function Paginator({ posts, postPerPage }: PaginatorProps) {
           }
         }}
         disabled={currentPage === Math.ceil(posts.length / postPerPage)}
-        className="flex flex-row text-slate-600 enabled:hover:text-rose-600 disabled:text-slate-400 dark:text-slate-300 dark:enabled:hover:text-rose-400 dark:disabled:text-slate-500"
+        className="flex flex-row space-x-1 text-slate-600 enabled:hover:text-rose-600 disabled:text-slate-400 dark:text-slate-300 dark:enabled:hover:text-rose-400 dark:disabled:text-slate-500"
       >
-        Next
+        <span>Next</span>
         <ArrowRight />
       </button>
     </div>
