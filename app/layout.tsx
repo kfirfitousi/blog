@@ -69,7 +69,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           <div className="invisible h-full w-full bg-opacity-5 bg-gradient-to-l from-rose-50 to-transparent dark:visible" />
         </div>
 
-        <Search posts={posts}/>
+        <Search posts={posts} />
         <Analytics />
       </body>
     </html>

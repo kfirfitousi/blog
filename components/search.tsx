@@ -5,9 +5,9 @@ import { useSearchStore } from "@/stores/search-store";
 import { type BlogMdxNode } from "@/lib/mdx-sources";
 import { getTagsWithCount, searchPosts } from "@/lib/search";
 import { parseDate } from "@/lib/datetime";
+import { ChevronUp, X } from "lucide-react";
 import Link from "next/link";
 import clsx from "clsx";
-import { ChevronUp, X } from "lucide-react";
 
 type SearchProps = {
   posts: BlogMdxNode[];
@@ -37,7 +37,7 @@ export function Search({ posts }: SearchProps) {
           type="text"
           className={clsx(
             sortedPosts.length > 0 ? "text-2xl" : "text-4xl",
-            "w-full rounded border border-slate-400 bg-slate-100 px-2 text-slate-700 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300"
+            "w-full rounded border border-slate-400 bg-slate-100 px-2 text-slate-700 dark:border-slate-600 dark:bg-slate-700 dark:text-rose-50"
           )}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
@@ -47,10 +47,10 @@ export function Search({ posts }: SearchProps) {
             onClick={() => setQuery("")}
             className={clsx(
               sortedPosts.length > 0 ? "top-5" : "top-6",
-              "absolute right-14 text-slate-500 dark:text-slate-400"
+              "absolute right-14"
             )}
           >
-            <X className="h-6 w-6" />
+            <X className="h-6 w-6 text-slate-500 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400" />
           </button>
         )}
         <button onClick={toggleSearch}>
@@ -74,10 +74,10 @@ export function Search({ posts }: SearchProps) {
               className="flex h-fit flex-col rounded py-2 px-8 transition-none even:bg-slate-300 even:bg-opacity-60 hover:bg-slate-500 hover:bg-opacity-60 dark:even:bg-slate-600 dark:even:bg-opacity-60 dark:hover:bg-slate-400 dark:hover:bg-opacity-60"
               onClick={toggleSearch}
             >
-              <span className="text-xl font-semibold text-slate-800 dark:text-slate-200">
+              <span className="text-xl font-semibold text-slate-800 dark:text-rose-100">
                 {highlightSearchQuery(query, post.frontmatter.title)}
               </span>
-              <span className="text-base text-slate-600 dark:text-slate-300">
+              <span className="text-base text-slate-600 dark:text-rose-50">
                 {highlightSearchQuery(query, post.frontmatter.excerpt)}
               </span>
               <span className="text-sm text-slate-500 dark:text-slate-400">
@@ -88,7 +88,9 @@ export function Search({ posts }: SearchProps) {
         })}
       </ul>
 
-      {sortedPosts.length > 0 && <hr className="mt-2 border-slate-600" />}
+      {sortedPosts.length > 0 && (
+        <hr className="my-2 border-slate-400 dark:border-slate-600" />
+      )}
 
       <div
         className={clsx(
@@ -98,7 +100,7 @@ export function Search({ posts }: SearchProps) {
       >
         {sortedTags.map(([tag, count]) => (
           <button key={tag} onClick={() => setQuery(tag)}>
-            <span className="text-rose-600 hover:text-rose-400 dark:text-rose-400 dark:hover:text-rose-600">
+            <span className="text-rose-600 hover:text-rose-900 dark:text-rose-400 dark:hover:text-rose-100">
               #{tag}
             </span>
             <span className="text-slate-500 dark:text-slate-400">

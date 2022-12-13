@@ -70,7 +70,12 @@ export function Header() {
         "bg-transparent text-slate-700 backdrop-blur dark:text-rose-50"
       )}
     >
-      <nav className="flex flex-grow flex-row items-center space-x-4 xs:ml-[136px] xs:justify-center">
+      <nav
+        className={clsx(
+          isSerif && "font-serif",
+          "flex flex-grow flex-row items-center space-x-4 xs:ml-[136px] xs:justify-center"
+        )}
+      >
         <Link
           href="/posts"
           className="order-2 font-semibold hover:text-rose-600 dark:hover:text-rose-400 xs:order-1"

@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { BlogMdxNode } from "@/lib/mdx-sources";
+import { useThemeStore } from "@/stores/theme-store";
 import { PostCard } from "@/components/post-card";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import clsx from "clsx";
 
 type PaginatorProps = {
   posts: BlogMdxNode[];
@@ -12,11 +14,15 @@ type PaginatorProps = {
 
 export function Paginator({ posts, postPerPage }: PaginatorProps) {
   const [currentPage, setCurrentPage] = useState(1);
+  const isSerif = useThemeStore((state) => state.isSerif);
 
   if (!posts) return null;
 
   const controls = (withScroll = false) => (
-    <div className="flex flex-row items-center justify-between space-x-16">
+    <div
+      className={clsx(isSerif && "font-serif",
+        "flex flex-row items-center justify-between space-x-16")}
+    >
       <button
         onClick={() => {
           setCurrentPage(currentPage - 1);
