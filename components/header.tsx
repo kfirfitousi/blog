@@ -65,7 +65,7 @@ export function Header() {
         headerRef.current && scrollTop > headerRef.current.clientHeight
           ? "border-b border-b-slate-400 py-2 dark:border-b-slate-500"
           : "py-8",
-        "flex flex-row items-center justify-between px-4 sm:px-8",
+        "flex flex-row items-center justify-between px-2 xs:px-8",
         "transition-[padding,background-color] duration-300 ease-in-out",
         "bg-transparent text-slate-700 backdrop-blur dark:text-rose-50"
       )}
@@ -73,17 +73,17 @@ export function Header() {
       <nav
         className={clsx(
           isSerif && "font-serif",
-          isPostPage ? "xs:ml-[136px]" : "xs:ml-[80px]",
-          "flex flex-grow flex-row items-center space-x-4  xs:justify-center"
+          isPostPage ? "sm:ml-[136px]" : "sm:ml-[80px]",
+          "flex flex-grow flex-row items-center justify-evenly space-x-4 max-xs:mr-2 max-xs:text-sm xs:justify-start sm:justify-center"
         )}
       >
         <Link
           href="/posts"
-          className="order-2 font-semibold hover:text-rose-600 dark:hover:text-rose-400 xs:order-1"
+          className="order-2 font-semibold hover:text-rose-600 dark:hover:text-rose-400 sm:order-1"
         >
           Posts
         </Link>
-        <Link href="/" className="order-1 max-xs:!ml-0 max-xs:!mr-2 xs:order-2">
+        <Link href="/" className="order-1 max-sm:!ml-0 max-sm:!mr-2 sm:order-2">
           <BlogTitle small title="Kfir's Blog" />
         </Link>
         <Link
@@ -99,7 +99,10 @@ export function Header() {
           onClick={toggleSearch}
           className="hover:text-rose-600 dark:hover:text-rose-400"
         >
-          <Search className="h-6 w-6" aria-label="Search Posts" />
+          <Search
+            className="h-5 w-5 xs:h-6 xs:w-6 "
+            aria-label="Search Posts"
+          />
         </button>
 
         {isPostPage && (
@@ -110,7 +113,7 @@ export function Header() {
               className="hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400"
             >
               <MinusSquare
-                className="h-6 w-6"
+                className="h-5 w-5 xs:h-6 xs:w-6 "
                 aria-label="Decrease font size"
               />
             </button>
@@ -119,7 +122,10 @@ export function Header() {
               disabled={isFontSizeMax}
               className="hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400"
             >
-              <PlusSquare className="h-6 w-6" aria-label="Increase font size" />
+              <PlusSquare
+                className="h-5 w-5 xs:h-6 xs:w-6 "
+                aria-label="Increase font size"
+              />
             </button>
           </>
         )}
@@ -133,16 +139,25 @@ export function Header() {
             "ml-auto"
           )}
         >
-          <Type className="h-6 w-6" aria-label="Toggle serif font" />
+          <Type
+            className="h-5 w-5 xs:h-6 xs:w-6 "
+            aria-label="Toggle serif font"
+          />
         </button>
         <button
           onClick={toggleDarkAndApply}
           className="hover:text-rose-600 dark:hover:text-rose-400"
         >
           {isDark ? (
-            <Sun className="h-6 w-6" aria-label="Switch to light mode" />
+            <Sun
+              className="h-5 w-5 xs:h-6 xs:w-6 "
+              aria-label="Switch to light mode"
+            />
           ) : (
-            <Moon className="h-6 w-6" aria-label="Switch to dark mode" />
+            <Moon
+              className="h-5 w-5 xs:h-6 xs:w-6 "
+              aria-label="Switch to dark mode"
+            />
           )}
         </button>
       </div>

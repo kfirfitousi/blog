@@ -30,13 +30,13 @@ export function Search({ posts }: SearchProps) {
   if (!isSearching) return null;
 
   return (
-    <section className="fixed left-1/2 top-1/2 z-50 flex h-fit max-h-[600px] w-4/5 max-w-3xl -translate-x-1/2 -translate-y-1/2 flex-col rounded-md border-2 border-slate-400 bg-slate-200 bg-opacity-70 p-4 backdrop-blur-md dark:border-slate-500 dark:bg-slate-600 dark:bg-opacity-70">
+    <section className="fixed left-1/2 top-1/2 z-50 flex h-fit max-h-[80vh] w-5/6 max-w-3xl -translate-x-1/2 -translate-y-1/2 flex-col rounded-md border-2 border-slate-400 bg-slate-200 bg-opacity-70 p-4 backdrop-blur-md dark:border-slate-500 dark:bg-slate-600 dark:bg-opacity-70">
       <div className="mb-2 flex h-fit flex-row items-center">
         <input
           ref={inputRef}
           type="text"
           className={clsx(
-            sortedPosts.length > 0 ? "text-2xl" : "text-4xl",
+            sortedPosts.length > 0 ? "sm:text-2xl" : "sm:text-4xl",
             "w-full rounded border border-slate-400 bg-slate-100 px-2 text-slate-700 dark:border-slate-500 dark:bg-slate-700 dark:text-rose-50"
           )}
           value={query}
@@ -46,8 +46,8 @@ export function Search({ posts }: SearchProps) {
           <button
             onClick={() => setQuery("")}
             className={clsx(
-              sortedPosts.length > 0 ? "top-5" : "top-6",
-              "absolute right-14"
+              sortedPosts.length > 0 ? "sm:top-5" : "sm:top-6",
+              "absolute top-4 right-14"
             )}
           >
             <X className="h-6 w-6 text-slate-500 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400" />
@@ -61,7 +61,7 @@ export function Search({ posts }: SearchProps) {
         </button>
       </div>
 
-      <ul className="flex flex-col overflow-scroll pb-2 pr-4">
+      <ul className="flex flex-col overflow-scroll">
         {sortedPosts.map((post) => {
           const { formattedDate, relativeTime } = parseDate(
             post.frontmatter.date
@@ -71,13 +71,13 @@ export function Search({ posts }: SearchProps) {
             <Link
               key={post.slug}
               href={`/posts/${post.slug}`}
-              className="flex h-fit flex-col rounded py-2 px-8 transition-none even:bg-slate-400 even:bg-opacity-40 hover:bg-slate-500 hover:bg-opacity-50 dark:even:bg-slate-700 dark:even:bg-opacity-60 dark:hover:bg-slate-400 dark:hover:bg-opacity-40"
+              className="flex h-fit flex-col rounded p-2 transition-none even:bg-slate-400 even:bg-opacity-40 hover:bg-slate-500 hover:bg-opacity-50 dark:even:bg-slate-700 dark:even:bg-opacity-60 dark:hover:bg-slate-400 dark:hover:bg-opacity-40 sm:px-8"
               onClick={toggleSearch}
             >
-              <span className="text-xl font-semibold text-slate-800 dark:text-rose-100">
+              <span className="font-semibold text-slate-800 dark:text-rose-100 sm:text-xl">
                 {highlightSearchQuery(query, post.frontmatter.title)}
               </span>
-              <span className="text-base text-slate-600 dark:text-rose-50">
+              <span className="text-sm text-slate-600 dark:text-rose-50 sm:text-base">
                 {highlightSearchQuery(query, post.frontmatter.excerpt)}
               </span>
               <span className="text-sm text-slate-500 dark:text-slate-400">
@@ -89,13 +89,15 @@ export function Search({ posts }: SearchProps) {
       </ul>
 
       {sortedPosts.length > 0 && (
-        <hr className="my-2 border-slate-400 dark:border-slate-600" />
+        <hr className="my-2 hidden border-slate-400  dark:border-slate-600 sm:block" />
       )}
 
       <div
         className={clsx(
-          sortedPosts.length > 0 ? "sm:text-base" : "sm:text-lg",
-          "flex h-fit flex-row flex-wrap items-center justify-center space-x-4 text-sm"
+          sortedPosts.length > 0
+            ? "hidden sm:block sm:text-base"
+            : "sm:text-lg",
+          "flex h-fit flex-row flex-wrap items-center justify-center space-x-4 space-y-1 text-sm"
         )}
       >
         {sortedTags.map(([tag, count]) => (
