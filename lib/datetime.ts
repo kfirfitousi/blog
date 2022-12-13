@@ -4,7 +4,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
   year: "numeric",
 });
 
-const relativeTimeFormat = new Intl.RelativeTimeFormat("he-IL", {
+const relativeTimeFormat = new Intl.RelativeTimeFormat("en-US", {
   numeric: "auto",
 });
 
