@@ -2,7 +2,7 @@
 
 import { type BlogMdxNode } from "@/lib/mdx-sources";
 import { useThemeStore } from "@/stores/theme-store";
-import { formatDate, relativeTime, isFresh } from "@/lib/dates";
+import { parseDate } from "@/lib/datetime";
 import { PostTags } from "@/components/post-tags";
 import { Calendar } from "lucide-react";
 import Link from "next/link";
@@ -17,7 +17,9 @@ export function PostCard({ post }: PostCardProps) {
 
   if (!post) return null;
 
-  const freshPost = isFresh(post.frontmatter.date);
+  const { formattedDate, relativeTime, isFresh } = parseDate(
+    post.frontmatter.date
+  );
 
   return (
     <Link href={post.url} className="group relative h-full w-full">
@@ -30,7 +32,7 @@ export function PostCard({ post }: PostCardProps) {
         <div className="flex flex-col space-y-2">
           <h2 className="text-2xl font-bold leading-normal text-slate-800 dark:text-rose-50 sm:text-3xl">
             {post.frontmatter.title}
-            {freshPost && (
+            {isFresh && (
               <sup className="text-base text-rose-600 text-opacity-40 dark:text-rose-200">
                 {" "}
                 New
@@ -45,9 +47,9 @@ export function PostCard({ post }: PostCardProps) {
           <p className="inline-flex items-center space-x-1 text-slate-600 dark:text-slate-200">
             <Calendar className="h-4 w-4 self-baseline" />
             <span className="text-sm">
-              Published {formatDate(post.frontmatter.date)}{" "}
+              Published {formattedDate}{" "}
               <span className="hidden text-slate-500 dark:text-slate-300 xs:inline">
-                • {relativeTime(post.frontmatter.date)}
+                • {relativeTime}
               </span>
             </span>
           </p>

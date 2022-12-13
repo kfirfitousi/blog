@@ -1,7 +1,7 @@
 "use client";
 
 import { useThemeStore } from "@/stores/theme-store";
-import { formatDate, relativeTime } from "@/lib/dates";
+import { parseDate } from "@/lib/datetime";
 import { PostTags } from "@/components/post-tags";
 import clsx from "clsx";
 
@@ -14,6 +14,8 @@ interface PostIntroProps {
 export function PostIntro({ title, date, tags }: PostIntroProps) {
   const fontSize = useThemeStore((state) => state.fontSize);
   const isSerif = useThemeStore((state) => state.isSerif);
+
+  const { formattedDate, relativeTime } = parseDate(date);
 
   return (
     <section className="flex flex-col space-y-4 p-3">
@@ -41,8 +43,8 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
           "text-slate-600 dark:text-slate-200"
         )}
       >
-        Published {formatDate(date)}
-        <span className="text-slate-500"> • {relativeTime(date)}</span>
+        Published {formattedDate}
+        <span className="text-slate-500"> • {relativeTime}</span>
       </p>
       <PostTags
         tags={tags}
