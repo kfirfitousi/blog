@@ -2,6 +2,7 @@ import { BlogSource } from '@/lib/mdx-sources';
 import { PostCard } from '@/components/post-card';
 import { FileText } from 'lucide-react';
 import Link from 'next/link';
+import { HeroSection } from '@/components/hero-section';
 
 export default async function Home() {
   const posts = await BlogSource.getAllMdxNodes();
@@ -9,9 +10,7 @@ export default async function Home() {
 
   return (
     <div className="flex h-full flex-col space-y-4 px-6 pb-12 sm:px-12">
-      <section className="h-40 w-full rounded-md border bg-slate-300 pb-8">
-        {/* TODO: Hero section */}
-      </section>
+      <HeroSection />
       <section className="flex w-full flex-col space-y-4">
         {latestPosts.map((post) => (
           <PostCard key={post.slug} post={post} />
