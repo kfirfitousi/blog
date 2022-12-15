@@ -1,43 +1,33 @@
-import "@/styles/markdown.css";
+import '@/styles/markdown.css';
 
-import { notFound } from "next/navigation";
-import { BlogSource } from "@/lib/mdx-sources";
-import { MdxContent } from "@/components/mdx-content";
-import { PostIntro } from "@/components/post-intro";
-import { Comments } from "@/components/comments";
+import { MdxContent } from '@/components/mdx-content';
+import { PagesSource } from '@/lib/mdx-sources';
+import { notFound } from 'next/navigation';
 
-interface PostPageProps {
+interface PageProps {
   params: {
     slug: string[];
   };
 }
 
-export async function generateStaticParams(): Promise<
-  PostPageProps["params"][]
-> {
-  const files = await BlogSource.getAllMdxFiles();
+export async function generateStaticParams(): Promise<PageProps['params'][]> {
+  const files = await PagesSource.getAllMdxFiles();
 
   return files.map((file) => ({
-    slug: file.slug.split("/"),
+    slug: file.slug.split('/'),
   }));
 }
 
-export default async function PostPage({ params }: PostPageProps) {
-  const post = await BlogSource.getMdxNode(params.slug);
+export default async function Page({ params }: PageProps) {
+  const page = await PagesSource.getMdxNode(params.slug);
 
-  if (!post) {
+  if (!page) {
     notFound();
   }
 
   return (
     <article className="h-full px-8">
-      <PostIntro
-        title={post.frontmatter.title}
-        date={post.frontmatter.date}
-        tags={post.frontmatter.tags}
-      />
-      <MdxContent source={post.serialized} />
-      <Comments />
+      <MdxContent source={page.serialized} />
     </article>
   );
 }

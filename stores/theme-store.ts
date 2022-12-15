@@ -1,7 +1,7 @@
-import create from "zustand";
-import { devtools } from "zustand/middleware";
+import create from 'zustand';
+import { devtools } from 'zustand/middleware';
 
-const fontSizes = ["sm", "base", "lg", "xl", "2xl"] as const;
+const fontSizes = ['sm', 'base', 'lg', 'xl', '2xl'] as const;
 
 type FontSize = typeof fontSizes[number];
 
@@ -21,7 +21,7 @@ export const useThemeStore = create<ThemeState>()(
   devtools((set) => ({
     isDark: false,
     isSerif: false,
-    fontSize: "lg",
+    fontSize: 'lg',
     isFontSizeMin: false,
     isFontSizeMax: false,
     toggleDark: () => set((themeState) => ({ isDark: !themeState.isDark })),
@@ -50,5 +50,5 @@ export const useThemeStore = create<ThemeState>()(
           isFontSizeMax: false,
         };
       }),
-  }))
+  })),
 );

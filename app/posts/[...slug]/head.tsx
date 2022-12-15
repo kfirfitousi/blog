@@ -1,30 +1,30 @@
-import { PagesSource } from '@/lib/mdx-sources';
+import { BlogSource } from '@/lib/mdx-sources';
 
-interface PageHead {
+interface PostHeadProps {
   params: {
     slug: string[];
   };
 }
 
-export default async function PostHead({ params }: PageHead) {
-  const page = await PagesSource.getMdxNode(params.slug);
+export default async function PostHead({ params }: PostHeadProps) {
+  const post = await BlogSource.getMdxNode(params.slug);
 
-  const { title, description } = page?.frontmatter ?? {
-    title: 'Page Not Found',
-    description: 'Page not found',
+  const { title, excerpt } = post?.frontmatter ?? {
+    title: 'Post Not Found',
+    excerpt: 'Post not found',
   };
 
   return (
     <>
       <title>{`Kfir's Blog | ${title}`}</title>
-      <meta name="description" content={description} />
+      <meta name="description" content={excerpt} />
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={excerpt} />
       <meta property="og:type" content="article" />
       <meta
         property="og:image"
-        content={`https://blog.kfirfitousi.com/api/og?title=${title}&subtitle=${description}`}
+        content={`https://blog.kfirfitousi.com/api/og?title=${title}&subtitle=${excerpt}`}
       />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@kp2c" />

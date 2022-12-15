@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Check, Copy } from "lucide-react";
+import { useState } from 'react';
+import { Check, Copy } from 'lucide-react';
 
 interface CopyCodeProps {
   codeElement: React.ReactElement;
@@ -44,13 +44,13 @@ export function CopyCode({ codeElement }: CopyCodeProps) {
  */
 const extractText = (element: React.ReactElement | string): string => {
   // If the element is a string, return it
-  if (typeof element === "string") {
+  if (typeof element === 'string') {
     return element;
   }
 
   // If the element is a ReactElement, check if it has children
   // If the children is a single string, return it
-  if (typeof element.props.children === "string") {
+  if (typeof element.props.children === 'string') {
     return element.props.children;
   }
 
@@ -58,13 +58,13 @@ const extractText = (element: React.ReactElement | string): string => {
   if (Array.isArray(element.props.children)) {
     return (element.props.children as (React.ReactElement | string)[])
       .map((child) => extractText(child))
-      .join("");
+      .join('');
   }
 
   // If the children is an object (ReactElement), extract the text from it recursively
-  if (typeof element.props.children === "object") {
+  if (typeof element.props.children === 'object') {
     return extractText(element.props.children);
   }
 
-  return "";
+  return '';
 };

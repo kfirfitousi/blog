@@ -1,12 +1,12 @@
-import { type MDXRemoteSerializeResult } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
-import { rehypePlugins } from "@/lib/mdx-plugins";
-import { promises as fs } from "fs";
-import NodeCache from "node-cache";
-import glob from "fast-glob";
-import hasha from "hasha";
-import path from "path";
-import z from "zod";
+import { type MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
+import { rehypePlugins } from '@/lib/mdx-plugins';
+import { promises as fs } from 'fs';
+import NodeCache from 'node-cache';
+import glob from 'fast-glob';
+import hasha from 'hasha';
+import path from 'path';
+import z from 'zod';
 
 const mdxCache = new NodeCache();
 
@@ -14,7 +14,7 @@ export interface Source<TFrontmatter extends z.ZodType> {
   contentPath: string;
   basePath: string;
   sortBy: keyof z.infer<TFrontmatter>;
-  sortOrder: "asc" | "desc";
+  sortOrder: 'asc' | 'desc';
   frontmatter: TFrontmatter;
 }
 
@@ -32,7 +32,7 @@ interface MdxFileData<TFrontmatter extends z.ZodType> {
 }
 
 export function createMdxSource<TFrontmatter extends z.ZodType>(
-  source: Source<TFrontmatter>
+  source: Source<TFrontmatter>,
 ) {
   const { contentPath, basePath, sortBy, sortOrder } = source;
 
@@ -43,25 +43,23 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
 
     return files.map((filepath) => {
       const slug = filepath
-        .replace(contentPath, "")
-        .replace(/^\/+/, "")
-        .replace(new RegExp(path.extname(filepath) + "$"), "")
-        .replace(/\/?index$/, "");
+        .replace(contentPath, '')
+        .replace(/^\/+/, '')
+        .replace(new RegExp(path.extname(filepath) + '$'), '')
+        .replace(/\/?index$/, '');
 
-      const url = `${basePath?.replace(/\/$/, "")}/${slug}`;
+      const url = `${basePath.replace(/\/$/, '')}/${slug}`;
 
       return {
         filepath,
         slug,
         url,
-      };
+      } as MdxFile;
     });
   }
 
-  async function getFileData(
-    file: MdxFile
-  ): Promise<MdxFileData<z.infer<TFrontmatter>>> {
-    const raw = await fs.readFile(file.filepath, "utf-8");
+  async function getFileData(filepath: string) {
+    const raw = await fs.readFile(filepath, 'utf-8');
     const hash = hasha(raw.toString());
 
     const cachedContent =
@@ -82,7 +80,7 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
       hash,
       frontmatter,
       serialized,
-    };
+    } as MdxFileData<z.infer<TFrontmatter>>;
 
     mdxCache.set(hash, fileData);
 
@@ -90,7 +88,7 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
   }
 
   async function getMdxNode(slug: string | string[]) {
-    const _slug = Array.isArray(slug) ? slug.join("/") : slug;
+    const _slug = Array.isArray(slug) ? slug.join('/') : slug;
 
     const files = await getAllMdxFiles();
     if (!files?.length) return null;
@@ -98,12 +96,12 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
     const [file] = files.filter((file) => file.slug === _slug);
     if (!file) return null;
 
-    const data = await getFileData(file);
+    const data = await getFileData(file.filepath);
 
     return {
       ...file,
       ...data,
-    };
+    } as MdxFile & MdxFileData<z.infer<TFrontmatter>>;
   }
 
   async function getAllMdxNodes() {
@@ -111,13 +109,13 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
 
     if (!files.length) return [];
 
-    const nodes = await Promise.all(
+    const nodes = (await Promise.all(
       files.map(async (file) => {
         return await getMdxNode(file.slug);
-      })
-    );
+      }),
+    )) as (MdxFile & MdxFileData<z.infer<TFrontmatter>>)[];
 
-    const adjust = sortOrder === "desc" ? -1 : 1;
+    const adjust = sortOrder === 'desc' ? -1 : 1;
     return nodes.sort((a, b) => {
       if (!a || !b) return 0;
       if (a.frontmatter[sortBy] < b.frontmatter[sortBy]) {

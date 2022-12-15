@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
 interface PostTagsProps {
   tags: string[];
@@ -7,7 +7,7 @@ interface PostTagsProps {
 
 export function PostTags({ tags, className }: PostTagsProps) {
   return (
-    <p className={clsx(className, "flex flex-row flex-wrap gap-1")}>
+    <p className={clsx(className, 'flex flex-row flex-wrap gap-1')}>
       {tags.map((tag) => (
         <span
           key={tag}

@@ -1,26 +1,22 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
-import { useThemeStore } from "@/stores/theme-store";
-import shallow from "zustand/shallow";
-import clsx from "clsx";
+import { useEffect, useRef, useState } from 'react';
+import { useSelectedLayoutSegments } from 'next/navigation';
+import { useThemeStore } from '@/stores/theme-store';
+import { useSearchStore } from '@/stores/search-store';
+import shallow from 'zustand/shallow';
+import clsx from 'clsx';
 
-import Link from "next/link";
-import { BlogTitle } from "./blog-title";
-import {
-  ArrowLeft,
-  PlusSquare,
-  MinusSquare,
-  Type,
-  Sun,
-  Moon,
-} from "lucide-react";
+import Link from 'next/link';
+import { BlogTitle } from './blog-title';
+import { PlusSquare, MinusSquare, Type, Sun, Moon, Search } from 'lucide-react';
 
 export function Header() {
-  const isPostPage = usePathname() !== "/";
-  const headerRef = useRef<HTMLDivElement>(null);
+  const layoutSegment = useSelectedLayoutSegments();
+  const isPostPage = layoutSegment[0] === 'posts' && layoutSegment[1];
   const [scrollTop, setScrollTop] = useState(0);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const toggleSearch = useSearchStore((state) => state.toggleSearch);
 
   const {
     isDark,
@@ -42,12 +38,12 @@ export function Header() {
       increaseFontSize: state.increaseFontSize,
       decreaseFontSize: state.decreaseFontSize,
     }),
-    shallow
+    shallow,
   );
 
   const toggleDarkAndApply = () => {
     toggleDark();
-    document.querySelector("html")?.classList.toggle("dark");
+    document.querySelector('html')?.classList.toggle('dark');
   };
 
   useEffect(() => {
@@ -55,10 +51,10 @@ export function Header() {
     setScrollTop(document.documentElement.scrollTop || document.body.scrollTop);
 
     // add event listener to update state on scroll
-    document.addEventListener("scroll", () =>
+    document.addEventListener('scroll', () =>
       setScrollTop(
-        document.documentElement.scrollTop || document.body.scrollTop
-      )
+        document.documentElement.scrollTop || document.body.scrollTop,
+      ),
     );
   }, []);
 
@@ -67,30 +63,48 @@ export function Header() {
       ref={headerRef}
       className={clsx(
         headerRef.current && scrollTop > headerRef.current.clientHeight
-          ? "border-b border-b-slate-300 py-2 dark:border-b-slate-500"
-          : "py-8",
-        "flex flex-row items-center justify-between px-8",
-        "transition-[padding,background-color] duration-300 ease-in-out",
-        "bg-transparent text-slate-700 backdrop-blur dark:text-rose-50"
+          ? 'border-b border-b-slate-400 py-2 dark:border-b-slate-500'
+          : 'py-8',
+        'flex flex-row items-center justify-between px-2 xs:px-8',
+        'transition-[padding,background-color] duration-300 ease-in-out',
+        'bg-transparent text-slate-700 backdrop-blur dark:text-rose-50',
       )}
     >
-      {isPostPage && (
-        <>
-          <Link
-            href="/"
-            className="flex h-full w-28 flex-row items-center space-x-1 hover:text-rose-600 dark:hover:text-rose-400"
-          >
-            <ArrowLeft className="w-6 sm:h-6" aria-label="Back" />
-            <label className="cursor-pointer text-sm">Back</label>
-          </Link>
+      <nav
+        className={clsx(
+          isSerif && 'font-serif',
+          isPostPage ? 'sm:ml-[136px]' : 'sm:ml-[80px]',
+          'flex flex-grow flex-row items-center justify-evenly space-x-4 max-xs:mr-2 max-xs:text-sm xs:justify-start sm:justify-center',
+        )}
+      >
+        <Link
+          href="/posts"
+          className="order-2 font-semibold hover:text-rose-600 dark:hover:text-rose-400 sm:order-1"
+        >
+          Posts
+        </Link>
+        <Link href="/" className="order-1 max-sm:!ml-0 max-sm:!mr-2 sm:order-2">
+          <BlogTitle small title="Kfir's Blog" />
+        </Link>
+        <Link
+          href="/about"
+          className="order-3 font-semibold hover:text-rose-600 dark:hover:text-rose-400"
+        >
+          About
+        </Link>
+      </nav>
 
-          <Link href="/" className="hidden flex-grow xs:block">
-            <BlogTitle small title="Kfir's Blog" />
-          </Link>
-        </>
-      )}
+      <div className="ml-auto flex w-fit flex-row items-center justify-end space-x-1">
+        <button
+          onClick={toggleSearch}
+          className="hover:text-rose-600 dark:hover:text-rose-400"
+        >
+          <Search
+            className="h-5 w-5 xs:h-6 xs:w-6 "
+            aria-label="Search Posts"
+          />
+        </button>
 
-      <div className="ml-auto flex w-28 flex-row items-center justify-end space-x-1">
         {isPostPage && (
           <>
             <button
@@ -99,7 +113,7 @@ export function Header() {
               className="hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400"
             >
               <MinusSquare
-                className="w-6 sm:h-6"
+                className="h-5 w-5 xs:h-6 xs:w-6 "
                 aria-label="Decrease font size"
               />
             </button>
@@ -109,7 +123,7 @@ export function Header() {
               className="hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400"
             >
               <PlusSquare
-                className="w-6 sm:h-6"
+                className="h-5 w-5 xs:h-6 xs:w-6 "
                 aria-label="Increase font size"
               />
             </button>
@@ -120,21 +134,30 @@ export function Header() {
           onClick={toggleSerif}
           className={clsx(
             isSerif
-              ? "text-rose-600 dark:text-rose-400"
-              : "hover:text-rose-600 dark:hover:text-rose-400",
-            "ml-auto"
+              ? 'text-rose-600 dark:text-rose-400'
+              : 'hover:text-rose-600 dark:hover:text-rose-400',
+            'ml-auto',
           )}
         >
-          <Type className="w-6 sm:h-6" aria-label="Toggle serif font" />
+          <Type
+            className="h-5 w-5 xs:h-6 xs:w-6 "
+            aria-label="Toggle serif font"
+          />
         </button>
         <button
           onClick={toggleDarkAndApply}
           className="hover:text-rose-600 dark:hover:text-rose-400"
         >
           {isDark ? (
-            <Sun className="w-6 sm:h-6" aria-label="Switch to light mode" />
+            <Sun
+              className="h-5 w-5 xs:h-6 xs:w-6 "
+              aria-label="Switch to light mode"
+            />
           ) : (
-            <Moon className="w-6 sm:h-6" aria-label="Switch to dark mode" />
+            <Moon
+              className="h-5 w-5 xs:h-6 xs:w-6 "
+              aria-label="Switch to dark mode"
+            />
           )}
         </button>
       </div>

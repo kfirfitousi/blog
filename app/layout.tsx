@@ -1,37 +1,41 @@
-import "@/styles/globals.css";
+import '@/styles/globals.css';
 
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
-import { Analytics } from "@/components/analytics";
-import { Red_Hat_Display, Newsreader } from "@next/font/google";
-import clsx from "clsx";
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
+import { Analytics } from '@/components/analytics';
+import { Search } from '@/components/search';
+import { BlogSource } from '@/lib/mdx-sources';
+import { Red_Hat_Display, Newsreader } from '@next/font/google';
+import clsx from 'clsx';
 
 const fontSans = Red_Hat_Display({
-  subsets: ["latin"],
-  variable: "--font-red-hat",
+  subsets: ['latin'],
+  variable: '--font-red-hat',
 });
 
 const fontSerif = Newsreader({
-  subsets: ["latin"],
-  variable: "--font-newsreader",
+  subsets: ['latin'],
+  variable: '--font-newsreader',
 });
 
 interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default async function RootLayout({ children }: RootLayoutProps) {
+  const posts = await BlogSource.getAllMdxNodes();
+
   return (
     <html
       lang="en"
       className={clsx(
-        "scroll-pt-16 overflow-auto overscroll-none font-sans",
+        'scroll-pt-16 overflow-auto overscroll-none font-sans',
         fontSans.variable,
-        fontSerif.variable
+        fontSerif.variable,
       )}
     >
       <head />
-      <body className="grid min-h-screen grid-cols-1 grid-rows-[auto_minmax(calc(100vh-180px),1fr)_auto] bg-slate-200 dark:bg-slate-700 sm:grid-cols-[1fr_minmax(640px,1024px)_1fr]">
+      <body className="grid min-h-screen grid-cols-1 grid-rows-[auto_minmax(calc(100vh-200.25px),1fr)_auto] bg-slate-200 dark:bg-slate-700 sm:grid-cols-[1fr_minmax(640px,1024px)_1fr]">
         {/* header */}
         <section className="sticky top-0 z-30 col-span-1 row-span-1 row-start-1 h-full self-start sm:col-start-2">
           <Header />
@@ -65,6 +69,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <div className="invisible h-full w-full bg-opacity-5 bg-gradient-to-l from-rose-50 to-transparent dark:visible" />
         </div>
 
+        <Search posts={posts} />
         <Analytics />
       </body>
     </html>
