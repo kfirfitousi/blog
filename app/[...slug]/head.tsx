@@ -7,9 +7,9 @@ interface PageHead {
 }
 
 export default async function PostHead({ params }: PageHead) {
-  const post = await PagesSource.getMdxNode(params.slug);
+  const page = await PagesSource.getMdxNode(params.slug);
 
-  const { title, description } = post?.frontmatter ?? {
+  const { title, description } = page?.frontmatter ?? {
     title: 'Page Not Found',
     description: 'Page not found',
   };
