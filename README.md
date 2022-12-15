@@ -1,7 +1,7 @@
 [![Kfir's Blog](https://user-images.githubusercontent.com/37262772/207938423-5437d1b4-d0b2-4b9e-ab54-a965df7ab486.png)](https://blog.kfirfitousi.com)  
 ![Build Status](https://img.shields.io/github/deployments/kfirfitousi/blog/production?label=build&logo=vercel&style=for-the-badge)
 ![Website Status](https://img.shields.io/website?down_color=lightgrey&logo=vercel&style=for-the-badge&url=https%3A%2F%2Fblog.kfirfitousi.com)
-![CI Status](https://img.shields.io/github/workflow/status/kfirfitousi/blog/CI?label=CI&logo=github&style=for-the-badge)
+![CI Status](https://img.shields.io/github/actions/workflow/status/kfirfitousi/blog/ci.yml?branch=main&label=CI&logo=github&style=for-the-badge)
 ![Stars](https://img.shields.io/github/stars/kfirfitousi/blog?color=yellow&logo=github&style=for-the-badge)
 ![License](https://img.shields.io/github/license/kfirfitousi/blog?color=blue&style=for-the-badge)
 
