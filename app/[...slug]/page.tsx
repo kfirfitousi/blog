@@ -1,8 +1,8 @@
-import "@/styles/markdown.css";
+import '@/styles/markdown.css';
 
-import { MdxContent } from "@/components/mdx-content";
-import { PagesSource } from "@/lib/mdx-sources";
-import { notFound } from "next/navigation";
+import { MdxContent } from '@/components/mdx-content';
+import { PagesSource } from '@/lib/mdx-sources';
+import { notFound } from 'next/navigation';
 
 interface PageProps {
   params: {
@@ -10,11 +10,11 @@ interface PageProps {
   };
 }
 
-export async function generateStaticParams(): Promise<PageProps["params"][]> {
+export async function generateStaticParams(): Promise<PageProps['params'][]> {
   const files = await PagesSource.getAllMdxFiles();
 
   return files.map((file) => ({
-    slug: file.slug.split("/"),
+    slug: file.slug.split('/'),
   }));
 }
 

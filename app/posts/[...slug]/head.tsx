@@ -1,4 +1,4 @@
-import { BlogSource } from "@/lib/mdx-sources";
+import { BlogSource } from '@/lib/mdx-sources';
 
 interface PostHeadProps {
   params: {
@@ -10,8 +10,8 @@ export default async function PostHead({ params }: PostHeadProps) {
   const post = await BlogSource.getMdxNode(params.slug);
 
   const { title, excerpt } = post?.frontmatter ?? {
-    title: "Post Not Found",
-    excerpt: "Post not found",
+    title: 'Post Not Found',
+    excerpt: 'Post not found',
   };
 
   return (

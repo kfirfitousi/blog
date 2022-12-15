@@ -1,21 +1,21 @@
-import "@/styles/globals.css";
+import '@/styles/globals.css';
 
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
-import { Analytics } from "@/components/analytics";
-import { Search } from "@/components/search";
-import { BlogSource } from "@/lib/mdx-sources";
-import { Red_Hat_Display, Newsreader } from "@next/font/google";
-import clsx from "clsx";
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
+import { Analytics } from '@/components/analytics';
+import { Search } from '@/components/search';
+import { BlogSource } from '@/lib/mdx-sources';
+import { Red_Hat_Display, Newsreader } from '@next/font/google';
+import clsx from 'clsx';
 
 const fontSans = Red_Hat_Display({
-  subsets: ["latin"],
-  variable: "--font-red-hat",
+  subsets: ['latin'],
+  variable: '--font-red-hat',
 });
 
 const fontSerif = Newsreader({
-  subsets: ["latin"],
-  variable: "--font-newsreader",
+  subsets: ['latin'],
+  variable: '--font-newsreader',
 });
 
 interface RootLayoutProps {
@@ -29,9 +29,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     <html
       lang="en"
       className={clsx(
-        "scroll-pt-16 overflow-auto overscroll-none font-sans",
+        'scroll-pt-16 overflow-auto overscroll-none font-sans',
         fontSans.variable,
-        fontSerif.variable
+        fontSerif.variable,
       )}
     >
       <head />

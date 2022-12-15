@@ -1,10 +1,10 @@
-import "@/styles/markdown.css";
+import '@/styles/markdown.css';
 
-import { notFound } from "next/navigation";
-import { BlogSource } from "@/lib/mdx-sources";
-import { MdxContent } from "@/components/mdx-content";
-import { PostIntro } from "@/components/post-intro";
-import { Comments } from "@/components/comments";
+import { notFound } from 'next/navigation';
+import { BlogSource } from '@/lib/mdx-sources';
+import { MdxContent } from '@/components/mdx-content';
+import { PostIntro } from '@/components/post-intro';
+import { Comments } from '@/components/comments';
 
 interface PostPageProps {
   params: {
@@ -13,12 +13,12 @@ interface PostPageProps {
 }
 
 export async function generateStaticParams(): Promise<
-  PostPageProps["params"][]
+  PostPageProps['params'][]
 > {
   const files = await BlogSource.getAllMdxFiles();
 
   return files.map((file) => ({
-    slug: file.slug.split("/"),
+    slug: file.slug.split('/'),
   }));
 }
 

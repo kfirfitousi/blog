@@ -1,20 +1,20 @@
-import { ImageResponse } from "@vercel/og";
-import { NextRequest } from "next/server";
+import { ImageResponse } from '@vercel/og';
+import { NextRequest } from 'next/server';
 
 export const config = {
-  runtime: "experimental-edge",
+  runtime: 'experimental-edge',
 };
 
 const fontRegular = fetch(
-  new URL("../../public/assets/RedHatDisplay-Regular.ttf", import.meta.url)
+  new URL('../../public/assets/RedHatDisplay-Regular.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer());
 
 const fontSemiBold = fetch(
-  new URL("../../public/assets/RedHatDisplay-SemiBold.ttf", import.meta.url)
+  new URL('../../public/assets/RedHatDisplay-SemiBold.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer());
 
 const fontBold = fetch(
-  new URL("../../public/assets/RedHatDisplay-Bold.ttf", import.meta.url)
+  new URL('../../public/assets/RedHatDisplay-Bold.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer());
 
 export default async function handler(req: NextRequest) {
@@ -26,11 +26,11 @@ export default async function handler(req: NextRequest) {
     const { searchParams } = new URL(req.url);
 
     // ?title=<title>
-    const hasTitle = searchParams.has("title");
-    const title = hasTitle && searchParams.get("title")?.slice(0, 100);
+    const hasTitle = searchParams.has('title');
+    const title = hasTitle && searchParams.get('title')?.slice(0, 100);
 
-    const hasSubtitle = searchParams.has("subtitle");
-    const subtitle = hasSubtitle && searchParams.get("subtitle")?.slice(0, 100);
+    const hasSubtitle = searchParams.has('subtitle');
+    const subtitle = hasSubtitle && searchParams.get('subtitle')?.slice(0, 100);
 
     return new ImageResponse(
       (
@@ -38,7 +38,7 @@ export default async function handler(req: NextRequest) {
           <div
             tw="flex flex-row items-center"
             style={{
-              marginBottom: title ? "8rem" : "0rem",
+              marginBottom: title ? '8rem' : '0rem',
             }}
           >
             <div tw="h-full flex items-center justify-center">
@@ -62,7 +62,7 @@ export default async function handler(req: NextRequest) {
             </div>
             <h1
               tw="h-full mx-2 text-7xl text-center text-slate-800"
-              style={{ fontFamily: "Red Hat Display Bold" }}
+              style={{ fontFamily: 'Red Hat Display Bold' }}
             >
               Kfir&apos;s Blog
             </h1>
@@ -89,14 +89,14 @@ export default async function handler(req: NextRequest) {
 
           <div
             tw="text-5xl text-slate-800 text-center mb-4"
-            style={{ fontFamily: "Red Hat Display SemiBold" }}
+            style={{ fontFamily: 'Red Hat Display SemiBold' }}
           >
             {title}
           </div>
 
           <div
             tw="text-2xl text-slate-800 text-center"
-            style={{ fontFamily: "Red Hat Display" }}
+            style={{ fontFamily: 'Red Hat Display' }}
           >
             {subtitle}
           </div>
@@ -107,22 +107,22 @@ export default async function handler(req: NextRequest) {
         height: 630,
         fonts: [
           {
-            name: "Red Hat Display",
+            name: 'Red Hat Display',
             data: fontRegularData,
-            style: "normal",
+            style: 'normal',
           },
           {
-            name: "Red Hat Display SemiBold",
+            name: 'Red Hat Display SemiBold',
             data: fontSemiBoldData,
-            style: "normal",
+            style: 'normal',
           },
           {
-            name: "Red Hat Display Bold",
+            name: 'Red Hat Display Bold',
             data: fontBoldData,
-            style: "normal",
+            style: 'normal',
           },
         ],
-      }
+      },
     );
   } catch (e: any) {
     console.log(`${e.message}`);

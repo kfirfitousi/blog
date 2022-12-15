@@ -1,5 +1,5 @@
-import { BlogSource } from "@/lib/mdx-sources";
-import { Paginator } from "@/components/paginator";
+import { BlogSource } from '@/lib/mdx-sources';
+import { Paginator } from '@/components/paginator';
 
 export default async function PostsPage() {
   const posts = await BlogSource.getAllMdxNodes();

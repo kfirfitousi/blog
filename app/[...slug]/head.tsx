@@ -1,4 +1,4 @@
-import { PagesSource } from "@/lib/mdx-sources";
+import { PagesSource } from '@/lib/mdx-sources';
 
 interface PageHead {
   params: {
@@ -10,8 +10,8 @@ export default async function PostHead({ params }: PageHead) {
   const post = await PagesSource.getMdxNode(params.slug);
 
   const { title, description } = post?.frontmatter ?? {
-    title: "Page Not Found",
-    description: "Page not found",
+    title: 'Page Not Found',
+    description: 'Page not found',
   };
 
   return (

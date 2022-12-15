@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { type BlogMdxNode } from "@/lib/mdx-sources";
-import { useThemeStore } from "@/stores/theme-store";
-import { PostCard } from "@/components/post-card";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import clsx from "clsx";
+import { useState } from 'react';
+import { type BlogMdxNode } from '@/lib/mdx-sources';
+import { useThemeStore } from '@/stores/theme-store';
+import { PostCard } from '@/components/post-card';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import clsx from 'clsx';
 
 type PaginatorProps = {
   posts: BlogMdxNode[];
@@ -19,8 +19,8 @@ export function Paginator({ posts, postPerPage }: PaginatorProps) {
   const controls = (withScroll = false) => (
     <div
       className={clsx(
-        isSerif && "font-serif",
-        "flex flex-row items-center justify-between"
+        isSerif && 'font-serif',
+        'flex flex-row items-center justify-between',
       )}
     >
       <button
@@ -38,13 +38,13 @@ export function Paginator({ posts, postPerPage }: PaginatorProps) {
         <span>Previous</span>
       </button>
       <div className="flex -translate-x-1/2 scale-150 flex-row space-x-2">
-        {Array.from("•".repeat(currentPage)).map((_, i) => (
+        {Array.from('•'.repeat(currentPage)).map((_, i) => (
           <span key={i} className="text-slate-800 dark:text-slate-300">
             •
           </span>
         ))}
         {Array.from(
-          "•".repeat(Math.ceil(posts.length / postPerPage) - currentPage)
+          '•'.repeat(Math.ceil(posts.length / postPerPage) - currentPage),
         ).map((_, i) => (
           <span key={i} className="text-slate-400 dark:text-slate-500">
             •

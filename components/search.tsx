@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { useSearchStore } from "@/stores/search-store";
-import { type BlogMdxNode } from "@/lib/mdx-sources";
-import { getTagsWithCount, searchPosts } from "@/lib/search";
-import { parseDate } from "@/lib/datetime";
-import { ChevronUp, X } from "lucide-react";
-import Link from "next/link";
-import clsx from "clsx";
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useSearchStore } from '@/stores/search-store';
+import { type BlogMdxNode } from '@/lib/mdx-sources';
+import { getTagsWithCount, searchPosts } from '@/lib/search';
+import { parseDate } from '@/lib/datetime';
+import { ChevronUp, X } from 'lucide-react';
+import Link from 'next/link';
+import clsx from 'clsx';
 
 type SearchProps = {
   posts: BlogMdxNode[];
 };
 
 export function Search({ posts }: SearchProps) {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
   const isSearching = useSearchStore((state) => state.isSearching);
   const toggleSearch = useSearchStore((state) => state.toggleSearch);
@@ -26,7 +26,7 @@ export function Search({ posts }: SearchProps) {
   const tagsWithCounts = useMemo(() => getTagsWithCount(posts), [posts]);
   const searchResults = useMemo(
     () => searchPosts(query, posts),
-    [query, posts]
+    [query, posts],
   );
 
   if (!isSearching) return null;
@@ -38,18 +38,18 @@ export function Search({ posts }: SearchProps) {
           ref={inputRef}
           type="text"
           className={clsx(
-            searchResults.length > 0 ? "sm:text-2xl" : "sm:text-4xl",
-            "w-full rounded border border-slate-400 bg-slate-100 px-2 text-slate-700 dark:border-slate-500 dark:bg-slate-700 dark:text-rose-50"
+            searchResults.length > 0 ? 'sm:text-2xl' : 'sm:text-4xl',
+            'w-full rounded border border-slate-400 bg-slate-100 px-2 text-slate-700 dark:border-slate-500 dark:bg-slate-700 dark:text-rose-50',
           )}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
         {query && (
           <button
-            onClick={() => setQuery("")}
+            onClick={() => setQuery('')}
             className={clsx(
-              searchResults.length > 0 ? "sm:top-5" : "sm:top-6",
-              "absolute top-4 right-14"
+              searchResults.length > 0 ? 'sm:top-5' : 'sm:top-6',
+              'absolute top-4 right-14',
             )}
           >
             <X className="h-6 w-6 text-slate-500 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400" />
@@ -66,7 +66,7 @@ export function Search({ posts }: SearchProps) {
       <ul className="flex flex-col overflow-scroll">
         {searchResults.map((post) => {
           const { formattedDate, relativeTime } = parseDate(
-            post.frontmatter.date
+            post.frontmatter.date,
           );
 
           return (
@@ -97,9 +97,9 @@ export function Search({ posts }: SearchProps) {
       <div
         className={clsx(
           searchResults.length > 0
-            ? "hidden sm:block sm:text-base"
-            : "sm:text-lg",
-          "flex h-fit flex-row flex-wrap items-center justify-center space-x-4 space-y-1 text-sm"
+            ? 'hidden sm:block sm:text-base'
+            : 'sm:text-lg',
+          'flex h-fit flex-row flex-wrap items-center justify-center space-x-4 space-y-1 text-sm',
         )}
       >
         {tagsWithCounts.map(([tag, count]) => (
@@ -108,7 +108,7 @@ export function Search({ posts }: SearchProps) {
               #{tag}
             </span>
             <span className="text-slate-500 dark:text-slate-400">
-              {" "}
+              {' '}
               ({count})
             </span>
           </button>
@@ -119,11 +119,11 @@ export function Search({ posts }: SearchProps) {
 }
 
 function highlightSearchQuery(query: string, text: string) {
-  return text.split(new RegExp(`(${query})`, "gi")).map((part, i) => (
+  return text.split(new RegExp(`(${query})`, 'gi')).map((part, i) => (
     <span
       key={i}
       className={
-        part.toLowerCase() === query.toLowerCase() ? "font-bold" : undefined
+        part.toLowerCase() === query.toLowerCase() ? 'font-bold' : undefined
       }
     >
       {part}

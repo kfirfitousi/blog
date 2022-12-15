@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { CopyCode } from "@/components/copy-code";
-import clsx from "clsx";
+import { CopyCode } from '@/components/copy-code';
+import Image from 'next/image';
+import clsx from 'clsx';
 
 /**
  * use div instead of p elements since p elements have restrictions on what
@@ -15,11 +15,11 @@ function p(props: React.HTMLProps<HTMLParagraphElement>) {
  * example usage: ![alt text {{ w: 600, h: 300, cap: "caption text" }}](/path/to/image)
  */
 function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
-  const _alt = (alt?.split("{")[0].trim() ?? alt) || "";
-  const props = alt?.split("{")[1];
-  const width = parseInt(props?.match(/(?<=w:\s?)\d+/g)?.[0] || "700");
-  const height = parseInt(props?.match(/(?<=h:\s?)\d+/g)?.[0] || "400");
-  const caption = props?.match(/(?<=cap:\s?)"(.+?)"/g)?.[0].replace(/"/g, "");
+  const _alt = (alt?.split('{')[0].trim() ?? alt) || '';
+  const props = alt?.split('{')[1];
+  const width = parseInt(props?.match(/(?<=w:\s?)\d+/g)?.[0] || '700');
+  const height = parseInt(props?.match(/(?<=h:\s?)\d+/g)?.[0] || '400');
+  const caption = props?.match(/(?<=cap:\s?)"(.+?)"/g)?.[0].replace(/"/g, '');
 
   return (
     <figure
@@ -27,11 +27,11 @@ function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
       aria-label={_alt}
     >
       <Image
-        src={src || ""}
+        src={src || ''}
         alt={_alt}
         width={width}
         height={height}
-        className={clsx("rounded", caption && "rounded-b-none")}
+        className={clsx('rounded', caption && 'rounded-b-none')}
       />
       {caption && (
         <figcaption

@@ -1,11 +1,11 @@
-import { createMdxSource } from "@/lib/mdx";
-import z from "zod";
+import { createMdxSource } from '@/lib/mdx';
+import z from 'zod';
 
 export const BlogSource = createMdxSource({
-  contentPath: "content/posts",
-  basePath: "/posts",
-  sortBy: "date",
-  sortOrder: "desc",
+  contentPath: 'content/posts',
+  basePath: '/posts',
+  sortBy: 'date',
+  sortOrder: 'desc',
   frontmatter: z.object({
     title: z.string(),
     date: z.string(),
@@ -19,10 +19,10 @@ export type BlogMdxNode = NonNullable<
 >;
 
 export const PagesSource = createMdxSource({
-  contentPath: "content/pages",
-  basePath: "/",
-  sortBy: "title",
-  sortOrder: "desc",
+  contentPath: 'content/pages',
+  basePath: '/',
+  sortBy: 'title',
+  sortOrder: 'desc',
   frontmatter: z.object({
     title: z.string(),
     description: z.string(),

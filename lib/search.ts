@@ -1,4 +1,4 @@
-import { type BlogMdxNode } from "@/lib//mdx-sources";
+import { type BlogMdxNode } from '@/lib//mdx-sources';
 
 export function searchPosts(query: string, posts: BlogMdxNode[]) {
   const postsWithSearchHits = new Map<BlogMdxNode, number>();
@@ -11,7 +11,7 @@ export function searchPosts(query: string, posts: BlogMdxNode[]) {
 
     if (
       frontmatter.tags.some((tag) =>
-        tag.toLowerCase().includes(query.toLowerCase())
+        tag.toLowerCase().includes(query.toLowerCase()),
       )
     ) {
       searchHits += 10; // give tag hits heavy weight
