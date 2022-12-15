@@ -38,15 +38,15 @@ export function PostCard({ post }: PostCardProps) {
             )}
           </h2>
 
-          <p className="text-slate-600 dark:text-rose-50">
+          <p className="text-slate-700 dark:text-rose-50">
             {post.frontmatter.excerpt}
           </p>
 
-          <p className="inline-flex items-center space-x-1 text-slate-600 dark:text-slate-200">
+          <p className="inline-flex items-center space-x-1 text-slate-700 dark:text-slate-200">
             <Calendar className="h-4 w-4 self-baseline" />
             <span className="text-sm">
               Published {formattedDate}{' '}
-              <span className="hidden text-slate-500 dark:text-slate-300 xs:inline">
+              <span className="hidden text-slate-600 dark:text-slate-300 xs:inline">
                 • {relativeTime}
               </span>
             </span>
