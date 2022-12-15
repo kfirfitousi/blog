@@ -1,8 +1,8 @@
 import { BlogSource } from '@/lib/mdx-sources';
+import { HeroSection } from '@/components/hero-section';
 import { PostCard } from '@/components/post-card';
 import { FileText } from 'lucide-react';
 import Link from 'next/link';
-import { HeroSection } from '@/components/hero-section';
 
 export default async function Home() {
   const posts = await BlogSource.getAllMdxNodes();
