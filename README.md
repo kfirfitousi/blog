@@ -16,10 +16,4 @@ Blog app built with Next.js 13, TypeScript, next-mdx-remote, Zustand and Tailwin
 
 ## TODO
 
-- [ ] Redesign and add pages:
-  - Home Page `/`: Hero section, Latest posts
-  - Posts Page `/posts`: List all posts with pagination
-  - About Page `/about`: About me, Contact, Download CV
-- [ ] Search Functionality: Search posts by title, content and tags
 - [ ] Persist reading mode preferences on refresh
-- [ ] End-to-end testing with Playwright
