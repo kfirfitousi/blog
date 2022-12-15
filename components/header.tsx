@@ -87,7 +87,7 @@ export function Header() {
           <BlogTitle small title="Kfir's Blog" />
         </Link>
         <Link
-          href="#"
+          href="/about"
           className="order-3 font-semibold hover:text-rose-600 dark:hover:text-rose-400"
         >
           About

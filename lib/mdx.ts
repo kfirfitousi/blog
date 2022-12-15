@@ -48,18 +48,18 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
         .replace(new RegExp(path.extname(filepath) + "$"), "")
         .replace(/\/?index$/, "");
 
-      const url = `${basePath?.replace(/\/$/, "")}/${slug}`;
+      const url = `${basePath.replace(/\/$/, "")}/${slug}`;
 
       return {
         filepath,
         slug,
         url,
-      };
+      } as MdxFile;
     });
   }
 
-  async function getFileData(file: MdxFile) {
-    const raw = await fs.readFile(file.filepath, "utf-8");
+  async function getFileData(filepath: string) {
+    const raw = await fs.readFile(filepath, "utf-8");
     const hash = hasha(raw.toString());
 
     const cachedContent =
@@ -96,12 +96,12 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
     const [file] = files.filter((file) => file.slug === _slug);
     if (!file) return null;
 
-    const data = await getFileData(file);
+    const data = await getFileData(file.filepath);
 
     return {
       ...file,
       ...data,
-    };
+    } as MdxFile & MdxFileData<z.infer<TFrontmatter>>;
   }
 
   async function getAllMdxNodes() {
@@ -109,11 +109,11 @@ export function createMdxSource<TFrontmatter extends z.ZodType>(
 
     if (!files.length) return [];
 
-    const nodes = await Promise.all(
+    const nodes = (await Promise.all(
       files.map(async (file) => {
         return await getMdxNode(file.slug);
       })
-    );
+    )) as (MdxFile & MdxFileData<z.infer<TFrontmatter>>)[];
 
     const adjust = sortOrder === "desc" ? -1 : 1;
     return nodes.sort((a, b) => {

@@ -16,8 +16,6 @@ export function Paginator({ posts, postPerPage }: PaginatorProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const isSerif = useThemeStore((state) => state.isSerif);
 
-  if (!posts) return null;
-
   const controls = (withScroll = false) => (
     <div
       className={clsx(

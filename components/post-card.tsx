@@ -15,8 +15,6 @@ interface PostCardProps {
 export function PostCard({ post }: PostCardProps) {
   const isSerif = useThemeStore((state) => state.isSerif);
 
-  if (!post) return null;
-
   const { formattedDate, relativeTime, isFresh } = parseDate(
     post.frontmatter.date
   );

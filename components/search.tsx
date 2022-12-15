@@ -23,9 +23,11 @@ export function Search({ posts }: SearchProps) {
     isSearching && inputRef.current?.focus();
   }, [isSearching]);
 
-  const sortedPosts = useMemo(() => searchPosts(query, posts), [query, posts]);
-
-  const sortedTags = useMemo(() => getTagsWithCount(posts), [posts]);
+  const tagsWithCounts = useMemo(() => getTagsWithCount(posts), [posts]);
+  const searchResults = useMemo(
+    () => searchPosts(query, posts),
+    [query, posts]
+  );
 
   if (!isSearching) return null;
 
@@ -36,7 +38,7 @@ export function Search({ posts }: SearchProps) {
           ref={inputRef}
           type="text"
           className={clsx(
-            sortedPosts.length > 0 ? "sm:text-2xl" : "sm:text-4xl",
+            searchResults.length > 0 ? "sm:text-2xl" : "sm:text-4xl",
             "w-full rounded border border-slate-400 bg-slate-100 px-2 text-slate-700 dark:border-slate-500 dark:bg-slate-700 dark:text-rose-50"
           )}
           value={query}
@@ -46,7 +48,7 @@ export function Search({ posts }: SearchProps) {
           <button
             onClick={() => setQuery("")}
             className={clsx(
-              sortedPosts.length > 0 ? "sm:top-5" : "sm:top-6",
+              searchResults.length > 0 ? "sm:top-5" : "sm:top-6",
               "absolute top-4 right-14"
             )}
           >
@@ -62,7 +64,7 @@ export function Search({ posts }: SearchProps) {
       </div>
 
       <ul className="flex flex-col overflow-scroll">
-        {sortedPosts.map((post) => {
+        {searchResults.map((post) => {
           const { formattedDate, relativeTime } = parseDate(
             post.frontmatter.date
           );
@@ -88,19 +90,19 @@ export function Search({ posts }: SearchProps) {
         })}
       </ul>
 
-      {sortedPosts.length > 0 && (
+      {searchResults.length > 0 && (
         <hr className="my-2 hidden border-slate-400  dark:border-slate-600 sm:block" />
       )}
 
       <div
         className={clsx(
-          sortedPosts.length > 0
+          searchResults.length > 0
             ? "hidden sm:block sm:text-base"
             : "sm:text-lg",
           "flex h-fit flex-row flex-wrap items-center justify-center space-x-4 space-y-1 text-sm"
         )}
       >
-        {sortedTags.map(([tag, count]) => (
+        {tagsWithCounts.map(([tag, count]) => (
           <button key={tag} onClick={() => setQuery(tag)}>
             <span className="text-rose-600 hover:text-rose-900 dark:text-rose-400 dark:hover:text-rose-100">
               #{tag}
@@ -120,7 +122,9 @@ function highlightSearchQuery(query: string, text: string) {
   return text.split(new RegExp(`(${query})`, "gi")).map((part, i) => (
     <span
       key={i}
-      className={part.toLowerCase() === query.toLowerCase() ? "font-bold" : ""}
+      className={
+        part.toLowerCase() === query.toLowerCase() ? "font-bold" : undefined
+      }
     >
       {part}
     </span>

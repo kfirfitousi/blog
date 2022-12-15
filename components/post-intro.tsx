@@ -18,7 +18,7 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
   const { formattedDate, relativeTime } = parseDate(date);
 
   return (
-    <section className="flex flex-col space-y-4 p-3">
+    <section className="flex flex-col space-y-4 sm:p-3">
       <h1
         className={clsx(
           isSerif && "font-serif",

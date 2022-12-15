@@ -1,16 +1,16 @@
 import { BlogMdxNode } from "./mdx-sources";
 
 export function searchPosts(query: string, posts: BlogMdxNode[]) {
-  const postsWithSearchHits = new Map<NonNullable<BlogMdxNode>, number>();
+  const postsWithSearchHits = new Map<BlogMdxNode, number>();
 
   posts.forEach((post) => {
-    if (!post || !query) return;
+    if (!query) return;
 
     const { frontmatter, raw } = post;
     let searchHits = 0;
 
     if (
-      frontmatter.tags?.some((tag) =>
+      frontmatter.tags.some((tag) =>
         tag.toLowerCase().includes(query.toLowerCase())
       )
     ) {
@@ -43,9 +43,7 @@ export function getTagsWithCount(posts: BlogMdxNode[]) {
   const tagsWithCount = new Map<string, number>();
 
   posts.forEach((post) => {
-    const { tags } = post?.frontmatter ?? {};
-
-    if (!tags) return;
+    const tags = post.frontmatter.tags;
 
     tags.forEach((tag) => {
       tagsWithCount.set(tag, (tagsWithCount.get(tag) ?? 0) + 1);
