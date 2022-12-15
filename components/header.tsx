@@ -17,6 +17,7 @@ export function Header() {
   const [scrollTop, setScrollTop] = useState(0);
   const headerRef = useRef<HTMLDivElement>(null);
   const toggleSearch = useSearchStore((state) => state.toggleSearch);
+  const isSearching = useSearchStore((state) => state.isSearching);
 
   const {
     isDark,
@@ -97,7 +98,11 @@ export function Header() {
       <div className="ml-auto flex w-fit flex-row items-center justify-end space-x-1">
         <button
           onClick={toggleSearch}
-          className="hover:text-rose-600 dark:hover:text-rose-400"
+          className={
+            isSearching
+              ? 'text-rose-600 dark:text-rose-400'
+              : 'hover:text-rose-600 dark:hover:text-rose-400'
+          }
         >
           <Search
             className="h-5 w-5 xs:h-6 xs:w-6 "
