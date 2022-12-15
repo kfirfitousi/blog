@@ -36,39 +36,29 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     >
       <head />
       <body className="grid min-h-screen grid-cols-1 grid-rows-[auto_minmax(calc(100vh-200.25px),1fr)_auto] bg-slate-200 dark:bg-slate-700 sm:grid-cols-[1fr_minmax(640px,1024px)_1fr]">
-        {/* header */}
         <section className="sticky top-0 z-30 col-span-1 row-span-1 row-start-1 h-full self-start sm:col-start-2">
           <Header />
         </section>
-
-        {/* main content */}
         <main className="col-span-1 row-start-2 bg-slate-200 dark:bg-slate-700 sm:col-start-2">
           {children}
         </main>
-
-        {/* footer */}
         <section className="col-span-3 row-span-1 row-start-3 bg-slate-200 dark:bg-slate-700 sm:col-span-1 sm:col-start-2">
           <Footer />
         </section>
-
-        {/* left column */}
-        <div
+        <div // left column
           className="col-span-1 col-start-1 row-span-3 row-start-1 hidden bg-gradient-to-r
             from-slate-400 via-slate-500 to-slate-700 dark:from-slate-300 
             dark:via-slate-400 dark:to-slate-500 sm:block"
         >
           <div className="invisible h-full w-full bg-opacity-5 bg-gradient-to-r from-rose-50 to-transparent dark:visible" />
         </div>
-
-        {/* right column */}
-        <div
+        <div // right column
           className="col-span-1 col-start-3 row-span-3 row-start-1 hidden bg-gradient-to-l
             from-slate-400 via-slate-500 to-slate-700 dark:from-slate-300 
             dark:via-slate-400 dark:to-slate-500 sm:block"
         >
           <div className="invisible h-full w-full bg-opacity-5 bg-gradient-to-l from-rose-50 to-transparent dark:visible" />
         </div>
-
         <Search posts={posts} />
         <Analytics />
       </body>
