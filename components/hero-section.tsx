@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { useThemeStore } from '@/stores/theme-store';
 import Typist from 'react-typist-component';
 import GraphemeSplitter from 'grapheme-splitter';
+import clsx from 'clsx';
 
 const topics = [
   'Web Development',
@@ -17,9 +19,15 @@ const splitter = (str: string) => new GraphemeSplitter().splitGraphemes(str);
 
 export function HeroSection() {
   const [firstLoop, setFirstLoop] = useState(true);
+  const isSerif = useThemeStore((state) => state.isSerif);
 
   return (
-    <section className="flex h-40 w-full flex-col items-center justify-center space-y-2 rounded-md bg-slate-300 bg-opacity-60 px-4 dark:bg-slate-800 dark:bg-opacity-30">
+    <section
+      className={clsx(
+        isSerif && 'font-serif',
+        'flex h-40 w-full flex-col items-center justify-center space-y-2 rounded-md bg-slate-300 bg-opacity-60 px-4 dark:bg-slate-800 dark:bg-opacity-30',
+      )}
+    >
       <Typist typingDelay={100} splitter={splitter}>
         <h1 className="text-center text-3xl font-bold text-slate-800 dark:text-rose-50 xs:text-4xl sm:text-5xl">
           Welcome to my blog{' '}
