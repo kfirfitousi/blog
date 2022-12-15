@@ -1,4 +1,4 @@
-import { BlogMdxNode } from "./mdx-sources";
+import { type BlogMdxNode } from "@/lib//mdx-sources";
 
 export function searchPosts(query: string, posts: BlogMdxNode[]) {
   const postsWithSearchHits = new Map<BlogMdxNode, number>();

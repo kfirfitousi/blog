@@ -1,7 +1,7 @@
 import { BlogSource } from "@/lib/mdx-sources";
 import { PostCard } from "@/components/post-card";
-import Link from "next/link";
 import { FileText } from "lucide-react";
+import Link from "next/link";
 
 export default async function Home() {
   const posts = await BlogSource.getAllMdxNodes();
