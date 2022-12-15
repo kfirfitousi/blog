@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchStore } from '@/stores/search-store';
+import { useThemeStore } from '@/stores/theme-store';
 import { type BlogMdxNode } from '@/lib/mdx-sources';
 import { getTagsWithCount, searchPosts } from '@/lib/search';
 import { parseDate } from '@/lib/datetime';
@@ -18,6 +19,7 @@ export function Search({ posts }: SearchProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const isSearching = useSearchStore((state) => state.isSearching);
   const toggleSearch = useSearchStore((state) => state.toggleSearch);
+  const isSerif = useThemeStore((state) => state.isSerif);
 
   useEffect(() => {
     isSearching && inputRef.current?.focus();
@@ -32,7 +34,12 @@ export function Search({ posts }: SearchProps) {
   if (!isSearching) return null;
 
   return (
-    <section className="fixed left-1/2 top-1/2 z-50 flex h-fit max-h-[80vh] w-5/6 max-w-3xl -translate-x-1/2 -translate-y-1/2 flex-col rounded-md border-2 border-slate-400 bg-slate-200 bg-opacity-70 p-4 backdrop-blur-md dark:border-slate-500 dark:bg-slate-600 dark:bg-opacity-70">
+    <section
+      className={clsx(
+        isSerif && 'font-serif',
+        'fixed left-1/2 top-1/2 z-50 flex h-fit max-h-[80vh] w-5/6 max-w-3xl -translate-x-1/2 -translate-y-1/2 flex-col rounded-md border-2 border-slate-400 bg-slate-200 bg-opacity-70 p-4 backdrop-blur-md dark:border-slate-500 dark:bg-slate-600 dark:bg-opacity-70',
+      )}
+    >
       <div className="mb-2 flex h-fit flex-row items-center">
         <input
           ref={inputRef}
@@ -123,7 +130,9 @@ function highlightSearchQuery(query: string, text: string) {
     <span
       key={i}
       className={
-        part.toLowerCase() === query.toLowerCase() ? 'font-bold' : undefined
+        part.toLowerCase() === query.toLowerCase()
+          ? 'font-extrabold'
+          : undefined
       }
     >
       {part}
