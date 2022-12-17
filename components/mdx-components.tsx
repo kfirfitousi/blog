@@ -17,9 +17,9 @@ function p(props: React.HTMLProps<HTMLParagraphElement>) {
 function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
   const _alt = (alt?.split('{')[0].trim() ?? alt) || '';
   const props = alt?.split('{')[1];
-  const width = parseInt(props?.match(/(?<=w:\s?)\d+/g)?.[0] || '700');
-  const height = parseInt(props?.match(/(?<=h:\s?)\d+/g)?.[0] || '400');
-  const caption = props?.match(/(?<=cap:\s?)"(.+?)"/g)?.[0].replace(/"/g, '');
+  const width = parseInt(props?.match(/w:\s*(\d+)/)?.[1] ?? '700');
+  const height = parseInt(props?.match(/h:\s*(\d+)/)?.[1] ?? '400');
+  const caption = props?.match(/cap:\s*"(.*?)"/)?.[1];
 
   return (
     <figure
