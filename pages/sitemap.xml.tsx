@@ -1,5 +1,5 @@
+import { type GetServerSideProps } from 'next';
 import { BlogSource } from '@/lib/mdx-sources';
-import { GetServerSideProps } from 'next';
 
 const createSitemap = (
   slugs: string[],
@@ -16,6 +16,7 @@ const createSitemap = (
           .join('')}
     </urlset>
 `;
+
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const allPostsSlugs = (await BlogSource.getAllMdxNodes()).map(
     (post) => post.slug,
