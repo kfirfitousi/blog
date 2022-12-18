@@ -18,16 +18,11 @@ const createSitemap = (
 `;
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  const allPostsSlugs = (await BlogSource.getAllMdxNodes()).map(
-    (post) => post.slug,
-  );
+  const allPosts = (await BlogSource.getAllMdxNodes())
+    .map((post) => post.slug)
+    .map((slug) => `posts/${slug}`);
 
-  const allPages = [
-    '',
-    'about',
-    'posts',
-    ...allPostsSlugs.map((slug) => `posts/${slug}`),
-  ];
+  const allPages = ['', 'about', 'posts', ...allPosts];
 
   res.setHeader('Content-Type', 'text/xml');
   res.setHeader(
