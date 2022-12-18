@@ -12,13 +12,13 @@ import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer className="relative flex h-full flex-col items-center justify-center space-y-2 pt-8 pb-4 text-slate-700 dark:text-rose-50">
+    <footer className="relative flex h-full flex-col items-center justify-center space-y-4 pt-8 pb-4 text-slate-700 dark:text-rose-50">
       <button
         onClick={() => {
           document.body.scrollTop = 0;
           document.documentElement.scrollTop = 0;
         }}
-        className="absolute inset-x-8 inset-y-10 h-fit w-fit"
+        className="absolute inset-x-8 inset-y-12 h-fit w-fit"
       >
         <ArrowUp
           className="h-6 w-6 hover:text-rose-600 dark:hover:text-rose-400"
@@ -53,7 +53,7 @@ export function Footer() {
         </Link>
       </div>
 
-      <div className="flex flex-row items-center space-x-1 text-slate-500 dark:text-slate-300">
+      <div className="flex flex-row items-center space-x-1 text-slate-600 dark:text-slate-300">
         <Copyright className="h-4 w-4" aria-label="Copyright" />
         <span className="text-sm">2022 • Kfir Fitousi</span>
       </div>
