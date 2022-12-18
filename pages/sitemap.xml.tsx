@@ -18,9 +18,9 @@ const createSitemap = (
 `;
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  const allPosts = (await BlogSource.getAllMdxNodes())
-    .map((post) => post.slug)
-    .map((slug) => `posts/${slug}`);
+  const allPosts = (await BlogSource.getAllMdxNodes()).map(
+    (post) => `posts/${post.slug}`,
+  );
 
   const allPages = ['', 'about', 'posts', ...allPosts];
 
