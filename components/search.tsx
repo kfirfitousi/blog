@@ -148,7 +148,7 @@ export function Search({ posts }: SearchProps) {
         ))}
       </div>
 
-      <div className="absolute bottom-1 left-2 text-xs text-slate-600 dark:text-slate-200">
+      <div className="absolute bottom-1 left-2 text-xs text-slate-600 dark:text-slate-200 max-sm:hidden">
         Toggle with ⌘+K or Ctrl+K
       </div>
     </section>
