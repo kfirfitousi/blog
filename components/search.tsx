@@ -129,7 +129,7 @@ export function Search({ posts }: SearchProps) {
           searchResults.length > 0
             ? 'max-xs:hidden sm:text-base'
             : 'sm:text-lg',
-          'flex h-fit flex-row flex-wrap items-center justify-center space-x-4 space-y-1 text-sm',
+          'my-2 flex h-fit flex-row flex-wrap items-center justify-center space-x-4 space-y-1 text-sm',
         )}
       >
         {tagsWithCounts.map(([tag, count]) => (
@@ -146,6 +146,10 @@ export function Search({ posts }: SearchProps) {
             </span>
           </button>
         ))}
+      </div>
+
+      <div className="absolute bottom-1 left-2 text-xs text-slate-600 dark:text-slate-200">
+        Toggle with ⌘+K or Ctrl+K
       </div>
     </section>
   );

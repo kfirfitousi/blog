@@ -50,13 +50,30 @@ export function Header() {
     // sync scroll position with state
     setScrollTop(document.documentElement.scrollTop || document.body.scrollTop);
 
-    // add event listener to update state on scroll
-    document.addEventListener('scroll', () =>
+    // update state on scroll
+    const handleScroll = () => {
       setScrollTop(
         document.documentElement.scrollTop || document.body.scrollTop,
-      ),
-    );
+      );
+    };
+    document.addEventListener('scroll', handleScroll);
+
+    return () => document.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    // toggle search on cmd+k or ctrl+k
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        toggleSearch();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [toggleSearch]);
 
   return (
     <header
