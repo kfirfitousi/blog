@@ -27,13 +27,17 @@ export function Footer() {
       </button>
 
       <div className="flex flex-row space-x-6">
-        <Link href="https://www.github.com/kfirfitousi">
+        <Link href="https://www.github.com/kfirfitousi" target="_blank">
           <Github
             className="h-6 w-6 hover:text-rose-600 dark:hover:text-rose-400"
             aria-label="My GitHub profile"
           />
         </Link>
-        <Link href="https://www.twitter.com/kp2c" className="ml-6">
+        <Link
+          href="https://www.twitter.com/kp2c"
+          target="_blank"
+          className="ml-6"
+        >
           <Twitter
             className="h-6 w-6 hover:text-rose-600 dark:hover:text-rose-400"
             aria-label="My Twitter profile"
@@ -45,7 +49,11 @@ export function Footer() {
             aria-label="My Email"
           />
         </a>
-        <Link href="https://www.linkedin.com/in/kfirp" className="ml-6">
+        <Link
+          href="https://www.linkedin.com/in/kfirp"
+          target="_blank"
+          className="ml-6"
+        >
           <Linkedin
             className="h-6 w-6 hover:text-rose-600 dark:hover:text-rose-400"
             aria-label="My LinkedIn profile"
