@@ -6,7 +6,6 @@ import { useThemeStore } from '@/stores/theme-store';
 import { useSearchStore } from '@/stores/search-store';
 import shallow from 'zustand/shallow';
 import clsx from 'clsx';
-
 import Link from 'next/link';
 import { BlogTitle } from './blog-title';
 import { PlusSquare, MinusSquare, Type, Sun, Moon, Search } from 'lucide-react';
@@ -64,27 +63,27 @@ export function Header() {
       ref={headerRef}
       className={clsx(
         headerRef.current && scrollTop > headerRef.current.clientHeight
-          ? 'border-b border-b-slate-400 py-2 dark:border-b-slate-500'
-          : 'py-8',
-        'flex flex-row items-center justify-between px-2 xs:px-8',
+          ? 'border-b border-b-slate-300 bg-slate-500 bg-opacity-10 py-2 dark:border-b-slate-500'
+          : 'bg-transparent py-8',
+        'flex flex-row items-center justify-between px-4 xs:px-8',
         'transition-[padding,background-color] duration-300 ease-in-out',
-        'bg-transparent text-slate-700 backdrop-blur dark:text-rose-50',
+        'text-slate-700 backdrop-blur dark:text-rose-50',
       )}
     >
       <nav
         className={clsx(
           isSerif && 'font-serif',
           isPostPage ? 'sm:ml-[136px]' : 'sm:ml-[80px]',
-          'flex flex-grow flex-row items-center justify-evenly space-x-4 max-xs:mr-2 max-xs:text-sm xs:justify-start sm:justify-center',
+          'flex flex-grow flex-row items-center justify-start mix-blend-color-dodge max-xs:mr-2 max-xs:text-sm sm:justify-center',
         )}
       >
         <Link
           href="/posts"
-          className="order-2 font-semibold hover:text-rose-600 dark:hover:text-rose-400 sm:order-1"
+          className="order-2 mr-2 font-semibold hover:text-rose-600 dark:hover:text-rose-400 xs:mr-4 sm:order-1"
         >
           Posts
         </Link>
-        <Link href="/" className="order-1 max-sm:!ml-0 max-sm:!mr-2 sm:order-2">
+        <Link href="/" className="order-1 mr-2 xs:mr-4 sm:order-2">
           <BlogTitle small title="Kfir's Blog" />
         </Link>
         <Link
@@ -95,7 +94,7 @@ export function Header() {
         </Link>
       </nav>
 
-      <div className="ml-auto flex w-fit flex-row items-center justify-end space-x-1">
+      <div className="ml-auto flex w-fit flex-row items-center justify-end space-x-1 mix-blend-color-dodge">
         <button
           onClick={toggleSearch}
           className={
