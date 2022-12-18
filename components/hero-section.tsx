@@ -68,7 +68,10 @@ export function HeroSection() {
             aria-label="Play animation"
           />
         ) : (
-          <Pause className="h-4 w-4 text-slate-400 text-opacity-50 hover:text-rose-600 dark:text-rose-50 dark:text-opacity-20 dark:hover:text-rose-400" />
+          <Pause
+            className="h-4 w-4 text-slate-400 text-opacity-50 hover:text-rose-600 dark:text-rose-50 dark:text-opacity-20 dark:hover:text-rose-400"
+            aria-label="Pause animation"
+          />
         )}
       </button>
     </section>
