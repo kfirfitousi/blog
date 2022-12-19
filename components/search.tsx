@@ -113,7 +113,7 @@ export function Search({ posts }: SearchProps) {
                 {highlightSearchQuery(query, post.frontmatter.excerpt)}
               </span>
               <span className="text-sm text-slate-600 dark:text-slate-300">
-                {formattedDate} • {relativeTime}
+                {formattedDate} · {relativeTime}
               </span>
             </Link>
           );

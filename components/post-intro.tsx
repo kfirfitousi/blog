@@ -44,7 +44,7 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
         )}
       >
         Published {formattedDate}
-        <span className="text-slate-500"> • {relativeTime}</span>
+        <span className="text-slate-500"> · {relativeTime}</span>
       </p>
       <PostTags
         tags={tags}

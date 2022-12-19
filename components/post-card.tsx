@@ -47,7 +47,7 @@ export function PostCard({ post }: PostCardProps) {
             <span className="text-sm">
               Published {formattedDate}{' '}
               <span className="hidden text-slate-600 dark:text-slate-300 xs:inline">
-                • {relativeTime}
+                · {relativeTime}
               </span>
             </span>
           </p>
