@@ -1,6 +1,10 @@
 'use client';
 
+import { useThemeStore } from '@/stores/theme-store';
+
 export function Comments() {
+  const isDark = useThemeStore((state) => state.isDark);
+
   return (
     <section
       ref={(element) => {
@@ -13,7 +17,10 @@ export function Comments() {
         scriptElement.setAttribute('repo', 'kfirfitousi/blog');
         scriptElement.setAttribute('issue-term', 'pathname');
         scriptElement.setAttribute('async', 'true');
-        scriptElement.setAttribute('theme', 'github-light');
+        scriptElement.setAttribute(
+          'theme',
+          isDark ? 'photon-dark' : 'github-light',
+        );
         element.replaceChildren(scriptElement);
       }}
     />
