@@ -19,7 +19,7 @@
     "@vercel/og": "^0.0.21",
     "clsx": "^1.2.1",
     "eslint": "8.30.0",
-    "eslint-config-next": "13.0.3",
+    "eslint-config-next": "13.0.7",
     "eslint-plugin-tailwindcss": "^3.7.1",
     "fast-glob": "^3.2.12",
     "grapheme-splitter": "^1.0.4",
