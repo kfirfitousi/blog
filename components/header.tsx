@@ -43,7 +43,18 @@ export function Header() {
 
   const toggleDarkAndApply = () => {
     toggleDark();
+    // toggle class on html
     document.querySelector('html')?.classList.toggle('dark');
+    // toggle utterances comment section theme
+    document
+      .querySelector<HTMLIFrameElement>('.utterances-frame')
+      ?.contentWindow?.postMessage(
+        {
+          type: 'set-theme',
+          theme: isDark ? 'github-light' : 'photon-dark',
+        },
+        '*',
+      );
   };
 
   useEffect(() => {
@@ -69,7 +80,6 @@ export function Header() {
         toggleSearch();
       }
     };
-
     document.addEventListener('keydown', handleKeyDown);
 
     return () => document.removeEventListener('keydown', handleKeyDown);
