@@ -7,6 +7,15 @@ const meta: Meta<typeof Footer> = {
   parameters: {
     layout: 'fullscreen',
   },
+  decorators: [
+    (Story) => (
+      <div className="flex h-screen flex-col">
+        <div className="mt-auto">
+          <Story />
+        </div>
+      </div>
+    ),
+  ],
 };
 
 export default meta;
