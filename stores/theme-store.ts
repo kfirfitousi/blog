@@ -24,8 +24,8 @@ export const useThemeStore = create<ThemeState>()(
     fontSize: 'lg',
     isFontSizeMin: false,
     isFontSizeMax: false,
-    toggleDark: () => set((themeState) => ({ isDark: !themeState.isDark })),
-    toggleSerif: () => set((themeState) => ({ isSerif: !themeState.isSerif })),
+    toggleDark: () => set((state) => ({ isDark: !state.isDark })),
+    toggleSerif: () => set((state) => ({ isSerif: !state.isSerif })),
     increaseFontSize: () =>
       set((state) => {
         if (state.isFontSizeMax) return state;
