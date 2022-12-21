@@ -10,25 +10,6 @@ import { ChevronUp, X } from 'lucide-react';
 import Link from 'next/link';
 import clsx from 'clsx';
 
-const placeholders = [
-  'What are you looking for?',
-  'Something need doing?',
-  'Looking for something specific?',
-  'Looking for something special?',
-  'Ah, I have just the thing for you.',
-  'What brings you here?',
-  'Whatcha lookin for?',
-  "You need somethin'?",
-  'I got what you need!',
-  'Yeah, what do you want?',
-  'What do you require?',
-  'I have exactly what you need.',
-  'What can I get for ya today?',
-  'May you find what you seek.',
-  "I hope you'll find something useful!",
-  'Feel free to browse.',
-];
-
 type SearchProps = {
   posts: BlogMdxNode[];
 };
@@ -180,3 +161,24 @@ function highlightSearchQuery(query: string, text: string) {
     </span>
   ));
 }
+/**
+ * Placeholders for the search input
+ */
+const placeholders = [
+  'What are you looking for?',
+  'Something need doing?',
+  'Looking for something specific?',
+  'Looking for something special?',
+  'Ah, I have just the thing for you.',
+  'What brings you here?',
+  'Whatcha lookin for?',
+  "You need somethin'?",
+  'I got what you need!',
+  'Yeah, what do you want?',
+  'What do you require?',
+  'I have exactly what you need.',
+  'What can I get for ya today?',
+  'May you find what you seek.',
+  "I hope you'll find something useful!",
+  'Feel free to browse.',
+];
