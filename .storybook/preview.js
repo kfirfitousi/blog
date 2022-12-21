@@ -26,6 +26,10 @@ export const parameters = {
   },
 };
 
+export const globalTypes = {
+  darkMode: true,
+};
+
 export const decorators = [
   (Story) => (
     <div
