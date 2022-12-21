@@ -4,10 +4,18 @@ import { Header } from './header';
 const meta: Meta<typeof Header> = {
   title: 'Header',
   component: Header,
-  tags: ['docsPage'],
   parameters: {
     layout: 'fullscreen',
   },
+  decorators: [
+    (Story) => (
+      <div className="relative min-h-[200vh]">
+        <div className="sticky top-0 w-full">
+          <Story />
+        </div>
+      </div>
+    ),
+  ],
 };
 
 export default meta;
