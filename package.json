@@ -62,5 +62,11 @@
     "storybook": "^7.0.0-beta.13",
     "storybook-tailwind-dark-mode": "^1.0.15",
     "tailwindcss": "^3.2.4"
+  },
+  "overrides": {
+    "storybook-tailwind-dark-mode": {
+      "@storybook/addons": "^6.5.15",
+      "react": "^18.20.0"
+    }
   }
 }
