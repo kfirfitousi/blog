@@ -7,7 +7,7 @@ interface PostTagsProps {
 
 export function PostTags({ tags, className }: PostTagsProps) {
   return (
-    <p className={clsx(className, 'flex flex-row flex-wrap gap-1')}>
+    <div className={clsx(className, 'flex flex-row flex-wrap gap-1')}>
       {tags.map((tag) => (
         <span
           key={tag}
@@ -16,6 +16,6 @@ export function PostTags({ tags, className }: PostTagsProps) {
           {tag}
         </span>
       ))}
-    </p>
+    </div>
   );
 }

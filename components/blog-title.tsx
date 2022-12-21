@@ -24,7 +24,7 @@ export function BlogTitle({ title, small }: BlogTitleProps) {
           small ? 'h-4 w-4' : 'h-8 w-8',
           'text-rose-700 text-opacity-40 dark:text-rose-400',
         )}
-        aria-hidden="true"
+        aria-hidden
       />
       <h1
         className={clsx(
@@ -42,7 +42,7 @@ export function BlogTitle({ title, small }: BlogTitleProps) {
           small ? 'h-4 w-4' : 'h-8 w-8',
           'text-rose-700 text-opacity-40 dark:text-rose-400',
         )}
-        aria-hidden="true"
+        aria-hidden
       />
     </div>
   );

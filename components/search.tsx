@@ -82,7 +82,10 @@ export function Search({ posts }: SearchProps) {
               'absolute top-[1.1rem] right-12 sm:right-14',
             )}
           >
-            <X className="h-6 w-6 text-slate-500 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400" />
+            <X
+              className="h-6 w-6 text-slate-500 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400"
+              aria-label="Clear"
+            />
           </button>
         )}
         <button onClick={toggleSearch}>
@@ -155,6 +158,13 @@ export function Search({ posts }: SearchProps) {
   );
 }
 
+/**
+ * Highlights the search query in the text by wrapping it in a span with the
+ * font-extrabold class.
+ * @param query The search query
+ * @param text The text to highlight
+ * @returns The text with the query highlighted
+ */
 function highlightSearchQuery(query: string, text: string) {
   const sanitizedQuery = query.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
   return text.split(new RegExp(`(${sanitizedQuery})`, 'gi')).map((part, i) => (

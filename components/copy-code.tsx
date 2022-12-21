@@ -21,11 +21,12 @@ export function CopyCode({ codeElement }: CopyCodeProps) {
     <button
       className="absolute inset-y-1 right-1 flex h-7 w-7 items-center justify-center rounded bg-white dark:bg-[#22272E]"
       onClick={() => !isCopied && copy()}
+      disabled={isCopied}
     >
       {isCopied ? (
         <Check
           className="h-6 w-6 animate-pulse text-rose-600 dark:text-rose-400"
-          aria-hidden
+          aria-label="Copied"
         />
       ) : (
         <Copy

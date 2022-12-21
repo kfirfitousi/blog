@@ -100,7 +100,7 @@ export function Header() {
       <nav
         className={clsx(
           isSerif && 'font-serif',
-          isPostPage ? 'sm:ml-[136px]' : 'sm:ml-[80px]',
+          isPostPage ? 'sm:ml-[136px]' : 'sm:ml-20',
           'flex flex-grow flex-row items-center justify-start mix-blend-color-dodge max-xs:mr-2 max-xs:text-sm sm:justify-center',
         )}
       >

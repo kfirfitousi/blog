@@ -54,7 +54,7 @@ export function PostCard({ post }: PostCardProps) {
         </div>
         <PostTags tags={post.frontmatter.tags} className="text-sm sm:text-xs" />
       </article>
-      <div className="absolute inset-0 z-20 my-auto h-[calc(100%-4px)] w-4 rounded-l bg-slate-700 group-hover:animate-border group-focus:animate-border-fast dark:bg-rose-50"></div>
+      <div className="absolute inset-0 z-20 my-auto h-[calc(100%-4px)] w-4 rounded-l bg-slate-700 group-hover:animate-border group-focus:animate-border-fast dark:bg-rose-50" />
     </Link>
   );
 }
