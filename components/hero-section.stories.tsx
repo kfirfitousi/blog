@@ -4,6 +4,13 @@ import { HeroSection } from './hero-section';
 const meta: Meta<typeof HeroSection> = {
   title: 'Hero Section',
   component: HeroSection,
+  decorators: [
+    (Story) => (
+      <div className="mx-auto max-w-3xl">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;
