@@ -25,6 +25,19 @@ export function Search({ posts }: SearchProps) {
     isSearching && inputRef.current?.focus();
   }, [isSearching]);
 
+  useEffect(() => {
+    // toggle search on cmd+k or ctrl+k
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        toggleSearch();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [toggleSearch]);
+
   const tagsWithCounts = useMemo(() => getTagsWithCount(posts), [posts]);
   const searchResults = useMemo(
     () => searchPosts(query, posts),

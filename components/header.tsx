@@ -72,19 +72,6 @@ export function Header() {
     return () => document.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    // toggle search on cmd+k or ctrl+k
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        toggleSearch();
-      }
-    };
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [toggleSearch]);
-
   return (
     <header
       ref={headerRef}
