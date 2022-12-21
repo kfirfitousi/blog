@@ -25,10 +25,9 @@ export default async function handler(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
 
-    // ?title=<title>
+    // ?title=<title>&subtitle=<subtitle>
     const hasTitle = searchParams.has('title');
     const title = hasTitle && searchParams.get('title')?.slice(0, 100);
-
     const hasSubtitle = searchParams.has('subtitle');
     const subtitle = hasSubtitle && searchParams.get('subtitle')?.slice(0, 100);
 
