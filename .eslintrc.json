@@ -1,6 +1,11 @@
 {
-  "extends": "next/core-web-vitals",
-  "plugins": ["eslint-plugin-tailwindcss"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:storybook/recommended"
+  ],
+  "plugins": [
+    "eslint-plugin-tailwindcss"
+  ],
   "rules": {
     "tailwindcss/classnames-order": "error",
     "tailwindcss/no-custom-classname": "error",
