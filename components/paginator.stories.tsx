@@ -19,6 +19,13 @@ const examplePost = (num: number) => ({
 const meta: Meta<typeof Paginator> = {
   title: 'Paginator',
   component: Paginator,
+  decorators: [
+    (Story) => (
+      <div className="mx-auto max-w-3xl">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;
