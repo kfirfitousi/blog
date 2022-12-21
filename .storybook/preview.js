@@ -29,9 +29,11 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <div
-      className={[fontSans.variable.replace(' ', '-'), fontSerif.variable].join(' ')}
+      className={`${fontSans.variable} ${fontSerif.variable} font-sans`}
       style={{
-        fontFamily: 'var(--font-red-hat)',
+        // temporary fix for Red Hat Display font not loading
+        // TODO: remove when it's fixed
+        '--font-red-hat': fontSans.style.fontFamily,
       }}
     >
       <div />
