@@ -4,7 +4,8 @@ import clsx from 'clsx';
 import Link from 'next/link';
 
 /**
- * use <Link> for internal links and <a> for external links and anchors
+ * Use <Link> for internal links and <a> for external links and anchors
+ * and open external links in a new tab
  */
 export function a({ href, children }: React.HTMLProps<HTMLAnchorElement>) {
   if (href && href.startsWith('/')) {
@@ -23,7 +24,7 @@ export function a({ href, children }: React.HTMLProps<HTMLAnchorElement>) {
 }
 
 /**
- * use div instead of p elements since p elements have restrictions on what
+ * Use div instead of p elements since p elements have restrictions on what
  * elements can be nested inside them
  */
 function p(props: React.HTMLProps<HTMLParagraphElement>) {
@@ -31,8 +32,8 @@ function p(props: React.HTMLProps<HTMLParagraphElement>) {
 }
 
 /**
- * image component that uses next/image, with optional caption and width/height
- * example usage: \![alt text {{ w: 600, h: 300, cap: "caption text" }}](/path/to/image)
+ * Image component that uses next/image, with optional caption and width/height
+ * Example usage: \!\[alt text {{ w: 600, h: 300, cap: "caption text" }}](/path/to/image)
  */
 function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
   const _alt = (alt?.split('{')[0].trim() ?? alt) || '';
@@ -68,7 +69,7 @@ function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
 }
 
 /**
- * add copy code button to code blocks
+ * Add copy-code button to code blocks
  */
 function pre({ children }: React.HTMLProps<HTMLPreElement>) {
   return (
