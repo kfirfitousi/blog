@@ -15,7 +15,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        // uses @font/google; see app/layout.tsx
+        // uses @next/font/google; see app/layout.tsx
         sans: ['var(--font-red-hat)'],
         serif: ['var(--font-newsreader)'],
       },
@@ -54,6 +54,7 @@ module.exports = {
         // border animation used in components/post-card.tsx
         border: 'show-border 0.5s ease-in-out forwards',
         'border-fast': 'show-border 0.25s ease-in-out forwards',
+        // wave animation used in components/hero-section.tsx
         wave: 'wave 2.5s ease-in-out forwards',
       },
     },
