@@ -8,6 +8,12 @@ const relativeTimeFormat = new Intl.RelativeTimeFormat('en-US', {
   numeric: 'auto',
 });
 
+/**
+ * Formats a date string into a human readable relative time
+ * @param date The date string to format
+ * @returns An object with the relative time and a boolean indicating if the date is fresh,
+ * i.e. less than 4 days old
+ */
 export function getRelativeTime(date: string) {
   const timeDiff = new Date(date).getTime() - new Date().getTime();
 
@@ -34,6 +40,12 @@ export function getRelativeTime(date: string) {
   };
 }
 
+/**
+ * Formats a date string into a human readable format
+ * @param date The date string to format
+ * @returns An object with the formatted date, relative time and a boolean indicating if the date is fresh,
+ * i.e. less than 4 days old
+ */
 export function parseDate(date: string) {
   const formattedDate = dateFormatter.format(new Date(date));
   const { relativeTime, isFresh } = getRelativeTime(date);
