@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { CopyCode } from './copy-code';
+import { CopyCode } from '@/components/copy-code';
 import '@/styles/markdown.css';
 
 const codeElement = (

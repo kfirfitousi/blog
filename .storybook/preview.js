@@ -33,14 +33,13 @@ export const globalTypes = {
 export const decorators = [
   (Story) => (
     <div
-      className={`${fontSans.variable} ${fontSerif.variable} font-sans`}
+      className={[fontSans.variable, fontSerif.variable, 'font-sans'].join(' ')}
       style={{
         // temporary fix for Red Hat Display font not loading
         // TODO: remove when it's fixed
         '--font-red-hat': fontSans.style.fontFamily,
       }}
     >
-      <div />
       <Story />
     </div>
   ),

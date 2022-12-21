@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Paginator } from './paginator';
+import { Paginator } from '@/components/paginator';
 
 const examplePost = (num: number) => ({
   frontmatter: {

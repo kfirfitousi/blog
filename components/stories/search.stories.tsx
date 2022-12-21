@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useSearchStore } from '@/stores/search-store';
-import { Search } from './search';
+import { Search } from '@/components/search';
 
 const examplePost = (num: number) => ({
   frontmatter: {

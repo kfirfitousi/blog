@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { PostTags } from './post-tags';
+import { PostTags } from '@/components/post-tags';
 
 const meta: Meta<typeof PostTags> = {
   title: 'Post Tags',

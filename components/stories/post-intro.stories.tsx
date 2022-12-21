@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { PostIntro } from './post-intro';
+import { PostIntro } from '@/components/post-intro';
 
 const meta: Meta<typeof PostIntro> = {
   title: 'Post Intro',
