@@ -5,7 +5,6 @@ import { FileText } from 'lucide-react';
 const meta: Meta<typeof Button> = {
   title: 'Button',
   component: Button,
-  tags: ['docsPage'],
   parameters: {
     layout: 'centered',
   },
@@ -14,7 +13,7 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Primary: Story = {
+export const Normal: Story = {
   args: {
     href: '#',
     label: 'All Posts',
