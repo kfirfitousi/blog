@@ -9,7 +9,9 @@
     "style:lint": "next lint",
     "style:prettier": "prettier --check '**/*.{js,jsx,ts,tsx}'",
     "style:all": "npm run style:lint && npm run style:prettier",
-    "format": "prettier --write '**/*.{js,jsx,ts,tsx}'"
+    "format": "prettier --write '**/*.{js,jsx,ts,tsx}'",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@next/font": "^13.0.7",
@@ -44,11 +46,20 @@
     "zustand": "^4.1.5"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.0-beta.13",
+    "@storybook/addon-interactions": "^7.0.0-beta.13",
+    "@storybook/addon-links": "^7.0.0-beta.13",
+    "@storybook/blocks": "^7.0.0-beta.13",
+    "@storybook/nextjs": "^7.0.0-beta.13",
+    "@storybook/react": "^7.0.0-beta.13",
+    "@storybook/testing-library": "^0.0.14-next.1",
     "@tailwindcss/typography": "^0.5.8",
     "autoprefixer": "^10.4.13",
+    "eslint-plugin-storybook": "^0.6.8",
     "postcss": "^8.4.20",
     "prettier": "2.8.1",
     "prettier-plugin-tailwindcss": "^0.2.1",
+    "storybook": "^7.0.0-beta.13",
     "tailwindcss": "^3.2.4"
   }
 }
