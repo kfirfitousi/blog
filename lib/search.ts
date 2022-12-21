@@ -1,31 +1,44 @@
 import { type BlogMdxNode } from '@/lib//mdx-sources';
 
+/**
+ * Search for a query in a text
+ * @param query The query to search for
+ * @param text The text to search in
+ * @returns Whether the query was found in the text
+ */
+function searchHit(query: string, text: string) {
+  return text.toLowerCase().includes(query.toLowerCase());
+}
+
+/**
+ * Search for a query in a list of posts
+ * @param query The query to search for
+ * @param posts The posts to search in
+ * @returns The posts that matched the query in descending order of relevance
+ */
 export function searchPosts(query: string, posts: BlogMdxNode[]) {
   const postsWithSearchHits = new Map<BlogMdxNode, number>();
 
   posts.forEach((post) => {
     if (!query) return;
 
-    const { frontmatter, raw } = post;
+    const {
+      frontmatter: { title, excerpt, tags },
+      raw,
+    } = post;
+
     let searchHits = 0;
 
-    if (
-      frontmatter.tags.some((tag) =>
-        tag.toLowerCase().includes(query.toLowerCase()),
-      )
-    ) {
+    if (tags.some((tag) => searchHit(query, tag))) {
       searchHits += 10; // give tag hits heavy weight
     }
-
-    if (frontmatter.title.toLowerCase().includes(query.toLowerCase())) {
+    if (searchHit(query, title)) {
       searchHits += 10; // give title hits heavy weight
     }
-
-    if (frontmatter.excerpt.toLowerCase().includes(query.toLowerCase())) {
+    if (searchHit(query, excerpt)) {
       searchHits += 5; // give excerpt hits lighter weight
     }
-
-    if (raw.toLowerCase().includes(query.toLowerCase())) {
+    if (searchHit(query, raw)) {
       searchHits++; // give content hits lightest weight
     }
 
@@ -39,6 +52,11 @@ export function searchPosts(query: string, posts: BlogMdxNode[]) {
     .map(([post]) => post);
 }
 
+/**
+ * Get all tags with their count
+ * @param posts The posts to get the tags from
+ * @returns The tags with their count in descending order of count
+ */
 export function getTagsWithCount(posts: BlogMdxNode[]) {
   const tagsWithCount = new Map<string, number>();
 
