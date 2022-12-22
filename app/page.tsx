@@ -5,8 +5,7 @@ import { Button } from '@/components/button';
 import { FileText } from 'lucide-react';
 
 export default async function Home() {
-  const posts = await BlogSource.getAllMdxNodes();
-  const latestPosts = posts.slice(0, 3);
+  const latestPosts = (await BlogSource.getAllMdxNodes()).slice(0, 3);
 
   return (
     <div className="flex h-full flex-col space-y-4 px-6 pb-12 sm:px-12">
