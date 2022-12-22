@@ -28,4 +28,5 @@ jobs:
       - name: 'Run tests'
         run: |
           npx tsc --noEmit
+          npm run test
           npm run style:all

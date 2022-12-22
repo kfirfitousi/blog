@@ -1,21 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { getDummyPost } from '@/lib/dummy-post';
 import { Paginator } from '@/components/paginator';
 import { Padding } from './decorators';
 
-const examplePost = (num: number) => ({
-  frontmatter: {
+const posts = Array.from({ length: 25 }).map((_, i) =>
+  getDummyPost({
+    title: `Post ${i + 1}`,
+    excerpt: `This is post ${i + 1}`,
     date: '2022-01-01',
-    title: `Example Post ${num}`,
-    tags: ['example', 'post'],
-    excerpt: 'This is an example post.',
-  },
-  slug: 'example-post',
-  url: '/posts/examples/example-post',
-  filepath: 'posts/examples/example-post.mdx',
-  hash: 'example-post',
-  raw: '',
-  serialized: '' as any,
-});
+    tags: ['example', 'post', 'tags'],
+  }),
+);
 
 const meta: Meta<typeof Paginator> = {
   title: 'Paginator',
@@ -28,14 +23,14 @@ type Story = StoryObj<typeof Paginator>;
 
 export const OnePage: Story = {
   args: {
-    posts: Array.from({ length: 5 }).map((_, i) => examplePost(i + 1)),
+    posts: posts.slice(0, 5),
     postPerPage: 5,
   },
 };
 
 export const FivePages: Story = {
   args: {
-    posts: Array.from({ length: 25 }).map((_, i) => examplePost(i + 1)),
+    posts,
     postPerPage: 5,
   },
 };
