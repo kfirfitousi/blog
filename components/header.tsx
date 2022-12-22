@@ -7,7 +7,7 @@ import { useSearchStore } from '@/stores/search-store';
 import shallow from 'zustand/shallow';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { BlogTitle } from './blog-title';
+import { BlogTitle } from '@/components/blog-title';
 import { PlusSquare, MinusSquare, Type, Sun, Moon, Search } from 'lucide-react';
 
 export function Header() {
@@ -124,16 +124,13 @@ export function Header() {
       <div className="ml-auto flex w-fit flex-row items-center justify-end space-x-1 mix-blend-color-dodge">
         <button
           onClick={toggleSearch}
-          className={
-            isSearching
-              ? 'text-rose-600 dark:text-rose-400'
-              : 'hover:text-rose-600 dark:hover:text-rose-400'
-          }
+          className={clsx(
+            isSearching &&
+              'text-rose-600 text-opacity-60 dark:text-rose-400 dark:text-opacity-80',
+            'hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400',
+          )}
         >
-          <Search
-            className="h-5 w-5 xs:h-6 xs:w-6 "
-            aria-label="Search Posts"
-          />
+          <Search className="h-5 w-5 xs:h-6 xs:w-6" aria-label="Search Posts" />
         </button>
 
         {isPostPage && (
@@ -141,20 +138,20 @@ export function Header() {
             <button
               onClick={decreaseFontSize}
               disabled={isFontSizeMin}
-              className="hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400"
+              className="hover:scale-110 hover:pb-0.5 hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400"
             >
               <MinusSquare
-                className="h-5 w-5 xs:h-6 xs:w-6 "
+                className="h-5 w-5 xs:h-6 xs:w-6"
                 aria-label="Decrease font size"
               />
             </button>
             <button
               onClick={increaseFontSize}
               disabled={isFontSizeMax}
-              className="hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400"
+              className="hover:scale-110 hover:pb-0.5 hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400"
             >
               <PlusSquare
-                className="h-5 w-5 xs:h-6 xs:w-6 "
+                className="h-5 w-5 xs:h-6 xs:w-6"
                 aria-label="Increase font size"
               />
             </button>
@@ -164,29 +161,28 @@ export function Header() {
         <button
           onClick={toggleSerif}
           className={clsx(
-            isSerif
-              ? 'text-rose-600 dark:text-rose-400'
-              : 'hover:text-rose-600 dark:hover:text-rose-400',
-            'ml-auto',
+            isSerif &&
+              'text-rose-600 text-opacity-60 dark:text-rose-400 dark:text-opacity-80',
+            'ml-auto hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400',
           )}
         >
           <Type
-            className="h-5 w-5 xs:h-6 xs:w-6 "
+            className="h-5 w-5 xs:h-6 xs:w-6"
             aria-label="Toggle serif font"
           />
         </button>
         <button
           onClick={toggleDarkAndApply}
-          className="hover:text-rose-600 dark:hover:text-rose-400"
+          className="hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400"
         >
           {isDark ? (
             <Sun
-              className="h-5 w-5 xs:h-6 xs:w-6 "
+              className="h-5 w-5 xs:h-6 xs:w-6"
               aria-label="Switch to light mode"
             />
           ) : (
             <Moon
-              className="h-5 w-5 xs:h-6 xs:w-6 "
+              className="h-5 w-5 xs:h-6 xs:w-6"
               aria-label="Switch to dark mode"
             />
           )}

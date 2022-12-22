@@ -35,7 +35,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       )}
     >
       <head />
-      <body className="grid min-h-screen grid-cols-1 grid-rows-[auto_minmax(calc(100vh-217px),1fr)_auto] bg-slate-200 dark:bg-slate-700 sm:grid-cols-[1fr_minmax(640px,1024px)_1fr]">
+      <body className="grid min-h-screen grid-cols-1 grid-rows-[6rem_minmax(calc(100vh-14rem),1fr)_8rem] bg-slate-200 dark:bg-slate-700 sm:grid-cols-[1fr_minmax(640px,1024px)_1fr]">
         <section className="sticky top-0 z-30 col-span-1 row-span-1 row-start-1 h-full self-start sm:col-start-2">
           <Header />
         </section>
