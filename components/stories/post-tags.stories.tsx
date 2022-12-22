@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { PostTags } from '@/components/post-tags';
+import { Center } from './decorators';
 
 const meta: Meta<typeof PostTags> = {
   title: 'Post Tags',
   component: PostTags,
-  parameters: {
-    layout: 'centered',
-  },
+  decorators: [Center],
 };
 
 export default meta;

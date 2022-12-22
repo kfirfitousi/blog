@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Paginator } from '@/components/paginator';
+import { Padding } from './decorators';
 
 const examplePost = (num: number) => ({
   frontmatter: {
@@ -19,13 +20,7 @@ const examplePost = (num: number) => ({
 const meta: Meta<typeof Paginator> = {
   title: 'Paginator',
   component: Paginator,
-  decorators: [
-    (Story) => (
-      <div className="mx-auto max-w-3xl">
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [Padding],
 };
 
 export default meta;

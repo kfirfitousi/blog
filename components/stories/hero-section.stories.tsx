@@ -1,16 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { HeroSection } from '@/components/hero-section';
+import { Padding } from './decorators';
 
 const meta: Meta<typeof HeroSection> = {
   title: 'Hero Section',
   component: HeroSection,
-  decorators: [
-    (Story) => (
-      <div className="mx-auto max-w-3xl">
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [Padding],
 };
 
 export default meta;

@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '@/components/button';
 import { FileText } from 'lucide-react';
+import { Center } from './decorators';
 
 const meta: Meta<typeof Button> = {
   title: 'Button',
   component: Button,
-  parameters: {
-    layout: 'centered',
-  },
+  decorators: [Center],
 };
 
 export default meta;

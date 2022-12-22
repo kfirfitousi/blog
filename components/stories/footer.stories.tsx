@@ -4,9 +4,6 @@ import { Footer } from '@/components/footer';
 const meta: Meta<typeof Footer> = {
   title: 'Footer',
   component: Footer,
-  parameters: {
-    layout: 'fullscreen',
-  },
   decorators: [
     (Story) => (
       <div className="flex h-screen flex-col">

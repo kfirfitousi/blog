@@ -1,16 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { PostIntro } from '@/components/post-intro';
+import { Padding } from './decorators';
 
 const meta: Meta<typeof PostIntro> = {
   title: 'Post Intro',
   component: PostIntro,
-  decorators: [
-    (Story) => (
-      <div className="mx-auto max-w-3xl">
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [Padding],
 };
 
 export default meta;

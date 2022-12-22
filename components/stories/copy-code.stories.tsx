@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { CopyCode } from '@/components/copy-code';
+import { Center } from './decorators';
 import '@/styles/markdown.css';
 
 const codeElement = (
@@ -15,9 +16,6 @@ import '@/styles/markdown.css';
 const meta: Meta<typeof CopyCode> = {
   title: 'Copy Code Button',
   component: CopyCode,
-  parameters: {
-    layout: 'centered',
-  },
   decorators: [
     (Story) => (
       <pre className="relative mx-auto max-w-3xl">
@@ -25,6 +23,7 @@ const meta: Meta<typeof CopyCode> = {
         {codeElement}
       </pre>
     ),
+    Center,
   ],
 };
 

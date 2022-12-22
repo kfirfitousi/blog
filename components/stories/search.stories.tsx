@@ -20,9 +20,6 @@ const examplePost = (num: number) => ({
 const meta: Meta<typeof Search> = {
   title: 'Search',
   component: Search,
-  parameters: {
-    layout: 'centered',
-  },
   decorators: [
     (Story) => {
       const toggleSearch = useSearchStore((state) => state.toggleSearch);

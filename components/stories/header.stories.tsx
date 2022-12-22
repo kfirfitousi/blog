@@ -4,9 +4,6 @@ import { Header } from '@/components/header';
 const meta: Meta<typeof Header> = {
   title: 'Header',
   component: Header,
-  parameters: {
-    layout: 'fullscreen',
-  },
   decorators: [
     (Story) => (
       <div className="relative min-h-[200vh]">

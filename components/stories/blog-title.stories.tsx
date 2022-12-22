@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { BlogTitle } from '@/components/blog-title';
+import { Center } from './decorators';
 
 const meta: Meta<typeof BlogTitle> = {
   title: 'Blog Title',
   component: BlogTitle,
-  parameters: {
-    layout: 'centered',
-  },
+  decorators: [Center],
 };
 
 export default meta;
