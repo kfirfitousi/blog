@@ -5,7 +5,7 @@ import { useSearchStore } from '@/stores/search-store';
 import { useThemeStore } from '@/stores/theme-store';
 import { type BlogMdxNode } from '@/lib/mdx-sources';
 import { getTagsWithCount, searchPosts } from '@/lib/search';
-import { parseDate } from '@/lib/datetime';
+import { formatDateTime } from '@/lib/datetime';
 import { ChevronUp, X } from 'lucide-react';
 import Link from 'next/link';
 import clsx from 'clsx';
@@ -92,9 +92,7 @@ export function Search({ posts }: SearchProps) {
 
       <ul className="flex flex-col overflow-scroll">
         {searchResults.map((post) => {
-          const { formattedDate, relativeTime } = parseDate(
-            post.frontmatter.date,
-          );
+          const dateTime = formatDateTime(post.frontmatter.date);
 
           return (
             <Link
@@ -110,7 +108,7 @@ export function Search({ posts }: SearchProps) {
                 {highlightSearchQuery(query, post.frontmatter.excerpt)}
               </span>
               <span className="text-sm text-slate-600 dark:text-slate-300">
-                {formattedDate} · {relativeTime}
+                {dateTime.asString} · {dateTime.asRelativeTimeString}
               </span>
             </Link>
           );

@@ -1,26 +1,75 @@
+type DateTime = {
+  /** The date formatted as a string
+   * @example
+   * January 1, 2022
+   * December 31, 2022
+   */
+  asString: string;
+  /** The date formatted as an ISO string
+   * @example
+   * 2022-01-01T00:00:00.000Z
+   */
+  asISOString: string;
+  /** The date formatted as a relative time string
+   * @example
+   * 2 days ago
+   * 3 weeks ago
+   */
+  asRelativeTimeString: string;
+  /** A boolean indicating if the date is fresh, i.e. less than 4 days old */
+  isFresh: boolean;
+};
+
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
   month: 'long',
   day: 'numeric',
   year: 'numeric',
 });
 
-const relativeTimeFormat = new Intl.RelativeTimeFormat('en-US', {
+const relativeTimeFormatter = new Intl.RelativeTimeFormat('en-US', {
   numeric: 'auto',
 });
 
 /**
- * Formats a date string into a human readable relative time
- * @param date The date string to format
+ * Formats a date string into a {@link DateTime} object
+ * @param dateStr The date string to format
+ * @returns A {@link DateTime} object
+ */
+export function formatDateTime(dateStr: string): DateTime {
+  const date = new Date(dateStr);
+  const { relativeTime, isFresh } = getRelativeTime(date);
+
+  return {
+    asString: dateFormatter.format(date),
+    asISOString: date.toISOString(),
+    asRelativeTimeString: relativeTime,
+    isFresh,
+  };
+}
+
+/**
+ * Formats a date into a relative time
+ * @param date The date to format
  * @returns An object with the relative time and a boolean indicating if the date is fresh,
  * i.e. less than 4 days old
+ * @example
+ * {
+ *  relativeTime: '2 days ago',
+ *  isFresh: true
+ * }
+ *
+ * {
+ *  relativeTime: '3 weeks ago',
+ *  isFresh: false
+ * }
  */
-export function getRelativeTime(date: string) {
-  const timeDiff = new Date(date).getTime() - new Date().getTime();
+function getRelativeTime(date: Date) {
+  const timeDiff = date.getTime() - new Date().getTime();
 
   const days = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
   if (days > -14) {
     return {
-      relativeTime: relativeTimeFormat.format(days, 'day'),
+      relativeTime: relativeTimeFormatter.format(days, 'day'),
       isFresh: days > -4,
     };
   }
@@ -28,31 +77,14 @@ export function getRelativeTime(date: string) {
   const weeks = Math.floor(days / 7);
   if (weeks > -8) {
     return {
-      relativeTime: relativeTimeFormat.format(weeks, 'week'),
+      relativeTime: relativeTimeFormatter.format(weeks, 'week'),
       isFresh: false,
     };
   }
 
   const months = Math.floor(days / 30);
   return {
-    relativeTime: relativeTimeFormat.format(months, 'month'),
+    relativeTime: relativeTimeFormatter.format(months, 'month'),
     isFresh: false,
-  };
-}
-
-/**
- * Formats a date string into a human readable format
- * @param date The date string to format
- * @returns An object with the formatted date, relative time and a boolean indicating if the date is fresh,
- * i.e. less than 4 days old
- */
-export function parseDate(date: string) {
-  const formattedDate = dateFormatter.format(new Date(date));
-  const { relativeTime, isFresh } = getRelativeTime(date);
-
-  return {
-    formattedDate,
-    relativeTime,
-    isFresh,
   };
 }
