@@ -1,13 +1,6 @@
 'use client';
 
-import {
-  ArrowUp,
-  AtSign,
-  Copyright,
-  Github,
-  Linkedin,
-  Twitter,
-} from 'lucide-react';
+import { AtSign, Copyright, Github, Linkedin, Twitter } from 'lucide-react';
 import Link from 'next/link';
 
 export function Footer() {
