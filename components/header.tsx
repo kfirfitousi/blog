@@ -109,14 +109,14 @@ export function Header() {
         </Link>
       </nav>
 
-      <div className="ml-auto flex w-fit flex-row items-center justify-end space-x-1 mix-blend-color-dodge">
+      <div className="ml-auto flex w-fit flex-row items-center justify-end space-x-1">
         <button onClick={toggleSearch}>
           <Search
             id="search"
             className={clsx(
               isSearching &&
                 'text-rose-600 text-opacity-60 dark:text-rose-400 dark:text-opacity-80',
-              'h-5 w-5 hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6',
+              'h-5 w-5 mix-blend-color-dodge hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6',
             )}
             data-tooltip-content="Search Posts"
             aria-label="Search Posts"
@@ -129,7 +129,7 @@ export function Header() {
             <button onClick={decreaseFontSize} disabled={isFontSizeMin}>
               <MinusSquare
                 id="decrease-font-size"
-                className="h-5 w-5 hover:scale-110 hover:pb-0.5 hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400 xs:h-6 xs:w-6"
+                className="h-5 w-5 mix-blend-color-dodge hover:scale-110 hover:pb-0.5 hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400 xs:h-6 xs:w-6"
                 data-tooltip-content="Decrease font size"
                 aria-label="Decrease font size"
               />
@@ -138,7 +138,7 @@ export function Header() {
             <button onClick={increaseFontSize} disabled={isFontSizeMax}>
               <PlusSquare
                 id="increase-font-size"
-                className="h-5 w-5 hover:scale-110 hover:pb-0.5 hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400 xs:h-6 xs:w-6"
+                className="h-5 w-5 mix-blend-color-dodge hover:scale-110 hover:pb-0.5 hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400 xs:h-6 xs:w-6"
                 aria-label="Increase font size"
                 data-tooltip-content="Increase font size"
               />
@@ -153,7 +153,7 @@ export function Header() {
             className={clsx(
               isSerif &&
                 'text-rose-600 text-opacity-60 dark:text-rose-400 dark:text-opacity-80',
-              'ml-auto h-5 w-5 hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6',
+              'ml-auto h-5 w-5 mix-blend-color-dodge hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6',
             )}
             data-tooltip-content="Toggle serif font"
             aria-label="Toggle serif font"
@@ -163,12 +163,12 @@ export function Header() {
         <button onClick={toggleDarkAndApply} id="theme-toggle">
           {isDark ? (
             <Moon
-              className="h-5 w-5 hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6"
+              className="h-5 w-5 mix-blend-color-dodge hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6"
               aria-label="Switch to light mode"
             />
           ) : (
             <Sun
-              className="h-5 w-5 hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6"
+              className="h-5 w-5 mix-blend-color-dodge hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6"
               aria-label="Switch to dark mode"
             />
           )}
