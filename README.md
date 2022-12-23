@@ -2,10 +2,10 @@
 ![Build Status](https://img.shields.io/github/deployments/kfirfitousi/blog/production?label=build&logo=vercel&style=for-the-badge)
 ![Website Status](https://img.shields.io/website?down_color=lightgrey&logo=vercel&style=for-the-badge&url=https%3A%2F%2Fblog.kfirfitousi.com)
 ![CI Status](https://img.shields.io/github/actions/workflow/status/kfirfitousi/blog/ci.yml?branch=main&label=CI&logo=github&style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/kfirfitousi/blog?color=yellow&logo=github&style=for-the-badge)
 ![License](https://img.shields.io/github/license/kfirfitousi/blog?color=blue&style=for-the-badge)
 
-Blog app built with Next.js 13, TypeScript, next-mdx-remote, Zustand and TailwindCSS.
+Blog app built with Next.js 13, TypeScript, next-mdx-remote, Zustand and TailwindCSS.  
+[blog.kfirfitousi.com](https://blog.kfirfitousi.com)
 
 ## Features
 
@@ -17,6 +17,7 @@ Blog app built with Next.js 13, TypeScript, next-mdx-remote, Zustand and Tailwin
 - [x] Search functionality
 - [x] Comment sections using [utterances](https://utteranc.es/)
 - [x] Vercel OG image generation at the Edge
+- [x] Storybook v7 integration (published to [story.blog.kfirfitousi.com](https://story.blog.kfirfitousi.com))
 
 ## TODO
 
