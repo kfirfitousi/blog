@@ -1,13 +1,14 @@
 import { searchPosts, getTagsWithCount } from './search';
-import { getDummyPost } from '@/lib/dummy-post';
+import { getDummyPosts } from '@/lib/dummy-post';
 
-const posts = Array.from({ length: 10 }, (_, i) =>
-  getDummyPost({
-    title: `Post ${i + 1}`,
-    tags: ['tag', `tag${i + 1}`],
-    excerpt: `Post ${i + 1} excerpt`,
+const posts = getDummyPosts(
+  (index) => ({
+    title: `Post ${index + 1}`,
+    tags: ['tag', `tag${index + 1}`],
+    excerpt: `Post ${index + 1} excerpt`,
     date: '2022-01-01',
   }),
+  10,
 );
 
 describe('searchPosts', () => {

@@ -1,15 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { getDummyPost } from '@/lib/dummy-post';
+import { getDummyPosts } from '@/lib/dummy-post';
 import { Paginator } from '@/components/paginator';
 import { Padding } from './decorators';
 
-const posts = Array.from({ length: 25 }).map((_, i) =>
-  getDummyPost({
-    title: `Post ${i + 1}`,
-    excerpt: `This is post ${i + 1}`,
+const posts = getDummyPosts(
+  (index) => ({
+    title: `Post ${index + 1}`,
+    excerpt: `This is post ${index + 1}`,
     date: '2022-01-01',
     tags: ['example', 'post', 'tags'],
   }),
+  25,
 );
 
 const meta: Meta<typeof Paginator> = {

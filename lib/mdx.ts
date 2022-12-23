@@ -35,6 +35,7 @@ export function createMdxSource<TFrontmatterScehma extends z.ZodType>(
   source: Source<TFrontmatterScehma>,
 ) {
   const { contentPath, basePath, sortBy, sortOrder } = source;
+  type TFrontmatter = z.infer<TFrontmatterScehma>;
 
   async function getAllMdxFiles() {
     const files = await glob(`${contentPath}/**/*.{md,mdx}`);
@@ -63,7 +64,7 @@ export function createMdxSource<TFrontmatterScehma extends z.ZodType>(
     const hash = hasha(raw.toString());
 
     const cachedContent =
-      mdxCache.get<MdxFileData<z.infer<TFrontmatterScehma>>>(hash);
+      mdxCache.get<MdxFileData<TFrontmatter>>(hash);
     if (cachedContent?.hash === hash) {
       return cachedContent;
     }
@@ -80,7 +81,7 @@ export function createMdxSource<TFrontmatterScehma extends z.ZodType>(
       hash,
       frontmatter,
       serialized,
-    } as MdxFileData<z.infer<TFrontmatterScehma>>;
+    } as MdxFileData<TFrontmatter>;
 
     mdxCache.set(hash, fileData);
 
@@ -101,7 +102,7 @@ export function createMdxSource<TFrontmatterScehma extends z.ZodType>(
     return {
       ...file,
       ...data,
-    } as MdxFile & MdxFileData<z.infer<TFrontmatterScehma>>;
+    } as MdxFile & MdxFileData<TFrontmatter>;
   }
 
   async function getAllMdxNodes() {
@@ -113,7 +114,7 @@ export function createMdxSource<TFrontmatterScehma extends z.ZodType>(
       files.map(async (file) => {
         return await getMdxNode(file.slug);
       }),
-    )) as (MdxFile & MdxFileData<z.infer<TFrontmatterScehma>>)[];
+    )) as Array<MdxFile & MdxFileData<TFrontmatter>>;
 
     const adjust = sortOrder === 'desc' ? -1 : 1;
     return nodes.sort((a, b) => {
