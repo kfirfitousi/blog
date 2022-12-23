@@ -8,6 +8,7 @@ import shallow from 'zustand/shallow';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { BlogTitle } from '@/components/blog-title';
+import { Tooltip } from '@/components/tooltip';
 import { PlusSquare, MinusSquare, Type, Sun, Moon, Search } from 'lucide-react';
 
 export function Header() {
@@ -109,70 +110,73 @@ export function Header() {
       </nav>
 
       <div className="ml-auto flex w-fit flex-row items-center justify-end space-x-1 mix-blend-color-dodge">
-        <button
-          onClick={toggleSearch}
-          className={clsx(
-            isSearching &&
-              'text-rose-600 text-opacity-60 dark:text-rose-400 dark:text-opacity-80',
-            'hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400',
-          )}
-        >
-          <Search className="h-5 w-5 xs:h-6 xs:w-6" aria-label="Search Posts" />
+        <button onClick={toggleSearch}>
+          <Search
+            id="search"
+            className={clsx(
+              isSearching &&
+                'text-rose-600 text-opacity-60 dark:text-rose-400 dark:text-opacity-80',
+              'h-5 w-5 hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6',
+            )}
+            data-tooltip-content="Search Posts"
+            aria-label="Search Posts"
+          />
+          <Tooltip anchorId="search" place="bottom" />
         </button>
 
         {isPostPage && (
           <>
-            <button
-              onClick={decreaseFontSize}
-              disabled={isFontSizeMin}
-              className="hover:scale-110 hover:pb-0.5 hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400"
-            >
+            <button onClick={decreaseFontSize} disabled={isFontSizeMin}>
               <MinusSquare
-                className="h-5 w-5 xs:h-6 xs:w-6"
+                id="decrease-font-size"
+                className="h-5 w-5 hover:scale-110 hover:pb-0.5 hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400 xs:h-6 xs:w-6"
+                data-tooltip-content="Decrease font size"
                 aria-label="Decrease font size"
               />
+              <Tooltip anchorId="decrease-font-size" place="bottom" />
             </button>
-            <button
-              onClick={increaseFontSize}
-              disabled={isFontSizeMax}
-              className="hover:scale-110 hover:pb-0.5 hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400"
-            >
+            <button onClick={increaseFontSize} disabled={isFontSizeMax}>
               <PlusSquare
-                className="h-5 w-5 xs:h-6 xs:w-6"
+                id="increase-font-size"
+                className="h-5 w-5 hover:scale-110 hover:pb-0.5 hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400 xs:h-6 xs:w-6"
                 aria-label="Increase font size"
+                data-tooltip-content="Increase font size"
               />
+              <Tooltip anchorId="increase-font-size" place="bottom" />
             </button>
           </>
         )}
 
-        <button
-          onClick={toggleSerif}
-          className={clsx(
-            isSerif &&
-              'text-rose-600 text-opacity-60 dark:text-rose-400 dark:text-opacity-80',
-            'ml-auto hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400',
-          )}
-        >
+        <button onClick={toggleSerif}>
           <Type
-            className="h-5 w-5 xs:h-6 xs:w-6"
+            id="serif"
+            className={clsx(
+              isSerif &&
+                'text-rose-600 text-opacity-60 dark:text-rose-400 dark:text-opacity-80',
+              'ml-auto h-5 w-5 hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6',
+            )}
+            data-tooltip-content="Toggle serif font"
             aria-label="Toggle serif font"
           />
+          <Tooltip anchorId="serif" place="bottom" />
         </button>
-        <button
-          onClick={toggleDarkAndApply}
-          className="hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400"
-        >
+        <button onClick={toggleDarkAndApply} id="theme-toggle">
           {isDark ? (
-            <Sun
-              className="h-5 w-5 xs:h-6 xs:w-6"
+            <Moon
+              className="h-5 w-5 hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6"
               aria-label="Switch to light mode"
             />
           ) : (
-            <Moon
-              className="h-5 w-5 xs:h-6 xs:w-6"
+            <Sun
+              className="h-5 w-5 hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6"
               aria-label="Switch to dark mode"
             />
           )}
+          <Tooltip
+            anchorId="theme-toggle"
+            place="bottom"
+            content={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+          />
         </button>
       </div>
     </header>
