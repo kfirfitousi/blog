@@ -63,8 +63,7 @@ export function createMdxSource<TFrontmatterScehma extends z.ZodType>(
     const raw = await fs.readFile(filepath, 'utf-8');
     const hash = hasha(raw.toString());
 
-    const cachedContent =
-      mdxCache.get<MdxFileData<TFrontmatter>>(hash);
+    const cachedContent = mdxCache.get<MdxFileData<TFrontmatter>>(hash);
     if (cachedContent?.hash === hash) {
       return cachedContent;
     }
