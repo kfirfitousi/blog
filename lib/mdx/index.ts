@@ -17,9 +17,9 @@ import z from 'zod';
 const mdxCache = new NodeCache();
 
 /**
- * Creates a source object that contains methods for retrieving mdx files and nodes
+ * Creates a source object that contains methods for retrieving mdx files and nodes.
  * @param params A {@link CreateSourceParams} object that contains the content path, url base, sort by, and sort order
- * as well as the frontmatter schema
+ * as well as the frontmatter schema.
  * @returns An {@link MdxSource} object containing the following methods:
  * - getAllMdxFiles: Returns an array of all the mdx files in the content path
  * - getMdxNode: Returns a single mdx node by slug
@@ -30,7 +30,7 @@ const mdxCache = new NodeCache();
  *   urlBase: '/posts',
  *   sortBy: 'date',
  *   sortOrder: 'desc',
- *   frontmatterScehma: z.object({
+ *   frontmatterSchema: z.object({
  *     title: z.string(),
  *     date: z.string(),
  *   }),
@@ -38,9 +38,9 @@ const mdxCache = new NodeCache();
  * const { getAllMdxFiles, getMdxNode, getAllMdxNodes } = createMdxSource(source);
  */
 export function createMdxSource<
-  FrontmatterSchema extends z.ZodType,
-  SortBy extends keyof z.infer<FrontmatterSchema>,
->(params: CreateSourceParams<FrontmatterSchema, SortBy>) {
+  Z extends z.AnyZodObject,
+  K extends keyof z.infer<Z>,
+>(params: CreateSourceParams<Z, K>): MdxSource<z.infer<Z>> {
   const {
     contentPath,
     urlBase,
@@ -76,8 +76,7 @@ export function createMdxSource<
     const raw = await fs.readFile(filepath, 'utf-8');
     const hash = hasha(raw.toString());
 
-    const cachedContent =
-      mdxCache.get<MdxFileData<z.infer<FrontmatterSchema>>>(hash);
+    const cachedContent = mdxCache.get<MdxFileData<z.infer<Z>>>(hash);
 
     if (cachedContent?.hash === hash) {
       return cachedContent;
@@ -95,7 +94,7 @@ export function createMdxSource<
       hash,
       frontmatter,
       serialized,
-    } as MdxFileData<z.infer<FrontmatterSchema>>;
+    } as MdxFileData<z.infer<Z>>;
 
     mdxCache.set(hash, fileData);
 
@@ -116,7 +115,7 @@ export function createMdxSource<
     return {
       ...file,
       ...data,
-    } as MdxNode<z.infer<FrontmatterSchema>>;
+    } as MdxNode<z.infer<Z>>;
   }
 
   async function getAllMdxNodes() {
@@ -128,7 +127,7 @@ export function createMdxSource<
       files.map(async (file) => {
         return await getMdxNode(file.slug);
       }),
-    )) as Array<MdxNode<z.infer<FrontmatterSchema>>>;
+    )) as Array<MdxNode<z.infer<Z>>>;
 
     const adjust = sortOrder === 'desc' ? -1 : 1;
     return nodes.sort((a, b) => {
@@ -149,5 +148,5 @@ export function createMdxSource<
     getAllMdxFiles,
     getMdxNode,
     getAllMdxNodes,
-  } as MdxSource<z.infer<FrontmatterSchema>>;
+  };
 }
