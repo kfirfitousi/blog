@@ -1,6 +1,6 @@
 'use client';
 
-import { type BlogMdxNode } from '@/lib/mdx-sources';
+import { type BlogMdxNode } from '@/lib/mdx/sources';
 import { useThemeStore } from '@/stores/theme-store';
 import { formatDateTime } from '@/lib/datetime';
 import { PostTags } from '@/components/post-tags';

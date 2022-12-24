@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { getDummyPost } from '@/lib/dummy-post';
+import { getDummyPost } from '@/lib/mdx/mocks';
 import { PostCard } from '@/components/post-card';
 import { Center } from './decorators';
 

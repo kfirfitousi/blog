@@ -1,4 +1,4 @@
-import { BlogSource } from '@/lib/mdx-sources';
+import { BlogSource } from '@/lib/mdx/sources';
 import { Paginator } from '@/components/paginator';
 
 export default async function PostsPage() {

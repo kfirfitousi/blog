@@ -1,4 +1,4 @@
-import { PagesSource } from '@/lib/mdx-sources';
+import { PagesSource } from '@/lib/mdx/sources';
 
 interface PageHead {
   params: {

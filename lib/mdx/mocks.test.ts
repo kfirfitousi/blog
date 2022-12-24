@@ -1,4 +1,4 @@
-import { getDummyPost, getDummyPosts } from './dummy-post';
+import { getDummyPost, getDummyPosts } from './mocks';
 
 describe('getDummyPost', () => {
   it('should return a dummy post with the given frontmatter', () => {

@@ -1,4 +1,4 @@
-import { BlogSource } from '@/lib/mdx-sources';
+import { BlogSource } from '@/lib/mdx/sources';
 import { HeroSection } from '@/components/hero-section';
 import { PostCard } from '@/components/post-card';
 import { Button } from '@/components/button';

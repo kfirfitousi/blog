@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchStore } from '@/stores/search-store';
 import { useThemeStore } from '@/stores/theme-store';
-import { type BlogMdxNode } from '@/lib/mdx-sources';
+import { type BlogMdxNode } from '@/lib/mdx/sources';
 import { getTagsWithCount, searchPosts } from '@/lib/search';
 import { formatDateTime } from '@/lib/datetime';
 import { ChevronUp, X } from 'lucide-react';

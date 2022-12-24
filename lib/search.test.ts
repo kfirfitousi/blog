@@ -1,5 +1,5 @@
 import { searchPosts, getTagsWithCount } from './search';
-import { getDummyPosts } from '@/lib/dummy-post';
+import { getDummyPosts } from '@/lib/mdx/mocks';
 
 const posts = getDummyPosts(
   (index) => ({

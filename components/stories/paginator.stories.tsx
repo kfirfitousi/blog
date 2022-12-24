@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { getDummyPosts } from '@/lib/dummy-post';
+import { getDummyPosts } from '@/lib/mdx/mocks';
 import { Paginator } from '@/components/paginator';
 import { Padding } from './decorators';
 

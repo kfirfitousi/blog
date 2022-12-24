@@ -1,7 +1,7 @@
 import '@/styles/markdown.css';
 
 import { MdxContent } from '@/components/mdx-content';
-import { PagesSource } from '@/lib/mdx-sources';
+import { PagesSource } from '@/lib/mdx/sources';
 import { notFound } from 'next/navigation';
 
 interface PageProps {

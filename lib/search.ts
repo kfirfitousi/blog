@@ -1,10 +1,10 @@
-import { type BlogMdxNode } from '@/lib//mdx-sources';
+import { type BlogMdxNode } from '@/lib/mdx/sources';
 
 /**
  * Search for a query in a text
  * @param query The query to search for
  * @param text The text to search in
- * @returns Whether the query was found in the text
+ * @returns A boolean indicating whether the query was found in the text
  */
 function searchHit(query: string, text: string) {
   return text.toLowerCase().includes(query.toLowerCase());

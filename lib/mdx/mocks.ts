@@ -1,7 +1,7 @@
-import { MdxFile, MdxFileData } from '@/lib/mdx';
+import { type MdxNode } from './types';
 
 /**
- * Mocks the function getMdxNode from lib/mdx.ts
+ * Mocks the function getMdxNode from mdx/index.ts
  * @param frontmatter frontmatter to be used in the post
  * @returns a dummy post with the given frontmatter
  * @example
@@ -11,9 +11,9 @@ import { MdxFile, MdxFileData } from '@/lib/mdx';
  *  date: '2022-01-01',
  * });
  */
-export function getDummyPost<TFrontmatter>(
-  frontmatter: TFrontmatter,
-): MdxFile & MdxFileData<TFrontmatter> {
+export function getDummyPost<Frontmatter extends Record<string, unknown>>(
+  frontmatter: Frontmatter,
+) {
   return {
     frontmatter,
     slug: 'dummy-post',
@@ -24,7 +24,7 @@ export function getDummyPost<TFrontmatter>(
     serialized: {
       compiledSource: 'dummy-post',
     },
-  };
+  } as MdxNode<Frontmatter>;
 }
 
 /**
@@ -39,10 +39,10 @@ export function getDummyPost<TFrontmatter>(
  *   date: '2022-01-01',
  * }), 5);
  */
-export function getDummyPosts<TFrontmatter>(
-  generateFrontmatter: (index: number) => TFrontmatter,
+export function getDummyPosts<Frontmatter extends Record<string, unknown>>(
+  generateFrontmatter: (index: number) => Frontmatter,
   count: number,
-): Array<MdxFile & MdxFileData<TFrontmatter>> {
+): Array<MdxNode<Frontmatter>> {
   return Array.from({ length: count }, (_, index) =>
     getDummyPost(generateFrontmatter(index)),
   );
