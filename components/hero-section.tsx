@@ -27,7 +27,7 @@ export function HeroSection() {
     <section
       className={clsx(
         isSerif && 'font-serif',
-        'relative flex h-40 w-full flex-col items-center justify-center space-y-2 rounded-md bg-slate-300 bg-opacity-60 px-4 dark:bg-slate-800 dark:bg-opacity-30',
+        'relative flex h-40 w-full flex-col items-center justify-center space-y-2 rounded-md bg-slate-300 bg-opacity-60 px-4 shadow-xl dark:bg-slate-800 dark:bg-opacity-30',
       )}
     >
       <Typist typingDelay={100} splitter={splitter} pause={isPaused}>

@@ -69,12 +69,12 @@ h3 a > svg {
   border-top-right-radius: 0.5rem;
   padding: 0.1rem 0.75rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+    'Liberation Mono', 'Courier New', monospace;
 }
 
 html.dark .rehype-code-title {
-  background-color: #475569;
-  color: #cbd5e1;
+  background-color: #1e2228;
+  color: #94a3b8;
 }
 
 .rehype-code-title + pre {

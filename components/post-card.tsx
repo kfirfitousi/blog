@@ -17,21 +17,26 @@ export function PostCard({ post }: PostCardProps) {
   const dateTime = formatDateTime(post.frontmatter.date);
 
   return (
-    <Link href={post.url} className="group relative h-full w-full">
+    <Link
+      href={post.url}
+      className="group relative h-full w-full transition-transform duration-300 ease-in-out hover:scale-[1.02]"
+    >
       <article
         className={clsx(
           isSerif && 'font-serif',
-          'relative z-10 m-[2px] flex flex-col space-y-4 rounded bg-slate-100 py-3 pl-10 pr-8 dark:bg-slate-600',
+          'relative z-10 m-[2px] flex flex-col space-y-4 rounded bg-slate-100 py-3 pl-10 pr-8 shadow-xl hover:shadow-2xl dark:bg-slate-600',
         )}
       >
         <div className="flex flex-col space-y-2">
           <h2 className="text-2xl font-bold leading-normal text-slate-800 dark:text-rose-50 sm:text-3xl">
             {post.frontmatter.title}
             {dateTime.isFresh && (
-              <sup className="text-base text-rose-600 text-opacity-40 dark:text-rose-200">
+              <>
                 {' '}
-                New
-              </sup>
+                <sup className="text-base text-rose-600 text-opacity-40 dark:text-rose-200">
+                  New
+                </sup>
+              </>
             )}
           </h2>
 
@@ -39,11 +44,11 @@ export function PostCard({ post }: PostCardProps) {
             {post.frontmatter.excerpt}
           </p>
 
-          <p className="inline-flex items-center space-x-1 text-slate-700 dark:text-slate-200">
+          <p className="inline-flex items-center space-x-1 text-slate-600 opacity-90 dark:text-rose-50 dark:opacity-70">
             <Calendar className="h-4 w-4 self-baseline" />
             <span className="text-sm">
               Published {dateTime.asString}{' '}
-              <span className="hidden text-slate-600 dark:text-slate-300 xs:inline">
+              <span className="hidden opacity-90 dark:opacity-80 xs:inline">
                 · {dateTime.asRelativeTimeString}
               </span>
             </span>

@@ -11,7 +11,7 @@ export function PostTags({ tags, className }: PostTagsProps) {
       {tags.map((tag) => (
         <span
           key={tag}
-          className="w-fit whitespace-nowrap rounded bg-slate-600 px-2 py-1 text-slate-100 dark:bg-rose-50 dark:text-slate-900"
+          className="w-fit whitespace-nowrap rounded bg-slate-700 px-2 py-1 text-slate-200 dark:bg-rose-50 dark:text-slate-700"
         >
           {tag}
         </span>
