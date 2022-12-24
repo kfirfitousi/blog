@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { type BlogMdxNode } from '@/lib/mdx-sources';
+import { type BlogMdxNode } from '@/lib/mdx/sources';
 import { useThemeStore } from '@/stores/theme-store';
 import { PostCard } from '@/components/post-card';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
