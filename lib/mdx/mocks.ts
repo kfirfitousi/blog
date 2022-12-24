@@ -3,6 +3,7 @@ import { type MdxNode } from './types';
 /**
  * Mocks the function getMdxNode from mdx/index.ts
  * @param frontmatter frontmatter to be used in the post
+ * @param slug slug to be used in the post
  * @returns a dummy post with the given frontmatter
  * @example
  * const dummyPost = getDummyPost({
@@ -13,10 +14,11 @@ import { type MdxNode } from './types';
  */
 export function getDummyPost<Frontmatter extends Record<string, unknown>>(
   frontmatter: Frontmatter,
+  slug?: string,
 ) {
   return {
     frontmatter,
-    slug: 'dummy-post',
+    slug: slug || 'dummy-post',
     url: 'posts/dummy-post',
     filepath: 'dummy-post.mdx',
     raw: 'dummy-post',
@@ -44,6 +46,6 @@ export function getDummyPosts<Frontmatter extends Record<string, unknown>>(
   count: number,
 ): Array<MdxNode<Frontmatter>> {
   return Array.from({ length: count }, (_, index) =>
-    getDummyPost(generateFrontmatter(index)),
+    getDummyPost(generateFrontmatter(index), `dummy-post-${index}`),
   );
 }
