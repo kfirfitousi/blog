@@ -7,7 +7,7 @@ import z from 'zod';
  * @template K The key used to sort the MDX files.
  */
 export type CreateSourceParams<
-  Z extends z.ZodType,
+  Z extends z.AnyZodObject,
   K extends keyof z.infer<Z>,
 > = {
   /**
@@ -67,6 +67,10 @@ export type CreateSourceParams<
 export type MdxFile = {
   /**
    * The path to the MDX file relative to the root of the project.
+   * @example
+   * '<contentPath>/my-post.mdx'
+   * '<contentPath>/my-post/index.mdx'
+   * '<contentPath>/my-topic/my-post.mdx'
    */
   filepath: string;
   /**
@@ -94,7 +98,7 @@ export type MdxFile = {
  * @template T The type of the frontmatter. This can be a zod schema or an
  * object.
  */
-export type MdxFileData<T> = {
+export type MdxFileData<T extends z.AnyZodObject | Record<string, unknown>> = {
   /**
    * The raw content of the MDX file.
    */
@@ -106,11 +110,7 @@ export type MdxFileData<T> = {
   /**
    * The frontmatter parsed from the MDX file.
    */
-  frontmatter: T extends infer S extends z.ZodType
-    ? z.infer<S>
-    : T extends Record<string, unknown>
-    ? T
-    : never;
+  frontmatter: T extends z.AnyZodObject ? z.infer<T> : T;
   /**
    * The MDX serialized content, to be used with `<MDXRemote />`.
    */
@@ -144,7 +144,8 @@ export type MdxFileData<T> = {
  *   title: string;
  * }>
  */
-export type MdxNode<T> = MdxFile & MdxFileData<T>;
+export type MdxNode<T extends z.AnyZodObject | Record<string, unknown>> =
+  MdxFile & MdxFileData<T>;
 
 /**
  * A type that represents a source of MDX files.
@@ -152,7 +153,7 @@ export type MdxNode<T> = MdxFile & MdxFileData<T>;
  * @template T The type of the frontmatter. This can be a zod schema or an
  * object.
  */
-export type MdxSource<T> = {
+export type MdxSource<T extends z.AnyZodObject | Record<string, unknown>> = {
   /**
    * Retrieves all the MDX files in the source's content directory.
    * Does not retrieve the MDX files' data.
