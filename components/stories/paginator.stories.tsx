@@ -3,15 +3,12 @@ import { getDummyPosts } from '@/lib/mdx/mocks';
 import { Paginator } from '@/components/paginator';
 import { Padding } from './decorators';
 
-const posts = getDummyPosts(
-  (index) => ({
-    title: `Post ${index + 1}`,
-    excerpt: `This is post ${index + 1}`,
-    date: '2022-01-01',
-    tags: ['example', 'post', 'tags'],
-  }),
-  25,
-);
+const posts = getDummyPosts(25, (index) => ({
+  title: `Post ${index + 1}`,
+  excerpt: `This is post ${index + 1}`,
+  date: '2022-01-01',
+  tags: ['example', 'post', 'tags'],
+}));
 
 const meta: Meta<typeof Paginator> = {
   title: 'Paginator',

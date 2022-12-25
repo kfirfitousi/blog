@@ -7,18 +7,26 @@ import { type MdxNode } from './types';
  * @returns a dummy post with the given frontmatter
  * @example
  * const dummyPost = getDummyPost({
- *  title: 'Dummy Post',
- *  excerpt: 'This is a dummy post',
- *  date: '2022-01-01',
+ *   title: 'Dummy Post',
+ *   excerpt: 'This is a dummy post',
+ *   date: '2022-01-01',
  * });
+ * @example
+ * const dummyPost = getDummyPost(
+ *   {
+ *     title: 'Dummy Post',
+ *     date: '2022-01-01',
+ *   },
+ *  'post-slug',
+ * );
  */
 export function getDummyPost<Frontmatter extends Record<string, unknown>>(
   frontmatter: Frontmatter,
-  slug?: string,
+  slug = 'dummy-post',
 ) {
   return {
     frontmatter,
-    slug: slug || 'dummy-post',
+    slug,
     url: 'posts/dummy-post',
     filepath: 'dummy-post.mdx',
     raw: 'dummy-post',
@@ -33,19 +41,30 @@ export function getDummyPost<Frontmatter extends Record<string, unknown>>(
  * Returns an array of dummy posts
  * @param generateFrontmatter function that generates the frontmatter for each post
  * @param count number of posts to be generated
+ * @param slugPrefix prefix to be used in the slug of each post
  * @returns an array of dummy posts
  * @example
- * const dummyPosts = getDummyPosts((index) => ({
+ * const dummyPosts = getDummyPosts(5, (index) => ({
  *   title: `Dummy Post ${index}`,
  *   excerpt: `This is a dummy post ${index}`,
  *   date: '2022-01-01',
- * }), 5);
+ * }));
+ * @example
+ * const dummyPosts = getDummyPosts(
+ *   5,
+ *   () => ({
+ *     title: 'Dummy Post',
+ *     date: '2022-01-01',
+ *   }),
+ *  'test-slug',
+ * );
  */
 export function getDummyPosts<Frontmatter extends Record<string, unknown>>(
-  generateFrontmatter: (index: number) => Frontmatter,
   count: number,
+  generateFrontmatter: (index: number) => Frontmatter,
+  slugPrefix = 'dummy-post',
 ): Array<MdxNode<Frontmatter>> {
   return Array.from({ length: count }, (_, index) =>
-    getDummyPost(generateFrontmatter(index), `dummy-post-${index}`),
+    getDummyPost(generateFrontmatter(index), `${slugPrefix}-${index}`),
   );
 }

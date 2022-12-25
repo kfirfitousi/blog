@@ -1,15 +1,12 @@
 import { searchPosts, getTagsWithCount } from './search';
 import { getDummyPosts } from '@/lib/mdx/mocks';
 
-const posts = getDummyPosts(
-  (index) => ({
-    title: `Post ${index + 1}`,
-    tags: ['tag', `tag${index + 1}`],
-    excerpt: `Post ${index + 1} excerpt`,
-    date: '2022-01-01',
-  }),
-  10,
-);
+const posts = getDummyPosts(10, (index) => ({
+  title: `Post ${index + 1}`,
+  tags: ['tag', `tag${index + 1}`],
+  excerpt: `Post ${index + 1} excerpt`,
+  date: '2022-01-01',
+}));
 
 describe('searchPosts', () => {
   it('should return the posts that best match the query', () => {
