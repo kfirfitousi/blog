@@ -3,7 +3,7 @@ import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import { PluggableList } from 'unified';
+import { type PluggableList } from 'unified';
 import { s } from 'hastscript';
 
 export const rehypePlugins: PluggableList = [

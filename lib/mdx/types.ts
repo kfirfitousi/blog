@@ -1,5 +1,5 @@
 import { type MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { PluggableList } from 'unified';
+import { type PluggableList } from 'unified';
 import z from 'zod';
 
 /**

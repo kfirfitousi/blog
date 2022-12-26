@@ -1,9 +1,8 @@
 import '@/styles/globals.css';
-
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
-import { Analytics } from '@/components/analytics';
 import { Search } from '@/components/search';
+import { Analytics } from '@/components/analytics';
 import { BlogSource } from '@/lib/mdx/sources';
 import { Red_Hat_Display, Newsreader } from '@next/font/google';
 import clsx from 'clsx';

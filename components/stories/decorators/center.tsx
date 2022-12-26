@@ -1,4 +1,4 @@
-import { StoryFn } from '@storybook/react';
+import { type StoryFn } from '@storybook/react';
 
 export const Center = (Story: StoryFn) => (
   <div className="flex h-full items-center justify-center">

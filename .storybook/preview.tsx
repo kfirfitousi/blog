@@ -1,10 +1,10 @@
 import '@/styles/globals.css';
 import '@/styles/storybook.css';
-import type { Decorator, Parameters } from '@storybook/react';
 import type { GlobalTypes } from '@storybook/types';
+import type { Decorator, Parameters } from '@storybook/react';
+import { Red_Hat_Display, Newsreader } from '@next/font/google';
 import React from 'react';
 import clsx from 'clsx';
-import { Red_Hat_Display, Newsreader } from '@next/font/google';
 
 const fontSans = Red_Hat_Display({
   subsets: ['latin'],

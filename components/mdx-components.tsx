@@ -1,7 +1,7 @@
 import { CopyCode } from '@/components/copy-code';
 import Image from 'next/image';
-import clsx from 'clsx';
 import Link from 'next/link';
+import clsx from 'clsx';
 
 /**
  * Use <Link> for internal links and <a> for external links and anchors

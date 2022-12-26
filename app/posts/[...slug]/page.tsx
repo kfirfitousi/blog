@@ -1,5 +1,4 @@
 import '@/styles/markdown.css';
-
 import { notFound } from 'next/navigation';
 import { BlogSource } from '@/lib/mdx/sources';
 import { MdxContent } from '@/components/mdx-content';

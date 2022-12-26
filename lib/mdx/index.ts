@@ -1,10 +1,3 @@
-import type {
-  CreateSourceParams,
-  MdxFileData,
-  MdxFile,
-  MdxNode,
-  MdxSource,
-} from './types';
 import { serialize } from 'next-mdx-remote/serialize';
 import { promises as fs } from 'fs';
 import NodeCache from 'node-cache';
@@ -12,6 +5,13 @@ import glob from 'fast-glob';
 import hasha from 'hasha';
 import path from 'path';
 import z from 'zod';
+import type {
+  CreateSourceParams,
+  MdxFileData,
+  MdxFile,
+  MdxNode,
+  MdxSource,
+} from './types';
 
 const mdxCache = new NodeCache();
 
