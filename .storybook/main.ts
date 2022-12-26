@@ -12,9 +12,6 @@ const config: StorybookConfig = {
     name: '@storybook/nextjs',
     options: {},
   },
-  docs: {
-    docsPage: true,
-  },
 };
 
 export default config;
