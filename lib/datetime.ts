@@ -1,19 +1,19 @@
 type DateTime = {
   /** The date formatted as a string
    * @example
-   * January 1, 2022
-   * December 31, 2022
+   * 'January 1, 2022'
+   * 'December 31, 2022'
    */
   asString: string;
   /** The date formatted as an ISO string
    * @example
-   * 2022-01-01T00:00:00.000Z
+   * '2022-01-01T00:00:00.000Z'
    */
   asISOString: string;
   /** The date formatted as a relative time string
    * @example
-   * 2 days ago
-   * 3 weeks ago
+   * '2 days ago'
+   * '3 weeks ago'
    */
   asRelativeTimeString: string;
   /** A boolean indicating if the date is fresh, i.e. less than 4 days old */
@@ -32,11 +32,29 @@ const relativeTimeFormatter = new Intl.RelativeTimeFormat('en-US', {
 
 /**
  * Formats a date string into a {@link DateTime} object
- * @param dateStr The date string to format
+ * @param dateString The date string to format
  * @returns A {@link DateTime} object
+ * @example
+ * const dateTime = formatDateTime('2022-01-01');
+ * // dateTime = {
+ * //   asString: 'January 1, 2022',
+ * //   asISOString: '2022-01-01T00:00:00.000Z',
+ * //   asRelativeTimeString: '2 days ago',
+ * //   isFresh: true
+ * // }
  */
-export function formatDateTime(dateStr: string): DateTime {
-  const date = new Date(dateStr);
+export function formatDateTime(dateString: string): DateTime {
+  const date = new Date(dateString);
+
+  if (isNaN(date.getTime())) {
+    return {
+      asString: 'Invalid Date',
+      asISOString: 'Invalid Date',
+      asRelativeTimeString: 'Invalid Date',
+      isFresh: false,
+    };
+  }
+
   const { relativeTime, isFresh } = getRelativeTime(date);
 
   return {
@@ -53,15 +71,9 @@ export function formatDateTime(dateStr: string): DateTime {
  * @returns An object with the relative time and a boolean indicating if the date is fresh,
  * i.e. less than 4 days old
  * @example
- * {
- *  relativeTime: '2 days ago',
- *  isFresh: true
- * }
- *
- * {
- *  relativeTime: '3 weeks ago',
- *  isFresh: false
- * }
+ * const { relativeTime, isFresh } = getRelativeTime(someDate);
+ * // relativeTime = '3 weeks ago'
+ * // isFresh = false
  */
 function getRelativeTime(date: Date) {
   const timeDiff = date.getTime() - new Date().getTime();

@@ -19,8 +19,11 @@ describe('formatDateTime', () => {
   });
 
   it('should format the date to an ISO string', () => {
-    const dateTime = formatDateTime('2022-01-01');
+    let dateTime = formatDateTime('2022-01-01');
     expect(dateTime.asISOString).toBe('2022-01-01T00:00:00.000Z');
+
+    dateTime = formatDateTime('2022-12-31');
+    expect(dateTime.asISOString).toBe('2022-12-31T00:00:00.000Z');
   });
 
   it('should return whether date is fresh', () => {
@@ -38,5 +41,23 @@ describe('formatDateTime', () => {
     threeWeeksAgo.setDate(threeWeeksAgo.getDate() - 21);
     const threeWeeksAgoDateTime = formatDateTime(threeWeeksAgo.toISOString());
     expect(threeWeeksAgoDateTime.isFresh).toBe(false);
+  });
+
+  it('should handle invalid date strings', () => {
+    const dateTime_1 = formatDateTime('2022-13-01');
+    expect(dateTime_1).toEqual({
+      asString: 'Invalid Date',
+      asISOString: 'Invalid Date',
+      asRelativeTimeString: 'Invalid Date',
+      isFresh: false,
+    });
+
+    const dateTime_2 = formatDateTime('foo');
+    expect(dateTime_2).toEqual({
+      asString: 'Invalid Date',
+      asISOString: 'Invalid Date',
+      asRelativeTimeString: 'Invalid Date',
+      isFresh: false,
+    });
   });
 });
