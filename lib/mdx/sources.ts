@@ -1,5 +1,6 @@
 import { type MdxNode } from './types';
 import { createMdxSource } from './index';
+import { rehypePlugins } from './plugins';
 import z from 'zod';
 
 const blogSchema = z.object({
@@ -15,6 +16,7 @@ export const BlogSource = createMdxSource({
   sortBy: 'date',
   sortOrder: 'desc',
   frontmatterSchema: blogSchema,
+  rehypePlugins,
 });
 
 export type BlogMdxNode = MdxNode<typeof blogSchema>;
@@ -30,6 +32,7 @@ export const PagesSource = createMdxSource({
   sortBy: 'title',
   sortOrder: 'desc',
   frontmatterSchema: pagesSchema,
+  rehypePlugins,
 });
 
 export type PageMdxNode = MdxNode<typeof pagesSchema>;

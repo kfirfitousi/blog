@@ -1,4 +1,5 @@
 import { type MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { PluggableList } from 'unified';
 import z from 'zod';
 
 /**
@@ -59,6 +60,12 @@ export type CreateSourceParams<
    * })
    */
   frontmatterSchema: Z;
+  /**
+   * A list of rehype plugins to use when serializing the MDX files.
+   * @example
+   * [rehypeSlug, rehypeAutolinkHeadings]
+   */
+  rehypePlugins?: PluggableList;
 };
 
 /**

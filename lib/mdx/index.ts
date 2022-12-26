@@ -6,7 +6,6 @@ import type {
   MdxSource,
 } from './types';
 import { serialize } from 'next-mdx-remote/serialize';
-import { rehypePlugins } from './plugins';
 import { promises as fs } from 'fs';
 import NodeCache from 'node-cache';
 import glob from 'fast-glob';
@@ -17,15 +16,15 @@ import z from 'zod';
 const mdxCache = new NodeCache();
 
 /**
- * Creates a source object that contains methods for retrieving mdx files and nodes.
- * @param params A {@link CreateSourceParams} object that contains the content path, url base, sort by, and sort order
- * as well as the frontmatter schema.
+ * Creates a source object that contains methods for retrieving MDX files and nodes.
+ * @param params The source parameters. See {@link CreateSourceParams}.
  * @returns An {@link MdxSource} object containing the following methods:
- * - getAllMdxFiles: Returns an array of all the mdx files in the content path
- * - getMdxNode: Returns a single mdx node by slug
- * - getAllMdxNodes: Returns an array of all the mdx nodes
+ * - getAllMdxFiles: Returns an array of all the MDX files in the content path
+ * - getMdxNode: Returns a single MDX node by slug
+ * - getAllMdxNodes: Returns an array of all the MDX nodes
  * @example
- * const source = {
+ * // Create a source for blog posts
+ * const BlogSource = createMdxSource({
  *   contentPath: 'content/posts',
  *   urlBase: '/posts',
  *   sortBy: 'date',
@@ -34,8 +33,12 @@ const mdxCache = new NodeCache();
  *     title: z.string(),
  *     date: z.string(),
  *   }),
- * };
- * const { getAllMdxFiles, getMdxNode, getAllMdxNodes } = createMdxSource(source);
+ * });
+ * // Retrieve MDX files and nodes from the source
+ * const { getAllMdxFiles, getMdxNode, getAllMdxNodes } = BlogSource;
+ * const files = await getAllMdxFiles();
+ * const post = await getMdxNode('my-post');
+ * const posts = await getAllMdxNodes();
  */
 export function createMdxSource<
   Z extends z.AnyZodObject,
@@ -48,6 +51,7 @@ export function createMdxSource<
     sortOrder,
     compareFn,
     frontmatterSchema,
+    rehypePlugins,
   } = params;
 
   async function getAllMdxFiles() {
@@ -124,9 +128,7 @@ export function createMdxSource<
     if (!files.length) return [];
 
     const nodes = (await Promise.all(
-      files.map(async (file) => {
-        return await getMdxNode(file.slug);
-      }),
+      files.map(async (file) => await getMdxNode(file.slug)),
     )) as Array<MdxNode<z.infer<Z>>>;
 
     const adjust = sortOrder === 'desc' ? -1 : 1;
