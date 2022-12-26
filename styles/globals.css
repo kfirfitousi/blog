@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  [data-nextjs-scroll-focus-boundary] {
-    height: 100%;
-  }
-
   * {
     @apply transition-[background-color] duration-300 ease-in-out;
   }
