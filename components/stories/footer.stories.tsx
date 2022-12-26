@@ -7,7 +7,7 @@ const meta: Meta<typeof Footer> = {
   decorators: [
     (Story) => (
       <div className="flex h-screen flex-col">
-        <div className="mt-auto">
+        <div className="mt-auto h-32">
           <Story />
         </div>
       </div>
