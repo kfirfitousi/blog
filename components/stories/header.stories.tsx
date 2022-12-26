@@ -7,7 +7,7 @@ const meta: Meta<typeof Header> = {
   decorators: [
     (Story) => (
       <div className="relative min-h-[200vh]">
-        <div className="sticky top-0 w-full">
+        <div className="sticky top-0 h-24 w-full">
           <Story />
         </div>
       </div>

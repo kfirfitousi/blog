@@ -89,7 +89,7 @@ export function Header() {
         className={clsx(
           isSerif && 'font-serif',
           isPostPage ? 'sm:ml-[136px]' : 'sm:ml-20',
-          'flex flex-grow flex-row items-center justify-start mix-blend-color-dodge max-xs:mr-2 max-xs:text-sm sm:justify-center',
+          'flex h-8 flex-grow flex-row items-center justify-start mix-blend-color-dodge max-xs:mr-2 max-xs:text-sm sm:justify-center',
         )}
       >
         <Link
@@ -109,7 +109,7 @@ export function Header() {
         </Link>
       </nav>
 
-      <div className="ml-auto flex w-fit flex-row items-center justify-end space-x-1">
+      <div className="ml-auto flex h-8 w-fit flex-row items-center justify-end space-x-1">
         <button onClick={toggleSearch}>
           <Search
             id="search"
