@@ -1,8 +1,10 @@
 import '@/styles/globals.css';
 import '@/styles/storybook.css';
-
-import { Red_Hat_Display, Newsreader } from '@next/font/google';
+import type { Decorator, Parameters } from '@storybook/react';
+import type { GlobalTypes } from '@storybook/types';
+import React from 'react';
 import clsx from 'clsx';
+import { Red_Hat_Display, Newsreader } from '@next/font/google';
 
 const fontSans = Red_Hat_Display({
   subsets: ['latin'],
@@ -14,7 +16,7 @@ const fontSerif = Newsreader({
   variable: '--font-newsreader',
 });
 
-export const parameters = {
+export const parameters: Parameters = {
   nextjs: {
     appDirectory: true,
   },
@@ -28,19 +30,24 @@ export const parameters = {
   },
 };
 
-export const globalTypes = {
-  darkMode: true,
+export const globalTypes: GlobalTypes = {
+  darkMode: {
+    type: 'boolean',
+    defaultValue: false,
+  },
 };
 
-export const decorators = [
+export const decorators: Decorator[] = [
   (Story) => (
     <div
       className={clsx(fontSans.variable, fontSerif.variable, 'font-sans')}
-      style={{
-        // temporary fix for Red Hat Display font not loading
-        // TODO: remove when it's fixed
-        '--font-red-hat': fontSans.style.fontFamily,
-      }}
+      style={
+        {
+          // temporary fix for Red Hat Display font not loading
+          // TODO: remove when it's fixed
+          '--font-red-hat': fontSans.style.fontFamily,
+        } as React.CSSProperties
+      }
     >
       <div className="grid min-h-screen grid-cols-1 grid-rows-1 bg-slate-200 dark:bg-slate-700 sm:grid-cols-[1fr_minmax(640px,1024px)_1fr]">
         <div className="col-span-1 bg-slate-200 dark:bg-slate-700 sm:col-start-2">
