@@ -27,7 +27,8 @@ export function HeroSection() {
     <section
       className={clsx(
         isSerif && 'font-serif',
-        'relative flex h-40 w-full flex-col items-center justify-center space-y-2 rounded-md bg-slate-300 bg-opacity-60 px-4 shadow-xl dark:bg-slate-800 dark:bg-opacity-30',
+        'relative flex h-40 w-full flex-col items-center justify-center space-y-2 rounded-md px-4 shadow-xl',
+        'bg-slate-300 bg-opacity-60 dark:bg-slate-800 dark:bg-opacity-30',
       )}
     >
       <Typist typingDelay={100} splitter={splitter} pause={isPaused}>
@@ -64,12 +65,14 @@ export function HeroSection() {
       >
         {isPaused ? (
           <Play
-            className="h-4 w-4 text-slate-400 text-opacity-50 hover:text-rose-600 dark:text-rose-50 dark:text-opacity-20 dark:hover:text-rose-400"
+            className="h-4 w-4 text-slate-400 text-opacity-50 hover:text-rose-600
+            dark:text-rose-50 dark:text-opacity-20 dark:hover:text-rose-400"
             aria-label="Play animation"
           />
         ) : (
           <Pause
-            className="h-4 w-4 text-slate-400 text-opacity-50 hover:text-rose-600 dark:text-rose-50 dark:text-opacity-20 dark:hover:text-rose-400"
+            className="h-4 w-4 text-slate-400 text-opacity-50 hover:text-rose-600
+            dark:text-rose-50 dark:text-opacity-20 dark:hover:text-rose-400"
             aria-label="Pause animation"
           />
         )}

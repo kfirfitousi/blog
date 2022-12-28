@@ -19,8 +19,11 @@ export default async function PostPageHead({ params }: PostPageHeadProps) {
     <SEO
       title={`Kfir's Blog | ${title}`}
       description={excerpt}
-      ogImage={`https://blog.kfirfitousi.com/api/og?title=${title}&subtitle=${excerpt}`}
       ogType="article"
+      ogImage={{
+        title,
+        subtitle: excerpt,
+      }}
     />
   );
 }

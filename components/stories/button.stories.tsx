@@ -12,10 +12,17 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Normal: Story = {
+export const WithIcon: Story = {
   args: {
     href: '#',
     label: 'All Posts',
     icon: <FileText className="h-4 w-4" />,
+  },
+};
+
+export const WithoutIcon: Story = {
+  args: {
+    href: '#',
+    label: 'Click Me',
   },
 };

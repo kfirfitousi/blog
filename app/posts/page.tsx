@@ -6,7 +6,7 @@ export default async function PostsPage() {
 
   return (
     <div className="h-full px-6 pb-12 sm:px-12">
-      <Paginator posts={posts} postPerPage={5} />
+      <Paginator posts={posts} postsPerPage={5} />
     </div>
   );
 }

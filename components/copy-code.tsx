@@ -10,8 +10,8 @@ interface CopyCodeProps {
 export function CopyCode({ codeElement }: CopyCodeProps) {
   const [isCopied, setIsCopied] = useState(false);
 
-  const copy = () => {
-    navigator.clipboard.writeText(extractText(codeElement));
+  const copy = async () => {
+    await navigator.clipboard.writeText(extractText(codeElement));
 
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);

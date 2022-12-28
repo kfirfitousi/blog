@@ -50,7 +50,9 @@ export function Search({ posts }: SearchProps) {
     <section
       className={clsx(
         isSerif && 'font-serif',
-        'fixed left-1/2 top-1/2 z-50 flex h-fit max-h-[80vh] w-5/6 max-w-3xl -translate-x-1/2 -translate-y-1/2 flex-col rounded-md border-2 border-slate-300 bg-slate-200 bg-opacity-60 p-4 backdrop-blur-md dark:border-slate-500 dark:bg-slate-600 dark:bg-opacity-70',
+        'fixed left-1/2 top-1/2 z-50 flex h-fit max-h-[80vh] w-5/6 max-w-3xl -translate-x-1/2 -translate-y-1/2 flex-col p-4',
+        'border-slate-300 bg-slate-200 bg-opacity-0 dark:border-slate-500 dark:bg-slate-600 dark:bg-opacity-70',
+        'rounded-md border-2 backdrop-blur-md',
       )}
     >
       <div className="mb-2 flex h-fit flex-row items-center">
@@ -59,7 +61,8 @@ export function Search({ posts }: SearchProps) {
           type="text"
           className={clsx(
             searchResults.length > 0 ? 'sm:text-2xl' : 'sm:text-4xl',
-            'w-full rounded border border-slate-400 bg-slate-100 px-2 text-slate-700 placeholder:opacity-50 dark:border-slate-500 dark:bg-slate-700 dark:text-rose-50',
+            'w-full rounded border border-slate-400 bg-slate-100 px-2 text-slate-700 placeholder:opacity-50',
+            'dark:border-slate-500 dark:bg-slate-700 dark:text-rose-50',
           )}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
@@ -98,7 +101,9 @@ export function Search({ posts }: SearchProps) {
             <Link
               key={post.slug}
               href={`/posts/${post.slug}`}
-              className="flex h-fit flex-col rounded p-2 transition-none even:bg-slate-400 even:bg-opacity-30 hover:bg-slate-500 hover:bg-opacity-50 dark:even:bg-slate-700 dark:even:bg-opacity-60 dark:hover:bg-slate-400 dark:hover:bg-opacity-40 sm:px-8"
+              className="flex h-fit flex-col rounded p-2 transition-none even:bg-slate-400 even:bg-opacity-30
+              hover:bg-slate-500 hover:bg-opacity-50 dark:even:bg-slate-700 dark:even:bg-opacity-60
+              dark:hover:bg-slate-400 dark:hover:bg-opacity-40 sm:px-8"
               onClick={toggleSearch}
             >
               <span className="font-semibold text-slate-800 dark:text-rose-50 sm:text-xl">
@@ -172,6 +177,7 @@ function highlightSearchQuery(query: string, text: string) {
     </span>
   ));
 }
+
 /**
  * Placeholders for the search input
  */

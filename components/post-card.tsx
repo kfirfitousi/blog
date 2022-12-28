@@ -19,12 +19,13 @@ export function PostCard({ post }: PostCardProps) {
   return (
     <Link
       href={post.url}
-      className="group relative h-full w-full transition-transform duration-300 ease-in-out hover:scale-[1.02]"
+      className="group relative flex h-fit w-full transition-transform duration-300 ease-in-out hover:scale-[1.02]"
     >
       <article
         className={clsx(
           isSerif && 'font-serif',
-          'relative z-10 m-[2px] flex flex-col space-y-4 rounded bg-slate-100 py-3 pl-10 pr-8 shadow-xl hover:shadow-2xl dark:bg-slate-600',
+          'relative z-10 m-[2px] flex h-fit w-full flex-col space-y-4 rounded py-3 pl-10 pr-8',
+          'bg-slate-100 shadow-xl hover:shadow-2xl dark:bg-slate-600',
         )}
       >
         <div className="flex flex-col space-y-2">
@@ -56,7 +57,10 @@ export function PostCard({ post }: PostCardProps) {
         </div>
         <PostTags tags={post.frontmatter.tags} className="text-sm sm:text-xs" />
       </article>
-      <div className="absolute inset-0 z-20 my-auto h-[calc(100%-4px)] w-4 rounded-l bg-slate-700 group-hover:animate-border group-focus:animate-border-fast dark:bg-rose-50" />
+      <div
+        className="absolute inset-0 z-20 my-auto h-[calc(100%-4px)] w-4 rounded-l bg-slate-700
+        group-hover:animate-border group-focus:animate-border-fast dark:bg-rose-50"
+      />
     </Link>
   );
 }

@@ -19,7 +19,7 @@ export default async function PageHead({ params }: PageHeadProps) {
     <SEO
       title={`Kfir's Blog | ${title}`}
       description={description}
-      ogImage={`https://blog.kfirfitousi.com/api/og?title=${title}`}
+      ogImage={{ title }}
     />
   );
 }

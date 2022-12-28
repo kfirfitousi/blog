@@ -1,19 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { getDummyPost } from '@/lib/mdx/mocks';
 import { PostCard } from '@/components/post-card';
-import { Center } from './decorators';
+import { Center, Padding } from './decorators';
 
 const meta: Meta<typeof PostCard> = {
   title: 'Post Card',
   component: PostCard,
-  decorators: [
-    (Story) => (
-      <div className="flex w-full px-6 sm:px-12">
-        <Story />
-      </div>
-    ),
-    Center,
-  ],
+  decorators: [Center, Padding],
 };
 
 export default meta;
