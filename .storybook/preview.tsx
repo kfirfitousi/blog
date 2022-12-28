@@ -1,5 +1,4 @@
 import '@/styles/globals.css';
-import '@/styles/storybook.css';
 import type { GlobalTypes } from '@storybook/types';
 import type { Decorator, Parameters } from '@storybook/react';
 import { Red_Hat_Display, Newsreader } from '@next/font/google';
