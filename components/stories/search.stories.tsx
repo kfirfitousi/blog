@@ -15,9 +15,7 @@ const meta: Meta<typeof Search> = {
   component: Search,
   decorators: [
     (Story) => {
-      const toggleSearch = useSearchStore((state) => state.toggleSearch);
-      toggleSearch();
-
+      useSearchStore((state) => state.toggleSearch)();
       return <Story />;
     },
   ],

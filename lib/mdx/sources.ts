@@ -1,5 +1,4 @@
-import { type MdxNode } from './types';
-import { createMdxSource } from './index';
+import { type MdxNode, createMdxSource } from '@/lib/mdx';
 import { rehypePlugins } from './plugins';
 import z from 'zod';
 

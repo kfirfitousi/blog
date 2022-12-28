@@ -49,15 +49,15 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         </section>
         <div // left column
           className="col-span-1 col-start-1 row-span-3 row-start-1 hidden bg-gradient-to-r
-            from-slate-400 via-slate-500 to-slate-700 dark:from-slate-300 
-            dark:via-slate-400 dark:to-slate-500 sm:block"
+          from-slate-400 via-slate-500 to-slate-700 dark:from-slate-300 
+          dark:via-slate-400 dark:to-slate-500 sm:block"
         >
           <div className="invisible h-full w-full bg-opacity-5 bg-gradient-to-r from-rose-50 to-transparent dark:visible" />
         </div>
         <div // right column
           className="col-span-1 col-start-3 row-span-3 row-start-1 hidden bg-gradient-to-l
-            from-slate-400 via-slate-500 to-slate-700 dark:from-slate-300 
-            dark:via-slate-400 dark:to-slate-500 sm:block"
+          from-slate-400 via-slate-500 to-slate-700 dark:from-slate-300 
+          dark:via-slate-400 dark:to-slate-500 sm:block"
         >
           <div className="invisible h-full w-full bg-opacity-5 bg-gradient-to-l from-rose-50 to-transparent dark:visible" />
         </div>

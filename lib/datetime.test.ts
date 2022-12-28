@@ -44,16 +44,16 @@ describe('formatDateTime', () => {
   });
 
   it('should handle invalid date strings', () => {
-    const dateTime_1 = formatDateTime('2022-13-01');
-    expect(dateTime_1).toEqual({
+    let dateTime = formatDateTime('2022-13-01');
+    expect(dateTime).toEqual({
       asString: 'Invalid Date',
       asISOString: 'Invalid Date',
       asRelativeTimeString: 'Invalid Date',
       isFresh: false,
     });
 
-    const dateTime_2 = formatDateTime('foo');
-    expect(dateTime_2).toEqual({
+    dateTime = formatDateTime('foo');
+    expect(dateTime).toEqual({
       asString: 'Invalid Date',
       asISOString: 'Invalid Date',
       asRelativeTimeString: 'Invalid Date',

@@ -45,13 +45,7 @@ describe('getDummyPosts', () => {
   });
 
   it('should give a unique slug to each post', () => {
-    const dummyPosts = getDummyPosts(
-      5,
-      (index) => ({
-        title: `Dummy Post ${index}`,
-      }),
-      'test-slug',
-    );
+    const dummyPosts = getDummyPosts(5, { title: 'Dummy Post' }, 'test-slug');
 
     const slugs = dummyPosts.map((post) => post.slug);
 
@@ -68,9 +62,9 @@ describe('getDummyPosts', () => {
   });
 
   it('should return an empty array if count is 0', () => {
-    const dummyPosts = getDummyPosts(0, () => ({
+    const dummyPosts = getDummyPosts(0, {
       title: 'Dummy Post',
-    }));
+    });
 
     expect(dummyPosts).toHaveLength(0);
   });
