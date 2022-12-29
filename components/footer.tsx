@@ -73,6 +73,7 @@ export function Footer() {
             strokeWidth="2.4"
             className="h-6 w-6 hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400"
             data-tooltip-content="Storybook"
+            aria-label="Storybook"
           >
             <path
               d="M21.786 0.318l-0.161 3.615c-0.005 0.203 0.229 0.328 0.391 0.203l1.411-1.068 1.198 0.932c0.156 0.104

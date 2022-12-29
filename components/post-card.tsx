@@ -20,6 +20,7 @@ export function PostCard({ post }: PostCardProps) {
     <Link
       href={post.url}
       className="group relative flex h-fit w-full transition-transform duration-300 ease-in-out hover:scale-[1.02]"
+      aria-label={post.frontmatter.title}
     >
       <article
         className={clsx(
@@ -46,7 +47,7 @@ export function PostCard({ post }: PostCardProps) {
           </p>
 
           <p className="inline-flex items-center space-x-1 text-slate-600 opacity-90 dark:text-rose-50 dark:opacity-70">
-            <Calendar className="h-4 w-4 self-baseline" />
+            <Calendar className="h-4 w-4 self-baseline" aria-hidden />
             <span className="text-sm">
               Published {dateTime.asString}{' '}
               <span className="hidden opacity-90 dark:opacity-80 xs:inline">

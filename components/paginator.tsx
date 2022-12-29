@@ -21,7 +21,7 @@ export function Paginator({ posts, postsPerPage }: PaginatorProps) {
     <div
       className={clsx(
         isSerif && 'font-serif',
-        'grid w-full grid-cols-[5rem,1fr,5rem] items-center justify-between',
+        'grid w-full grid-cols-[6rem,1fr,6rem] items-center justify-between',
       )}
     >
       <button
@@ -35,12 +35,12 @@ export function Paginator({ posts, postsPerPage }: PaginatorProps) {
         disabled={currentPage === 1}
         className={clsx(
           bottom ? 'place-self-start' : 'place-self-end',
-          'flex flex-row space-x-1 space-y-1',
+          'flex h-6 flex-row items-center space-x-1 justify-self-start',
           'text-slate-600 enabled:hover:text-rose-600 disabled:text-slate-400',
           'dark:text-slate-300 dark:enabled:hover:text-rose-400 dark:disabled:text-slate-500',
         )}
       >
-        <ArrowLeft />
+        <ArrowLeft aria-label="Previous page" />
         <span>Previous</span>
       </button>
       <div className="flex flex-row flex-wrap justify-center space-x-2 px-2 text-2xl">
@@ -82,13 +82,13 @@ export function Paginator({ posts, postsPerPage }: PaginatorProps) {
         disabled={currentPage === lastPage}
         className={clsx(
           bottom ? 'place-self-start' : 'place-self-end',
-          'flex flex-row justify-end space-x-1',
+          'flex h-6 flex-row items-center justify-end space-x-1 justify-self-end',
           'text-slate-600 enabled:hover:text-rose-600 disabled:text-slate-400',
           'dark:text-slate-300 dark:enabled:hover:text-rose-400 dark:disabled:text-slate-500',
         )}
       >
-        <span>Next</span>
-        <ArrowRight />
+        <span className="h-full">Next</span>
+        <ArrowRight aria-label="Next page" />
       </button>
     </div>
   );
