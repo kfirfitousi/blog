@@ -26,7 +26,7 @@ export function PostCard({ post }: PostCardProps) {
         className={clsx(
           isSerif && 'font-serif',
           'relative z-10 m-[2px] flex h-fit w-full flex-col space-y-4 rounded py-3 pl-10 pr-8',
-          'bg-slate-100 shadow-xl hover:shadow-2xl dark:bg-slate-600',
+          'bg-slate-100 bg-opacity-95 shadow-xl hover:shadow-2xl dark:bg-slate-600 dark:bg-opacity-90',
         )}
       >
         <div className="flex flex-col space-y-2">
@@ -59,7 +59,7 @@ export function PostCard({ post }: PostCardProps) {
         <PostTags tags={post.frontmatter.tags} className="text-sm sm:text-xs" />
       </article>
       <div
-        className="absolute inset-0 z-20 my-auto h-[calc(100%-4px)] w-4 rounded-l bg-slate-700
+        className="absolute inset-0 z-20 my-auto h-[calc(100%_-_4px)] w-4 rounded-l bg-slate-700
         group-hover:animate-border group-focus:animate-border-fast dark:bg-rose-50"
       />
     </Link>
