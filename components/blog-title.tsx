@@ -32,7 +32,8 @@ export function BlogTitle({ title, small }: BlogTitleProps) {
           small
             ? 'mx-0.5 text-lg font-semibold'
             : 'mx-2 pb-1.5 text-5xl font-bold sm:text-6xl',
-          'whitespace-nowrap text-center text-slate-800 drop-shadow-sm hover:text-rose-600 dark:text-rose-50 dark:hover:text-rose-400',
+          'whitespace-nowrap text-center drop-shadow-sm',
+          'text-slate-800 hover:text-rose-600 dark:text-rose-50 dark:hover:text-rose-400',
         )}
       >
         {title}

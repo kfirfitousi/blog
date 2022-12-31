@@ -39,12 +39,12 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
           fontSize === 'lg' && 'text-base sm:text-lg',
           fontSize === 'xl' && 'text-lg sm:text-xl',
           fontSize === '2xl' && 'text-xl sm:text-2xl',
-          'text-slate-600 dark:text-rose-50',
+          'text-slate-700 dark:text-rose-50',
         )}
       >
         Published{' '}
         <time dateTime={dateTime.asISOString}>{dateTime.asString}</time>
-        <span className="text-slate-600 text-opacity-70 dark:text-rose-50 dark:text-opacity-60">
+        <span className="text-slate-600 dark:text-rose-50 dark:text-opacity-60">
           {' '}
           · {dateTime.asRelativeTimeString}
         </span>

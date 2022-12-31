@@ -89,7 +89,8 @@ export function Header() {
         className={clsx(
           isSerif && 'font-serif',
           isPostPage ? 'sm:ml-[136px]' : 'sm:ml-20',
-          'flex h-8 flex-grow flex-row items-center justify-start mix-blend-color-dodge max-xs:mr-2 max-xs:text-sm sm:justify-center',
+          'flex h-8 flex-grow flex-row items-center justify-start mix-blend-color-dodge sm:justify-center',
+          'max-xs:mr-2 max-xs:text-sm',
         )}
       >
         <Link
@@ -116,7 +117,8 @@ export function Header() {
             className={clsx(
               isSearching &&
                 'text-rose-600 text-opacity-60 dark:text-rose-400 dark:text-opacity-80',
-              'h-5 w-5 mix-blend-color-dodge hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6',
+              'h-5 w-5 mix-blend-color-dodge hover:scale-110 hover:pb-0.5 xs:h-6 xs:w-6',
+              'hover:text-rose-600 dark:hover:text-rose-400',
             )}
             data-tooltip-content="Search Posts"
             aria-label="Search Posts"
@@ -126,19 +128,37 @@ export function Header() {
 
         {isPostPage && (
           <>
-            <button onClick={decreaseFontSize} disabled={isFontSizeMin}>
+            <button
+              onClick={decreaseFontSize}
+              disabled={isFontSizeMin}
+              className="group"
+            >
               <MinusSquare
                 id="decrease-font-size"
-                className="h-5 w-5 mix-blend-color-dodge hover:scale-110 hover:pb-0.5 hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400 xs:h-6 xs:w-6"
+                className={clsx(
+                  'h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
+                  'hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400',
+                  'group-disabled:text-rose-600 group-disabled:text-opacity-60',
+                  'dark:group-disabled:text-rose-400 dark:group-disabled:text-opacity-80',
+                )}
                 data-tooltip-content="Decrease font size"
                 aria-label="Decrease font size"
               />
               <Tooltip anchorId="decrease-font-size" place="bottom" />
             </button>
-            <button onClick={increaseFontSize} disabled={isFontSizeMax}>
+            <button
+              onClick={increaseFontSize}
+              disabled={isFontSizeMax}
+              className="group"
+            >
               <PlusSquare
                 id="increase-font-size"
-                className="h-5 w-5 mix-blend-color-dodge hover:scale-110 hover:pb-0.5 hover:text-rose-600 disabled:text-rose-600 dark:hover:text-rose-400 dark:disabled:text-rose-400 xs:h-6 xs:w-6"
+                className={clsx(
+                  'h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
+                  'hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400',
+                  'group-disabled:text-rose-600 group-disabled:text-opacity-60',
+                  'dark:group-disabled:text-rose-400 dark:group-disabled:text-opacity-80',
+                )}
                 aria-label="Increase font size"
                 data-tooltip-content="Increase font size"
               />
@@ -153,7 +173,8 @@ export function Header() {
             className={clsx(
               isSerif &&
                 'text-rose-600 text-opacity-60 dark:text-rose-400 dark:text-opacity-80',
-              'ml-auto h-5 w-5 mix-blend-color-dodge hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6',
+              'hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400',
+              'ml-auto h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
             )}
             data-tooltip-content="Toggle serif font"
             aria-label="Toggle serif font"
@@ -163,12 +184,14 @@ export function Header() {
         <button onClick={toggleDarkAndApply} id="theme-toggle">
           {isDark ? (
             <Moon
-              className="h-5 w-5 mix-blend-color-dodge hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6"
+              className="h-5 w-5 mix-blend-color-dodge hover:scale-110 hover:pb-0.5
+              hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6"
               aria-label="Switch to light mode"
             />
           ) : (
             <Sun
-              className="h-5 w-5 mix-blend-color-dodge hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6"
+              className="h-5 w-5 mix-blend-color-dodge hover:scale-110 hover:pb-0.5
+              hover:text-rose-600 dark:hover:text-rose-400 xs:h-6 xs:w-6"
               aria-label="Switch to dark mode"
             />
           )}

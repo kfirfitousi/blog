@@ -1,7 +1,0 @@
-html.dark .sb-show-main {
-    background-color: #334155;
-}
-
-html:not(.dark) .sb-show-main {
-    background-color: #e2e8f0;
-}

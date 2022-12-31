@@ -16,7 +16,7 @@ function searchHit(query: string, text: string) {
  * @param posts The posts to search in
  * @returns The posts that matched the query in descending order of relevance
  */
-export function searchPosts(query: string, posts: BlogMdxNode[]) {
+export function searchPosts(query: string, posts: Array<BlogMdxNode>) {
   const postsWithSearchHits = new Map<BlogMdxNode, number>();
 
   posts.forEach((post) => {
@@ -57,7 +57,7 @@ export function searchPosts(query: string, posts: BlogMdxNode[]) {
  * @param posts The posts to get the tags from
  * @returns The tags with their count in descending order of count
  */
-export function getTagsWithCount(posts: BlogMdxNode[]) {
+export function getTagsWithCount(posts: Array<BlogMdxNode>) {
   const tagsWithCount = new Map<string, number>();
 
   posts.forEach((post) => {

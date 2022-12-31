@@ -5,7 +5,7 @@ export default async function PostsPageHead() {
     <SEO
       title="Kfir's Blog | Posts"
       description="All my blog posts. I write about Web Development and other topics I'm interested in."
-      ogImage="https://blog.kfirfitousi.com/api/og?title=Posts"
+      ogImage={{ title: 'Posts' }}
     />
   );
 }

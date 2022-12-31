@@ -168,7 +168,7 @@ export type MdxSource<T extends z.AnyZodObject | Record<string, unknown>> = {
    * @example
    * const files = await getAllMdxFiles()
    */
-  getAllMdxFiles: () => Promise<MdxFile[]>;
+  getAllMdxFiles: () => Promise<Array<MdxFile>>;
   /**
    * Retrieves the MDX node with the given slug.
    * @param slug The slug of the MDX node to retrieve. Nested slugs can be
@@ -185,5 +185,5 @@ export type MdxSource<T extends z.AnyZodObject | Record<string, unknown>> = {
    * @example
    * const posts = await getAllMdxNodes()
    */
-  getAllMdxNodes: () => Promise<MdxNode<T>[]>;
+  getAllMdxNodes: () => Promise<Array<MdxNode<T>>>;
 };

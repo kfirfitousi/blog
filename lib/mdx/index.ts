@@ -12,6 +12,13 @@ import type {
   MdxNode,
   MdxSource,
 } from './types';
+export type {
+  CreateSourceParams,
+  MdxFileData,
+  MdxFile,
+  MdxNode,
+  MdxSource,
+} from './types';
 
 const mdxCache = new NodeCache();
 
@@ -72,7 +79,7 @@ export function createMdxSource<
         filepath,
         slug,
         url,
-      } as MdxFile;
+      };
     });
   }
 
@@ -119,7 +126,7 @@ export function createMdxSource<
     return {
       ...file,
       ...data,
-    } as MdxNode<z.infer<Z>>;
+    };
   }
 
   async function getAllMdxNodes() {
@@ -127,9 +134,11 @@ export function createMdxSource<
 
     if (!files.length) return [];
 
-    const nodes = (await Promise.all(
-      files.map(async (file) => await getMdxNode(file.slug)),
-    )) as Array<MdxNode<z.infer<Z>>>;
+    const nodes = await Promise.all(
+      files.map(
+        async (file) => (await getMdxNode(file.slug)) as MdxNode<z.infer<Z>>,
+      ),
+    );
 
     const adjust = sortOrder === 'desc' ? -1 : 1;
     return nodes.sort((a, b) => {

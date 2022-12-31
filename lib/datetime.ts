@@ -95,8 +95,16 @@ function getRelativeTime(date: Date) {
   }
 
   const months = Math.floor(days / 30);
+  if (months > -12) {
+    return {
+      relativeTime: relativeTimeFormatter.format(months, 'month'),
+      isFresh: false,
+    };
+  }
+
+  const years = Math.floor(days / 365);
   return {
-    relativeTime: relativeTimeFormatter.format(months, 'month'),
+    relativeTime: relativeTimeFormatter.format(years, 'year'),
     isFresh: false,
   };
 }
