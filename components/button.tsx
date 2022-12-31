@@ -17,7 +17,7 @@ export function Button({ href, label, className, icon }: ButtonProps) {
         dark:bg-rose-50 dark:text-slate-800 dark:hover:bg-transparent 
         dark:hover:text-rose-50 dark:hover:outline-rose-50"
       >
-        <span aria-hidden>{icon}</span>
+        {icon && <span aria-hidden>{icon}</span>}
         <span className="text-sm">{label}</span>
       </button>
     </Link>
