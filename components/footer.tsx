@@ -90,7 +90,7 @@ export function Footer() {
       </div>
       <div className="flex h-6 flex-row items-center justify-center space-x-1 text-slate-600 dark:text-slate-300">
         <Copyright className="h-4 w-4" aria-label="Copyright" />
-        <span className="text-sm">2022 · Kfir Fitousi</span>
+        <span className="text-sm">2023 · Kfir Fitousi</span>
       </div>
 
       <button
