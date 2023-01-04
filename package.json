@@ -51,7 +51,7 @@
     "@storybook/addon-interactions": "^7.0.0-beta.19",
     "@storybook/addon-links": "^7.0.0-beta.19",
     "@storybook/blocks": "^7.0.0-alpha.8",
-    "@storybook/nextjs": "^7.0.0-alpha.41",
+    "@storybook/nextjs": "^7.0.0-beta.19",
     "@storybook/react": "^7.0.0-beta.15",
     "@storybook/testing-library": "^0.0.14-next.1",
     "@tailwindcss/typography": "^0.5.8",
