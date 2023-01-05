@@ -3,10 +3,8 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  images: {
-    domains: ['images.unsplash.com'],
-  },
   // Redirects for blog posts that have already been published
+  // under the old URL structure
   redirects: async () => {
     return [
       {
