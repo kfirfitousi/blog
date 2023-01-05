@@ -28,7 +28,7 @@ export function a({ href, children }: React.HTMLProps<HTMLAnchorElement>) {
  * elements can be nested inside them
  */
 function p(props: React.HTMLProps<HTMLParagraphElement>) {
-  return <div {...props} />;
+  return <div className={clsx(props.className, 'my-4')} {...props} />;
 }
 
 /**

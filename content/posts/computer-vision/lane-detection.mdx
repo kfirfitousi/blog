@@ -148,8 +148,6 @@ We are using the following parameters:
 - `threshold` is set to 100 - This is the minimum number of pixels that need to be on a line for it to be detected.
 - `min_theta` and `max_theta` - These are the minimum and maximum values of **θ** that we want to detect.
 
-<br />
-
 The `HoughLines` function returns a list of lines, each line is a 2d array, and the first element of that array is [ρ, θ].
 
 ```python
@@ -211,8 +209,6 @@ lanes_image = np.zeros_like(frame)
 
 This creates a new image that is the same size as the frame, but with all pixels set to black.
 
-<br />
-
 Before we can draw our lines, we need to convert them from polar coordinates to cartesian coordinates. We can do this using simple trigonometry:
 
 ![Polar to cartesian coordinates {{ w: 600, h: 532, cap: "Converting polar coordinates to cartesian coordinates" }}](/images/computer-vision/lane-detection/polar-to-cartesian.webp)
@@ -262,8 +258,6 @@ if y4 > 2200:
 ```
 
 Here we are decreasing the **y** value of the top of the lines to 1150 and using the line formula to find the corresponding **x** value. We are also increasing the **y** value of the bottom of the lines to 2200 using the same strategy.
-
-<br />
 
 Here is what the lines look like after cropping:
 
@@ -343,8 +337,6 @@ if not lane_change_left and not lane_change_right and len(
 We use the value 170 as a threshold for the difference between the current **ρ** values and the average **ρ** values. If the difference is greater than 170, we assume that the car is changing lanes.  
 When a lane change is detected, we discard the previous left and right lines and the previous **x** values, since they are no longer relevant. Also, we reset the `lane_change_frames_shown` variable, which keeps track of how many frames have passed since the message was displayed.
 
-<br />
-
 Finally, we use the `putText` function to display a message for 60 frames when the car is changing lanes.
 
 ```python
@@ -367,7 +359,5 @@ if lane_change_right or lane_change_left:
   className="w-full rounded"
   style={{ aspectRatio: '16/9' }}
 />
-
-<br />
 
 Hope you enjoyed reading this post! I plan on writing more about Computer Vision, so stay tuned!

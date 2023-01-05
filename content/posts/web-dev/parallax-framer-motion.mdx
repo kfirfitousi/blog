@@ -136,8 +136,6 @@ export default function Parallax() {
 
 We created a `ref` for the wrapper div and passed it to the `useScroll` hook as the target element. Now `scrollYProgress` tracks the scroll progress of the wrapper div: when it's at the top of the screen, `scrollYProgress` is 0, when it's at the middle of the screen, it is 0.5 and when it's at the bottom of the screen, it is 1.
 
-<br />
-
 Next, we define a function called `useParallax`:
 
 ```tsx:src/components/parallax.tsx
@@ -182,8 +180,6 @@ Now, when the wrapper div is at the **top** of the screen, `scrollYProgress` is 
 When the wrapper div is at the **middle** of the screen, `scrollYProgress` is 0.5, so **yYellow** and **yGreen** will both be 0.
 When the wrapper div is at the **bottom** of the screen, `scrollYProgress` is 1, so **yYellow** and **yGreen** will be 300 and 600 respectively.
 
-<br />
-
 All we have to do now is pass the **yYellow** and **yGreen** values to the `y` property of the yellow and green boxes respectively:
 
 ```tsx:src/components/parallax.tsx
@@ -208,8 +204,6 @@ export default function Parallax() {
 ```
 
 We also set the inital value of `y` to 0 so the boxes are positioned correctly when the page loads.
-
-<br />
 
 That's it! We have successfully added a parallax effect to our component.
 
