@@ -6,7 +6,7 @@ tags: ['nextjs', 'mdx', 'blog', 'typescript', 'react', 'markdown']
 ---
 
 [Next.js](https://nextjs.org) version 13 introduced the `/app` directory, a new way of defining routes in your application.  
-In this article, we'll go over the basics of building a blog with MDX support using Next.js 13, TypeScript and [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote). The code we'll be writing in this article is available on [GitHub](https://github.com/kfirfitousi/mdx-nextjs-13).
+In this article, we'll go over the basics of using [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) to render MDX files with Next.js 13 and TypeScript. The code we'll be writing in this article is available on [GitHub](https://github.com/kfirfitousi/mdx-nextjs-13).
 
 ### Table of Contents
 
@@ -16,6 +16,7 @@ In this article, we'll go over the basics of building a blog with MDX support us
 - [Serializing the Post](#serializing-the-post)
 - [Getting the Post Inside a Page Component](#getting-the-post-inside-a-page-component)
 - [Rendering the Post's Content](#rendering-the-posts-content)
+- [Conclusion and Next Steps](#conclusion-and-next-steps)
 
 ## Setup
 
@@ -210,3 +211,12 @@ export default async function Home() {
 That's it! We've successfully rendered an MDX file on the page using `next-mdx-remote`, and we've added custom components to it.
 
 ![Result {{ w: 700, h: 378, cap: "Our post rendered on the page" }}](/images/web-dev/mdx-nextjs-13/result.webp)
+
+## Conclusion and Next Steps
+
+In this article, we've only scratched the surface of using `next-mdx-remote` with Next.js 13.  
+To make an actual blog, we might want to move our `getPost` function to a file called `/lib/mdx.ts` (or similar) and add two more functions: `getAllPosts`, which returns all of the posts in our blog, and `getAllMdxFiles`, which returns all of the MDX files in the content directory.
+
+We can then leverage Next.js 13's [Dynamic Segments](https://beta.nextjs.org/docs/routing/defining-routes#dynamic-segments) and [Static Params Generation](https://beta.nextjs.org/docs/data-fetching/generating-static-params) to create a dynamic route for each post, and render the post's content on the page.
+
+You can find my implementation of this on [github.com/kfirfitousi/blog](https://github.com/kfirfitousi/blog) for reference and inspiration.
