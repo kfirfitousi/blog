@@ -4,21 +4,11 @@
 ![CI Status](https://img.shields.io/github/actions/workflow/status/kfirfitousi/blog/ci.yml?branch=main&label=CI&logo=github&style=for-the-badge)
 ![License](https://img.shields.io/github/license/kfirfitousi/blog?color=blue&style=for-the-badge)
 
-Blog app built with Next.js 13, TypeScript, next-mdx-remote, Zustand and TailwindCSS.  
-[blog.kfirfitousi.com](https://blog.kfirfitousi.com)
+Blog built with Next.js 13, TypeScript, next-mdx-remote, Zustand and TailwindCSS.  
 
-## Features
-
-- [x] Using new Next.js 13 features including the `/app` directory, Server Components and Client Components
-- [x] Customizable reading mode - dark/light, serif/sans-serif font and font size selection
-- [x] Support for .mdx files with frontmatter
-- [x] GitHub flavored markdown and code blocks with titles and syntax-highlighting
-- [x] Fully type-safe
-- [x] Search functionality
-- [x] Comment sections using [utterances](https://utteranc.es/)
-- [x] Vercel OG image generation at the Edge
-- [x] Storybook v7 integration (published to [story.blog.kfirfitousi.com](https://story.blog.kfirfitousi.com))
-
-## TODO
-
-- [ ] Persist reading mode preferences on refresh
+- 🔥 Using latest Next.js 13 features including the `/app` directory, `@next/font`, and React 18's Server Components
+- 🎛 Customizable reading experience - light/dark mode, serif/sans-serif, and font size
+- 📄 Support for MDX files with type-safe frontmatter, custom components and plugins
+- 💬 Comment sections using [utterances 🔮](https://utteranc.es/)
+- ⚡️ Vercel OG image generation at the Edge
+- 📖 Storybook v7 integration (published to [story.blog.kfirfitousi.com](https://story.blog.kfirfitousi.com))
