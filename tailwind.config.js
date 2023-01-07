@@ -9,15 +9,26 @@ module.exports = {
     require('@tailwindcss/typography'),
   ],
 
-  // enables dark mode
+  // enable dark mode
   darkMode: 'class',
 
   theme: {
+    screens: {
+      xs: '475px',
+      ...defaultTheme.screens,
+    },
     extend: {
       fontFamily: {
-        // uses @next/font/google; see app/layout.tsx
+        // uses @next/font; see app/layout.tsx
         sans: ['var(--font-red-hat)'],
         serif: ['var(--font-newsreader)'],
+      },
+      animation: {
+        // border animation used in components/post-card.tsx
+        border: 'show-border 0.5s ease-in-out forwards',
+        'border-fast': 'show-border 0.25s ease-in-out forwards',
+        // wave animation used in components/hero-section.tsx
+        wave: 'wave 2.5s ease-in-out forwards',
       },
       keyframes: {
         'show-border': {
@@ -50,20 +61,9 @@ module.exports = {
           '100%': { transform: 'rotate(0.0deg)' },
         },
       },
-      animation: {
-        // border animation used in components/post-card.tsx
-        border: 'show-border 0.5s ease-in-out forwards',
-        'border-fast': 'show-border 0.25s ease-in-out forwards',
-        // wave animation used in components/hero-section.tsx
-        wave: 'wave 2.5s ease-in-out forwards',
-      },
-    },
-    screens: {
-      xs: '475px',
-      ...defaultTheme.screens,
     },
   },
 
   // these classes are added conditinally so they need to be whitelisted
-  safelist: ['prose-sm', 'prose-base', 'prose-lg', 'prose-xl', 'prose-2xl'],
+  safelist: [{ pattern: /prose-(sm|base|lg|xl|2xl)/ }],
 };
