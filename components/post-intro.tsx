@@ -25,7 +25,7 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
           fontSize === 'base' && 'text-2xl sm:text-3xl md:text-4xl',
           fontSize === 'lg' && 'text-3xl sm:text-4xl md:text-5xl',
           fontSize === 'xl' && 'text-4xl sm:text-5xl md:text-6xl',
-          fontSize === '2xl' && 'text-5xl sm:text-6xl',
+          fontSize === '2xl' && 'text-5xl sm:text-6xl md:text-7xl',
           'font-bold text-slate-800 drop-shadow-sm dark:text-rose-50',
         )}
       >
@@ -54,10 +54,10 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
         className={clsx(
           isSerif && 'font-serif',
           fontSize === 'sm' && 'text-xs',
-          fontSize === 'base' && 'text-sm',
+          fontSize === 'base' && 'text-xs',
           fontSize === 'lg' && 'text-sm',
           fontSize === 'xl' && 'text-base',
-          fontSize === '2xl' && 'text-base',
+          fontSize === '2xl' && 'text-lg',
         )}
       />
     </section>
