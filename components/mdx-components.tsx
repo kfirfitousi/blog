@@ -1,4 +1,6 @@
 import { CopyCode } from '@/components/copy-code';
+import { Bookmark, ChevronDown, ChevronUp } from 'lucide-react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import clsx from 'clsx';
@@ -82,4 +84,34 @@ function pre({ children }: React.HTMLProps<HTMLPreElement>) {
   );
 }
 
-export const MdxComponents = { a, p, img, pre };
+/**
+ * Table of Contents component
+ */
+export function TableOfContents({ children }: { children: React.ReactNode }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <section className="mt-8 flex w-full flex-col rounded bg-slate-300 bg-opacity-50 dark:bg-slate-600 dark:bg-opacity-50 sm:w-fit">
+      <button
+        className={clsx(
+          'flex flex-row items-center rounded bg-slate-300 p-2 font-bold text-slate-700 dark:bg-slate-600 dark:text-slate-200',
+          isOpen && 'rounded-b-none',
+        )}
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-label="Toggle Table of Contents"
+      >
+        <Bookmark className="mr-1 h-5 w-5" />
+        <span className="mr-6">Table of Contents</span>
+        <ChevronDown
+          className={clsx(
+            'ml-auto h-6 w-6 transition-transform duration-300 ease-in-out',
+            isOpen && 'rotate-180',
+          )}
+        />
+      </button>
+      {isOpen && <div className="p-2 pr-6">{children}</div>}
+    </section>
+  );
+}
+
+export const MdxComponents = { a, p, img, pre, TableOfContents };
