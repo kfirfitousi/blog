@@ -85,16 +85,20 @@ function pre({ children }: React.HTMLProps<HTMLPreElement>) {
 }
 
 /**
- * Table of Contents component
+ * Collapsible Table of Contents component
  */
 export function TableOfContents({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section className="mt-8 flex w-full flex-col rounded bg-slate-300 bg-opacity-50 dark:bg-slate-600 dark:bg-opacity-50 sm:w-fit">
+    <section
+      className="mt-8 flex w-full flex-col rounded bg-slate-300 bg-opacity-50 
+    dark:bg-slate-600 dark:bg-opacity-50 sm:w-fit"
+    >
       <button
         className={clsx(
-          'flex flex-row items-center rounded bg-slate-300 p-2 font-bold text-slate-700 dark:bg-slate-600 dark:text-slate-200',
+          'bg-slate-300 text-slate-700 dark:bg-slate-600 dark:text-slate-200',
+          'flex flex-row items-center rounded p-2 font-bold',
           isOpen && 'rounded-b-none',
         )}
         onClick={() => setIsOpen((prev) => !prev)}
