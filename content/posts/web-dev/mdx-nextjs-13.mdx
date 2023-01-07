@@ -2,7 +2,7 @@
 title: MDX Blog with Next.js 13
 excerpt: A Proof of Concept for an MDX Blog built with Next.js 13
 date: '2022-12-11'
-tags: ['nextjs', 'mdx', 'blog', 'typescript', 'react', 'markdown']
+tags: ['next.js', 'mdx', 'blog', 'typescript', 'react', 'markdown']
 ---
 
 [Next.js](https://nextjs.org) version 13 introduced the `/app` directory, a new way of defining routes in your application.  
@@ -62,7 +62,17 @@ This is an example post.
 #### Heading 4
 
 ##### Heading 5
+
+<Card>
+
+    ### This Card is a **custom component**.
+
+    Markdown **can** be used *inside* custom components.
+
+</Card>
 ```
+
+Note that we're using a custom component called `Card` in the post. We'll define this component later on.
 
 ## Defining Types
 
@@ -174,9 +184,20 @@ If we want to add custom components to our posts, we can do so by passing a `com
 
 /** Place your custom MDX components here */
 const MdxComponents = {
-  /** Example: h1 colored in yellow */
+  /** h1 colored in yellow */
   h1: (props: HTMLProps<HTMLHeadingElement>) => (
     <h1 style={{ color: "#FFF676" }} {...props} />
+  ),
+  /** Card component */
+  Card: (props: HTMLProps<HTMLDivElement>) => (
+    <div
+      style={{
+        background: "#333",
+        borderRadius: "4px",
+        padding: "16px",
+      }}
+      {...props}
+    />
   ),
 };
 
