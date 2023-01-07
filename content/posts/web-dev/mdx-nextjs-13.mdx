@@ -45,7 +45,7 @@ pnpm add next-mdx-remote
 Let's create an example post.
 Create a new directory `/content` in the project root and create a new file `/content/post.mdx`:
 
-```plaintext:content/post.mdx
+```plaintext:/content/post.mdx
 ---
 title: Example Post
 date: "2022-12-11"
@@ -100,7 +100,7 @@ type Post<TFrontmatter> = {
 
 Next, we'll define an async function called `getPost` that takes a filepath, and returns a `Post` object by reading the file from the filesystem and serializing the MDX content.
 
-```tsx:app/page.tsx
+```tsx:/app/page.tsx
 // ...
 import { serialize } from "next-mdx-remote/serialize";
 import { promises as fs } from "fs";
@@ -131,7 +131,7 @@ async function getPost(filepath: string): Promise<Post<Frontmatter>> {
 
 Now let's get this post inside our `Home` component. We'll have to change the `Home` component to be an [async server component](https://beta.nextjs.org/docs/data-fetching/fetching#asyncawait-in-server-components) so we can use `await` in the top level of the component.
 
-```tsx:app/page.tsx
+```tsx:/app/page.tsx
 export default async function Home() {
   // Get the serialized content and frontmatter
   const { serialized, frontmatter } = await getPost("content/post.mdx");
@@ -159,7 +159,7 @@ We should now see the title and date of our post rendered on the page.
 
 Let's create a new component file called `/app/mdx-content.tsx`:
 
-```tsx:app/mdx-content.tsx
+```tsx:/app/mdx-content.tsx
 "use client"; // This is required!
 
 import { MDXRemote, type MDXRemoteSerializeResult } from "next-mdx-remote";
@@ -179,17 +179,17 @@ All this component does is render the `MDXRemote` component.
 
 If we want to add custom components to our posts, we can do so by passing a `components` prop:
 
-```tsx:app/mdx-content.tsx
+```tsx:/app/mdx-content.tsx
 // ...
 
 /** Place your custom MDX components here */
 const MdxComponents = {
   /** h1 colored in yellow */
-  h1: (props: HTMLProps<HTMLHeadingElement>) => (
+  h1: (props: React.HTMLProps<HTMLHeadingElement>) => (
     <h1 style={{ color: "#FFF676" }} {...props} />
   ),
   /** Card component */
-  Card: (props: HTMLProps<HTMLDivElement>) => (
+  Card: (props: React.HTMLProps<HTMLDivElement>) => (
     <div
       style={{
         background: "#333",
@@ -208,7 +208,7 @@ export function MdxContent({ source }: MdxContentProps) {
 
 Now let's import the `MdxContent` component into our `Home` component and render it, passing in the serialized content from our post:
 
-```tsx:app/page.tsx
+```tsx:/app/page.tsx
 // ...
 import { MdxContent } from "./mdx-content";
 
