@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { getDummyPosts } from '@/lib/mdx/mocks';
+import { getDummyNodes } from '@/lib/mdx/mocks';
 import { Paginator } from '@/components/paginator';
 import { Padding } from './decorators';
 
-const posts = getDummyPosts(100, (index) => ({
+const posts = getDummyNodes(100, (index) => ({
   title: `Post ${index + 1}`,
   excerpt: `This is post ${index + 1}`,
   date: '2022-01-01',

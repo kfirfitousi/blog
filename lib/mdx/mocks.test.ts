@@ -1,53 +1,53 @@
-import { getDummyPost, getDummyPosts } from './mocks';
+import { getDummyNode, getDummyNodes } from './mocks';
 
-describe('getDummyPost', () => {
-  it('should return a dummy post with the given frontmatter', () => {
-    const dummyPost = getDummyPost({
-      title: 'Dummy Post',
-      excerpt: 'This is a dummy post',
+describe('getDummyNode', () => {
+  it('should return a dummy node with the given frontmatter', () => {
+    const dummyNode = getDummyNode({
+      title: 'Example Post',
+      excerpt: 'This is an example post',
     });
 
-    expect(dummyPost).toHaveProperty('frontmatter', {
-      title: 'Dummy Post',
-      excerpt: 'This is a dummy post',
+    expect(dummyNode).toHaveProperty('frontmatter', {
+      title: 'Example Post',
+      excerpt: 'This is an example post',
     });
   });
 
-  it('should return a dummy post with the given slug', () => {
-    const dummyPost = getDummyPost(
+  it('should return a dummy node with the given slug', () => {
+    const dummyNode = getDummyNode(
       {
-        title: 'Dummy Post',
+        title: 'Example Post',
       },
       'test-slug',
     );
 
-    expect(dummyPost).toHaveProperty('slug', 'test-slug');
+    expect(dummyNode).toHaveProperty('slug', 'test-slug');
   });
 });
 
-describe('getDummyPosts', () => {
-  it('should return an array of dummy posts', () => {
-    const dummyPosts = getDummyPosts(5, (index) => ({
-      title: `Dummy Post ${index}`,
-      excerpt: `This is a dummy post ${index}`,
+describe('getDummyNodes', () => {
+  it('should return an array of dummy nodes', () => {
+    const dummyNodes = getDummyNodes(5, (index) => ({
+      title: `Example Post ${index}`,
+      excerpt: `This is a example post ${index}`,
       tags: ['test', `tag-${index}`],
     }));
 
-    expect(dummyPosts).toHaveLength(5);
+    expect(dummyNodes).toHaveLength(5);
 
-    dummyPosts.forEach((post, index) => {
+    dummyNodes.forEach((post, index) => {
       expect(post).toHaveProperty('frontmatter', {
-        title: `Dummy Post ${index}`,
-        excerpt: `This is a dummy post ${index}`,
+        title: `Example Post ${index}`,
+        excerpt: `This is a example post ${index}`,
         tags: ['test', `tag-${index}`],
       });
     });
   });
 
-  it('should give a unique slug to each post', () => {
-    const dummyPosts = getDummyPosts(5, { title: 'Dummy Post' }, 'test-slug');
+  it('should give a unique slug to each node', () => {
+    const dummyNodes = getDummyNodes(5, { title: 'Example Post' }, 'test-slug');
 
-    const slugs = dummyPosts.map((post) => post.slug);
+    const slugs = dummyNodes.map((node) => node.slug);
 
     expect(slugs).toHaveLength(5);
     expect(slugs).toEqual(
@@ -62,10 +62,10 @@ describe('getDummyPosts', () => {
   });
 
   it('should return an empty array if count is 0', () => {
-    const dummyPosts = getDummyPosts(0, {
-      title: 'Dummy Post',
+    const dummyNodes = getDummyNodes(0, {
+      title: 'Example Post',
     });
 
-    expect(dummyPosts).toHaveLength(0);
+    expect(dummyNodes).toHaveLength(0);
   });
 });

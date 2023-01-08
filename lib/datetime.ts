@@ -31,9 +31,7 @@ const relativeTimeFormatter = new Intl.RelativeTimeFormat('en-US', {
 });
 
 /**
- * Formats a date string into a {@link DateTime} object
- * @param dateString The date string to format
- * @returns A {@link DateTime} object
+ * Formats a date string into a {@link DateTime} object.
  * @example
  * const dateTime = formatDateTime('2022-01-01');
  * // dateTime = {
@@ -66,9 +64,8 @@ export function formatDateTime(dateString: string): DateTime {
 }
 
 /**
- * Formats a date into a relative time
- * @param date The date to format
- * @returns An object with the relative time and a boolean indicating if the date is fresh,
+ * Formats a date into a relative time.
+ * @returns The relative time string and a boolean indicating if the date is fresh,
  * i.e. less than 4 days old
  * @example
  * const { relativeTime, isFresh } = getRelativeTime(someDate);

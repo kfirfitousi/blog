@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { getDummyPost } from '@/lib/mdx/mocks';
+import { getDummyNode } from '@/lib/mdx/mocks';
 import { PostCard } from '@/components/post-card';
 import { Center, Padding } from './decorators';
 
@@ -14,7 +14,7 @@ type Story = StoryObj<typeof PostCard>;
 
 export const Normal: Story = {
   args: {
-    post: getDummyPost({
+    post: getDummyNode({
       title: 'Example Post',
       excerpt: 'This is an example post.',
       date: '2022-01-01',
@@ -25,7 +25,7 @@ export const Normal: Story = {
 
 export const FreshPost: Story = {
   args: {
-    post: getDummyPost({
+    post: getDummyNode({
       title: 'Example Post',
       excerpt: 'This is an example post.',
       date: new Date().toISOString(),

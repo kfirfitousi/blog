@@ -1,18 +1,15 @@
 import { type MdxNode } from './types';
 
 /**
- * Mocks the function getMdxNode
- * @param frontmatter frontmatter to be used in the post
- * @param slug slug to be used in the post
- * @returns a dummy post with the given frontmatter
+ * Creates a dummy {@link MdxNode}.
  * @example
- * const dummyPost = getDummyPost({
+ * const dummyPost = getDummyNode({
  *   title: 'Dummy Post',
  *   excerpt: 'This is a dummy post',
  *   date: '2022-01-01',
  * });
  * @example
- * const dummyPost = getDummyPost(
+ * const dummyPost = getDummyNode(
  *   {
  *     title: 'Dummy Post',
  *     date: '2022-01-01',
@@ -20,7 +17,7 @@ import { type MdxNode } from './types';
  *  'post-slug',
  * );
  */
-export function getDummyPost<Frontmatter extends Record<string, unknown>>(
+export function getDummyNode<Frontmatter extends Record<string, unknown>>(
   frontmatter: Frontmatter,
   slug = 'dummy-post',
 ) {
@@ -38,20 +35,19 @@ export function getDummyPost<Frontmatter extends Record<string, unknown>>(
 }
 
 /**
- * Returns an array of dummy posts
- * @param frontmatter frontmatter to be used in each post, or a function that
- * generates the frontmatter for each post
- * @param count number of posts to be generated
- * @param slugPrefix prefix to be used in the slug of each post
- * @returns an array of dummy posts
+ * Creates an array of dummy {@link MdxNode}s.
+ * @param frontmatter frontmatter to be used in each node, or a function that
+ * generates the frontmatter for each node
+ * @param count number of nodes to be generated
+ * @param slugPrefix prefix to be used in the slug of each node
  * @example
- * const dummyPosts = getDummyPosts(5, (index) => ({
+ * const dummyPosts = getDummyNodes(5, (index) => ({
  *   title: `Dummy Post ${index}`,
  *   excerpt: `This is a dummy post ${index}`,
  *   date: '2022-01-01',
  * }));
  * @example
- * const dummyPosts = getDummyPosts(
+ * const dummyPosts = getDummyNodes(
  *   5,
  *   {
  *     title: 'Dummy Post',
@@ -60,13 +56,13 @@ export function getDummyPost<Frontmatter extends Record<string, unknown>>(
  *  'test-slug',
  * );
  */
-export function getDummyPosts<Frontmatter extends Record<string, unknown>>(
+export function getDummyNodes<Frontmatter extends Record<string, unknown>>(
   count: number,
   frontmatter: Frontmatter | ((index: number) => Frontmatter),
   slugPrefix = 'dummy-post',
 ): Array<MdxNode<Frontmatter>> {
   return Array.from({ length: count }, (_, index) =>
-    getDummyPost(
+    getDummyNode(
       typeof frontmatter === 'function' ? frontmatter(index) : frontmatter,
       `${slugPrefix}-${index}`,
     ),
