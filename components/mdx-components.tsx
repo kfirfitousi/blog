@@ -1,5 +1,5 @@
 import { CopyCode } from '@/components/copy-code';
-import { Bookmark, ChevronDown, ChevronUp } from 'lucide-react';
+import { Bookmark, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -93,7 +93,7 @@ export function TableOfContents({ children }: { children: React.ReactNode }) {
   return (
     <section
       className="mt-8 flex w-full flex-col rounded bg-slate-300 bg-opacity-50 
-    dark:bg-slate-600 dark:bg-opacity-50 sm:w-fit"
+      dark:bg-slate-600 dark:bg-opacity-50 sm:w-fit"
     >
       <button
         className={clsx(

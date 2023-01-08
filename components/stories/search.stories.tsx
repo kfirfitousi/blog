@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { getDummyPosts } from '@/lib/mdx/mocks';
+import { getDummyNodes } from '@/lib/mdx/mocks';
 import { useSearchStore } from '@/stores/search-store';
 import { Search } from '@/components/search';
 
-const posts = getDummyPosts(50, (index) => ({
+const posts = getDummyNodes(50, (index) => ({
   title: `Example Post ${index + 1}`,
   excerpt: 'This is an example post.',
   date: '2022-01-01',
