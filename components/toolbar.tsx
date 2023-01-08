@@ -1,6 +1,8 @@
+'use client';
+
 import { useSearchStore } from '@/stores/search-store';
 import { useThemeStore } from '@/stores/theme-store';
-import { Tooltip } from 'react-tooltip';
+import { Tooltip } from '@/components/tooltip';
 import { MinusSquare, Moon, PlusSquare, Search, Sun, Type } from 'lucide-react';
 import shallow from 'zustand/shallow';
 import clsx from 'clsx';
@@ -61,7 +63,7 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
           data-tooltip-content="Search Posts"
           aria-label="Search Posts"
         />
-        <Tooltip anchorId="search" place="bottom" />
+        <Tooltip anchorId="search" />
       </button>
 
       {fontControls && (
