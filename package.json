@@ -61,7 +61,7 @@
     "eslint-plugin-storybook": "^0.6.8",
     "jest": "^29.3.1",
     "postcss": "^8.4.21",
-    "prettier": "2.8.1",
+    "prettier": "2.8.2",
     "prettier-plugin-tailwindcss": "^0.2.1",
     "storybook": "^7.0.0-beta.15",
     "storybook-tailwind-dark-mode": "^1.0.15",
