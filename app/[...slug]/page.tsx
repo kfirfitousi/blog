@@ -1,24 +1,22 @@
 import '@/styles/markdown.css';
+import { allPages } from 'contentlayer/generated';
 import { MdxContent } from '@/components/mdx-content';
-import { PagesSource } from '@/lib/mdx/sources';
 import { notFound } from 'next/navigation';
 
-interface PageProps {
+type PageProps = {
   params: {
     slug: string[];
   };
-}
+};
 
 export async function generateStaticParams(): Promise<PageProps['params'][]> {
-  const files = await PagesSource.getAllMdxFiles();
-
-  return files.map((file) => ({
-    slug: file.slug.split('/'),
+  return allPages.map((page) => ({
+    slug: page.slug.split('/'),
   }));
 }
 
 export default async function Page({ params }: PageProps) {
-  const page = await PagesSource.getMdxNode(params.slug);
+  const page = allPages.find((page) => page.slug === params.slug.join('/'));
 
   if (!page) {
     notFound();
@@ -26,7 +24,7 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <article className="h-full px-8">
-      <MdxContent source={page.serialized} />
+      <MdxContent code={page.body.code} />
     </article>
   );
 }

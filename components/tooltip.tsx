@@ -1,6 +1,6 @@
 import {
   Tooltip as ReactTooltip,
-  ITooltip as TooltipProps,
+  type ITooltip as TooltipProps,
 } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import clsx from 'clsx';

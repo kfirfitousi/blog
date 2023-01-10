@@ -1,16 +1,16 @@
+import { allPages } from 'contentlayer/generated';
 import { SEO } from '@/components/seo';
-import { PagesSource } from '@/lib/mdx/sources';
 
-interface PageHeadProps {
+type PageHeadProps = {
   params: {
     slug: string[];
   };
-}
+};
 
 export default async function PageHead({ params }: PageHeadProps) {
-  const page = await PagesSource.getMdxNode(params.slug);
+  const page = allPages.find((page) => page.slug === params.slug.join('/'));
 
-  const { title, description } = page?.frontmatter ?? {
+  const { title, description } = page || {
     title: 'Page Not Found',
     description: 'Page not found',
   };

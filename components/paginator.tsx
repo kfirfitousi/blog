@@ -1,14 +1,14 @@
 'use client';
 
-import { type BlogMdxNode } from '@/lib/mdx/sources';
+import { type Post } from 'contentlayer/generated';
+import { useState } from 'react';
 import { useThemeStore } from '@/stores/theme-store';
 import { PageControls } from '@/components/page-controls';
 import { PostCard } from '@/components/post-card';
-import { useState } from 'react';
 import clsx from 'clsx';
 
 type PaginatorProps = {
-  posts: BlogMdxNode[];
+  posts: Post[];
   postsPerPage?: number;
 };
 
@@ -33,7 +33,7 @@ export function Paginator({ posts, postsPerPage = 5 }: PaginatorProps) {
         {posts
           .slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage)
           .map((post) => (
-            <PostCard key={post.slug} post={post} />
+            <PostCard key={post._id} post={post} />
           ))}
       </div>
       <PageControls

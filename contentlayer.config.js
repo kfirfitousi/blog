@@ -1,11 +1,11 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
-import { remarkPlugins, rehypePlugins } from '@/lib/mdx/plugins';
+import { remarkPlugins, rehypePlugins } from './lib/contentlayer/plugins';
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
   slug: {
     type: 'string',
-    resolve: (post) => post._raw.flattenedPath,
+    resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
   },
 };
 
@@ -37,9 +37,9 @@ export const Post = defineDocumentType(() => ({
     },
   },
   computedFields: {
-    href: {
+    url: {
       type: 'string',
-      resolve: (post) => `/posts/${post._raw.flattenedPath}`,
+      resolve: (post) => `/${post._raw.flattenedPath}`,
     },
     ...computedFields,
   },
@@ -62,9 +62,10 @@ export const Page = defineDocumentType(() => ({
     },
   },
   computedFields: {
-    href: {
+    url: {
       type: 'string',
-      resolve: (post) => `/pages/${post._raw.flattenedPath}`,
+      resolve: (post) =>
+        `/${post._raw.flattenedPath.split('/').slice(1).join('/')}`,
     },
     ...computedFields,
   },

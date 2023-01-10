@@ -3,7 +3,7 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Search } from '@/components/search';
 import { Analytics } from '@/components/analytics';
-import { BlogSource } from '@/lib/mdx/sources';
+import { allPosts } from 'contentlayer/generated';
 import { Red_Hat_Display, Newsreader } from '@next/font/google';
 import clsx from 'clsx';
 
@@ -17,13 +17,11 @@ const fontSerif = Newsreader({
   variable: '--font-newsreader',
 });
 
-interface RootLayoutProps {
+type RootLayoutProps = {
   children: React.ReactNode;
-}
+};
 
 export default async function RootLayout({ children }: RootLayoutProps) {
-  const posts = await BlogSource.getAllMdxNodes();
-
   return (
     <html
       lang="en"
@@ -61,7 +59,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         >
           <div className="invisible h-full w-full bg-gradient-to-r from-rose-50 to-slate-700 opacity-25 dark:visible" />
         </div>
-        <Search posts={posts} />
+        <Search posts={allPosts} />
         <Analytics />
       </body>
     </html>
