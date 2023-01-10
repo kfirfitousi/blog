@@ -19,7 +19,7 @@ export async function generateStaticParams(): Promise<
   }));
 }
 
-export default async function PostPage({ params }: PostPageProps) {
+export default function PostPage({ params }: PostPageProps) {
   const post = allPosts.find((post) => post.slug === params.slug.join('/'));
 
   if (!post) {

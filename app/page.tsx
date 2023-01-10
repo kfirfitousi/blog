@@ -5,7 +5,7 @@ import { PostCard } from '@/components/post-card';
 import { Button } from '@/components/button';
 import { FileText } from 'lucide-react';
 
-export default async function Home() {
+export default function Home() {
   const latestPosts = allPosts
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
     .slice(0, 3);

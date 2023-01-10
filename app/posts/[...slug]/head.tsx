@@ -7,7 +7,7 @@ type PostPageHeadProps = {
   };
 };
 
-export default async function PostPageHead({ params }: PostPageHeadProps) {
+export default function PostPageHead({ params }: PostPageHeadProps) {
   const post = allPosts.find((post) => post.slug === params.slug.join('/'));
 
   const { title, excerpt } = post || {

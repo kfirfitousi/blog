@@ -1,6 +1,6 @@
 import { SEO } from '@/components/seo';
 
-export default async function PostsPageHead() {
+export default function PostsPageHead() {
   return (
     <SEO
       title="Kfir's Blog | Posts"
