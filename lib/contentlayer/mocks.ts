@@ -8,6 +8,10 @@ interface MdxDocument extends DocumentMeta {
 
 type Fields<D extends MdxDocument> = Omit<D, '_id' | '_raw' | 'body' | 'type'>;
 
+type DeepPartial<T> = T extends Record<string, unknown>
+  ? Partial<{ [P in keyof T]: DeepPartial<T[P]> }>
+  : T;
+
 /**
  * Generates a dummy MDX document with the given fields and properties, matching the given type.
  * @param fields - The fields to set on the dummy document.
@@ -29,7 +33,7 @@ type Fields<D extends MdxDocument> = Omit<D, '_id' | '_raw' | 'body' | 'type'>;
  */
 export function dummy<D extends MdxDocument>(
   fields: Fields<D>,
-  properties?: Partial<D>,
+  properties?: DeepPartial<D>,
 ) {
   return {
     _id: properties?._id || 'dummy',
@@ -74,7 +78,7 @@ export function dummy<D extends MdxDocument>(
 export function dummies<D extends MdxDocument>(
   count: number,
   fields: Fields<D> | ((index: number) => Fields<D>),
-  properties?: Partial<D> | ((index: number) => Partial<D>),
+  properties?: DeepPartial<D> | ((index: number) => DeepPartial<D>),
 ) {
   return Array.from({ length: count }, (_, index) => {
     return dummy(
