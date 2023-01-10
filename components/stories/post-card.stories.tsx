@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { getDummyNode } from '@/lib/mdx/mocks';
+import { type Post } from 'contentlayer/generated';
+import { dummy } from '@/lib/contentlayer/mocks';
 import { PostCard } from '@/components/post-card';
 import { Center, Padding } from './decorators';
 
@@ -14,22 +15,26 @@ type Story = StoryObj<typeof PostCard>;
 
 export const Normal: Story = {
   args: {
-    post: getDummyNode({
+    post: dummy<Post>({
       title: 'Example Post',
       excerpt: 'This is an example post.',
       date: '2022-01-01',
       tags: ['example', 'post', 'tags'],
+      url: '/posts/example-post',
+      slug: 'posts/example-post',
     }),
   },
 };
 
 export const FreshPost: Story = {
   args: {
-    post: getDummyNode({
+    post: dummy<Post>({
       title: 'Example Post',
       excerpt: 'This is an example post.',
       date: new Date().toISOString(),
       tags: ['example', 'post', 'tags'],
+      url: '/posts/example-post',
+      slug: 'posts/example-post',
     }),
   },
 };

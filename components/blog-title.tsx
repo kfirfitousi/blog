@@ -4,10 +4,10 @@ import { useThemeStore } from '@/stores/theme-store';
 import { Waves } from 'lucide-react';
 import clsx from 'clsx';
 
-interface BlogTitleProps {
+type BlogTitleProps = {
   title: string;
   small?: boolean;
-}
+};
 
 export function BlogTitle({ title, small }: BlogTitleProps) {
   const isSerif = useThemeStore((state) => state.isSerif);

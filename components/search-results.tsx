@@ -1,13 +1,13 @@
 'use client';
 
-import { type BlogMdxNode } from '@/lib/mdx/sources';
+import { type Post } from 'contentlayer/generated';
 import { useSearchStore } from '@/stores/search-store';
 import { formatDateTime } from '@/lib/datetime';
 import Link from 'next/link';
 
 type SearchResultsProps = {
   query: string;
-  results: BlogMdxNode[];
+  results: Post[];
 };
 
 export function SearchResults({ query, results }: SearchResultsProps) {
@@ -16,7 +16,7 @@ export function SearchResults({ query, results }: SearchResultsProps) {
   return (
     <ul className="flex flex-col overflow-scroll">
       {results.map((post) => {
-        const dateTime = formatDateTime(post.frontmatter.date);
+        const dateTime = formatDateTime(post.date);
 
         return (
           <Link
@@ -28,10 +28,10 @@ export function SearchResults({ query, results }: SearchResultsProps) {
             dark:hover:bg-slate-400 dark:hover:bg-opacity-40 sm:px-8"
           >
             <span className="font-semibold text-slate-800 dark:text-rose-50 sm:text-xl">
-              {highlightSearchQuery(query, post.frontmatter.title)}
+              {highlightSearchQuery(query, post.title)}
             </span>
             <span className="text-sm text-slate-700 dark:text-rose-50 sm:text-base">
-              {highlightSearchQuery(query, post.frontmatter.excerpt)}
+              {highlightSearchQuery(query, post.excerpt)}
             </span>
             <span className="text-sm text-slate-600 dark:text-slate-300">
               {dateTime.asString} · {dateTime.asRelativeTimeString}

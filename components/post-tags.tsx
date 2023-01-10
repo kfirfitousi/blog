@@ -1,7 +1,8 @@
+import { type Post } from 'contentlayer/generated';
 import clsx from 'clsx';
 
 interface PostTagsProps {
-  tags: string[];
+  tags: Post['tags'];
   className?: string;
 }
 

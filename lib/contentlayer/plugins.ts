@@ -6,10 +6,12 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { type PluggableList } from 'unified';
 import { s } from 'hastscript';
 
-export const rehypePlugins: PluggableList = [
+export const remarkPlugins: PluggableList = [
   // GitHub Flavored Markdown
   remarkGfm,
+];
 
+export const rehypePlugins: PluggableList = [
   // Add IDs to headings
   rehypeSlug,
 

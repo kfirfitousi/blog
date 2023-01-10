@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import { CopyCode } from '@/components/copy-code';
 import { Bookmark, ChevronDown } from 'lucide-react';
-import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import clsx from 'clsx';

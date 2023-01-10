@@ -1,13 +1,13 @@
 'use client';
 
-import { type BlogMdxNode } from '@/lib/mdx/sources';
+import { type Post } from 'contentlayer/generated';
 import { getTagsWithCount } from '@/lib/search';
 import { useSearchStore } from '@/stores/search-store';
 import { useMemo } from 'react';
 import clsx from 'clsx';
 
 type SearchTagsProps = {
-  posts: BlogMdxNode[];
+  posts: Post[];
   className?: string;
 };
 

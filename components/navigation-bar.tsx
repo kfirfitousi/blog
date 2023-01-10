@@ -1,4 +1,4 @@
-import { BlogTitle } from '@/components//blog-title';
+import { BlogTitle } from '@/components/blog-title';
 import Link from 'next/link';
 import clsx from 'clsx';
 

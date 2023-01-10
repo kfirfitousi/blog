@@ -1,15 +1,12 @@
 'use client';
 
+import { type Post } from 'contentlayer/generated';
 import { useThemeStore } from '@/stores/theme-store';
 import { formatDateTime } from '@/lib/datetime';
 import { PostTags } from '@/components/post-tags';
 import clsx from 'clsx';
 
-interface PostIntroProps {
-  title: string;
-  date: string;
-  tags: string[];
-}
+type PostIntroProps = Pick<Post, 'title' | 'date' | 'tags'>;
 
 export function PostIntro({ title, date, tags }: PostIntroProps) {
   const fontSize = useThemeStore((state) => state.fontSize);

@@ -1,13 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { getDummyNodes } from '@/lib/mdx/mocks';
+import { type Post } from 'contentlayer/generated';
+import { dummies } from '@/lib/contentlayer/mocks';
 import { Paginator } from '@/components/paginator';
 import { Padding } from './decorators';
 
-const posts = getDummyNodes(100, (index) => ({
+const posts = dummies<Post>(100, (index) => ({
   title: `Post ${index + 1}`,
   excerpt: `This is post ${index + 1}`,
   date: '2022-01-01',
   tags: ['example', 'post', 'tags'],
+  url: `/posts/post-${index + 1}`,
+  slug: `posts/post-${index + 1}`,
 }));
 
 const meta: Meta<typeof Paginator> = {
