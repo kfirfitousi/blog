@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { type Post } from 'contentlayer/generated';
-import { dummies } from '@/lib/contentlayer/mocks';
+import { dummies } from 'contentlayer-mock';
 import { Paginator } from '@/components/paginator';
 import { Padding } from './decorators';
 

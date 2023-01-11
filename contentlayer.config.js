@@ -1,5 +1,5 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
-import { remarkPlugins, rehypePlugins } from './lib/contentlayer/plugins';
+import { remarkPlugins, rehypePlugins } from './lib/mdx-plugins';
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {

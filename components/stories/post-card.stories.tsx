@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { type Post } from 'contentlayer/generated';
-import { dummy } from '@/lib/contentlayer/mocks';
+import { dummy } from 'contentlayer-mock';
 import { PostCard } from '@/components/post-card';
 import { Center, Padding } from './decorators';
 

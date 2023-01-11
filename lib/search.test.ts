@@ -1,6 +1,6 @@
 import { searchPosts, getTagsWithCount } from './search';
 import { type Post } from 'contentlayer/generated';
-import { dummies } from '@/lib/contentlayer/mocks';
+import { dummies } from 'contentlayer-mock';
 
 const posts = dummies<Post>(10, (index) => ({
   title: `Post ${index + 1}`,
