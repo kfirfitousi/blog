@@ -49,7 +49,7 @@ export const decorators: Decorator[] = [
       }
     >
       <div className="grid min-h-screen grid-cols-1 grid-rows-1 bg-slate-200 dark:bg-slate-700 sm:grid-cols-[1fr_minmax(640px,1024px)_1fr]">
-        <div className="col-span-1 h-screen bg-slate-200 dark:bg-slate-700 sm:col-start-2">
+        <div className="col-span-1 min-h-screen bg-slate-200 dark:bg-slate-700 sm:col-start-2">
           <Story />
         </div>
         <div // left column
