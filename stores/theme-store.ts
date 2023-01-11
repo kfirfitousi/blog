@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
 const fontSizes = ['sm', 'base', 'lg', 'xl', '2xl'] as const;
