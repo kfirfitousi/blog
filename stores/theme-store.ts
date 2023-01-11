@@ -3,7 +3,7 @@ import { devtools } from 'zustand/middleware';
 
 const fontSizes = ['sm', 'base', 'lg', 'xl', '2xl'] as const;
 
-type FontSize = typeof fontSizes[number];
+type FontSize = (typeof fontSizes)[number];
 
 interface ThemeState {
   isDark: boolean;
