@@ -1,17 +1,20 @@
 import { searchPosts, getTagsWithCount } from './search';
-import { getDummyNodes } from '@/lib/mdx/mocks';
+import { type Post } from 'contentlayer/generated';
+import { dummyArray } from 'contentlayer-mock';
 
-const posts = getDummyNodes(10, (index) => ({
+const posts = dummyArray<Post>(10, (index) => ({
   title: `Post ${index + 1}`,
   tags: ['tag', `tag${index + 1}`],
   excerpt: `Post ${index + 1} excerpt`,
   date: '2022-01-01',
+  slug: `post-${index + 1}`,
+  url: `post-${index + 1}`,
 }));
 
 describe('searchPosts', () => {
   it('should return the posts that best match the query', () => {
     const result = searchPosts('Post 1', posts);
-    expect(result[0].frontmatter.title).toBe('Post 1');
+    expect(result[0].title).toBe('Post 1');
   });
 
   it('should return no posts if the query is empty', () => {

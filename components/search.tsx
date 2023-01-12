@@ -1,6 +1,6 @@
 'use client';
 
-import { type BlogMdxNode } from '@/lib/mdx/sources';
+import { type Post } from 'contentlayer/generated';
 import { useEffect, useMemo } from 'react';
 import { useSearchStore } from '@/stores/search-store';
 import { useThemeStore } from '@/stores/theme-store';
@@ -13,7 +13,7 @@ import shallow from 'zustand/shallow';
 import clsx from 'clsx';
 
 type SearchProps = {
-  posts: BlogMdxNode[];
+  posts: Post[];
 };
 
 export function Search({ posts }: SearchProps) {

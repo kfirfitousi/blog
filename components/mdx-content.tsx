@@ -1,17 +1,18 @@
 'use client';
 
-import { MDXRemote, type MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { useThemeStore } from '@/stores/theme-store';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 import { MdxComponents } from '@/components/mdx-components';
+import { useThemeStore } from '@/stores/theme-store';
 import clsx from 'clsx';
 
-interface MdxContentProps {
-  source: MDXRemoteSerializeResult;
-}
+type MdxContentProps = {
+  code: string;
+};
 
-export function MdxContent({ source }: MdxContentProps) {
+export function MdxContent({ code }: MdxContentProps) {
   const fontSize = useThemeStore((state) => state.fontSize);
   const isSerif = useThemeStore((state) => state.isSerif);
+  const Component = useMDXComponent(code);
 
   return (
     <section
@@ -29,7 +30,7 @@ export function MdxContent({ source }: MdxContentProps) {
         'prose-hr:border-slate-700 dark:prose-hr:border-slate-300',
       )}
     >
-      <MDXRemote {...source} components={MdxComponents} />
+      <Component components={MdxComponents} />
     </section>
   );
 }

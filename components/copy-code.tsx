@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import { Check, Copy } from 'lucide-react';
 
-interface CopyCodeProps {
+type CopyCodeProps = {
   codeElement: React.ReactElement;
-}
+};
 
 export function CopyCode({ codeElement }: CopyCodeProps) {
   const [isCopied, setIsCopied] = useState(false);

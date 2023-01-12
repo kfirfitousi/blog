@@ -1,4 +1,4 @@
-import { type BlogMdxNode } from '@/lib/mdx/sources';
+import { type Post } from 'contentlayer/generated';
 
 /**
  * Search for a query in a text.
@@ -12,15 +12,17 @@ function searchHit(query: string, text: string) {
  * Search for a query in a list of posts.
  * @returns The posts that matched the query in descending order of relevance.
  */
-export function searchPosts(query: string, posts: Array<BlogMdxNode>) {
-  const postsWithSearchHits = new Map<BlogMdxNode, number>();
+export function searchPosts(query: string, posts: Array<Post>) {
+  const postsWithSearchHits = new Map<Post, number>();
 
   posts.forEach((post) => {
     if (!query) return;
 
     const {
-      frontmatter: { title, excerpt, tags },
-      raw,
+      title,
+      excerpt,
+      tags,
+      body: { raw },
     } = post;
 
     let searchHits = 0;
@@ -52,11 +54,11 @@ export function searchPosts(query: string, posts: Array<BlogMdxNode>) {
  * Get all tags with their count
  * @returns The tags with their count in descending order of count
  */
-export function getTagsWithCount(posts: Array<BlogMdxNode>) {
+export function getTagsWithCount(posts: Array<Post>) {
   const tagsWithCount = new Map<string, number>();
 
   posts.forEach((post) => {
-    post.frontmatter.tags.forEach((tag) => {
+    post.tags.forEach((tag) => {
       tagsWithCount.set(tag, (tagsWithCount.get(tag) ?? 0) + 1);
     });
   });

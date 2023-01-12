@@ -19,6 +19,7 @@
 .DS_Store
 *.pem
 .vscode
+.contentlayer
 
 # debug
 npm-debug.log*

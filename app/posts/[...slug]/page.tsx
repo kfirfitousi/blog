@@ -1,28 +1,26 @@
 import '@/styles/markdown.css';
 import { notFound } from 'next/navigation';
-import { BlogSource } from '@/lib/mdx/sources';
+import { allPosts } from 'contentlayer/generated';
 import { MdxContent } from '@/components/mdx-content';
 import { PostIntro } from '@/components/post-intro';
 import { Comments } from '@/components/comments';
 
-interface PostPageProps {
+type PostPageProps = {
   params: {
     slug: string[];
   };
-}
+};
 
 export async function generateStaticParams(): Promise<
   PostPageProps['params'][]
 > {
-  const files = await BlogSource.getAllMdxFiles();
-
-  return files.map((file) => ({
-    slug: file.slug.split('/'),
+  return allPosts.map((post) => ({
+    slug: post.slug.split('/'),
   }));
 }
 
-export default async function PostPage({ params }: PostPageProps) {
-  const post = await BlogSource.getMdxNode(params.slug);
+export default function PostPage({ params }: PostPageProps) {
+  const post = allPosts.find((post) => post.slug === params.slug.join('/'));
 
   if (!post) {
     notFound();
@@ -30,12 +28,8 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <article className="h-full px-8">
-      <PostIntro
-        title={post.frontmatter.title}
-        date={post.frontmatter.date}
-        tags={post.frontmatter.tags}
-      />
-      <MdxContent source={post.serialized} />
+      <PostIntro title={post.title} date={post.date} tags={post.tags} />
+      <MdxContent code={post.body.code} />
       <Comments />
     </article>
   );

@@ -1,16 +1,16 @@
-import { BlogSource } from '@/lib/mdx/sources';
+import { allPosts } from 'contentlayer/generated';
 import { SEO } from '@/components/seo';
 
-interface PostPageHeadProps {
+type PostPageHeadProps = {
   params: {
     slug: string[];
   };
-}
+};
 
-export default async function PostPageHead({ params }: PostPageHeadProps) {
-  const post = await BlogSource.getMdxNode(params.slug);
+export default function PostPageHead({ params }: PostPageHeadProps) {
+  const post = allPosts.find((post) => post.slug === params.slug.join('/'));
 
-  const { title, excerpt } = post?.frontmatter ?? {
+  const { title, excerpt } = post || {
     title: 'Post Not Found',
     excerpt: 'Post not found',
   };
