@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { type Post } from 'contentlayer/generated';
-import { dummies } from 'contentlayer-mock';
+import { dummyArray } from 'contentlayer-mock';
 import { useSearchStore } from '@/stores/search-store';
 import { Search } from '@/components/search';
 
-const posts = dummies<Post>(50, (index) => ({
+const posts = dummyArray<Post>(50, (index) => ({
   title: `Example Post ${index + 1}`,
   excerpt: 'This is an example post.',
   date: '2022-01-01',

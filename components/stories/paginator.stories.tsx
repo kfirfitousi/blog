@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { type Post } from 'contentlayer/generated';
-import { dummies } from 'contentlayer-mock';
+import { dummyArray } from 'contentlayer-mock';
 import { Paginator } from '@/components/paginator';
 import { Padding } from './decorators';
 
-const posts = dummies<Post>(100, (index) => ({
+const posts = dummyArray<Post>(100, (index) => ({
   title: `Post ${index + 1}`,
   excerpt: `This is post ${index + 1}`,
   date: '2022-01-01',

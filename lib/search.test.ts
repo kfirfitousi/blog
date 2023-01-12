@@ -1,8 +1,8 @@
 import { searchPosts, getTagsWithCount } from './search';
 import { type Post } from 'contentlayer/generated';
-import { dummies } from 'contentlayer-mock';
+import { dummyArray } from 'contentlayer-mock';
 
-const posts = dummies<Post>(10, (index) => ({
+const posts = dummyArray<Post>(10, (index) => ({
   title: `Post ${index + 1}`,
   tags: ['tag', `tag${index + 1}`],
   excerpt: `Post ${index + 1} excerpt`,
