@@ -7,6 +7,9 @@ const meta: Meta<typeof Button> = {
   title: 'Button',
   component: Button,
   decorators: [Center],
+  args: {
+    href: '#',
+  },
 };
 
 export default meta;
@@ -14,7 +17,6 @@ type Story = StoryObj<typeof Button>;
 
 export const WithIcon: Story = {
   args: {
-    href: '#',
     label: 'All Posts',
     icon: <FileText className="h-4 w-4" />,
   },
@@ -22,7 +24,6 @@ export const WithIcon: Story = {
 
 export const WithoutIcon: Story = {
   args: {
-    href: '#',
     label: 'Click Me',
   },
 };
