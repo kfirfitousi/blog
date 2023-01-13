@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useThemeStore } from '@/stores/theme-store';
 import { PageControls } from '@/components/page-controls';
 import { PostCard } from '@/components/post-card';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 
 type PaginatorProps = {
   posts: Post[];
@@ -19,7 +19,7 @@ export function Paginator({ posts, postsPerPage = 5 }: PaginatorProps) {
 
   return (
     <section
-      className={clsx(
+      className={cn(
         isSerif && 'font-serif',
         'flex h-full w-full flex-col space-y-4',
       )}

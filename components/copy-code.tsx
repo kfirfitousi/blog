@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Check, Copy } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 type CopyCodeProps = {
   codeElement: React.ReactElement;
@@ -19,18 +20,28 @@ export function CopyCode({ codeElement }: CopyCodeProps) {
 
   return (
     <button
-      className="absolute inset-y-1 right-1 flex h-7 w-7 items-center justify-center rounded bg-white dark:bg-[#22272E]"
-      onClick={() => !isCopied && copy()}
+      className={cn(
+        'absolute inset-y-1 right-1 flex h-7 w-7 items-center justify-center rounded',
+        'bg-white dark:bg-[#22272E]',
+      )}
+      onClick={copy}
       disabled={isCopied}
     >
       {isCopied ? (
         <Check
-          className="h-6 w-6 animate-pulse text-rose-600 dark:text-rose-400"
+          className={cn(
+            'h-6 w-6 animate-pulse',
+            'text-rose-600 dark:text-rose-400',
+          )}
           aria-label="Copied"
         />
       ) : (
         <Copy
-          className="h-6 w-6 text-slate-300 hover:text-rose-600 dark:text-slate-700 dark:hover:text-rose-400"
+          className={cn(
+            'h-6 w-6',
+            'text-slate-300 hover:text-rose-600',
+            'dark:text-slate-700 dark:hover:text-rose-400',
+          )}
           aria-label="Copy code"
         />
       )}

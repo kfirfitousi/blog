@@ -5,7 +5,7 @@ import { useSelectedLayoutSegments } from 'next/navigation';
 import { useThemeStore } from '@/stores/theme-store';
 import { NavigationBar } from '@/components/navigation-bar';
 import { Toolbar } from '@/components/toolbar';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 
 export function Header() {
   const layoutSegment = useSelectedLayoutSegments();
@@ -32,7 +32,7 @@ export function Header() {
   return (
     <header
       ref={headerRef}
-      className={clsx(
+      className={cn(
         headerRef.current && scrollTop > headerRef.current.clientHeight
           ? 'border-b border-b-slate-300 bg-slate-500 bg-opacity-10 py-2 dark:border-b-slate-500'
           : 'bg-transparent py-8',
@@ -43,7 +43,7 @@ export function Header() {
       )}
     >
       <NavigationBar
-        className={clsx(
+        className={cn(
           isPostPage ? 'sm:ml-[136px]' : 'sm:ml-20',
           'flex-grow mix-blend-color-dodge max-xs:mr-2',
         )}

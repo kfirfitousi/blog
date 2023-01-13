@@ -3,7 +3,7 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import { MdxComponents } from '@/components/mdx-components';
 import { useThemeStore } from '@/stores/theme-store';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 
 type MdxContentProps = {
   code: string;
@@ -16,7 +16,7 @@ export function MdxContent({ code }: MdxContentProps) {
 
   return (
     <section
-      className={clsx(
+      className={cn(
         isSerif && 'font-serif',
         'prose-' + fontSize,
         'prose prose-slate max-w-none py-8 dark:prose-invert dark:text-rose-50',
@@ -26,7 +26,7 @@ export function MdxContent({ code }: MdxContentProps) {
         'prose-code:before:content-none prose-code:after:content-none',
         'prose-code:bg-slate-700 prose-code:text-slate-200 dark:prose-code:bg-rose-50 dark:prose-code:text-slate-700',
         'prose-a:text-rose-700 prose-a:no-underline hover:prose-a:underline dark:prose-a:text-rose-300',
-        'prose-blockquote:border-l-slate-800 dark:prose-blockquote:border-l-slate-300 dark:prose-blockquote:text-rose-50 ',
+        'prose-blockquote:border-l-slate-800 dark:prose-blockquote:border-l-slate-300 dark:prose-blockquote:text-rose-50',
         'prose-hr:border-slate-700 dark:prose-hr:border-slate-300',
       )}
     >

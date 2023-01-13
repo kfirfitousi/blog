@@ -4,7 +4,7 @@ import { type Post } from 'contentlayer/generated';
 import { getTagsWithCount } from '@/lib/search';
 import { useSearchStore } from '@/stores/search-store';
 import { useMemo } from 'react';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 
 type SearchTagsProps = {
   posts: Post[];
@@ -17,9 +17,9 @@ export function SearchTags({ posts, className }: SearchTagsProps) {
 
   return (
     <div
-      className={clsx(
-        className,
+      className={cn(
         'flex h-fit flex-row flex-wrap items-center justify-center space-x-4 space-y-1 text-sm',
+        className,
       )}
     >
       {tagsWithCounts.map(([tag, count]) => (

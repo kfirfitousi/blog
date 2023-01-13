@@ -7,3 +7,9 @@
     @apply transition-[background-color] duration-300 ease-in-out;
   }
 }
+
+@layer components {
+  .icon-base {
+    @apply h-6 w-6 text-slate-700 hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:text-rose-50 dark:hover:text-rose-400;
+  }
+}

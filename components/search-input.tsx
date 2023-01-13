@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from 'react';
 import { useSearchStore } from '@/stores/search-store';
+import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';
-import clsx from 'clsx';
 
 type SearchInputProps = {
   hasResults: boolean;
@@ -24,9 +24,10 @@ export function SearchInput({ hasResults }: SearchInputProps) {
       <input
         ref={inputRef}
         type="text"
-        className={clsx(
+        className={cn(
+          'w-full rounded border px-2 placeholder:opacity-50',
           hasResults ? 'sm:text-2xl' : 'sm:text-4xl',
-          'w-full rounded border border-slate-400 bg-slate-100 px-2 text-slate-700 placeholder:opacity-50',
+          'border-slate-400 bg-slate-100 text-slate-700',
           'dark:border-slate-500 dark:bg-slate-700 dark:text-rose-50',
         )}
         value={query}
@@ -39,13 +40,13 @@ export function SearchInput({ hasResults }: SearchInputProps) {
       {query && (
         <button
           onClick={() => setQuery('')}
-          className={clsx(
-            hasResults ? 'sm:top-5' : 'sm:top-7',
+          className={cn(
             'absolute right-14 top-[1.1rem]',
+            hasResults ? 'sm:top-5' : 'sm:top-7',
           )}
         >
           <X
-            className="h-6 w-6 text-slate-500 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400"
+            className={cn('icon-base text-slate-500 dark:text-slate-400')}
             aria-label="Clear"
           />
         </button>

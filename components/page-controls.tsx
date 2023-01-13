@@ -1,5 +1,5 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 
 type PageControlsProps = {
   currentPage: number;
@@ -25,9 +25,9 @@ export function PageControls({
           }
         }}
         disabled={currentPage === 1}
-        className={clsx(
-          bottom ? 'place-self-start' : 'place-self-end',
+        className={cn(
           'flex h-6 flex-row items-center space-x-1 justify-self-start',
+          bottom ? 'place-self-start' : 'place-self-end',
           'text-slate-600 enabled:hover:text-rose-600 disabled:text-slate-400',
           'dark:text-slate-300 dark:enabled:hover:text-rose-400 dark:disabled:text-slate-500',
         )}
@@ -39,7 +39,7 @@ export function PageControls({
         {Array.from({ length: currentPage }, (_, i) => (
           <span
             key={i}
-            className={clsx(
+            className={cn(
               currentPage === i + 1
                 ? 'leading-3'
                 : currentPage === i + 2
@@ -54,7 +54,7 @@ export function PageControls({
         {Array.from({ length: lastPage - currentPage }, (_, i) => (
           <span
             key={i}
-            className={clsx(
+            className={cn(
               i === 0 ? 'leading-4' : 'leading-5',
               'text-slate-400 dark:text-slate-500',
             )}
@@ -72,9 +72,9 @@ export function PageControls({
           }
         }}
         disabled={currentPage === lastPage}
-        className={clsx(
-          bottom ? 'place-self-start' : 'place-self-end',
+        className={cn(
           'flex h-6 flex-row items-center justify-end space-x-1 justify-self-end',
+          bottom ? 'place-self-start' : 'place-self-end',
           'text-slate-600 enabled:hover:text-rose-600 disabled:text-slate-400',
           'dark:text-slate-300 dark:enabled:hover:text-rose-400 dark:disabled:text-slate-500',
         )}

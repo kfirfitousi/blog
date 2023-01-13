@@ -4,7 +4,7 @@ import { type Post } from 'contentlayer/generated';
 import { useThemeStore } from '@/stores/theme-store';
 import { formatDateTime } from '@/lib/datetime';
 import { PostTags } from '@/components/post-tags';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 
 type PostIntroProps = Pick<Post, 'title' | 'date' | 'tags'>;
 
@@ -16,7 +16,7 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
   return (
     <section className="flex flex-col space-y-4 sm:p-3">
       <h1
-        className={clsx(
+        className={cn(
           isSerif && 'font-serif',
           fontSize === 'sm' && 'text-xl sm:text-2xl md:text-3xl',
           fontSize === 'base' && 'text-2xl sm:text-3xl md:text-4xl',
@@ -29,7 +29,7 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
         {title}
       </h1>
       <p
-        className={clsx(
+        className={cn(
           isSerif && 'font-serif',
           fontSize === 'sm' && 'text-xs sm:text-sm',
           fontSize === 'base' && 'text-sm sm:text-base',
@@ -48,7 +48,7 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
       </p>
       <PostTags
         tags={tags}
-        className={clsx(
+        className={cn(
           isSerif && 'font-serif',
           fontSize === 'sm' && 'text-xs',
           fontSize === 'base' && 'text-xs',

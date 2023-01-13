@@ -23,6 +23,16 @@ module.exports = {
         sans: ['var(--font-red-hat)'],
         serif: ['var(--font-newsreader)'],
       },
+      gridTemplateRows: {
+        // main layout grid rows (header, main, footer)
+        // see app/layout.tsx
+        layout: '6rem minmax(calc(100vh - 14rem), 1fr) 8rem',
+      },
+      gridTemplateColumns: {
+        // main layout grid columns (left column, main, right column)
+        // see app/layout.tsx
+        layout: '1fr minmax(640px, 1024px) 1fr',
+      },
       animation: {
         // border animation used in components/post-card.tsx
         border: 'show-border 0.5s ease-in-out forwards',
