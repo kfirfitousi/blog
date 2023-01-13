@@ -9,8 +9,8 @@ import { SearchInput } from '@/components/search-input';
 import { SearchResults } from '@/components/search-results';
 import { SearchTags } from '@/components/search-tags';
 import { ChevronUp } from 'lucide-react';
-import shallow from 'zustand/shallow';
-import clsx from 'clsx';
+import { shallow } from 'zustand/shallow';
+import { cn } from '@/lib/utils';
 
 type SearchProps = {
   posts: Post[];
@@ -47,18 +47,22 @@ export function Search({ posts }: SearchProps) {
 
   return (
     <section
-      className={clsx(
+      className={cn(
         isSerif && 'font-serif',
-        'fixed left-1/2 top-1/2 z-50 flex h-fit max-h-[80vh] w-5/6 max-w-3xl -translate-x-1/2 -translate-y-1/2 flex-col p-4',
-        'border-slate-300 bg-slate-200 bg-opacity-0 dark:border-slate-500 dark:bg-slate-600 dark:bg-opacity-70',
-        'rounded-md border-2 backdrop-blur-md',
+        'fixed left-1/2 top-1/2 z-50 h-fit max-h-[80vh] w-5/6 max-w-3xl -translate-x-1/2 -translate-y-1/2',
+        'flex flex-col rounded-md border-2 p-4 backdrop-blur-md',
+        'border-slate-300 bg-slate-200 bg-opacity-0',
+        'dark:border-slate-500 dark:bg-slate-600 dark:bg-opacity-70',
       )}
     >
       <div className="mb-2 flex h-fit flex-row items-center">
         <SearchInput hasResults={results.length > 0} />
         <button onClick={toggleSearch}>
           <ChevronUp
-            className="ml-2 h-6 w-6 text-slate-400 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400"
+            className={cn(
+              'icon-base',
+              'ml-2 text-slate-400 dark:text-slate-400',
+            )}
             aria-label="Close Search"
           />
         </button>
@@ -72,13 +76,18 @@ export function Search({ posts }: SearchProps) {
 
       <SearchTags
         posts={posts}
-        className={clsx(
+        className={cn(
           results.length > 0 ? 'max-xs:hidden sm:text-base' : 'sm:text-lg',
           'my-2',
         )}
       />
 
-      <div className="absolute bottom-1 left-2 text-xs text-slate-600 dark:text-slate-200 max-sm:hidden">
+      <div
+        className={cn(
+          'absolute bottom-1 left-2 text-xs max-sm:hidden',
+          'text-slate-600 dark:text-slate-200',
+        )}
+      >
         Toggle with ⌘+K or Ctrl+K
       </div>
     </section>

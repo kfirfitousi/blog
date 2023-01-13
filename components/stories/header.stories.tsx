@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Header } from '@/components/header';
+import { cn } from '@/lib/utils';
 
 const meta: Meta<typeof Header> = {
   title: 'Header',
@@ -10,7 +11,12 @@ const meta: Meta<typeof Header> = {
         <div className="sticky top-0 h-24 w-full">
           <Story />
         </div>
-        <div className="flex h-[calc(100vh-6rem)] flex-col items-center justify-center text-3xl text-slate-300 dark:text-slate-600">
+        <div
+          className={cn(
+            'flex h-[calc(100vh-6rem)] flex-col items-center justify-center text-3xl',
+            'text-slate-300 dark:text-slate-600',
+          )}
+        >
           ↓&nbsp;&nbsp;Scroll Down&nbsp;&nbsp;↓
         </div>
       </div>

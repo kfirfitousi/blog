@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Tooltip } from '@/components/tooltip';
 import { Github } from 'lucide-react';
 import { Center } from './decorators';
+import { cn } from '@/lib/utils';
 
 const meta: Meta<typeof Tooltip> = {
   title: 'Tooltip',
@@ -11,7 +12,11 @@ const meta: Meta<typeof Tooltip> = {
       <>
         <Github
           id="github"
-          className="h-6 w-6 text-slate-700 hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:text-rose-50 dark:hover:text-rose-400"
+          className={cn(
+            'h-6 w-6 hover:scale-110 hover:pb-0.5',
+            'text-slate-700 hover:text-rose-600',
+            'dark:text-rose-50 dark:hover:text-rose-400',
+          )}
           data-tooltip-content={ctx.args.content}
           aria-label={ctx.args.content}
         />

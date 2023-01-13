@@ -5,7 +5,7 @@ import { Search } from '@/components/search';
 import { Analytics } from '@/components/analytics';
 import { allPosts } from 'contentlayer/generated';
 import { Red_Hat_Display, Newsreader } from '@next/font/google';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 
 const fontSans = Red_Hat_Display({
   subsets: ['latin'],
@@ -25,7 +25,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
-      className={clsx(
+      className={cn(
         'scroll-pt-16 overflow-auto overscroll-none font-sans',
         fontSans.variable,
         fontSerif.variable,
@@ -33,8 +33,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
     >
       <head />
       <body
-        className="grid min-h-screen grid-cols-1 grid-rows-[6rem_minmax(calc(100vh-14rem),1fr)_8rem]
-        bg-slate-200 dark:bg-slate-700 sm:grid-cols-[1fr_minmax(640px,1024px)_1fr]"
+        className={cn(
+          'grid grid-cols-1 grid-rows-layout sm:grid-cols-layout',
+          'min-h-screen bg-slate-200 dark:bg-slate-700',
+        )}
       >
         <section className="sticky top-0 z-30 col-span-1 row-span-1 row-start-1 h-full self-start sm:col-start-2">
           <Header />
@@ -46,16 +48,20 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Footer />
         </section>
         <div // left column
-          className="col-span-1 col-start-1 row-span-3 row-start-1 hidden bg-gradient-to-r
-          from-slate-300 via-slate-400 to-slate-500 dark:from-slate-800
-          dark:via-slate-700 dark:to-slate-600 sm:block"
+          className={cn(
+            'col-span-1 col-start-1 row-span-3 row-start-1 hidden bg-gradient-to-r sm:block',
+            'from-slate-300 via-slate-400 to-slate-500',
+            'dark:from-slate-800 dark:via-slate-700 dark:to-slate-600',
+          )}
         >
           <div className="invisible h-full w-full bg-gradient-to-l from-rose-50 to-slate-700 opacity-25 dark:visible" />
         </div>
         <div // right column
-          className="col-span-1 col-start-3 row-span-3 row-start-1 hidden bg-gradient-to-l
-          from-slate-300 via-slate-400 to-slate-500 dark:from-slate-800 
-          dark:via-slate-700 dark:to-slate-600 sm:block"
+          className={cn(
+            'col-span-1 col-start-3 row-span-3 row-start-1 hidden bg-gradient-to-l sm:block',
+            'from-slate-300 via-slate-400 to-slate-500',
+            'dark:from-slate-800  dark:via-slate-700 dark:to-slate-600',
+          )}
         >
           <div className="invisible h-full w-full bg-gradient-to-r from-rose-50 to-slate-700 opacity-25 dark:visible" />
         </div>

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { CopyCode } from '@/components/copy-code';
 import { Bookmark, ChevronDown } from 'lucide-react';
+import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import clsx from 'clsx';
 
 /**
  * Use <Link> for internal links and <a> for external links and anchors
@@ -30,7 +30,7 @@ export function a({ href, children }: React.HTMLProps<HTMLAnchorElement>) {
  * elements can be nested inside them
  */
 function p(props: React.HTMLProps<HTMLParagraphElement>) {
-  return <div className={clsx(props.className, 'my-4')} {...props} />;
+  return <div className={cn('my-4', props.className)} {...props} />;
 }
 
 /**
@@ -46,8 +46,11 @@ function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
 
   return (
     <figure
-      className="mx-auto mt-3 mb-6 flex h-fit w-fit flex-col rounded border border-slate-300
-      bg-slate-300 bg-opacity-20 dark:border-slate-600 dark:bg-rose-50 dark:bg-opacity-25"
+      className={cn(
+        'mx-auto mt-3 mb-6 flex h-fit w-fit flex-col rounded border',
+        'border-slate-300 bg-slate-300 bg-opacity-20',
+        'dark:border-slate-600 dark:bg-rose-50 dark:bg-opacity-25',
+      )}
       aria-label={_alt}
     >
       <Image
@@ -55,12 +58,15 @@ function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
         alt={_alt}
         width={width}
         height={height}
-        className={clsx('rounded', caption && 'rounded-b-none')}
+        className={cn('rounded', caption && 'rounded-b-none')}
       />
       {caption && (
         <figcaption
-          className="m-0 rounded-b-[3px] bg-slate-300 bg-opacity-50 px-6 py-1
-          text-center text-slate-700 dark:bg-rose-50 dark:bg-opacity-5 dark:text-rose-50"
+          className={cn(
+            'm-0 rounded-b-[3px] px-6 py-1 text-center',
+            'bg-slate-300 bg-opacity-50 text-slate-700',
+            'dark:bg-rose-50 dark:bg-opacity-5 dark:text-rose-50',
+          )}
           style={{
             maxWidth: width,
           }}
@@ -92,14 +98,18 @@ export function TableOfContents({ children }: { children: React.ReactNode }) {
 
   return (
     <section
-      className="mt-8 flex w-full flex-col rounded bg-slate-300 bg-opacity-50 
-      dark:bg-slate-600 dark:bg-opacity-50 sm:w-fit"
+      className={cn(
+        'mt-8 flex w-full flex-col rounded sm:w-fit',
+        'bg-slate-300 bg-opacity-50',
+        'dark:bg-slate-600 dark:bg-opacity-50 ',
+      )}
     >
       <button
-        className={clsx(
-          'bg-slate-300 text-slate-700 dark:bg-slate-600 dark:text-slate-200',
+        className={cn(
           'flex flex-row items-center rounded p-2 font-bold',
           isOpen && 'rounded-b-none',
+          'bg-slate-300 text-slate-700',
+          'dark:bg-slate-600 dark:text-slate-200',
         )}
         onClick={() => setIsOpen((prev) => !prev)}
         aria-label="Toggle Table of Contents"
@@ -107,7 +117,7 @@ export function TableOfContents({ children }: { children: React.ReactNode }) {
         <Bookmark className="mr-1 h-5 w-5" />
         <span className="mr-6">Table of Contents</span>
         <ChevronDown
-          className={clsx(
+          className={cn(
             'ml-auto h-6 w-6 transition-transform duration-300 ease-in-out',
             isOpen && 'rotate-180',
           )}

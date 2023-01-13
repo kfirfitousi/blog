@@ -3,7 +3,7 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import { MdxComponents } from '@/components/mdx-components';
 import { useThemeStore } from '@/stores/theme-store';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 
 type MdxContentProps = {
   code: string;
@@ -16,7 +16,7 @@ export function MdxContent({ code }: MdxContentProps) {
 
   return (
     <section
-      className={clsx(
+      className={cn(
         isSerif && 'font-serif',
         'prose-' + fontSize,
         'prose prose-slate max-w-none py-8 dark:prose-invert dark:text-rose-50',

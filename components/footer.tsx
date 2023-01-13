@@ -2,19 +2,17 @@
 
 import { AtSign, Copyright, Github, Linkedin, Twitter } from 'lucide-react';
 import { Tooltip } from '@/components/tooltip';
+import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer
-      className="relative grid h-full w-full grid-rows-2 flex-col items-center justify-center
-      py-4 text-slate-700 dark:text-rose-50"
-    >
+    <footer className="relative grid h-full w-full grid-rows-2 flex-col items-center justify-center py-4">
       <div className="flex flex-row space-x-6">
         <Link href="https://www.github.com/kfirfitousi" target="_blank">
           <Github
             id="github"
-            className="h-6 w-6 hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400"
+            className="icon-base"
             data-tooltip-content="My GitHub profile"
             aria-label="My GitHub profile"
           />
@@ -27,7 +25,7 @@ export function Footer() {
         >
           <Twitter
             id="twitter"
-            className="h-6 w-6 hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400"
+            className="icon-base"
             data-tooltip-content="My Twitter profile"
             aria-label="My Twitter profile"
           />
@@ -36,7 +34,7 @@ export function Footer() {
         <a href="mailto:kfirfitousi@gmail.com" className="ml-6">
           <AtSign
             id="email"
-            className="h-6 w-6 hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400"
+            className="icon-base"
             data-tooltip-content="My Email"
             aria-label="My Email"
           />
@@ -49,7 +47,7 @@ export function Footer() {
         >
           <Linkedin
             id="linkedin"
-            className="h-6 w-6 hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400"
+            className="icon-base"
             data-tooltip-content="My LinkedIn profile"
             aria-label="My LinkedIn profile"
           />
@@ -71,7 +69,7 @@ export function Footer() {
             fill="none"
             stroke="currentColor"
             strokeWidth="2.4"
-            className="h-6 w-6 hover:scale-110 hover:pb-0.5 hover:text-rose-600 dark:hover:text-rose-400"
+            className="icon-base"
             data-tooltip-content="Storybook"
             aria-label="Storybook"
           >
@@ -80,7 +78,12 @@ export function Footer() {
           <Tooltip anchorId="storybook" />
         </a>
       </div>
-      <div className="flex h-6 flex-row items-center justify-center space-x-1 text-slate-600 dark:text-slate-300">
+      <div
+        className={cn(
+          'flex h-6 flex-row items-center justify-center space-x-1',
+          'text-slate-600 dark:text-slate-300',
+        )}
+      >
         <Copyright className="h-4 w-4" aria-label="Copyright" />
         <span className="text-sm">2023 · Kfir Fitousi</span>
       </div>
@@ -103,7 +106,7 @@ export function Footer() {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="h-12 w-6 hover:scale-110 hover:text-rose-600 dark:hover:text-rose-400"
+          className={cn('icon-base', 'h-12')}
           viewTarget="0 0 24 48"
           aria-label="Scroll to top"
           data-tooltip-content="Scroll to top"
