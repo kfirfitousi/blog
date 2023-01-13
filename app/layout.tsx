@@ -34,17 +34,17 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head />
       <body
         className={cn(
-          'grid grid-cols-1 grid-rows-layout sm:grid-cols-layout',
-          'min-h-screen bg-slate-200 dark:bg-slate-700',
+          'grid min-h-screen grid-cols-1 grid-rows-layout sm:grid-cols-layout',
+          'bg-slate-200 dark:bg-slate-700',
         )}
       >
         <section className="sticky top-0 z-30 col-span-1 row-span-1 row-start-1 h-full self-start sm:col-start-2">
           <Header />
         </section>
-        <main className="col-span-1 row-start-2 bg-slate-200 dark:bg-slate-700 sm:col-start-2">
+        <main className="col-span-1 row-start-2 sm:col-start-2">
           {children}
         </main>
-        <section className="col-span-3 row-span-1 row-start-3 bg-slate-200 dark:bg-slate-700 sm:col-span-1 sm:col-start-2">
+        <section className="col-span-3 row-span-1 row-start-3 sm:col-span-1 sm:col-start-2">
           <Footer />
         </section>
         <div // left column
