@@ -21,10 +21,7 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/lib/*": ["lib/*"],
-      "@/components/*": ["components/*"],
-      "@/styles/*": ["styles/*"],
-      "@/stores/*": ["stores/*"],
+      "@/*": ["./*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
