@@ -5,11 +5,11 @@ import { Waves } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type BlogTitleProps = {
-  title: string;
+  title?: string;
   small?: boolean;
 };
 
-export function BlogTitle({ title, small }: BlogTitleProps) {
+export function BlogTitle({ title = "Kfir's Blog", small }: BlogTitleProps) {
   const isSerif = useThemeStore((state) => state.isSerif);
 
   return (

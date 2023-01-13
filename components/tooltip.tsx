@@ -9,7 +9,9 @@ export function Tooltip(props: TooltipProps) {
   return (
     <ReactTooltip
       className={cn(
-        'hidden !bg-slate-700 text-sm !text-slate-200 dark:!bg-slate-200 dark:!text-slate-700 xs:block',
+        'hidden text-sm xs:block',
+        '!bg-slate-700 !text-slate-200',
+        'dark:!bg-slate-200 dark:!text-slate-700',
         props.className,
       )}
       {...props}

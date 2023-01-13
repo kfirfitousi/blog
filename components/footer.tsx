@@ -106,7 +106,7 @@ export function Footer() {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className={cn('icon-base', 'h-12')}
+          className={cn('icon-base h-12')}
           viewTarget="0 0 24 48"
           aria-label="Scroll to top"
           data-tooltip-content="Scroll to top"

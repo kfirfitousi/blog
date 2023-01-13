@@ -46,7 +46,7 @@ export function SearchInput({ hasResults }: SearchInputProps) {
           )}
         >
           <X
-            className={cn('icon-base', 'text-slate-500 dark:text-slate-400')}
+            className={cn('icon-base text-slate-500 dark:text-slate-400')}
             aria-label="Clear"
           />
         </button>

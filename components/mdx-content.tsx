@@ -26,7 +26,7 @@ export function MdxContent({ code }: MdxContentProps) {
         'prose-code:before:content-none prose-code:after:content-none',
         'prose-code:bg-slate-700 prose-code:text-slate-200 dark:prose-code:bg-rose-50 dark:prose-code:text-slate-700',
         'prose-a:text-rose-700 prose-a:no-underline hover:prose-a:underline dark:prose-a:text-rose-300',
-        'prose-blockquote:border-l-slate-800 dark:prose-blockquote:border-l-slate-300 dark:prose-blockquote:text-rose-50 ',
+        'prose-blockquote:border-l-slate-800 dark:prose-blockquote:border-l-slate-300 dark:prose-blockquote:text-rose-50',
         'prose-hr:border-slate-700 dark:prose-hr:border-slate-300',
       )}
     >

@@ -55,8 +55,7 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
         <Search
           id="search"
           className={cn(
-            'icon-base',
-            'h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
+            'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
             isSearching &&
               'text-rose-600 text-opacity-60 dark:text-rose-400 dark:text-opacity-80',
           )}
@@ -76,8 +75,7 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
             <MinusSquare
               id="decrease-font-size"
               className={cn(
-                'icon-base',
-                'h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
+                'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
                 'group-disabled:text-rose-600 group-disabled:text-opacity-60',
                 'dark:group-disabled:text-rose-400 dark:group-disabled:text-opacity-80',
               )}
@@ -94,8 +92,7 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
             <PlusSquare
               id="increase-font-size"
               className={cn(
-                'icon-base',
-                'h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
+                'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
                 'group-disabled:text-rose-600 group-disabled:text-opacity-60',
                 'dark:group-disabled:text-rose-400 dark:group-disabled:text-opacity-80',
               )}
@@ -111,8 +108,7 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
         <Type
           id="serif"
           className={cn(
-            'icon-base',
-            'ml-auto h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
+            'icon-base ml-auto h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
             isSerif &&
               'text-rose-600 text-opacity-60 dark:text-rose-400 dark:text-opacity-80',
           )}
@@ -125,16 +121,14 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
         {isDark ? (
           <Moon
             className={cn(
-              'icon-base',
-              'h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
+              'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
             )}
             aria-label="Switch to light mode"
           />
         ) : (
           <Sun
             className={cn(
-              'icon-base',
-              'h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
+              'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
             )}
             aria-label="Switch to dark mode"
           />

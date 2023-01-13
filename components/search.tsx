@@ -59,10 +59,7 @@ export function Search({ posts }: SearchProps) {
         <SearchInput hasResults={results.length > 0} />
         <button onClick={toggleSearch}>
           <ChevronUp
-            className={cn(
-              'icon-base',
-              'ml-2 text-slate-400 dark:text-slate-400',
-            )}
+            className={cn('icon-base ml-2 text-slate-400 dark:text-slate-400')}
             aria-label="Close Search"
           />
         </button>
@@ -77,8 +74,8 @@ export function Search({ posts }: SearchProps) {
       <SearchTags
         posts={posts}
         className={cn(
-          results.length > 0 ? 'max-xs:hidden sm:text-base' : 'sm:text-lg',
           'my-2',
+          results.length > 0 ? 'max-xs:hidden sm:text-base' : 'sm:text-lg',
         )}
       />
 

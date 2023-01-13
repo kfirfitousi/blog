@@ -101,7 +101,7 @@ export function TableOfContents({ children }: { children: React.ReactNode }) {
       className={cn(
         'mt-8 flex w-full flex-col rounded sm:w-fit',
         'bg-slate-300 bg-opacity-50',
-        'dark:bg-slate-600 dark:bg-opacity-50 ',
+        'dark:bg-slate-600 dark:bg-opacity-50',
       )}
     >
       <button
