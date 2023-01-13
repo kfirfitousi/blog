@@ -26,7 +26,7 @@ export const Post = defineDocumentType(() => ({
     },
     excerpt: {
       type: 'string',
-      description: 'Short description of the post',
+      description: 'Short summary of the post',
       required: true,
     },
     tags: {
@@ -57,7 +57,7 @@ export const Page = defineDocumentType(() => ({
     },
     description: {
       type: 'string',
-      description: 'Th description of the post',
+      description: 'The description of the page',
       required: true,
     },
   },

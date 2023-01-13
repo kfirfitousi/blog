@@ -1,4 +1,5 @@
 import '@/styles/globals.css';
+import 'react-tooltip/dist/react-tooltip.css';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Search } from '@/components/search';
