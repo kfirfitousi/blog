@@ -24,7 +24,7 @@
     "@vercel/og": "^0.0.27",
     "clsx": "^1.2.1",
     "contentlayer": "^0.2.9",
-    "contentlayer-mock": "^0.0.8",
+    "contentlayer-mock": "^0.0.10",
     "date-fns": "^2.29.3",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.2",
