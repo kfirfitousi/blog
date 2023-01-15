@@ -48,22 +48,22 @@
     "zustand": "^4.3.1"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.0.0-beta.15",
-    "@storybook/addon-interactions": "^7.0.0-beta.19",
-    "@storybook/addon-links": "^7.0.0-beta.19",
-    "@storybook/blocks": "^7.0.0-alpha.8",
-    "@storybook/nextjs": "^7.0.0-alpha.41",
-    "@storybook/react": "^7.0.0-beta.15",
+    "@storybook/addon-essentials": "^7.0.0-beta.28",
+    "@storybook/addon-interactions": "^7.0.0-beta.28",
+    "@storybook/addon-links": "^7.0.0-beta.28",
+    "@storybook/blocks": "^7.0.0-beta.28",
+    "@storybook/nextjs": "^7.0.0-beta.15",
+    "@storybook/react": "^7.0.0-beta.28",
     "@storybook/testing-library": "^0.0.14-next.1",
     "@tailwindcss/typography": "^0.5.9",
     "@types/jest": "^29.2.5",
     "autoprefixer": "^10.4.13",
-    "eslint-plugin-storybook": "^0.6.8",
+    "eslint-plugin-storybook": "^0.6.10",
     "jest": "^29.3.1",
     "postcss": "^8.4.21",
     "prettier": "2.8.2",
     "prettier-plugin-tailwindcss": "^0.2.1",
-    "storybook": "^7.0.0-beta.25",
+    "storybook": "^7.0.0-beta.28",
     "storybook-tailwind-dark-mode": "^1.0.15",
     "tailwindcss": "^3.2.4",
     "ts-jest": "^29.0.5",
@@ -72,11 +72,7 @@
   },
   "overrides": {
     "storybook-tailwind-dark-mode": {
-      "@storybook/addons": "^7.0.0-beta.13",
-      "@storybook/api": "^7.0.0-beta.13",
-      "@storybook/components": "^7.0.0-beta.13",
-      "@storybook/core-events": "^7.0.0-beta.13",
-      "@storybook/theming": "^7.0.0-beta.13",
+      "@storybook/addons": "^7.0.0-beta.28",
       "react": "^18.20.0"
     }
   }
