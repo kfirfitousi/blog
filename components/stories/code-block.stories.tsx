@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { CopyCode } from '@/components/copy-code';
+import { CodeBlock } from '@/components/code-block';
 import { Center, Padding } from './decorators';
 import '@/styles/markdown.css';
 
@@ -19,16 +19,17 @@ export default async function PostsPage() {
 }`}
   </code>
 );
-
-const meta: Meta<typeof CopyCode> = {
-  title: 'Copy Code Button',
-  component: CopyCode,
+const meta: Meta<typeof CodeBlock> = {
+  title: 'Code Block',
+  component: CodeBlock,
+  args: {
+    children: codeElement,
+  },
   decorators: [
     (Story) => (
-      <pre className="relative w-full">
-        <Story args={{ codeElement }} />
-        {codeElement}
-      </pre>
+      <div className="w-full">
+        <Story />
+      </div>
     ),
     Center,
     Padding,
@@ -36,6 +37,17 @@ const meta: Meta<typeof CopyCode> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof CopyCode>;
+type Story = StoryObj<typeof CodeBlock>;
 
 export const Normal: Story = {};
+
+export const WithTitle: Story = {
+  decorators: [
+    (Story) => (
+      <>
+        <div className="rehype-code-title">page.tsx</div>
+        <Story />
+      </>
+    ),
+  ],
+};
