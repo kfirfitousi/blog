@@ -72,7 +72,7 @@
   },
   "overrides": {
     "storybook-tailwind-dark-mode": {
-      "@storybook/addons": "^7.0.0-beta.28",
+      "@storybook/addons": "^7.0.0-beta.15",
       "react": "^18.20.0"
     }
   }
