@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CopyCode } from '@/components/copy-code';
+import { CodeBlock } from '@/components/code-block';
 import { Bookmark, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -79,15 +79,10 @@ function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
 }
 
 /**
- * Add copy-code button to code blocks
+ * Code block component with copy button
  */
 function pre({ children }: React.HTMLProps<HTMLPreElement>) {
-  return (
-    <pre className="relative mx-auto max-w-3xl">
-      <CopyCode codeElement={children as React.ReactElement} />
-      {children}
-    </pre>
-  );
+  return <CodeBlock>{children}</CodeBlock>;
 }
 
 /**
