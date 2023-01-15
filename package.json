@@ -77,7 +77,7 @@
       "@storybook/components": "^7.0.0-beta.15",
       "@storybook/core-events": "^7.0.0-beta.15",
       "@storybook/theming": "^7.0.0-beta.15",
-      "react": "^18.20.0"
+      "react": "^18.2.0"
     }
   }
 }
