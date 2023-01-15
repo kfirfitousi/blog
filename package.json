@@ -30,7 +30,7 @@
     "eslint-config-next": "13.1.2",
     "eslint-plugin-tailwindcss": "^3.8.0",
     "grapheme-splitter": "^1.0.4",
-    "hastscript": "^7.1.0",
+    "hastscript": "^7.2.0",
     "lucide-react": "^0.104.1",
     "next": "13.1.2",
     "next-contentlayer": "^0.2.9",
