@@ -1,5 +1,6 @@
 import { CodeBlock } from '@/components/code-block';
 import { TableOfContents } from '@/components/table-of-contents';
+import { Callout } from '@/components/callout';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -84,4 +85,4 @@ function pre({ children }: React.HTMLProps<HTMLPreElement>) {
   return <CodeBlock>{children}</CodeBlock>;
 }
 
-export const MdxComponents = { a, p, img, pre, TableOfContents };
+export const MdxComponents = { a, p, img, pre, TableOfContents, Callout };
