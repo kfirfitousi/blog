@@ -14,6 +14,12 @@ tags:
 [Next.js](https://nextjs.org) version 13 introduced the `/app` directory, a new way of defining routes in your application.  
 In this article, we'll go over the basics of using [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) to render MDX files with Next.js 13 and TypeScript. The code we'll be writing in this article is available on [GitHub](https://github.com/kfirfitousi/mdx-nextjs-13).
 
+<Callout type="update">
+
+I now recommend using [Contentlayer](https://contentlayer.dev) instead of next-mdx-remote. It takes much less code to set up and it works beautifully with Next.js 13.
+
+</Callout>
+
 <TableOfContents>
 
 - [Setup](#setup)
@@ -38,7 +44,7 @@ yarn create next-app --experimental-app
 pnpm create next-app --experimental-app
 ```
 
-Next, we'll need to install `next-mdx-remote`:
+Next, we'll need to install next-mdx-remote:
 
 ```bash
 npm install next-mdx-remote
@@ -159,7 +165,7 @@ We should now see the title and date of our post rendered on the page.
 
 ## Rendering the Post's Content
 
-`next-mdx-remote` provides a component called `MDXRemote`, that is used to render MDX content. To use it, we **must wrap it in a client component**.
+next-mdx-remote provides a component called `MDXRemote`, that is used to render MDX content. To use it, we **must wrap it in a client component**.
 
 > Client Components are rendered on the client. With Next.js, Client Components can also be pre-rendered on the server and hydrated on the client.
 >
@@ -237,15 +243,21 @@ export default async function Home() {
 }
 ```
 
-That's it! We've successfully rendered an MDX file on the page using `next-mdx-remote`, and we've added custom components to it.
+That's it! We've successfully rendered an MDX file on the page using next-mdx-remote, and we've added custom components to it.
 
 ![Result {{ w: 700, h: 378, cap: "Our post rendered on the page" }}](/images/web-dev/mdx-nextjs-13/result.webp)
 
 ## Conclusion and Next Steps
 
-In this article, we've only scratched the surface of using `next-mdx-remote` with Next.js 13.  
+In this article, we've only scratched the surface of using next-mdx-remote with Next.js 13.  
 To make an actual blog, we might want to move our `getPost` function to a file called `/lib/mdx.ts` (or similar) and add two more functions: `getAllPosts`, which returns all of the posts in our blog, and `getAllMdxFiles`, which returns all of the MDX files in the content directory.
 
 We can then leverage Next.js 13's [Dynamic Segments](https://beta.nextjs.org/docs/routing/defining-routes#dynamic-segments) and [Static Params Generation](https://beta.nextjs.org/docs/data-fetching/generating-static-params) to create a dynamic route for each post, and render the post's content on the page.
 
-You can find my implementation of this on [github.com/kfirfitousi/blog](https://github.com/kfirfitousi/blog) for reference and inspiration.
+~You can find my implementation of this on [github.com/kfirfitousi/blog](https://github.com/kfirfitousi/blog) for reference and inspiration.~
+
+<Callout type="update">
+
+My blog now uses [Contentlayer](https://contentlayer.io) instead of next-mdx-remote to render MDX files.
+
+</Callout>
