@@ -19,6 +19,7 @@ export default async function PostsPage() {
 }`}
   </code>
 );
+
 const meta: Meta<typeof CodeBlock> = {
   title: 'Code Block',
   component: CodeBlock,
