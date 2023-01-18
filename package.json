@@ -9,7 +9,7 @@
     "start": "next start",
     "style:lint": "next lint",
     "style:prettier": "prettier --check '**/*.{js,jsx,ts,tsx}'",
-    "style:all": "npm run style:lint && npm run style:prettier",
+    "style:all": "pnpm run style:lint && pnpm run style:prettier",
     "format": "prettier --write '**/*.{js,jsx,ts,tsx}'",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -17,6 +17,7 @@
   "dependencies": {
     "@giscus/react": "^2.2.6",
     "@next/font": "^13.1.2",
+    "@storybook/types": "7.0.0-alpha.44",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",

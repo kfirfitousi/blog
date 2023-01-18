@@ -22,17 +22,22 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: 'Install Dependencies'
-        run: npm install
+      - name: 'Install pnpm'
+        uses: pnpm/action-setup@v2
+        with:
+          version: 6.0.2
 
-      - name: 'Build contentlayer'
+      - name: 'Install Dependencies'
+        run: pnpm install
+
+      - name: 'Build Contentlayer'
         run: NODE_ENV=production npx contentlayer build
 
       - name: 'Run Type Checks'
         run: npx tsc --noEmit
 
       - name: 'Run Lint and Format Checks'
-        run: npm run style:all
+        run: pnpm run style:all
 
       - name: 'Run Tests'
-        run: npm run test
+        run: pnpm run test
