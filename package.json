@@ -9,7 +9,7 @@
     "start": "next start",
     "style:lint": "next lint",
     "style:prettier": "prettier --check '**/*.{js,jsx,ts,tsx}'",
-    "style:all": "npm run style:lint && npm run style:prettier",
+    "style:all": "pnpm run style:lint && pnpm run style:prettier",
     "format": "prettier --write '**/*.{js,jsx,ts,tsx}'",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
