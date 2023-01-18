@@ -85,4 +85,11 @@ function pre({ children }: React.HTMLProps<HTMLPreElement>) {
   return <CodeBlock>{children}</CodeBlock>;
 }
 
-export const MdxComponents = { a, p, img, pre, TableOfContents, Callout };
+/**
+ * Monospace font component
+ */
+function Mono({ children }: React.HTMLProps<HTMLSpanElement>) {
+  return <span className="font-mono">{children}</span>;
+}
+
+export const MdxComponents = { a, p, img, pre, Mono, TableOfContents, Callout };
