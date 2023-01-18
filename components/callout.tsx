@@ -1,8 +1,8 @@
 import {
-  AlertCircleIcon,
-  AlertTriangleIcon,
-  AlertOctagonIcon,
-  LightbulbIcon,
+  AlertCircle,
+  AlertTriangle,
+  AlertOctagon,
+  Lightbulb,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -12,10 +12,10 @@ type CalloutProps = {
 };
 
 const Icons: Record<CalloutProps['type'], React.ReactNode> = {
-  note: <AlertCircleIcon className="h-4 w-4" aria-label="note" />,
-  warning: <AlertTriangleIcon className="h-4 w-4" aria-label="warning" />,
-  update: <LightbulbIcon className="h-4 w-4" aria-label="update" />,
-  important: <AlertOctagonIcon className="h-4 w-4" aria-label="important" />,
+  note: <AlertCircle className="h-4 w-4" aria-label="note" />,
+  warning: <AlertTriangle className="h-4 w-4" aria-label="warning" />,
+  update: <Lightbulb className="h-4 w-4" aria-label="update" />,
+  important: <AlertOctagon className="h-4 w-4" aria-label="important" />,
 };
 
 export const Callout = ({ type, children }: CalloutProps) => {

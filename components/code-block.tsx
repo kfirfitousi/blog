@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { CheckIcon, CopyIcon } from 'lucide-react';
+import { Check, Copy } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type CodeBlockProps = {
@@ -39,7 +39,7 @@ export function CodeBlock({ children }: CodeBlockProps) {
           disabled={isCopied}
         >
           {isCopied ? (
-            <CheckIcon
+            <Check
               className={cn(
                 'h-6 w-6 animate-pulse',
                 'text-rose-600 dark:text-rose-400',
@@ -47,7 +47,7 @@ export function CodeBlock({ children }: CodeBlockProps) {
               aria-label="Copied"
             />
           ) : (
-            <CopyIcon
+            <Copy
               className={cn(
                 'h-6 w-6',
                 'text-slate-300 hover:text-rose-600',

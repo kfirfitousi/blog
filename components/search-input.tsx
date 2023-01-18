@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useSearchStore } from '@/stores/search-store';
 import { cn } from '@/lib/utils';
-import { XIcon } from 'lucide-react';
+import { X } from 'lucide-react';
 
 type SearchInputProps = {
   hasResults: boolean;
@@ -45,7 +45,7 @@ export function SearchInput({ hasResults }: SearchInputProps) {
             hasResults ? 'sm:top-5' : 'sm:top-7',
           )}
         >
-          <XIcon
+          <X
             className={cn('icon-base text-slate-500 dark:text-slate-400')}
             aria-label="Clear"
           />

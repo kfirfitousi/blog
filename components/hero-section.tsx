@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useThemeStore } from '@/stores/theme-store';
 import GraphemeSplitter from 'grapheme-splitter';
 import Typist from 'react-typist-component';
-import { PauseIcon, PlayIcon } from 'lucide-react';
+import { Pause, Play } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const topics = [
@@ -71,7 +71,7 @@ export function HeroSection() {
         onClick={() => setIsPaused((prev) => !prev)}
       >
         {isPaused ? (
-          <PlayIcon
+          <Play
             className={cn(
               'h-4 w-4',
               'text-slate-400 text-opacity-50 hover:text-rose-600',
@@ -80,7 +80,7 @@ export function HeroSection() {
             aria-label="Play animation"
           />
         ) : (
-          <PauseIcon
+          <Pause
             className={cn(
               'h-4 w-4',
               'text-slate-400 text-opacity-50 hover:text-rose-600',

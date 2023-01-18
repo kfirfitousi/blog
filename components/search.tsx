@@ -8,7 +8,7 @@ import { searchPosts } from '@/lib/search';
 import { SearchInput } from '@/components/search-input';
 import { SearchResults } from '@/components/search-results';
 import { SearchTags } from '@/components/search-tags';
-import { ChevronUpIcon } from 'lucide-react';
+import { ChevronUp } from 'lucide-react';
 import { shallow } from 'zustand/shallow';
 import { cn } from '@/lib/utils';
 
@@ -58,7 +58,7 @@ export function Search({ posts }: SearchProps) {
       <div className="mb-2 flex h-fit flex-row items-center">
         <SearchInput hasResults={results.length > 0} />
         <button onClick={toggleSearch}>
-          <ChevronUpIcon
+          <ChevronUp
             className={cn('icon-base ml-2 text-slate-400 dark:text-slate-400')}
             aria-label="Close Search"
           />

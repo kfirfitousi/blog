@@ -1,4 +1,4 @@
-import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type PageControlsProps = {
@@ -32,7 +32,7 @@ export function PageControls({
           'dark:text-slate-300 dark:enabled:hover:text-rose-400 dark:disabled:text-slate-500',
         )}
       >
-        <ArrowLeftIcon aria-label="Previous page" />
+        <ArrowLeft aria-label="Previous page" />
         <span>Previous</span>
       </button>
       <div className="flex flex-row flex-wrap justify-center space-x-2 px-2 text-2xl">
@@ -80,7 +80,7 @@ export function PageControls({
         )}
       >
         <span className="h-full">Next</span>
-        <ArrowRightIcon aria-label="Next page" />
+        <ArrowRight aria-label="Next page" />
       </button>
     </div>
   );
