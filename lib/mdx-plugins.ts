@@ -3,15 +3,14 @@ import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import { type PluggableList } from 'unified';
 import { s } from 'hastscript';
 
-export const remarkPlugins: PluggableList = [
+export const remarkPlugins = [
   // GitHub Flavored Markdown
   remarkGfm,
 ];
 
-export const rehypePlugins: PluggableList = [
+export const rehypePlugins = [
   // Add IDs to headings
   rehypeSlug,
 
