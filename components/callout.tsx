@@ -3,6 +3,7 @@ import {
   AlertTriangle,
   AlertOctagon,
   Lightbulb,
+  LucideIcon,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -11,14 +12,16 @@ type CalloutProps = {
   children: React.ReactNode;
 };
 
-const Icons: Record<CalloutProps['type'], React.ReactNode> = {
-  note: <AlertCircle className="h-4 w-4" aria-label="note" />,
-  warning: <AlertTriangle className="h-4 w-4" aria-label="warning" />,
-  update: <Lightbulb className="h-4 w-4" aria-label="update" />,
-  important: <AlertOctagon className="h-4 w-4" aria-label="important" />,
+const Icons: Record<CalloutProps['type'], LucideIcon> = {
+  note: AlertCircle,
+  warning: AlertTriangle,
+  update: Lightbulb,
+  important: AlertOctagon,
 };
 
 export const Callout = ({ type, children }: CalloutProps) => {
+  const Icon = Icons[type];
+
   return (
     <div
       className={cn(
@@ -47,7 +50,7 @@ export const Callout = ({ type, children }: CalloutProps) => {
             'bg-rose-700 text-rose-50 dark:bg-rose-300 dark:text-rose-900',
         )}
       >
-        {Icons[type]}
+        <Icon className="h-4 w-4" aria-hidden />
         <div className="text-sm">
           {type.charAt(0).toUpperCase()}
           {type.slice(1)}
