@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { CodeBlock } from '@/components/code-block';
-import { Center, Padding } from './decorators';
-import '@/styles/markdown.css';
+import { Center, Markdown, Padding } from './decorators';
 
 const codeElement = (
   <code className="hljs rounded">
@@ -19,6 +18,7 @@ export default async function PostsPage() {
 }`}
   </code>
 );
+
 const meta: Meta<typeof CodeBlock> = {
   title: 'Code Block',
   component: CodeBlock,
@@ -31,6 +31,7 @@ const meta: Meta<typeof CodeBlock> = {
         <Story />
       </div>
     ),
+    Markdown,
     Center,
     Padding,
   ],
