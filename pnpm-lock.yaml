@@ -22,6 +22,7 @@ specifiers:
   clsx: ^1.2.1
   contentlayer: ^0.2.9
   contentlayer-mock: ^0.0.10
+  css-loader: ^6.7.3
   date-fns: ^2.29.3
   eslint: 8.32.0
   eslint-config-next: 13.1.2
@@ -87,7 +88,6 @@ dependencies:
   rehype-highlight: 6.0.0
   rehype-slug: 5.1.0
   remark-gfm: 3.0.1
-  style-loader: 3.3.1
   tailwind-merge: 1.8.1
   zustand: 4.3.2_react@18.2.0
 
@@ -102,6 +102,7 @@ devDependencies:
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.4
   '@types/jest': 29.2.5
   autoprefixer: 10.4.13_postcss@8.4.21
+  css-loader: 6.7.3
   eslint-plugin-storybook: 0.6.10_7uibuqfxkfaozanbtbziikiqje
   jest: 29.3.1_zfha7dvnw4nti6zkbsmhmn6xo4
   postcss: 8.4.21
@@ -109,6 +110,7 @@ devDependencies:
   prettier-plugin-tailwindcss: 0.2.1_prettier@2.8.3
   storybook: 7.0.0-beta.28
   storybook-tailwind-dark-mode: 1.0.15_biqbaboplfbrettd7655fr4n2y
+  style-loader: 3.3.1
   tailwindcss: 3.2.4_aesdjsunmf4wiehhujt67my7tu
   ts-jest: 29.0.5_p6ekqnroyms5nhqbfxosryz7rm
   ts-node: 10.9.1_awa2wsr5thmg3i7jqycphctjfq
@@ -5948,6 +5950,22 @@ packages:
     resolution: {integrity: sha512-FyyrDHZKEjXDpNJYvVsV960FiqQyXc/LlYmsxl2BcdMb2WPx0OGRVgTg55rPSyLSNMqP52R9r8geSp7apN3Ofg==}
     engines: {node: '>=4'}
     dev: false
+
+  /css-loader/6.7.3:
+    resolution: {integrity: sha512-qhOH1KlBMnZP8FzRO6YCH9UHXQhVMcEGLyNdb7Hv2cpcmJbW0YrddO+tG1ab5nT41KpHIYGsbeHqxB9xPu1pKQ==}
+    engines: {node: '>= 12.13.0'}
+    peerDependencies:
+      webpack: ^5.0.0
+    dependencies:
+      icss-utils: 5.1.0_postcss@8.4.21
+      postcss: 8.4.21
+      postcss-modules-extract-imports: 3.0.0_postcss@8.4.21
+      postcss-modules-local-by-default: 4.0.0_postcss@8.4.21
+      postcss-modules-scope: 3.0.0_postcss@8.4.21
+      postcss-modules-values: 4.0.0_postcss@8.4.21
+      postcss-value-parser: 4.2.0
+      semver: 7.3.8
+    dev: true
 
   /css-loader/6.7.3_webpack@5.75.0:
     resolution: {integrity: sha512-qhOH1KlBMnZP8FzRO6YCH9UHXQhVMcEGLyNdb7Hv2cpcmJbW0YrddO+tG1ab5nT41KpHIYGsbeHqxB9xPu1pKQ==}
@@ -12035,7 +12053,7 @@ packages:
     engines: {node: '>= 12.13.0'}
     peerDependencies:
       webpack: ^5.0.0
-    dev: false
+    dev: true
 
   /style-loader/3.3.1_webpack@5.75.0:
     resolution: {integrity: sha512-GPcQ+LDJbrcxHORTRes6Jy2sfvK2kS6hpSfI/fXhPt+spVzxF6LJ1dHLN9zIGmVaaP044YKaIatFaufENRiDoQ==}
