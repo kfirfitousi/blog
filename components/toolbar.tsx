@@ -3,9 +3,16 @@
 import { useSearchStore } from '@/stores/search-store';
 import { useThemeStore } from '@/stores/theme-store';
 import { Tooltip } from '@/components/tooltip';
-import { MinusSquare, Moon, PlusSquare, Search, Sun, Type } from 'lucide-react';
 import { shallow } from 'zustand/shallow';
 import { cn } from '@/lib/utils';
+import {
+  MinusSquareIcon,
+  MoonIcon,
+  PlusSquareIcon,
+  SearchIcon,
+  SunIcon,
+  TypeIcon,
+} from 'lucide-react';
 
 type ToolbarProps = {
   fontControls: boolean;
@@ -52,7 +59,7 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
       )}
     >
       <button onClick={toggleSearch}>
-        <Search
+        <SearchIcon
           id="search"
           className={cn(
             'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
@@ -72,7 +79,7 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
             disabled={isFontSizeMin}
             className="group"
           >
-            <MinusSquare
+            <MinusSquareIcon
               id="decrease-font-size"
               className={cn(
                 'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
@@ -89,7 +96,7 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
             disabled={isFontSizeMax}
             className="group"
           >
-            <PlusSquare
+            <PlusSquareIcon
               id="increase-font-size"
               className={cn(
                 'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
@@ -105,7 +112,7 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
       )}
 
       <button onClick={toggleSerif}>
-        <Type
+        <TypeIcon
           id="serif"
           className={cn(
             'icon-base ml-auto h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
@@ -119,14 +126,14 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
       </button>
       <button onClick={toggleDarkAndApply} id="theme-toggle">
         {isDark ? (
-          <Moon
+          <MoonIcon
             className={cn(
               'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
             )}
             aria-label="Switch to light mode"
           />
         ) : (
-          <Sun
+          <SunIcon
             className={cn(
               'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
             )}

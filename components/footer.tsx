@@ -3,12 +3,12 @@
 import { Tooltip } from '@/components/tooltip';
 import { cn } from '@/lib/utils';
 import {
-  AtSign,
-  Copyright,
-  Github,
-  Linkedin,
-  Pizza,
-  Twitter,
+  AtSignIcon,
+  CopyrightIcon,
+  GithubIcon,
+  LinkedinIcon,
+  PizzaIcon,
+  TwitterIcon,
 } from 'lucide-react';
 
 export function Footer() {
@@ -21,7 +21,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Github
+            <GithubIcon
               id="github"
               className="icon-base"
               data-tooltip-content="My GitHub profile"
@@ -34,7 +34,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Twitter
+            <TwitterIcon
               id="twitter"
               className="icon-base"
               data-tooltip-content="My Twitter profile"
@@ -47,7 +47,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Linkedin
+            <LinkedinIcon
               id="linkedin"
               className="icon-base"
               data-tooltip-content="My LinkedIn profile"
@@ -58,7 +58,7 @@ export function Footer() {
         </div>
         <div className="flex flex-row space-x-8 xs:space-x-4">
           <a href="mailto:kfirfitousi@gmail.com">
-            <AtSign
+            <AtSignIcon
               id="email"
               className="icon-base"
               data-tooltip-content="My Email"
@@ -94,7 +94,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Pizza
+            <PizzaIcon
               id="pizza"
               className="icon-base"
               data-tooltip-content="Buy me a pizza"
@@ -110,7 +110,7 @@ export function Footer() {
           'text-slate-600 dark:text-slate-300',
         )}
       >
-        <Copyright className="h-4 w-4" aria-label="Copyright" />
+        <CopyrightIcon className="h-4 w-4" aria-label="Copyright" />
         <span className="text-xs xs:text-sm">2023 · Kfir Fitousi</span>
       </div>
 

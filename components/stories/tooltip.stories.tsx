@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Tooltip } from '@/components/tooltip';
-import { Github } from 'lucide-react';
+import { GithubIcon } from 'lucide-react';
 import { Center } from './decorators';
 import { cn } from '@/lib/utils';
 
@@ -10,7 +10,7 @@ const meta: Meta<typeof Tooltip> = {
   decorators: [
     (Story, ctx) => (
       <>
-        <Github
+        <GithubIcon
           id="github"
           className={cn(
             'h-6 w-6 hover:scale-110 hover:pb-0.5',

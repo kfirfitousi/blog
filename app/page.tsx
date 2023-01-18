@@ -3,7 +3,7 @@ import { compareDesc } from 'date-fns';
 import { HeroSection } from '@/components/hero-section';
 import { PostCard } from '@/components/post-card';
 import { Button } from '@/components/button';
-import { FileText } from 'lucide-react';
+import { FileTextIcon } from 'lucide-react';
 
 export default function Home() {
   const latestPosts = allPosts
@@ -21,7 +21,7 @@ export default function Home() {
           href="/posts"
           label="All Posts"
           className="place-self-end"
-          icon={<FileText className="h-4 w-4" />}
+          icon={<FileTextIcon className="h-4 w-4" />}
         />
       </section>
     </div>

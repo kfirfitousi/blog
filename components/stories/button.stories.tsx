@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '@/components/button';
-import { FileText } from 'lucide-react';
+import { FileTextIcon } from 'lucide-react';
 import { Center } from './decorators';
 
 const meta: Meta<typeof Button> = {
@@ -18,7 +18,7 @@ type Story = StoryObj<typeof Button>;
 export const WithIcon: Story = {
   args: {
     label: 'All Posts',
-    icon: <FileText className="h-4 w-4" />,
+    icon: <FileTextIcon className="h-4 w-4" />,
   },
 };
 

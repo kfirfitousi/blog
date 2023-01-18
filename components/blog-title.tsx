@@ -1,7 +1,7 @@
 'use client';
 
 import { useThemeStore } from '@/stores/theme-store';
-import { Waves } from 'lucide-react';
+import { WavesIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type BlogTitleProps = {
@@ -19,7 +19,7 @@ export function BlogTitle({ title = "Kfir's Blog", small }: BlogTitleProps) {
         'inline-flex w-full justify-center',
       )}
     >
-      <Waves
+      <WavesIcon
         className={cn(
           small ? 'h-4 w-4' : 'h-8 w-8',
           'text-rose-700 text-opacity-40 dark:text-rose-400',
@@ -39,7 +39,7 @@ export function BlogTitle({ title = "Kfir's Blog", small }: BlogTitleProps) {
       >
         {title}
       </h1>
-      <Waves
+      <WavesIcon
         className={cn(
           small ? 'h-4 w-4' : 'h-8 w-8',
           'text-rose-700 text-opacity-40 dark:text-rose-400',

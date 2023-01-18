@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Bookmark, ChevronDown } from 'lucide-react';
+import { BookmarkIcon, ChevronDownIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type TableOfContentsProps = {
@@ -27,9 +27,9 @@ export function TableOfContents({ children }: TableOfContentsProps) {
         onClick={() => setIsOpen((prev) => !prev)}
         aria-label="Toggle Table of Contents"
       >
-        <Bookmark className="mr-1 h-5 w-5" />
+        <BookmarkIcon className="mr-1 h-5 w-5" />
         <span className="mr-6">Table of Contents</span>
-        <ChevronDown
+        <ChevronDownIcon
           className={cn(
             'ml-auto h-6 w-6 transition-transform duration-300 ease-in-out',
             isOpen && 'rotate-180',
