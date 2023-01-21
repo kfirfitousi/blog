@@ -35,12 +35,7 @@ export function PostCard({ post }: PostCardProps) {
         )}
       >
         <div className="flex flex-col space-y-2">
-          <h2
-            className={cn(
-              'text-2xl font-bold leading-normal sm:text-3xl',
-              'text-slate-800 dark:text-rose-50',
-            )}
-          >
+          <h2 className="text-2xl font-bold leading-normal text-slate-800 dark:text-rose-50 sm:text-3xl">
             {post.title}
             {dateTime.isFresh && (
               <>

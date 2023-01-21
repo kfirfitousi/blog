@@ -1,7 +1,6 @@
 'use client';
 
 import { Tooltip } from '@/components/tooltip';
-import { cn } from '@/lib/utils';
 import {
   AtSign,
   Copyright,
@@ -104,12 +103,7 @@ export function Footer() {
           </a>
         </div>
       </div>
-      <div
-        className={cn(
-          'flex h-6 flex-row items-center justify-center space-x-1',
-          'text-slate-600 dark:text-slate-300',
-        )}
-      >
+      <div className="flex h-6 flex-row items-center justify-center space-x-1 text-slate-600 dark:text-slate-300">
         <Copyright className="h-4 w-4" aria-label="Copyright" />
         <span className="text-xs xs:text-sm">2023 · Kfir Fitousi</span>
       </div>
@@ -132,7 +126,7 @@ export function Footer() {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className={cn('icon-base h-12')}
+          className="icon-base h-12"
           viewTarget="0 0 24 48"
           aria-label="Scroll to top"
           data-tooltip-content="Scroll to top"

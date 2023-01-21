@@ -59,7 +59,7 @@ export function Search({ posts }: SearchProps) {
         <SearchInput hasResults={results.length > 0} />
         <button onClick={toggleSearch}>
           <ChevronUp
-            className={cn('icon-base ml-2 text-slate-400 dark:text-slate-400')}
+            className="icon-base ml-2 text-slate-400 dark:text-slate-400"
             aria-label="Close Search"
           />
         </button>
@@ -79,12 +79,7 @@ export function Search({ posts }: SearchProps) {
         )}
       />
 
-      <div
-        className={cn(
-          'absolute bottom-1 left-2 text-xs max-sm:hidden',
-          'text-slate-600 dark:text-slate-200',
-        )}
-      >
+      <div className="absolute bottom-1 left-2 text-xs text-slate-600 dark:text-slate-200 max-sm:hidden">
         Toggle with ⌘+K or Ctrl+K
       </div>
     </section>

@@ -120,16 +120,12 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
       <button onClick={toggleDarkAndApply} id="theme-toggle">
         {isDark ? (
           <Moon
-            className={cn(
-              'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
-            )}
+            className="icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6"
             aria-label="Switch to light mode"
           />
         ) : (
           <Sun
-            className={cn(
-              'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
-            )}
+            className="icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6"
             aria-label="Switch to dark mode"
           />
         )}

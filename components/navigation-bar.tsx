@@ -16,10 +16,7 @@ export function NavigationBar({ className }: NavigationBarProps) {
     >
       <Link
         href="/posts"
-        className={cn(
-          'order-2 mr-2 font-semibold xs:mr-4 sm:order-1',
-          'hover:text-rose-600 dark:hover:text-rose-400',
-        )}
+        className="order-2 mr-2 font-semibold hover:text-rose-600 dark:hover:text-rose-400 xs:mr-4 sm:order-1"
       >
         Posts
       </Link>

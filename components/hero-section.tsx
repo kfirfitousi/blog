@@ -34,12 +34,7 @@ export function HeroSection() {
       )}
     >
       <Typist typingDelay={100} splitter={splitter} pause={isPaused}>
-        <h1
-          className={cn(
-            'text-center text-3xl font-bold xs:text-4xl sm:text-5xl',
-            'text-slate-800 dark:text-rose-50',
-          )}
-        >
+        <h1 className="text-center text-3xl font-bold text-slate-800 dark:text-rose-50 xs:text-4xl sm:text-5xl">
           Welcome to my blog{' '}
           <span className="inline-block origin-[70%_70%] animate-wave">👋</span>
         </h1>

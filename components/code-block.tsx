@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { Check, Copy } from 'lucide-react';
-import { cn } from '@/lib/utils';
 
 type CodeBlockProps = {
   children: React.ReactNode;
@@ -31,28 +30,18 @@ export function CodeBlock({ children }: CodeBlockProps) {
     >
       {showCopy && (
         <button
-          className={cn(
-            'absolute top-2 right-2 flex h-7 w-7 items-center justify-center rounded',
-            'bg-white dark:bg-[#22272E]',
-          )}
+          className="absolute top-2 right-2 flex h-7 w-7 items-center justify-center rounded bg-white dark:bg-[#22272E]"
           onClick={copy}
           disabled={isCopied}
         >
           {isCopied ? (
             <Check
-              className={cn(
-                'h-6 w-6 animate-pulse',
-                'text-rose-600 dark:text-rose-400',
-              )}
+              className="h-6 w-6 animate-pulse text-rose-600 dark:text-rose-400"
               aria-label="Copied"
             />
           ) : (
             <Copy
-              className={cn(
-                'h-6 w-6',
-                'text-slate-300 hover:text-rose-600',
-                'dark:text-slate-600 dark:hover:text-rose-400',
-              )}
+              className="h-6 w-6 text-slate-300 hover:text-rose-600 dark:text-slate-600 dark:hover:text-rose-400"
               aria-label="Copy code"
             />
           )}

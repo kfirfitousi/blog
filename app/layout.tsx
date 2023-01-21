@@ -33,12 +33,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       )}
     >
       <head />
-      <body
-        className={cn(
-          'grid min-h-screen grid-cols-1 grid-rows-layout sm:grid-cols-layout',
-          'bg-slate-200 dark:bg-slate-700',
-        )}
-      >
+      <body className="grid min-h-screen grid-cols-1 grid-rows-layout bg-slate-200 dark:bg-slate-700 sm:grid-cols-layout">
         <section className="sticky top-0 z-30 col-span-1 row-span-1 row-start-1 h-full self-start sm:col-start-2">
           <Header />
         </section>
