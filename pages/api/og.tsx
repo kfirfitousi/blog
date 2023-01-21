@@ -36,55 +36,31 @@ export default async function handler(req: NextRequest) {
       (
         <div tw="h-full w-full flex flex-col items-center justify-center bg-slate-300">
           <div
-            tw="flex flex-row items-center"
+            tw="flex flex-row items-center text-7xl"
             style={{
               marginBottom: title ? '8rem' : '0rem',
+              fontFamily: 'Red Hat Display',
             }}
           >
-            <div tw="h-full flex items-center justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="64"
-                height="64"
-                viewBox="0 0 32 32"
-                fill="none"
-                stroke="#BE123C"
-                opacity={0.4}
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path>
-                <path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path>
-                <path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path>
-              </svg>
-            </div>
+            <div tw="text-rose-600 dark:text-rose-400">‹</div>
             <h1
-              tw="h-full mx-2 text-7xl text-center text-slate-800"
-              style={{ fontFamily: 'Red Hat Display Bold' }}
+              tw="mx-0.5 font-semibold whitespace-nowrap text-center drop-shadow-sm text-slate-800 hover:text-rose-600 dark:text-rose-50 dark:hover:text-rose-400"
+              style={{
+                fontFamily: 'Red Hat Display Bold',
+              }}
             >
-              Kfir&apos;s Blog
-            </h1>
-            <div tw="h-full flex items-center justify-center ml-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="64"
-                height="64"
-                viewBox="0 0 32 32"
-                fill="none"
-                stroke="#BE123C"
-                opacity={0.4}
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
+              kfir
+              <span
+                tw="px-px font-light text-rose-600 dark:text-rose-400"
+                style={{
+                  fontFamily: 'Red Hat Display',
+                }}
               >
-                <path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path>
-                <path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path>
-                <path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path>
-              </svg>
-            </div>
+                /
+              </span>
+              blog
+            </h1>
+            <div tw="text-rose-600 dark:text-rose-400">›</div>
           </div>
 
           <div

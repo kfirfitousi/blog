@@ -1,51 +1,38 @@
 'use client';
 
 import { useThemeStore } from '@/stores/theme-store';
-import { Waves } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type BlogTitleProps = {
-  title?: string;
-  small?: boolean;
+  className?: string;
 };
 
-export function BlogTitle({ title = "Kfir's Blog", small }: BlogTitleProps) {
+export function BlogTitle({ className }: BlogTitleProps) {
   const isSerif = useThemeStore((state) => state.isSerif);
 
   return (
     <div
       className={cn(
-        small ? 'items-center' : 'items-baseline',
-        'inline-flex w-full justify-center',
+        'inline-flex w-full items-center justify-center',
+        className,
       )}
     >
-      <Waves
-        className={cn(
-          small ? 'h-4 w-4' : 'h-8 w-8',
-          'text-rose-700 text-opacity-40 dark:text-rose-400',
-        )}
-        aria-hidden
-      />
+      <div className="text-rose-600 dark:text-rose-400">‹</div>
       <h1
         className={cn(
           isSerif && 'font-serif',
-          small
-            ? 'mx-0.5 text-lg font-semibold'
-            : 'mx-2 pb-1.5 text-5xl font-bold sm:text-6xl',
-          'whitespace-nowrap text-center drop-shadow-sm',
+          'mx-0.5 font-semibold whitespace-nowrap text-center drop-shadow-sm',
           'text-slate-800 hover:text-rose-600',
           'dark:text-rose-50 dark:hover:text-rose-400',
         )}
       >
-        {title}
+        kfir
+        <span className="px-px font-light text-rose-600 dark:text-rose-400">
+          /
+        </span>
+        blog
       </h1>
-      <Waves
-        className={cn(
-          small ? 'h-4 w-4' : 'h-8 w-8',
-          'text-rose-700 text-opacity-40 dark:text-rose-400',
-        )}
-        aria-hidden
-      />
+      <div className="text-rose-600 dark:text-rose-400">›</div>
     </div>
   );
 }

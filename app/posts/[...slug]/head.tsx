@@ -17,7 +17,7 @@ export default function PostPageHead({ params }: PostPageHeadProps) {
 
   return (
     <SEO
-      title={`Kfir's Blog | ${title}`}
+      title={`‹kfir/blog› | ${title}`}
       description={excerpt}
       ogType="article"
       ogImage={{

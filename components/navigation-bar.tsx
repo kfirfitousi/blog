@@ -24,7 +24,7 @@ export function NavigationBar({ className }: NavigationBarProps) {
         Posts
       </Link>
       <Link href="/" className="order-1 mr-2 xs:mr-4 sm:order-2">
-        <BlogTitle small />
+        <BlogTitle className="text-lg" />
       </Link>
       <Link
         href="/about"

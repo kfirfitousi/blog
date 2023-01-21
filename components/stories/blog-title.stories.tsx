@@ -6,9 +6,6 @@ const meta: Meta<typeof BlogTitle> = {
   title: 'Blog Title',
   component: BlogTitle,
   decorators: [Center],
-  args: {
-    title: "Kfir's Blog",
-  },
 };
 
 export default meta;
@@ -16,12 +13,12 @@ type Story = StoryObj<typeof BlogTitle>;
 
 export const Big: Story = {
   args: {
-    small: false,
+    className: 'text-6xl',
   },
 };
 
 export const Small: Story = {
   args: {
-    small: true,
+    className: 'text-lg',
   },
 };
