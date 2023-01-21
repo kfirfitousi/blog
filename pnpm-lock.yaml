@@ -41,7 +41,7 @@ specifiers:
   lucide-react: ^0.105.0
   next: 13.1.4
   next-contentlayer: ^0.3.0
-  next-sitemap: ^3.1.45
+  next-sitemap: ^3.1.47
   postcss: ^8.4.21
   postcss-loader: ^7.0.2
   prettier: 2.8.3
@@ -85,7 +85,7 @@ dependencies:
   lucide-react: 0.105.0_react@18.2.0
   next: 13.1.4_pjwopsidmaokadturxaafygjp4
   next-contentlayer: 0.3.0_gru2niblrprbai56sdagiiy5sa
-  next-sitemap: 3.1.45_k3xubi4cl6g3c4l3yo34j5mc5y
+  next-sitemap: 3.1.47_k3xubi4cl6g3c4l3yo34j5mc5y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-tooltip: 5.5.1_biqbaboplfbrettd7655fr4n2y
@@ -10713,8 +10713,8 @@ packages:
       - supports-color
     dev: false
 
-  /next-sitemap/3.1.45_k3xubi4cl6g3c4l3yo34j5mc5y:
-    resolution: {integrity: sha512-8vyvWC8KT8RIEUL9Vfiae9yGuIIiJ1IpepzbFtwZx43BaKsoi/Zk9OlmPKuQouVY726xwN7uLZPtgl2l2U+9Ug==}
+  /next-sitemap/3.1.47_k3xubi4cl6g3c4l3yo34j5mc5y:
+    resolution: {integrity: sha512-LZxCWZ6lhQBfv1cuGob3tnsaHWffQM7VDmkXXp8u3n4LD7EJAR/SamlMj3mpHa8bFeuR6TjjRqrq/7e4WSOcLQ==}
     engines: {node: '>=14.18'}
     hasBin: true
     peerDependencies:
