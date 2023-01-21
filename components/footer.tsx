@@ -13,7 +13,7 @@ import {
 
 export function Footer() {
   return (
-    <footer className="relative grid h-full w-full grid-rows-[auto,1fr] flex-col items-center justify-center py-4">
+    <footer className="relative flex h-full w-full flex-col items-center justify-center space-y-4">
       <div className="flex flex-col gap-4 xs:flex-row">
         <div className="flex flex-row space-x-8 xs:space-x-4">
           <a
@@ -119,7 +119,7 @@ export function Footer() {
           document.body.scrollTop = 0;
           document.documentElement.scrollTop = 0;
         }}
-        className="absolute left-8 my-auto h-full w-fit"
+        className="absolute left-8 bottom-4 h-full w-fit"
       >
         <svg
           id="scroll-to-top"

@@ -26,7 +26,7 @@ module.exports = {
       gridTemplateRows: {
         // main layout grid rows (header, main, footer)
         // see app/layout.tsx
-        layout: '6rem minmax(calc(100vh - 14rem), 1fr) 8rem',
+        layout: '6rem minmax(calc(100vh - 16rem), 1fr) 10rem',
       },
       gridTemplateColumns: {
         // main layout grid columns (left column, main, right column)

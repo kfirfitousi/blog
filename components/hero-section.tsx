@@ -28,9 +28,9 @@ export function HeroSection() {
       className={cn(
         isSerif && 'font-serif',
         'flex flex-col items-center justify-center space-y-2',
-        'relative h-40 w-full rounded-md px-4 shadow-xl',
+        'relative h-40 w-full rounded-md px-4 shadow-lg',
         'bg-opacity-6 bg-slate-300',
-        'dark:bg-slate-800 dark:bg-opacity-30',
+        'dark:bg-slate-800 dark:bg-opacity-50',
       )}
     >
       <Typist typingDelay={100} splitter={splitter} pause={isPaused}>
