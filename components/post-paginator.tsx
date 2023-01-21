@@ -7,12 +7,12 @@ import { PageControls } from '@/components/page-controls';
 import { PostCard } from '@/components/post-card';
 import { cn } from '@/lib/utils';
 
-type PaginatorProps = {
+type PostPaginatorProps = {
   posts: Post[];
   postsPerPage?: number;
 };
 
-export function Paginator({ posts, postsPerPage = 5 }: PaginatorProps) {
+export function PostPaginator({ posts, postsPerPage = 5 }: PostPaginatorProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const lastPage = Math.ceil(posts.length / postsPerPage);
   const isSerif = useThemeStore((state) => state.isSerif);

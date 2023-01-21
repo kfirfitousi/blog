@@ -1,5 +1,5 @@
 import { allPosts } from 'contentlayer/generated';
-import { Paginator } from '@/components/paginator';
+import { PostPaginator } from '@/components/post-paginator';
 import { compareDesc } from 'date-fns';
 
 export default function PostsPage() {
@@ -9,7 +9,7 @@ export default function PostsPage() {
 
   return (
     <div className="h-full px-6 pb-12 sm:px-12">
-      <Paginator posts={posts} />
+      <PostPaginator posts={posts} />
     </div>
   );
 }

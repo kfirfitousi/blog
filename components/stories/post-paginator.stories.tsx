@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { type Post } from 'contentlayer/generated';
 import { dummyArray } from 'contentlayer-mock';
-import { Paginator } from '@/components/paginator';
+import { PostPaginator } from '@/components/post-paginator';
 import { Padding } from './decorators';
 
 const posts = dummyArray<Post>(100, (index) => ({
@@ -13,9 +13,9 @@ const posts = dummyArray<Post>(100, (index) => ({
   slug: `posts/post-${index + 1}`,
 }));
 
-const meta: Meta<typeof Paginator> = {
-  title: 'Paginator',
-  component: Paginator,
+const meta: Meta<typeof PostPaginator> = {
+  title: 'Post Paginator',
+  component: PostPaginator,
   decorators: [Padding],
   args: {
     postsPerPage: 5,
@@ -23,17 +23,11 @@ const meta: Meta<typeof Paginator> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Paginator>;
+type Story = StoryObj<typeof PostPaginator>;
 
-export const OnePage: Story = {
+export const TenPages: Story = {
   args: {
-    posts: posts.slice(0, 5),
-  },
-};
-
-export const TwoPages: Story = {
-  args: {
-    posts: posts.slice(0, 10),
+    posts: posts.slice(0, 50),
   },
 };
 
@@ -43,9 +37,15 @@ export const ThreePages: Story = {
   },
 };
 
-export const TenPages: Story = {
+export const TwoPages: Story = {
   args: {
-    posts: posts.slice(0, 50),
+    posts: posts.slice(0, 10),
+  },
+};
+
+export const OnePage: Story = {
+  args: {
+    posts: posts.slice(0, 5),
   },
 };
 
