@@ -19,7 +19,7 @@ specifiers:
   '@storybook/theming': 7.0.0-beta.29
   '@storybook/types': 7.0.0-alpha.44
   '@tailwindcss/typography': ^0.5.9
-  '@types/jest': ^29.2.5
+  '@types/jest': ^29.2.6
   '@types/node': 18.11.18
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
@@ -114,7 +114,7 @@ devDependencies:
   '@storybook/testing-library': 0.0.14-next.1
   '@storybook/theming': 7.0.0-beta.29_biqbaboplfbrettd7655fr4n2y
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.4
-  '@types/jest': 29.2.5
+  '@types/jest': 29.2.6
   '@types/node': 18.11.18
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
@@ -4868,8 +4868,8 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
-  /@types/jest/29.2.5:
-    resolution: {integrity: sha512-H2cSxkKgVmqNHXP7TC2L/WUorrZu8ZigyRywfVzv6EyBlxj39n4C00hjXYQWsbwqgElaj/CiAeSRmk5GoaKTgw==}
+  /@types/jest/29.2.6:
+    resolution: {integrity: sha512-XEUC/Tgw3uMh6Ho8GkUtQ2lPhY5Fmgyp3TdlkTJs1W9VgNxs+Ow/x3Elh8lHQKqCbZL0AubQuqWjHVT033Hhrw==}
     dependencies:
       expect: 29.3.1
       pretty-format: 29.3.1

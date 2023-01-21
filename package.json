@@ -61,7 +61,7 @@
     "@storybook/testing-library": "^0.0.14-next.1",
     "@storybook/theming": "7.0.0-beta.29",
     "@tailwindcss/typography": "^0.5.9",
-    "@types/jest": "^29.2.5",
+    "@types/jest": "^29.2.6",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
