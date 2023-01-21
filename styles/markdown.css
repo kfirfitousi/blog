@@ -1,6 +1,4 @@
-/*
-  styles for remark-gfm plugin
-*/
+/* styles for remark-gfm plugin */
 
 ul.contains-task-list {
   list-style-type: none;
@@ -11,9 +9,7 @@ ul.contains-task-list li ul {
   padding-left: 1rem;
 }
 
-/*
-  styles for rehype-autolink-headings plugin
-*/
+/* styles for rehype-autolink-headings plugin */
 
 h1,
 h2,
@@ -53,9 +49,7 @@ h3 a > svg {
   height: 1rem;
 }
 
-/*
-  styles for rehype-code-titles plugin
-*/
+/* styles for rehype-code-titles plugin */
 
 .rehype-code-title {
   background-color: #f1f5f9;
@@ -88,20 +82,20 @@ html.dark .rehype-code-title {
   border-top-right-radius: 0;
 }
 
-/* 
-  styles for rehype-highlight plugin
-*/
+/* styles for rehype-highlight plugin */
 
 pre {
   padding: 0 !important;
 }
+
 pre code.hljs {
   display: block;
   overflow-x: auto;
   padding: 0.75rem;
 }
 
-/* Theme: GitHub Light */
+/* rehype-highlight theme: GitHub Light */
+
 .hljs {
   color: #24292e;
   background: #fff;
@@ -180,7 +174,8 @@ pre code.hljs {
   background-color: #ffeef0;
 }
 
-/* Theme: GitHub Dark Dimmed */
+/* rehype-highlight theme: GitHub Dark Dimmed */
+
 html.dark .hljs {
   color: #adbac7;
   background: #22272e;
