@@ -49,7 +49,7 @@ specifiers:
   prop-types: ^15.8.1
   react: 18.2.0
   react-dom: 18.2.0
-  react-tooltip: ^5.5.1
+  react-tooltip: ^5.5.2
   react-typist-component: ^1.0.5
   rehype-autolink-headings: ^6.1.1
   rehype-code-titles: ^1.1.0
@@ -88,7 +88,7 @@ dependencies:
   next-sitemap: 3.1.47_k3xubi4cl6g3c4l3yo34j5mc5y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  react-tooltip: 5.5.1_biqbaboplfbrettd7655fr4n2y
+  react-tooltip: 5.5.2_biqbaboplfbrettd7655fr4n2y
   react-typist-component: 1.0.5_react@18.2.0
   rehype-autolink-headings: 6.1.1
   rehype-code-titles: 1.1.0
@@ -11668,11 +11668,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-tooltip/5.5.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-mx8iL4DDYUdPhN2XbcF4koHyuOOs7/gFXq0TBVfLnRWigzfll7AArMe3yUDipvowW/OASwzdGVgoBECVSMdtBA==}
+  /react-tooltip/5.5.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-WJBRCt9GR8L9X4H27zp8wBgE0V2JQOLTJJaZnSvqM48Q+483Kz46LFCk+ENqlX8EFQCMR26I/dGM4oCfHRSxSg==}
     peerDependencies:
-      react: '>=18.0.0'
-      react-dom: '>=18.0.0'
+      react: '>=16.14.0'
+      react-dom: '>=16.14.0'
     dependencies:
       '@floating-ui/dom': 1.0.12
       classnames: 2.3.2
