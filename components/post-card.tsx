@@ -6,6 +6,7 @@ import { formatDateTime } from '@/lib/datetime';
 import { PostTags } from '@/components/post-tags';
 import { Calendar } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Balancer from 'react-wrap-balancer';
 import Link from 'next/link';
 
 type PostCardProps = {
@@ -29,25 +30,29 @@ export function PostCard({ post }: PostCardProps) {
         className={cn(
           isSerif && 'font-serif',
           'flex h-fit w-full flex-col space-y-4 rounded',
-          'relative z-10 m-[2px] py-3 pl-10 pr-8 shadow-lg hover:shadow-xl',
+          'relative z-10 m-[2px] py-3 pl-10 pr-6 shadow-lg hover:shadow-xl',
           'bg-slate-100 bg-opacity-95',
           'dark:bg-slate-600 dark:bg-opacity-90',
         )}
       >
         <div className="flex flex-col space-y-2">
-          <h2 className="text-2xl font-bold leading-normal text-slate-800 dark:text-rose-50 sm:text-3xl">
-            {post.title}
-            {dateTime.isFresh && (
-              <>
-                {' '}
-                <sup className="text-base text-rose-600 text-opacity-40 dark:text-rose-200">
-                  New
-                </sup>
-              </>
-            )}
-          </h2>
+          <Balancer>
+            <h2 className="text-2xl font-bold leading-normal text-slate-800 dark:text-rose-50 sm:text-3xl">
+              {post.title}
+              {dateTime.isFresh && (
+                <>
+                  {' '}
+                  <sup className="text-base text-rose-600 text-opacity-40 dark:text-rose-200">
+                    New
+                  </sup>
+                </>
+              )}
+            </h2>
+          </Balancer>
 
-          <p className="text-slate-700 dark:text-rose-50">{post.excerpt}</p>
+          <Balancer>
+            <p className="text-slate-700 dark:text-rose-50">{post.excerpt}</p>
+          </Balancer>
 
           <p
             className={cn(

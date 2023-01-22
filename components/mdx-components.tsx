@@ -1,6 +1,7 @@
 import { CodeBlock } from '@/components/code-block';
 import { TableOfContents } from '@/components/table-of-contents';
 import { Callout } from '@/components/callout';
+import Balancer from 'react-wrap-balancer';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -71,7 +72,7 @@ function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
             maxWidth: width,
           }}
         >
-          {caption}
+          <Balancer>{caption}</Balancer>
         </figcaption>
       )}
     </figure>
