@@ -1,26 +1,50 @@
 'use client';
 
-import { useState } from 'react';
+import { useReducer } from 'react';
 import { useThemeStore } from '@/stores/theme-store';
 import GraphemeSplitter from 'grapheme-splitter';
 import Typist from 'react-typist-component';
+import Balancer from 'react-wrap-balancer';
 import { Pause, Play } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const topics = [
-  'Web Development',
-  'React',
-  'TypeScript',
-  'Next.js',
-  'Design',
-  'Computer Vision',
-];
+type TypingState = {
+  titleDone: boolean;
+  subtitleDone: boolean;
+  isPaused: boolean;
+};
+
+type TypingAction =
+  | { type: 'togglePause' }
+  | { type: 'setDone'; payload: 'title' | 'subtitle' };
+
+const reducer = (state: TypingState, action: TypingAction) => {
+  switch (action.type) {
+    case 'togglePause':
+      return {
+        ...state,
+        isPaused: !state.isPaused,
+      };
+    case 'setDone':
+      return {
+        ...state,
+        [`${action.payload}Done`]: true,
+      };
+  }
+};
 
 const splitter = (str: string) => new GraphemeSplitter().splitGraphemes(str);
 
 export function HeroSection() {
-  const [firstLoop, setFirstLoop] = useState(true);
-  const [isPaused, setIsPaused] = useState(false);
+  const [{ titleDone, subtitleDone, isPaused }, dispatch] = useReducer(
+    reducer,
+    {
+      titleDone: false,
+      subtitleDone: false,
+      isPaused: false,
+    },
+  );
+
   const isSerif = useThemeStore((state) => state.isSerif);
 
   return (
@@ -33,37 +57,49 @@ export function HeroSection() {
         'dark:bg-slate-800 dark:bg-opacity-50',
       )}
     >
-      <Typist typingDelay={100} splitter={splitter} pause={isPaused}>
-        <h1 className="text-center text-3xl font-bold text-slate-800 dark:text-rose-50 xs:text-4xl sm:text-5xl">
-          Welcome to my blog{' '}
-          <span className="inline-block origin-[70%_70%] animate-wave">👋</span>
+      <Typist
+        typingDelay={100}
+        splitter={splitter}
+        pause={isPaused}
+        onTypingDone={() => dispatch({ type: 'setDone', payload: 'title' })}
+      >
+        <h1 className="block w-full text-center text-3xl font-bold text-slate-800 dark:text-rose-50 xs:text-4xl sm:text-5xl">
+          <Balancer>
+            Welcome to my blog
+            <span className="ml-2 inline-block origin-[70%_70%] animate-wave">
+              👋
+            </span>
+          </Balancer>
         </h1>
       </Typist>
       <p className="text-center text-lg text-slate-800 dark:text-rose-50 xs:text-2xl">
-        <Typist typingDelay={100} startDelay={3200} pause={isPaused}>
-          I write about{' '}
-        </Typist>
-        <Typist
-          typingDelay={100}
-          startDelay={firstLoop ? 4500 : undefined}
-          restartKey={firstLoop}
-          onTypingDone={() => setFirstLoop(false)}
-          backspaceDelay={75}
-          pause={isPaused}
-          loop
-        >
-          {topics.map((topic) => (
-            <span key={topic} className="font-semibold">
-              {topic}
-              <Typist.Delay ms={1000} />
-              <Typist.Backspace count={topic.length} />
-            </span>
-          ))}
-        </Typist>
+        {titleDone && (
+          <Typist
+            typingDelay={100}
+            startDelay={1000}
+            pause={isPaused}
+            onTypingDone={() => {
+              dispatch({ type: 'setDone', payload: 'subtitle' });
+            }}
+          >
+            I write about{' '}
+          </Typist>
+        )}
+        {subtitleDone && (
+          <Typist typingDelay={100} backspaceDelay={75} pause={isPaused} loop>
+            {topics.map((topic) => (
+              <span key={topic} className="font-semibold">
+                {topic}
+                <Typist.Delay ms={1000} />
+                <Typist.Backspace count={topic.length} />
+              </span>
+            ))}
+          </Typist>
+        )}
       </p>
       <button
         className="absolute right-3 top-1"
-        onClick={() => setIsPaused((prev) => !prev)}
+        onClick={() => dispatch({ type: 'togglePause' })}
       >
         {isPaused ? (
           <Play
@@ -88,3 +124,12 @@ export function HeroSection() {
     </section>
   );
 }
+
+const topics = [
+  'Web Development',
+  'React',
+  'TypeScript',
+  'Next.js',
+  'Design',
+  'Computer Vision',
+];
