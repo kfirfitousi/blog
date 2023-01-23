@@ -51,8 +51,8 @@ export function Search({ posts }: SearchProps) {
         isSerif && 'font-serif',
         'fixed left-1/2 top-1/2 z-50 h-fit max-h-[80vh] w-5/6 max-w-3xl -translate-x-1/2 -translate-y-1/2',
         'flex flex-col rounded-md border-2 p-4 backdrop-blur-md',
-        'border-slate-300 bg-slate-200 bg-opacity-0',
-        'dark:border-slate-500 dark:bg-slate-600 dark:bg-opacity-70',
+        'border-slate-400 bg-slate-200/40',
+        'dark:border-slate-500 dark:bg-slate-600/80',
       )}
     >
       <div className="mb-2 flex h-fit flex-row items-center">

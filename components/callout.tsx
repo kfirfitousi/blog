@@ -29,11 +29,11 @@ export const Callout = ({ type, children }: CalloutProps) => {
         type === 'update' &&
           'bg-slate-100 text-slate-600 dark:bg-slate-600 dark:text-slate-200',
         type === 'note' &&
-          'bg-cyan-50 bg-opacity-50 text-cyan-700 dark:bg-cyan-200 dark:bg-opacity-10 dark:text-cyan-100',
+          'bg-cyan-50/50 text-cyan-700 dark:bg-cyan-200/10 dark:text-cyan-100',
         type === 'warning' &&
-          'bg-amber-50 bg-opacity-50 text-amber-700 dark:bg-amber-300 dark:bg-opacity-10 dark:text-amber-500',
+          'bg-amber-50/50 text-amber-700 dark:bg-amber-300/10 dark:text-amber-500',
         type === 'important' &&
-          'bg-red-50 bg-opacity-50 text-rose-700 dark:bg-rose-400 dark:bg-opacity-10 dark:text-rose-300',
+          'bg-red-50/50 text-rose-700 dark:bg-rose-400/10 dark:text-rose-300',
       )}
     >
       <div

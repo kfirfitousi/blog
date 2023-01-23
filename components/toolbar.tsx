@@ -56,8 +56,7 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
           id="search"
           className={cn(
             'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
-            isSearching &&
-              'text-rose-600 text-opacity-60 dark:text-rose-400 dark:text-opacity-80',
+            isSearching && 'text-rose-600/60 dark:text-rose-400/80',
           )}
           data-tooltip-content="Search Posts"
           aria-label="Search Posts"
@@ -76,8 +75,7 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
               id="decrease-font-size"
               className={cn(
                 'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
-                'group-disabled:text-rose-600 group-disabled:text-opacity-60',
-                'dark:group-disabled:text-rose-400 dark:group-disabled:text-opacity-80',
+                'group-disabled:text-rose-600/60 dark:group-disabled:text-rose-400/80',
               )}
               data-tooltip-content="Decrease font size"
               aria-label="Decrease font size"
@@ -93,8 +91,7 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
               id="increase-font-size"
               className={cn(
                 'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
-                'group-disabled:text-rose-600 group-disabled:text-opacity-60',
-                'dark:group-disabled:text-rose-400 dark:group-disabled:text-opacity-80',
+                'group-disabled:text-rose-600/60 dark:group-disabled:text-rose-400/80',
               )}
               aria-label="Increase font size"
               data-tooltip-content="Increase font size"
@@ -109,8 +106,7 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
           id="serif"
           className={cn(
             'icon-base ml-auto h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
-            isSerif &&
-              'text-rose-600 text-opacity-60 dark:text-rose-400 dark:text-opacity-80',
+            isSerif && 'text-rose-600/60 dark:text-rose-400/80',
           )}
           data-tooltip-content="Toggle serif font"
           aria-label="Toggle serif font"

@@ -53,8 +53,7 @@ export function HeroSection() {
         isSerif && 'font-serif',
         'flex flex-col items-center justify-center space-y-2',
         'relative h-40 w-full rounded-md px-4 shadow-lg',
-        'bg-opacity-6 bg-slate-300',
-        'dark:bg-slate-800 dark:bg-opacity-50',
+        'bg-slate-300 dark:bg-slate-800/50',
       )}
     >
       <Typist
@@ -105,8 +104,8 @@ export function HeroSection() {
           <Play
             className={cn(
               'h-4 w-4',
-              'text-slate-400 text-opacity-50 hover:text-rose-600',
-              'dark:text-rose-50 dark:text-opacity-20 dark:hover:text-rose-400',
+              'text-slate-400/50 hover:text-rose-600',
+              'dark:text-rose-50/20 dark:hover:text-rose-400',
             )}
             aria-label="Play animation"
           />
@@ -114,8 +113,8 @@ export function HeroSection() {
           <Pause
             className={cn(
               'h-4 w-4',
-              'text-slate-400 text-opacity-50 hover:text-rose-600',
-              'dark:text-rose-50 dark:text-opacity-20 dark:hover:text-rose-400',
+              'text-slate-400/50 hover:text-rose-600',
+              'dark:text-rose-50/20 dark dark:hover:text-rose-400',
             )}
             aria-label="Pause animation"
           />

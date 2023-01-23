@@ -26,8 +26,8 @@ export function SearchResults({ query, results }: SearchResultsProps) {
             onClick={toggleSearch}
             className={cn(
               'flex h-fit flex-col rounded p-2 transition-none sm:px-8',
-              'even:bg-slate-400 even:bg-opacity-30 hover:bg-slate-500 hover:bg-opacity-50',
-              'dark:even:bg-slate-700 dark:even:bg-opacity-60 dark:hover:bg-slate-400 dark:hover:bg-opacity-40',
+              'even:bg-slate-400/30 hover:bg-slate-500/50',
+              'dark:even:bg-slate-700/60 dark:hover:bg-slate-400/40',
             )}
           >
             <span className="font-semibold text-slate-800 dark:text-rose-50 sm:text-xl">

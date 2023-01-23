@@ -34,7 +34,7 @@ export function Header() {
       ref={headerRef}
       className={cn(
         headerRef.current && scrollTop > headerRef.current.clientHeight
-          ? 'border-b border-b-slate-300 bg-slate-500 bg-opacity-10 py-2 dark:border-b-slate-500'
+          ? 'border-b border-b-slate-300 bg-slate-500/10 py-2 dark:border-b-slate-500'
           : 'bg-transparent py-8',
         isSerif && 'font-serif',
         'flex flex-row items-center justify-between px-4 xs:px-8',

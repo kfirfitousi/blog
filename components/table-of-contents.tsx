@@ -10,13 +10,7 @@ export function TableOfContents({ children }: TableOfContentsProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section
-      className={cn(
-        'mt-8 flex w-full flex-col rounded sm:w-fit',
-        'bg-slate-300 bg-opacity-50',
-        'dark:bg-slate-600 dark:bg-opacity-50',
-      )}
-    >
+    <section className="mt-8 flex w-full flex-col rounded bg-slate-300/50 dark:bg-slate-600/50 sm:w-fit">
       <button
         className={cn(
           'flex flex-row items-center rounded p-2 font-bold',

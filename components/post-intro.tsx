@@ -44,7 +44,7 @@ export function PostIntro({ title, date, tags }: PostIntroProps) {
       >
         <span>Published </span>
         <time dateTime={dateTime.asISOString}>{dateTime.asString} </time>
-        <div className="inline-block text-slate-600 dark:text-rose-50 dark:text-opacity-60">
+        <div className="inline-block text-slate-600 dark:text-rose-50/60">
           {' '}
           · {dateTime.asRelativeTimeString}
         </div>

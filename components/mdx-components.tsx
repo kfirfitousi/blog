@@ -47,11 +47,7 @@ function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
 
   return (
     <figure
-      className={cn(
-        'mx-auto mt-3 mb-6 flex h-fit w-fit flex-col rounded border',
-        'border-slate-300 bg-slate-300 bg-opacity-20',
-        'dark:border-slate-600 dark:bg-rose-50 dark:bg-opacity-25',
-      )}
+      className="mx-auto mt-3 mb-6 flex h-fit w-fit flex-col rounded bg-slate-300/20 dark:bg-rose-50/25"
       aria-label={_alt}
     >
       <Image
@@ -65,8 +61,8 @@ function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
         <figcaption
           className={cn(
             'm-0 rounded-b-[3px] px-6 py-1 text-center',
-            'bg-slate-300 bg-opacity-50 text-slate-700',
-            'dark:bg-rose-50 dark:bg-opacity-5 dark:text-rose-50',
+            'bg-slate-300/50 text-slate-700',
+            'dark:bg-rose-50/5 dark:text-rose-50',
           )}
           style={{
             maxWidth: width,

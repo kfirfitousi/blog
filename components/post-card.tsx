@@ -31,8 +31,7 @@ export function PostCard({ post }: PostCardProps) {
           isSerif && 'font-serif',
           'flex h-fit w-full flex-col space-y-4 rounded',
           'relative z-10 m-[2px] py-3 pl-10 pr-6 shadow-lg hover:shadow-xl',
-          'bg-slate-100 bg-opacity-95',
-          'dark:bg-slate-600 dark:bg-opacity-90',
+          'bg-slate-100/95 dark:bg-slate-600/90',
         )}
       >
         <div className="flex flex-col space-y-2">
@@ -42,7 +41,7 @@ export function PostCard({ post }: PostCardProps) {
               {dateTime.isFresh && (
                 <>
                   {' '}
-                  <sup className="text-base text-rose-600 text-opacity-40 dark:text-rose-200">
+                  <sup className="text-base text-rose-600/40 dark:text-rose-200">
                     New
                   </sup>
                 </>
