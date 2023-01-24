@@ -37,7 +37,7 @@
     "react-dom": "18.2.0",
     "react-tooltip": "^5.7.0",
     "react-typist-component": "^1.0.5",
-    "react-wrap-balancer": "^0.3.0",
+    "react-wrap-balancer": "^0.4.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-code-titles": "^1.1.0",
     "rehype-highlight": "^6.0.0",

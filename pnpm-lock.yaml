@@ -51,7 +51,7 @@ specifiers:
   react-dom: 18.2.0
   react-tooltip: ^5.7.0
   react-typist-component: ^1.0.5
-  react-wrap-balancer: ^0.3.0
+  react-wrap-balancer: ^0.4.0
   rehype-autolink-headings: ^6.1.1
   rehype-code-titles: ^1.1.0
   rehype-highlight: ^6.0.0
@@ -91,7 +91,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-tooltip: 5.7.0_biqbaboplfbrettd7655fr4n2y
   react-typist-component: 1.0.5_react@18.2.0
-  react-wrap-balancer: 0.3.0_react@18.2.0
+  react-wrap-balancer: 0.4.0_react@18.2.0
   rehype-autolink-headings: 6.1.1
   rehype-code-titles: 1.1.0
   rehype-highlight: 6.0.0
@@ -11828,8 +11828,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-wrap-balancer/0.3.0_react@18.2.0:
-    resolution: {integrity: sha512-UlnQvCvSRW0jh8uILic2LJs4tV0KjOO+P70ookE5qRpfZvsKmY8KLcV8s7TBPB6cuVYkoH7+fbqankFrFata8w==}
+  /react-wrap-balancer/0.4.0_react@18.2.0:
+    resolution: {integrity: sha512-MUsROihHd7bFHCo9kCOifKDYBEZPgKTyGvfa8RcwRQKtT2cL7Um9Cc8A7GvuT8t3np7LAGsEkzdEyJdKrr5lVQ==}
     peerDependencies:
       react: ^18.0.0
     dependencies:

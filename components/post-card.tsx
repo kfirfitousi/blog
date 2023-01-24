@@ -35,8 +35,8 @@ export function PostCard({ post }: PostCardProps) {
         )}
       >
         <div className="flex flex-col space-y-2">
-          <Balancer>
-            <h2 className="text-2xl font-bold leading-normal text-slate-800 dark:text-rose-50 sm:text-3xl">
+          <h2 className="text-2xl font-bold leading-normal text-slate-800 dark:text-rose-50 sm:text-3xl">
+            <Balancer>
               {post.title}
               {dateTime.isFresh && (
                 <>
@@ -46,12 +46,12 @@ export function PostCard({ post }: PostCardProps) {
                   </sup>
                 </>
               )}
-            </h2>
-          </Balancer>
+            </Balancer>
+          </h2>
 
-          <Balancer>
-            <p className="text-slate-700 dark:text-rose-50">{post.excerpt}</p>
-          </Balancer>
+          <p className="text-slate-700 dark:text-rose-50">
+            <Balancer>{post.excerpt}</Balancer>
+          </p>
 
           <p
             className={cn(
