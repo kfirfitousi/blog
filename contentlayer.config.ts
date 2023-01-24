@@ -1,8 +1,11 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import { remarkPlugins, rehypePlugins } from './lib/mdx-plugins';
+import {
+  defineDocumentType,
+  makeSource,
+  type ComputedFields,
+} from 'contentlayer/source-files';
 
-/** @type {import('contentlayer/source-files').ComputedFields} */
-const computedFields = {
+const computedFields: ComputedFields = {
   slug: {
     type: 'string',
     resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),

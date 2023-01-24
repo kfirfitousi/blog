@@ -44,6 +44,7 @@
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "tailwind-merge": "^1.8.1",
+    "unified": "^10.1.2",
     "zustand": "^4.3.2"
   },
   "devDependencies": {

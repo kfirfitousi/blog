@@ -1,3 +1,4 @@
+import { type Pluggable } from 'unified';
 import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
@@ -5,12 +6,12 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { s } from 'hastscript';
 
-export const remarkPlugins = [
+export const remarkPlugins: Pluggable[] = [
   // GitHub Flavored Markdown
   remarkGfm,
 ];
 
-export const rehypePlugins = [
+export const rehypePlugins: Pluggable[] = [
   // Add IDs to headings
   rehypeSlug,
 
