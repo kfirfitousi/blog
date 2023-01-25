@@ -14,13 +14,13 @@ type PostPageProps = {
 export async function generateStaticParams(): Promise<
   PostPageProps['params'][]
 > {
-  return allPosts.map((post) => ({
-    slug: post.slug.split('/'),
+  return allPosts.map(({ slug }) => ({
+    slug: slug.split('/'),
   }));
 }
 
 export default function PostPage({ params }: PostPageProps) {
-  const post = allPosts.find((post) => post.slug === params.slug.join('/'));
+  const post = allPosts.find(({ slug }) => slug === params.slug.join('/'));
 
   if (!post) {
     notFound();

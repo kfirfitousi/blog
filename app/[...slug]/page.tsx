@@ -10,21 +10,21 @@ type PageProps = {
 };
 
 export async function generateStaticParams(): Promise<PageProps['params'][]> {
-  return allPages.map((page) => ({
-    slug: page.slug.split('/'),
+  return allPages.map(({ slug }) => ({
+    slug: slug.split('/'),
   }));
 }
 
 export default async function Page({ params }: PageProps) {
-  const page = allPages.find((page) => page.slug === params.slug.join('/'));
+  const page = allPages.find(({ slug }) => slug === params.slug.join('/'));
 
   if (!page) {
     notFound();
   }
 
   return (
-    <article className="h-full px-8">
+    <div className="h-full px-8">
       <MdxContent code={page.body.code} />
-    </article>
+    </div>
   );
 }
