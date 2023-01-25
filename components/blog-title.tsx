@@ -21,7 +21,7 @@ export function BlogTitle({ className }: BlogTitleProps) {
       <h1
         className={cn(
           isSerif && 'font-serif',
-          'mx-0.5 font-semibold whitespace-nowrap text-center drop-shadow-sm',
+          'mx-0.5 whitespace-nowrap text-center font-semibold drop-shadow-sm',
           'text-slate-800 hover:text-rose-600',
           'dark:text-rose-50 dark:hover:text-rose-400',
         )}

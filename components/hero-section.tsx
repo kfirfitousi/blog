@@ -114,7 +114,7 @@ export function HeroSection() {
             className={cn(
               'h-4 w-4',
               'text-slate-400/50 hover:text-rose-600',
-              'dark:text-rose-50/20 dark dark:hover:text-rose-400',
+              'dark:text-rose-50/20 dark:hover:text-rose-400',
             )}
             aria-label="Pause animation"
           />

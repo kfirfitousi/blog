@@ -1,15 +1,10 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:storybook/recommended"
-  ],
-  "plugins": [
-    "eslint-plugin-tailwindcss"
-  ],
+  "extends": ["next/core-web-vitals", "plugin:storybook/recommended"],
+  "plugins": ["eslint-plugin-tailwindcss"],
   "rules": {
-    "tailwindcss/classnames-order": "error",
-    "tailwindcss/no-custom-classname": "error",
-    "tailwindcss/no-contradicting-classname": "error",
-    "tailwindcss/enforces-shorthand": "error"
+    "tailwindcss/classnames-order": ["error", { "callees": ["cn"] }],
+    "tailwindcss/no-custom-classname": ["error", { "callees": ["cn"] }],
+    "tailwindcss/no-contradicting-classname": ["error", { "callees": ["cn"] }],
+    "tailwindcss/enforces-shorthand": ["error", { "callees": ["cn"] }]
   }
 }
