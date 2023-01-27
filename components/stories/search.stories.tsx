@@ -1,6 +1,7 @@
+import type { Post } from 'contentlayer/generated';
 import type { Meta, StoryObj } from '@storybook/react';
-import { type Post } from 'contentlayer/generated';
 import { dummyArray } from 'contentlayer-mock';
+
 import { useSearchStore } from '@/stores/search-store';
 import { Search } from '@/components/search';
 

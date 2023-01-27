@@ -1,6 +1,6 @@
-import { ImageResponse } from '@vercel/og';
-import { NextRequest } from 'next/server';
 import { type PageConfig } from 'next';
+import { NextRequest } from 'next/server';
+import { ImageResponse } from '@vercel/og';
 
 export const config: PageConfig = {
   runtime: 'edge',

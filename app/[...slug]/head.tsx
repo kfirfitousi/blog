@@ -1,4 +1,5 @@
 import { allPages } from 'contentlayer/generated';
+
 import { SEO } from '@/components/seo';
 
 type PageHeadProps = {

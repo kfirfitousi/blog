@@ -1,6 +1,5 @@
 'use client';
 
-import { Tooltip } from '@/components/tooltip';
 import {
   AtSign,
   Copyright,
@@ -9,6 +8,8 @@ import {
   Pizza,
   Twitter,
 } from 'lucide-react';
+
+import { Tooltip } from '@/components/tooltip';
 
 export function Footer() {
   return (

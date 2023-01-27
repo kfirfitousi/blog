@@ -1,11 +1,12 @@
 'use client';
 
+import Link from 'next/link';
 import { type Post } from 'contentlayer/generated';
+import Balancer from 'react-wrap-balancer';
+
 import { useSearchStore } from '@/stores/search-store';
 import { formatDateTime } from '@/lib/datetime';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
-import Balancer from 'react-wrap-balancer';
 
 type SearchResultsProps = {
   query: string;

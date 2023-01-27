@@ -1,11 +1,12 @@
 import '@/styles/globals.css';
 import 'react-tooltip/dist/react-tooltip.css';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { Search } from '@/components/search';
-import { Analytics } from '@/components/analytics';
 import { allPosts } from 'contentlayer/generated';
-import { Red_Hat_Display, Newsreader } from '@next/font/google';
+import { Newsreader, Red_Hat_Display } from '@next/font/google';
+
+import { Analytics } from '@/components/analytics';
+import { Footer } from '@/components/footer';
+import { Header } from '@/components/header';
+import { Search } from '@/components/search';
 import { cn } from '@/lib/utils';
 
 const fontSans = Red_Hat_Display({

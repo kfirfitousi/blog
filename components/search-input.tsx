@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { X } from 'lucide-react';
+
 import { useSearchStore } from '@/stores/search-store';
 import { cn } from '@/lib/utils';
-import { X } from 'lucide-react';
 
 type SearchInputProps = {
   hasResults: boolean;

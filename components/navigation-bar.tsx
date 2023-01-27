@@ -1,6 +1,7 @@
+import Link from 'next/link';
+
 import { BlogTitle } from '@/components/blog-title';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
 
 type NavigationBarProps = {
   className?: string;

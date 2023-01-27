@@ -1,9 +1,10 @@
 'use client';
 
-import { type Post } from 'contentlayer/generated';
-import { getTagsWithCount } from '@/lib/search';
-import { useSearchStore } from '@/stores/search-store';
 import { useMemo } from 'react';
+import { type Post } from 'contentlayer/generated';
+
+import { useSearchStore } from '@/stores/search-store';
+import { getTagsWithCount } from '@/lib/search';
 import { cn } from '@/lib/utils';
 
 type SearchTagsProps = {

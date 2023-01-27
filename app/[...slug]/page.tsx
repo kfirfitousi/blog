@@ -1,7 +1,8 @@
 import '@/styles/markdown.css';
-import { allPages } from 'contentlayer/generated';
-import { MdxContent } from '@/components/mdx-content';
 import { notFound } from 'next/navigation';
+import { allPages } from 'contentlayer/generated';
+
+import { MdxContent } from '@/components/mdx-content';
 
 type PageProps = {
   params: {

@@ -1,9 +1,10 @@
-import { remarkPlugins, rehypePlugins } from './lib/mdx-plugins';
 import {
   defineDocumentType,
   makeSource,
   type ComputedFields,
 } from 'contentlayer/source-files';
+
+import { rehypePlugins, remarkPlugins } from './lib/mdx-plugins';
 
 const computedFields: ComputedFields = {
   slug: {

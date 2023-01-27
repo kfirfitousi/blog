@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { PostIntro } from '@/components/post-intro';
 import { Padding } from './decorators';
 

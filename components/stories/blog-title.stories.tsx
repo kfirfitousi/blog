@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { BlogTitle } from '@/components/blog-title';
 import { Center } from './decorators';
 

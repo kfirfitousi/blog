@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Callout } from '@/components/callout';
-import { Padding, Markdown } from './decorators';
+import { Markdown, Padding } from './decorators';
 
 const meta: Meta<typeof Callout> = {
   title: 'Callout',

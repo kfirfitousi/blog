@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { CodeBlock } from '@/components/code-block';
 import { Center, Markdown, Padding } from './decorators';
 

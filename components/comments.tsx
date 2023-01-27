@@ -1,6 +1,7 @@
 'use client';
 
 import Giscus from '@giscus/react';
+
 import { useThemeStore } from '@/stores/theme-store';
 
 export function Comments() {

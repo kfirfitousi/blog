@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '@/components/button';
 import { FileText } from 'lucide-react';
+
+import { Button } from '@/components/button';
 import { Center } from './decorators';
 
 const meta: Meta<typeof Button> = {

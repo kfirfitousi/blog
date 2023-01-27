@@ -1,6 +1,7 @@
 import { allPosts } from 'contentlayer/generated';
-import { PostPaginator } from '@/components/post-paginator';
 import { compareDesc } from 'date-fns';
+
+import { PostPaginator } from '@/components/post-paginator';
 
 export default function PostsPage() {
   const posts = allPosts.sort((a, b) =>

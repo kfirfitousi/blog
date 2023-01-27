@@ -1,15 +1,16 @@
 'use client';
 
-import { type Post } from 'contentlayer/generated';
 import { useEffect, useMemo } from 'react';
+import { type Post } from 'contentlayer/generated';
+import { ChevronUp } from 'lucide-react';
+import { shallow } from 'zustand/shallow';
+
 import { useSearchStore } from '@/stores/search-store';
 import { useThemeStore } from '@/stores/theme-store';
-import { searchPosts } from '@/lib/search';
 import { SearchInput } from '@/components/search-input';
 import { SearchResults } from '@/components/search-results';
 import { SearchTags } from '@/components/search-tags';
-import { ChevronUp } from 'lucide-react';
-import { shallow } from 'zustand/shallow';
+import { searchPosts } from '@/lib/search';
 import { cn } from '@/lib/utils';
 
 type SearchProps = {

@@ -1,9 +1,10 @@
 import { allPosts } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
+import { FileText } from 'lucide-react';
+
+import { Button } from '@/components/button';
 import { HeroSection } from '@/components/hero-section';
 import { PostCard } from '@/components/post-card';
-import { Button } from '@/components/button';
-import { FileText } from 'lucide-react';
 
 export default function Home() {
   const latestPosts = allPosts

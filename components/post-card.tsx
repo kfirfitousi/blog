@@ -1,13 +1,14 @@
 'use client';
 
-import { type Post } from 'contentlayer/generated';
-import { useThemeStore } from '@/stores/theme-store';
-import { formatDateTime } from '@/lib/datetime';
-import { PostTags } from '@/components/post-tags';
-import { Calendar } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import Balancer from 'react-wrap-balancer';
 import Link from 'next/link';
+import { type Post } from 'contentlayer/generated';
+import { Calendar } from 'lucide-react';
+import Balancer from 'react-wrap-balancer';
+
+import { useThemeStore } from '@/stores/theme-store';
+import { PostTags } from '@/components/post-tags';
+import { formatDateTime } from '@/lib/datetime';
+import { cn } from '@/lib/utils';
 
 type PostCardProps = {
   post: Post;

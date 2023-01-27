@@ -1,5 +1,6 @@
-import { Button } from '@/components/button';
 import { FileQuestion, FileText, Home } from 'lucide-react';
+
+import { Button } from '@/components/button';
 
 export default function NotFound() {
   return (

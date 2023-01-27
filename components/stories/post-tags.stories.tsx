@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { PostTags } from '@/components/post-tags';
 import { Center, Padding } from './decorators';
 

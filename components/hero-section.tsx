@@ -1,11 +1,12 @@
 'use client';
 
 import { useReducer } from 'react';
-import { useThemeStore } from '@/stores/theme-store';
 import GraphemeSplitter from 'grapheme-splitter';
+import { Pause, Play } from 'lucide-react';
 import Typist from 'react-typist-component';
 import Balancer from 'react-wrap-balancer';
-import { Pause, Play } from 'lucide-react';
+
+import { useThemeStore } from '@/stores/theme-store';
 import { cn } from '@/lib/utils';
 
 type TypingState = {

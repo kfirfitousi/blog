@@ -1,9 +1,10 @@
 import '@/styles/markdown.css';
 import { notFound } from 'next/navigation';
 import { allPosts } from 'contentlayer/generated';
+
+import { Comments } from '@/components/comments';
 import { MdxContent } from '@/components/mdx-content';
 import { PostIntro } from '@/components/post-intro';
-import { Comments } from '@/components/comments';
 
 type PostPageProps = {
   params: {

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { TableOfContents } from '@/components/table-of-contents';
-import { Padding, Markdown } from './decorators';
+import { Markdown, Padding } from './decorators';
 
 const meta: Meta<typeof TableOfContents> = {
   title: 'Table of Contents',

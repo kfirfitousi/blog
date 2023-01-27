@@ -1,10 +1,11 @@
 import {
   AlertCircle,
-  AlertTriangle,
   AlertOctagon,
+  AlertTriangle,
   Lightbulb,
   LucideIcon,
 } from 'lucide-react';
+
 import { cn } from '@/lib/utils';
 
 type CalloutProps = {

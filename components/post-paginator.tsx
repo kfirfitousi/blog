@@ -1,7 +1,8 @@
 'use client';
 
-import { type Post } from 'contentlayer/generated';
 import { useState } from 'react';
+import { type Post } from 'contentlayer/generated';
+
 import { useThemeStore } from '@/stores/theme-store';
 import { PageControls } from '@/components/page-controls';
 import { PostCard } from '@/components/post-card';

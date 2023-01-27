@@ -1,10 +1,11 @@
-import { CodeBlock } from '@/components/code-block';
-import { TableOfContents } from '@/components/table-of-contents';
-import { Callout } from '@/components/callout';
-import Balancer from 'react-wrap-balancer';
-import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
+import Balancer from 'react-wrap-balancer';
+
+import { Callout } from '@/components/callout';
+import { CodeBlock } from '@/components/code-block';
+import { TableOfContents } from '@/components/table-of-contents';
+import { cn } from '@/lib/utils';
 
 /**
  * Use <Link> for internal links and <a> for external links and anchors

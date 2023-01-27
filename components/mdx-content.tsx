@@ -1,8 +1,9 @@
 'use client';
 
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import { MdxComponents } from '@/components/mdx-components';
+
 import { useThemeStore } from '@/stores/theme-store';
+import { MdxComponents } from '@/components/mdx-components';
 import { cn } from '@/lib/utils';
 
 type MdxContentProps = {

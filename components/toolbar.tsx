@@ -1,10 +1,11 @@
 'use client';
 
+import { MinusSquare, Moon, PlusSquare, Search, Sun, Type } from 'lucide-react';
+import { shallow } from 'zustand/shallow';
+
 import { useSearchStore } from '@/stores/search-store';
 import { useThemeStore } from '@/stores/theme-store';
 import { Tooltip } from '@/components/tooltip';
-import { MinusSquare, Moon, PlusSquare, Search, Sun, Type } from 'lucide-react';
-import { shallow } from 'zustand/shallow';
 import { cn } from '@/lib/utils';
 
 type ToolbarProps = {

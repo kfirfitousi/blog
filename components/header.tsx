@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useSelectedLayoutSegments } from 'next/navigation';
+
 import { useThemeStore } from '@/stores/theme-store';
 import { NavigationBar } from '@/components/navigation-bar';
 import { Toolbar } from '@/components/toolbar';

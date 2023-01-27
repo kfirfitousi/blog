@@ -1,11 +1,12 @@
 'use client';
 
 import { type Post } from 'contentlayer/generated';
-import { useThemeStore } from '@/stores/theme-store';
-import { formatDateTime } from '@/lib/datetime';
-import { PostTags } from '@/components/post-tags';
-import { cn } from '@/lib/utils';
 import Balancer from 'react-wrap-balancer';
+
+import { useThemeStore } from '@/stores/theme-store';
+import { PostTags } from '@/components/post-tags';
+import { formatDateTime } from '@/lib/datetime';
+import { cn } from '@/lib/utils';
 
 type PostIntroProps = Pick<Post, 'title' | 'date' | 'tags'>;
 

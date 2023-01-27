@@ -1,10 +1,10 @@
-import { type Pluggable } from 'unified';
+import { s } from 'hastscript';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeHighlight from 'rehype-highlight';
-import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import { s } from 'hastscript';
+import remarkGfm from 'remark-gfm';
+import { type Pluggable } from 'unified';
 
 export const remarkPlugins: Pluggable[] = [
   // GitHub Flavored Markdown
