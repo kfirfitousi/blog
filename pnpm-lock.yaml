@@ -50,7 +50,7 @@ specifiers:
   prop-types: ^15.8.1
   react: 18.2.0
   react-dom: 18.2.0
-  react-tooltip: ^5.7.1
+  react-tooltip: 5.5.2
   react-typist-component: ^1.0.5
   react-wrap-balancer: ^0.4.0
   rehype-autolink-headings: ^6.1.1
@@ -91,7 +91,7 @@ dependencies:
   next-sitemap: 3.1.47_csmsbcsbfdx2cjngizs3en5eh4
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  react-tooltip: 5.7.1_biqbaboplfbrettd7655fr4n2y
+  react-tooltip: 5.5.2_biqbaboplfbrettd7655fr4n2y
   react-typist-component: 1.0.5_react@18.2.0
   react-wrap-balancer: 0.4.0_react@18.2.0
   rehype-autolink-headings: 6.1.1
@@ -2249,14 +2249,14 @@ packages:
   /@fal-works/esbuild-plugin-global-externals/2.1.2:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
 
-  /@floating-ui/core/1.0.4:
-    resolution: {integrity: sha512-FPFLbg2b06MIw1dqk2SOEMAMX3xlrreGjcui5OTxfBDtaKTmh0kioOVjT8gcfl58juawL/yF+S+gnq8aUYQx/Q==}
+  /@floating-ui/core/1.1.0:
+    resolution: {integrity: sha512-zbsLwtnHo84w1Kc8rScAo5GMk1GdecSlrflIbfnEBJwvTSj1SL6kkOYV+nHraMCPEy+RNZZUaZyL8JosDGCtGQ==}
     dev: false
 
-  /@floating-ui/dom/1.0.12:
-    resolution: {integrity: sha512-HeG/wHoa2laUHlDX3xkzqlUqliAfa+zqV04LaKIwNCmCNaW2p0fQi4/Kd0LB4GdFoJ2UllLFq5gWnXAd67lg7w==}
+  /@floating-ui/dom/1.1.0:
+    resolution: {integrity: sha512-TSogMPVxbRe77QCj1dt8NmRiJasPvuc+eT5jnJ6YpLqgOD2zXc5UA3S1qwybN+GVCDNdKfpKy1oj8RpzLJvh6A==}
     dependencies:
-      '@floating-ui/core': 1.0.4
+      '@floating-ui/core': 1.1.0
     dev: false
 
   /@giscus/react/2.2.6_biqbaboplfbrettd7655fr4n2y:
@@ -11973,13 +11973,13 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-tooltip/5.7.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-QfGco3XdjmB2zM3DDsjK09+NmP/8JPG4Jpz26KHpvjmZB12MolvraBtub9h7xrhV6FeuMTQfd+P2DpTxmQZaaQ==}
+  /react-tooltip/5.5.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-WJBRCt9GR8L9X4H27zp8wBgE0V2JQOLTJJaZnSvqM48Q+483Kz46LFCk+ENqlX8EFQCMR26I/dGM4oCfHRSxSg==}
     peerDependencies:
       react: '>=16.14.0'
       react-dom: '>=16.14.0'
     dependencies:
-      '@floating-ui/dom': 1.0.12
+      '@floating-ui/dom': 1.1.0
       classnames: 2.3.2
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
