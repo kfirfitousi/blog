@@ -17,7 +17,7 @@ export function NavigationBar({ className }: NavigationBarProps) {
     >
       <Link
         href="/posts"
-        className="order-2 mr-2 font-semibold hover:text-rose-600 dark:hover:text-rose-400 xs:mr-4 sm:order-1"
+        className="order-2 mr-2 font-semibold hover:text-accent dark:hover:text-accent-dark xs:mr-4 sm:order-1"
       >
         Posts
       </Link>
@@ -26,7 +26,7 @@ export function NavigationBar({ className }: NavigationBarProps) {
       </Link>
       <Link
         href="/about"
-        className="order-3 font-semibold hover:text-rose-600 dark:hover:text-rose-400"
+        className="order-3 font-semibold hover:text-accent dark:hover:text-accent-dark"
       >
         About
       </Link>

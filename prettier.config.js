@@ -36,6 +36,7 @@ module.exports = {
     '<THIRD_PARTY_MODULES>',
     '',
     '^@/stores/(.*)$',
+    '^@/config$',
     '^@/components/(.*)$',
     '^@/lib/(.*)$',
     '^[./]',

@@ -36,12 +36,12 @@ export function CodeBlock({ children }: CodeBlockProps) {
         >
           {isCopied ? (
             <Check
-              className="h-6 w-6 animate-pulse text-rose-600 dark:text-rose-400"
+              className="h-6 w-6 animate-pulse text-accent dark:text-accent-dark"
               aria-label="Copied"
             />
           ) : (
             <Copy
-              className="h-6 w-6 text-slate-300 hover:text-rose-600 dark:text-slate-600 dark:hover:text-rose-400"
+              className="h-6 w-6 text-slate-300 hover:text-accent dark:text-slate-600 dark:hover:text-accent-dark"
               aria-label="Copy code"
             />
           )}

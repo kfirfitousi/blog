@@ -90,4 +90,4 @@ function Mono({ children }: React.HTMLProps<HTMLSpanElement>) {
   return <span className="font-mono">{children}</span>;
 }
 
-export const MdxComponents = { a, p, img, pre, Mono, TableOfContents, Callout };
+export const MDXComponents = { a, p, img, pre, Mono, TableOfContents, Callout };

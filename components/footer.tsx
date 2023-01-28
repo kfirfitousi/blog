@@ -9,15 +9,18 @@ import {
   Twitter,
 } from 'lucide-react';
 
+import { blogConfig } from '@/config';
 import { Tooltip } from '@/components/tooltip';
 
 export function Footer() {
+  const { footerLinks } = blogConfig;
+
   return (
     <footer className="relative flex h-full w-full flex-col items-center justify-center space-y-4">
-      <div className="flex flex-col gap-4 xs:flex-row">
-        <div className="flex flex-row space-x-8 xs:space-x-4">
+      <div className="flex flex-row flex-wrap justify-center gap-4 max-xs:px-16">
+        {footerLinks?.github && (
           <a
-            href="https://www.github.com/kfirfitousi"
+            href={footerLinks.github}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -29,8 +32,10 @@ export function Footer() {
             />
             <Tooltip anchorId="github" />
           </a>
+        )}
+        {footerLinks?.twitter && (
           <a
-            href="https://www.twitter.com/kp2c"
+            href={footerLinks.twitter}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -42,8 +47,10 @@ export function Footer() {
             />
             <Tooltip anchorId="twitter" />
           </a>
+        )}
+        {footerLinks?.linkedin && (
           <a
-            href="https://www.linkedin.com/in/kfirp"
+            href={footerLinks.linkedin}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -55,9 +62,9 @@ export function Footer() {
             />
             <Tooltip anchorId="linkedin" />
           </a>
-        </div>
-        <div className="flex flex-row space-x-8 xs:space-x-4">
-          <a href="mailto:kfirfitousi@gmail.com">
+        )}
+        {footerLinks?.email && (
+          <a href={`mailto:${footerLinks.email}`}>
             <AtSign
               id="email"
               className="icon-base"
@@ -66,8 +73,10 @@ export function Footer() {
             />
             <Tooltip anchorId="email" />
           </a>
+        )}
+        {footerLinks?.storybook && (
           <a
-            href="https://story.blog.kfirfitousi.com"
+            href={footerLinks.storybook}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -89,8 +98,10 @@ export function Footer() {
             </svg>
             <Tooltip anchorId="storybook" />
           </a>
+        )}
+        {footerLinks?.buyMeAPizza && (
           <a
-            href="https://www.buymeacoffee.com/kfirfitousi"
+            href={footerLinks.buyMeAPizza}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -102,19 +113,20 @@ export function Footer() {
             />
             <Tooltip anchorId="pizza" />
           </a>
-        </div>
+        )}
       </div>
+
       <div className="flex h-6 flex-row items-center justify-center space-x-1 text-slate-600 dark:text-slate-300">
         <Copyright className="h-4 w-4" aria-label="Copyright" />
-        <span className="text-xs xs:text-sm">2023 · Kfir Fitousi</span>
+        <span className="text-xs xs:text-sm">2023 · {blogConfig.author}</span>
       </div>
 
       <button
+        className="absolute left-8 bottom-4 h-full w-fit"
         onClick={() => {
           document.body.scrollTop = 0;
           document.documentElement.scrollTop = 0;
         }}
-        className="absolute left-8 bottom-4 h-full w-fit"
       >
         <svg
           id="scroll-to-top"

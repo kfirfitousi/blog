@@ -13,11 +13,11 @@ type SearchInputProps = {
 export function SearchInput({ hasResults }: SearchInputProps) {
   const query = useSearchStore((state) => state.query);
   const setQuery = useSearchStore((state) => state.setQuery);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null!);
 
   useEffect(() => {
     // focus input when search is opened
-    inputRef.current?.focus();
+    inputRef.current.focus();
   }, []);
 
   return (

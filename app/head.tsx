@@ -1,11 +1,8 @@
+import { blogConfig } from '@/config';
 import { SEO } from '@/components/seo';
 
 export default function Head() {
   return (
-    <SEO
-      title="‹kfir/blog›"
-      description="My name is Kfir and I'm a Full Stack Developer.
-      Welcome to my personal dev blog! I write about Web Development and other topics I'm interested in."
-    />
+    <SEO title={blogConfig.title} description={blogConfig.descriptions.home} />
   );
 }

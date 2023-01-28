@@ -3,10 +3,8 @@
 import { useState } from 'react';
 import { type Post } from 'contentlayer/generated';
 
-import { useThemeStore } from '@/stores/theme-store';
 import { PageControls } from '@/components/page-controls';
 import { PostCard } from '@/components/post-card';
-import { cn } from '@/lib/utils';
 
 type PostPaginatorProps = {
   posts: Post[];
@@ -16,15 +14,9 @@ type PostPaginatorProps = {
 export function PostPaginator({ posts, postsPerPage = 5 }: PostPaginatorProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const lastPage = Math.ceil(posts.length / postsPerPage);
-  const isSerif = useThemeStore((state) => state.isSerif);
 
   return (
-    <section
-      className={cn(
-        isSerif && 'font-serif',
-        'flex h-full w-full flex-col space-y-4',
-      )}
-    >
+    <section className="flex h-full w-full flex-col space-y-4">
       <PageControls
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}

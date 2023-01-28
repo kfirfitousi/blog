@@ -1,10 +1,11 @@
+import { blogConfig } from '@/config';
 import { SEO } from '@/components/seo';
 
 export default function PostsPageHead() {
   return (
     <SEO
-      title="‹kfir/blog› | Posts"
-      description="All my blog posts. I write about Web Development and other topics I'm interested in."
+      title={`${blogConfig.title} | Posts`}
+      description={blogConfig.descriptions.posts}
       ogImage={{ title: 'Posts' }}
     />
   );

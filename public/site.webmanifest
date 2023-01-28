@@ -1,6 +1,6 @@
 {
-    "name": "‹kfir/blog›",
-    "short_name": "‹kfir/blog›",
+    "name": "blog",
+    "short_name": "blog",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",

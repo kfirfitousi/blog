@@ -1,9 +1,8 @@
-import '@/styles/markdown.css';
 import { notFound } from 'next/navigation';
 import { allPosts } from 'contentlayer/generated';
 
 import { Comments } from '@/components/comments';
-import { MdxContent } from '@/components/mdx-content';
+import { MDXContent } from '@/components/mdx-content';
 import { PostIntro } from '@/components/post-intro';
 
 type PostPageProps = {
@@ -30,7 +29,7 @@ export default function PostPage({ params }: PostPageProps) {
   return (
     <article className="h-full px-8">
       <PostIntro title={post.title} date={post.date} tags={post.tags} />
-      <MdxContent code={post.body.code} />
+      <MDXContent code={post.body.code} />
       <Comments />
     </article>
   );

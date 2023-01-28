@@ -6,7 +6,6 @@ import { ChevronUp } from 'lucide-react';
 import { shallow } from 'zustand/shallow';
 
 import { useSearchStore } from '@/stores/search-store';
-import { useThemeStore } from '@/stores/theme-store';
 import { SearchInput } from '@/components/search-input';
 import { SearchResults } from '@/components/search-results';
 import { SearchTags } from '@/components/search-tags';
@@ -18,8 +17,6 @@ type SearchProps = {
 };
 
 export function Search({ posts }: SearchProps) {
-  const isSerif = useThemeStore((state) => state.isSerif);
-
   const { query, isSearching, toggleSearch } = useSearchStore(
     (state) => ({
       query: state.query,
@@ -49,7 +46,6 @@ export function Search({ posts }: SearchProps) {
   return (
     <section
       className={cn(
-        isSerif && 'font-serif',
         'fixed left-1/2 top-1/2 z-50 h-fit max-h-[80vh] w-5/6 max-w-3xl -translate-x-1/2 -translate-y-1/2',
         'flex flex-col rounded-md border-2 p-4 backdrop-blur-md',
         'border-slate-400 bg-slate-200/40',
@@ -69,7 +65,7 @@ export function Search({ posts }: SearchProps) {
       <SearchResults query={query} results={results} />
 
       {results.length > 0 && (
-        <hr className="my-2 hidden border-slate-400  dark:border-slate-600 sm:block" />
+        <hr className="my-2 hidden border-slate-400 dark:border-slate-600 sm:block" />
       )}
 
       <SearchTags

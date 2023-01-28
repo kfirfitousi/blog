@@ -1,8 +1,7 @@
-import '@/styles/markdown.css';
 import { notFound } from 'next/navigation';
 import { allPages } from 'contentlayer/generated';
 
-import { MdxContent } from '@/components/mdx-content';
+import { MDXContent } from '@/components/mdx-content';
 
 type PageProps = {
   params: {
@@ -25,7 +24,7 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <div className="h-full px-8">
-      <MdxContent code={page.body.code} />
+      <MDXContent code={page.body.code} />
     </div>
   );
 }

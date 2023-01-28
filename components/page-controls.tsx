@@ -29,8 +29,8 @@ export function PageControls({
         className={cn(
           'flex h-6 flex-row items-center space-x-1 justify-self-start',
           bottom ? 'place-self-start' : 'place-self-end',
-          'text-slate-600 enabled:hover:text-rose-600 disabled:text-slate-400',
-          'dark:text-slate-300 dark:enabled:hover:text-rose-400 dark:disabled:text-slate-500',
+          'text-slate-600 enabled:hover:text-accent disabled:text-slate-400',
+          'dark:text-slate-300 dark:enabled:hover:text-accent-dark dark:disabled:text-slate-500',
         )}
       >
         <ArrowLeft aria-label="Previous page" />
@@ -76,8 +76,8 @@ export function PageControls({
         className={cn(
           'flex h-6 flex-row items-center justify-end space-x-1 justify-self-end',
           bottom ? 'place-self-start' : 'place-self-end',
-          'text-slate-600 enabled:hover:text-rose-600 disabled:text-slate-400',
-          'dark:text-slate-300 dark:enabled:hover:text-rose-400 dark:disabled:text-slate-500',
+          'text-slate-600 enabled:hover:text-accent disabled:text-slate-400',
+          'dark:text-slate-300 dark:enabled:hover:text-accent-dark dark:disabled:text-slate-500',
         )}
       >
         <span className="h-full">Next</span>

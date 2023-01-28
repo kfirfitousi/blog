@@ -5,7 +5,6 @@ import { type Post } from 'contentlayer/generated';
 import { Calendar } from 'lucide-react';
 import Balancer from 'react-wrap-balancer';
 
-import { useThemeStore } from '@/stores/theme-store';
 import { PostTags } from '@/components/post-tags';
 import { formatDateTime } from '@/lib/datetime';
 import { cn } from '@/lib/utils';
@@ -15,7 +14,6 @@ type PostCardProps = {
 };
 
 export function PostCard({ post }: PostCardProps) {
-  const isSerif = useThemeStore((state) => state.isSerif);
   const dateTime = formatDateTime(post.date);
 
   return (
@@ -29,7 +27,6 @@ export function PostCard({ post }: PostCardProps) {
     >
       <article
         className={cn(
-          isSerif && 'font-serif',
           'flex h-fit w-full flex-col space-y-4 rounded',
           'relative z-10 m-[2px] py-3 pl-10 pr-6 shadow-lg hover:shadow-xl',
           'bg-slate-100/95 dark:bg-slate-600/90',
@@ -42,7 +39,7 @@ export function PostCard({ post }: PostCardProps) {
               {dateTime.isFresh && (
                 <>
                   {' '}
-                  <sup className="text-base text-rose-600/40 dark:text-rose-200">
+                  <sup className="text-base font-semibold text-accent dark:text-accent-dark">
                     New
                   </sup>
                 </>
@@ -54,17 +51,11 @@ export function PostCard({ post }: PostCardProps) {
             <Balancer>{post.excerpt}</Balancer>
           </p>
 
-          <p
-            className={cn(
-              'inline-flex items-center space-x-1',
-              'text-slate-600 opacity-90',
-              'dark:text-rose-50 dark:opacity-70',
-            )}
-          >
+          <p className="inline-flex items-center space-x-1 text-slate-600/90 dark:text-rose-50/80">
             <Calendar className="h-4 w-4 self-baseline" aria-hidden />
             <span className="text-sm">
               Published {dateTime.asString}{' '}
-              <span className="hidden opacity-90 dark:opacity-80 xs:inline">
+              <span className="hidden opacity-95 xs:inline">
                 · {dateTime.asRelativeTimeString}
               </span>
             </span>
