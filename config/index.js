@@ -1,6 +1,6 @@
 // @ts-check
 
-/** @type {import('./types').BlogConfig} */
+/** @satisfies {import('./types').BlogConfig} */
 const blogConfig = {
   url: 'https://blog.kfirfitousi.com',
   title: '‹some/blog›',
