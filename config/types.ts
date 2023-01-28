@@ -27,10 +27,8 @@ export type BlogConfig = {
   author: string;
   /**
    * The descriptions for the home page and the posts page.
-   * You can also add descriptions for other pages.
    */
   descriptions: {
-    [key: string]: string;
     home: string;
     posts: string;
   };
