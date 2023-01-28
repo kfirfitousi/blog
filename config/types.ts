@@ -1,5 +1,4 @@
 import { type GiscusProps } from '@giscus/react';
-import googleFonts from '@next/font/google';
 
 /**
  * This type represents the configuration of the blog.
