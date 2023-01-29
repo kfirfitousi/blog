@@ -9,7 +9,7 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { type Pluggable } from 'unified';
 
-import { blogConfig } from '@/config';
+import { blogConfig } from '../config';
 
 export const remarkPlugins: Pluggable[] = [
   // GitHub Flavored Markdown
