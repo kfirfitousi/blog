@@ -29,7 +29,7 @@ export function SearchTags({ posts, className }: SearchTagsProps) {
           onClick={() => setQuery(tag)}
           className="flex w-fit flex-row items-baseline space-x-0.5"
         >
-          <span className="text-rose-700 hover:text-rose-900 dark:text-rose-200 dark:hover:text-rose-100">
+          <span className="text-slate-600 hover:text-accent dark:text-slate-300 dark:hover:text-accent-dark">
             #{tag}
           </span>
           <span className="font-mono text-xs text-slate-600 dark:text-slate-300">

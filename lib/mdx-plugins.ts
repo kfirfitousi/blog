@@ -1,10 +1,15 @@
 import { s } from 'hastscript';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeCodeTitles from 'rehype-code-titles';
-import rehypeHighlight from 'rehype-highlight';
+import rehypeAutolinkHeadings, {
+  type Options as AutolinkOptions,
+} from 'rehype-autolink-headings';
+import rehypePrettyCode, {
+  type Options as PrettyCodeOptions,
+} from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { type Pluggable } from 'unified';
+
+import { blogConfig } from '@/config';
 
 export const remarkPlugins: Pluggable[] = [
   // GitHub Flavored Markdown
@@ -42,12 +47,32 @@ export const rehypePlugins: Pluggable[] = [
           s('line', { x1: '16', y1: '3', x2: '14', y2: '21' }),
         ],
       ),
-    },
+    } satisfies Partial<AutolinkOptions>,
   ],
 
-  // Add titles to code blocks
-  rehypeCodeTitles,
-
-  // Syntax highlighting in code blocks
-  rehypeHighlight,
+  // Pretty code blocks
+  [
+    rehypePrettyCode,
+    {
+      theme: {
+        light: blogConfig.theme?.codeBlockTheme?.light || 'github-light',
+        dark: blogConfig.theme?.codeBlockTheme?.dark || 'github-dark',
+      },
+      onVisitLine(node) {
+        // Prevent lines from collapsing in `display: grid` mode, and
+        // allow empty lines to be copy/pasted
+        if (node.children.length === 0) {
+          node.children = [{ type: 'text', value: ' ' }];
+        }
+      },
+      onVisitHighlightedLine(node) {
+        // Each line node by default has `class="line"`.
+        node.properties.className.push('highlighted');
+      },
+      onVisitHighlightedWord(node) {
+        // Each word node has no className by default.
+        node.properties.className = ['word'];
+      },
+    } satisfies Partial<PrettyCodeOptions>,
+  ],
 ];

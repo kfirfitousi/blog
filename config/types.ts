@@ -1,4 +1,5 @@
-import { type GiscusProps } from '@giscus/react';
+import { type GiscusProps, type Theme as GiscusTheme } from '@giscus/react';
+import { type Theme as ShikiTheme } from 'shiki';
 
 /**
  * This type represents the configuration of the blog.
@@ -33,6 +34,48 @@ export type BlogConfig = {
     posts: string;
   };
   /**
+   * Customize the blog's theme.
+   */
+  theme?: {
+    /**
+     * The accent color to use.
+     */
+    accentColor?: {
+      /**
+       * @default #be123c // rose-700
+       */
+      light?: string;
+      /**
+       * @default #fda4af // rose-300
+       */
+      dark?: string;
+    };
+    /**
+     * The themes to use for the code blocks.
+     * Must be a valid Shiki {@link ShikiTheme}.
+     */
+    codeBlockTheme?: {
+      /**
+       * @default 'github-light'
+       */
+      light: ShikiTheme;
+      /**
+       * @default 'github-dark'
+       */
+      dark: ShikiTheme;
+    };
+  };
+  /**
+   * Giscus comment sections configuration.
+   * @see https://giscus.app
+   */
+  giscus: Omit<GiscusProps, 'theme'> & {
+    theme?: {
+      light?: GiscusTheme;
+      dark?: GiscusTheme;
+    };
+  };
+  /**
    * Footer links.
    */
   footerLinks?: {
@@ -42,26 +85,6 @@ export type BlogConfig = {
     email?: string;
     storybook?: string;
     buyMeAPizza?: string;
-  };
-  /**
-   * Giscus comment sections configuration.
-   * @see https://giscus.app
-   */
-  giscus: GiscusProps;
-  /**
-   * Customize the blog's theme.
-   */
-  theme: {
-    /**
-     * The accent color to use in Light Mode.
-     * @default #be123c // rose-700
-     */
-    accentColorLight?: string;
-    /**
-     * The accent color to use in Dark Mode.
-     * @default #fda4af // rose-300
-     */
-    accentColorDark?: string;
   };
   /**
    * Topics to show in the hero section typing animation.

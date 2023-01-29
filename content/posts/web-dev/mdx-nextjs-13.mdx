@@ -61,10 +61,10 @@ pnpm add next-mdx-remote
 Let's create an example post.
 Create a new directory `/content` in the project root and create a new file `/content/post.mdx`:
 
-```plaintext:/content/post.mdx
+```mdx title="/content/post.mdx"
 ---
 title: Example Post
-date: "2022-12-11"
+date: '2022-12-11'
 ---
 
 This is an example post.
@@ -98,8 +98,8 @@ We'll define 2 types, `Frontmatter` and `Post`:
 - `Frontmatter` will define which properties we want to extract from the frontmatter of our MDX files. In this case, we'll extract the `title` and `date`.
 - `Post` will define the shape of our post. It will contain the serialized MDX content and the frontmatter.
 
-```tsx:app/page.tsx
-import { type MDXRemoteSerializeResult } from "next-mdx-remote";
+```tsx title="/app/page.tsx" showLineNumbers
+import { type MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 type Frontmatter = {
   title: string;
@@ -116,16 +116,17 @@ type Post<TFrontmatter> = {
 
 Next, we'll define an async function called `getPost` that takes a filepath, and returns a `Post` object by reading the file from the filesystem and serializing the MDX content.
 
-```tsx:/app/page.tsx
+```tsx title="/app/page.tsx" showLineNumbers {4,8,13-15,21-24}
 // ...
-import { serialize } from "next-mdx-remote/serialize";
-import { promises as fs } from "fs";
+
+import { promises as fs } from 'fs';
+import { serialize } from 'next-mdx-remote/serialize';
 
 // ...
 
 async function getPost(filepath: string): Promise<Post<Frontmatter>> {
   // Read the file from the filesystem
-  const raw = await fs.readFile(filepath, "utf-8");
+  const raw = await fs.readFile(filepath, 'utf-8');
 
   // Serialize the MDX content and parse the frontmatter
   const serialized = await serialize(raw, {
@@ -147,13 +148,13 @@ async function getPost(filepath: string): Promise<Post<Frontmatter>> {
 
 Now let's get this post inside our `Home` component. We'll have to change the `Home` component to be an [async server component](https://beta.nextjs.org/docs/data-fetching/fetching#asyncawait-in-server-components) so we can use `await` in the top level of the component.
 
-```tsx:/app/page.tsx
+```tsx title="/app/page.tsx" showLineNumbers {3,7,8}
 export default async function Home() {
   // Get the serialized content and frontmatter
-  const { serialized, frontmatter } = await getPost("content/post.mdx");
+  const { serialized, frontmatter } = await getPost('content/post.mdx');
 
   return (
-    <div style={{ maxWidth: 600, margin: "auto" }}>
+    <div style={{ maxWidth: 600, margin: 'auto' }}>
       <h1>{frontmatter.title}</h1>
       <p>Published {frontmatter.date}</p>
     </div>
@@ -175,14 +176,14 @@ next-mdx-remote provides a component called `MDXRemote`, that is used to render 
 
 Let's create a new component file called `/app/mdx-content.tsx`:
 
-```tsx:/app/mdx-content.tsx
-"use client"; // This is required!
+```tsx title="/app/mdx-content.tsx" showLineNumbers /'use client';/
+'use client';
 
-import { MDXRemote, type MDXRemoteSerializeResult } from "next-mdx-remote";
+import { MDXRemote, type MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 type MdxContentProps = {
   source: MDXRemoteSerializeResult;
-}
+};
 
 export function MdxContent({ source }: MdxContentProps) {
   return <MDXRemote {...source} />;
@@ -195,22 +196,22 @@ All this component does is render the `MDXRemote` component.
 
 If we want to add custom components to our posts, we can do so by passing a `components` prop:
 
-```tsx:/app/mdx-content.tsx
+```tsx title="/app/mdx-content.tsx" showLineNumbers /MdxComponents/1 /components={MdxComponents}/
 // ...
 
 /** Place your custom MDX components here */
 const MdxComponents = {
   /** h1 colored in yellow */
   h1: (props: React.HTMLProps<HTMLHeadingElement>) => (
-    <h1 style={{ color: "#FFF676" }} {...props} />
+    <h1 style={{ color: '#FFF676' }} {...props} />
   ),
   /** Card component */
   Card: (props: React.HTMLProps<HTMLDivElement>) => (
     <div
       style={{
-        background: "#333",
-        borderRadius: "0.25rem",
-        padding: "0.5rem 1rem",
+        background: '#333',
+        borderRadius: '0.25rem',
+        padding: '0.5rem 1rem',
       }}
       {...props}
     />
@@ -224,18 +225,18 @@ export function MdxContent({ source }: MdxContentProps) {
 
 Now let's import the `MdxContent` component into our `Home` component and render it, passing in the serialized content from our post:
 
-```tsx:/app/page.tsx
+```tsx title="/app/page.tsx" showLineNumbers {2,8,15}
 // ...
-import { MdxContent } from "./mdx-content";
+import { MdxContent } from './mdx-content';
 
 // ...
 
 export default async function Home() {
   // Get the serialized content and frontmatter
-  const { serialized, frontmatter } = await getPost("content/post.mdx");
+  const { serialized, frontmatter } = await getPost('content/post.mdx');
 
   return (
-    <div style={{ maxWidth: 600, margin: "auto" }}>
+    <div style={{ maxWidth: 600, margin: 'auto' }}>
       <h1>{frontmatter.title}</h1>
       <p>Published {frontmatter.date}</p>
       <hr />

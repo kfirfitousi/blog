@@ -23,8 +23,8 @@ module.exports = {
       colors: {
         // theme colors; edit in config/index.js
         accent: {
-          DEFAULT: blogConfig.theme?.accentColorLight || colors.rose[700],
-          dark: blogConfig.theme?.accentColorDark || colors.rose[300],
+          DEFAULT: blogConfig.theme?.accentColor?.light || colors.rose[700],
+          dark: blogConfig.theme?.accentColor?.dark || colors.rose[300],
         },
       },
       fontFamily: {

@@ -26,7 +26,7 @@ export default async function handler(req: NextRequest) {
   const fontSemiBoldData = await fontSemiBold;
   const fontBoldData = await fontBold;
 
-  const accentColor = blogConfig.theme?.accentColorLight || colors.rose[700];
+  const accentColor = blogConfig.theme?.accentColor?.light || colors.rose[700];
 
   try {
     const { searchParams } = new URL(req.url);
