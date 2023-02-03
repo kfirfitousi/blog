@@ -1,5 +1,6 @@
 import { allPages } from 'contentlayer/generated';
 
+import { blogConfig } from '@/config';
 import { SEO } from '@/components/seo';
 
 type PageHeadProps = {
@@ -18,7 +19,7 @@ export default async function PageHead({ params }: PageHeadProps) {
 
   return (
     <SEO
-      title={`‹kfir/blog› | ${title}`}
+      title={`${blogConfig.title} | ${title}`}
       description={description}
       ogImage={{ title }}
     />

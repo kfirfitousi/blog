@@ -1,6 +1,9 @@
 import { type PageConfig } from 'next';
 import { NextRequest } from 'next/server';
 import { ImageResponse } from '@vercel/og';
+import colors from 'tailwindcss/colors';
+
+import { blogConfig } from '@/config';
 
 export const config: PageConfig = {
   runtime: 'edge',
@@ -23,6 +26,8 @@ export default async function handler(req: NextRequest) {
   const fontSemiBoldData = await fontSemiBold;
   const fontBoldData = await fontBold;
 
+  const accentColor = blogConfig.theme?.accentColor?.light || colors.rose[700];
+
   try {
     const { searchParams } = new URL(req.url);
 
@@ -42,25 +47,36 @@ export default async function handler(req: NextRequest) {
               fontFamily: 'Red Hat Display',
             }}
           >
-            <div tw="text-rose-600 dark:text-rose-400">‹</div>
+            {blogConfig.titleParts && (
+              <div style={{ color: accentColor }}>‹</div>
+            )}
             <h1
-              tw="mx-0.5 font-semibold whitespace-nowrap text-center drop-shadow-sm text-slate-800 hover:text-rose-600 dark:text-rose-50 dark:hover:text-rose-400"
+              tw="mx-0.5 font-semibold text-center text-slate-800"
               style={{
                 fontFamily: 'Red Hat Display Bold',
               }}
             >
-              kfir
-              <span
-                tw="px-px font-light text-rose-600 dark:text-rose-400"
-                style={{
-                  fontFamily: 'Red Hat Display',
-                }}
-              >
-                /
-              </span>
-              blog
+              {blogConfig.titleParts ? (
+                <>
+                  {blogConfig.titleParts[0]}
+                  <span
+                    tw="px-px font-light"
+                    style={{
+                      fontFamily: 'Red Hat Display',
+                      color: accentColor,
+                    }}
+                  >
+                    /
+                  </span>
+                  {blogConfig.titleParts[1]}
+                </>
+              ) : (
+                blogConfig.title
+              )}
             </h1>
-            <div tw="text-rose-600 dark:text-rose-400">›</div>
+            {blogConfig.titleParts && (
+              <div style={{ color: accentColor }}>›</div>
+            )}
           </div>
 
           <div

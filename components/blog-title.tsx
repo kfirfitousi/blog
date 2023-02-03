@@ -1,6 +1,6 @@
 'use client';
 
-import { useThemeStore } from '@/stores/theme-store';
+import { blogConfig } from '@/config';
 import { cn } from '@/lib/utils';
 
 type BlogTitleProps = {
@@ -8,8 +8,6 @@ type BlogTitleProps = {
 };
 
 export function BlogTitle({ className }: BlogTitleProps) {
-  const isSerif = useThemeStore((state) => state.isSerif);
-
   return (
     <div
       className={cn(
@@ -17,22 +15,31 @@ export function BlogTitle({ className }: BlogTitleProps) {
         className,
       )}
     >
-      <div className="text-rose-600 dark:text-rose-400">‹</div>
+      {blogConfig.titleParts && (
+        <div className="text-accent dark:text-accent-dark">‹</div>
+      )}
       <h1
         className={cn(
-          isSerif && 'font-serif',
           'mx-0.5 whitespace-nowrap text-center font-semibold drop-shadow-sm',
-          'text-slate-800 hover:text-rose-600',
-          'dark:text-rose-50 dark:hover:text-rose-400',
+          'text-slate-800 hover:text-accent',
+          'dark:text-rose-50 dark:hover:text-accent-dark',
         )}
       >
-        kfir
-        <span className="px-px font-light text-rose-600 dark:text-rose-400">
-          /
-        </span>
-        blog
+        {blogConfig.titleParts ? (
+          <>
+            {blogConfig.titleParts[0]}
+            <span className="px-px font-light text-accent dark:text-accent-dark">
+              /
+            </span>
+            {blogConfig.titleParts[1]}
+          </>
+        ) : (
+          blogConfig.title
+        )}
       </h1>
-      <div className="text-rose-600 dark:text-rose-400">›</div>
+      {blogConfig.titleParts && (
+        <div className="text-accent dark:text-accent-dark">›</div>
+      )}
     </div>
   );
 }

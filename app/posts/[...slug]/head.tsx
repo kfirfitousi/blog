@@ -1,5 +1,6 @@
 import { allPosts } from 'contentlayer/generated';
 
+import { blogConfig } from '@/config';
 import { SEO } from '@/components/seo';
 
 type PostPageHeadProps = {
@@ -18,7 +19,7 @@ export default function PostPageHead({ params }: PostPageHeadProps) {
 
   return (
     <SEO
-      title={`‹kfir/blog› | ${title}`}
+      title={`${blogConfig.title} | ${title}`}
       description={excerpt}
       ogType="article"
       ogImage={{

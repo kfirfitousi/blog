@@ -1,7 +1,7 @@
 import '@/styles/globals.css';
 import 'react-tooltip/dist/react-tooltip.css';
 import React from 'react';
-import { Newsreader, Red_Hat_Display } from '@next/font/google';
+import { Red_Hat_Display } from '@next/font/google';
 import type { Decorator, Parameters } from '@storybook/react';
 import type { GlobalTypes } from '@storybook/types';
 
@@ -10,11 +10,6 @@ import { cn } from '@/lib/utils';
 const fontSans = Red_Hat_Display({
   subsets: ['latin'],
   variable: '--font-red-hat',
-});
-
-const fontSerif = Newsreader({
-  subsets: ['latin'],
-  variable: '--font-newsreader',
 });
 
 export const parameters: Parameters = {
@@ -41,13 +36,9 @@ export const globalTypes: GlobalTypes = {
 export const decorators: Decorator[] = [
   (Story) => (
     <div
-      className={cn(fontSans.variable, fontSerif.variable, 'font-sans')}
+      className="font-sans"
       style={
-        {
-          // temporary fix for Red Hat Display font not loading
-          // TODO: remove when it's fixed
-          '--font-red-hat': fontSans.style.fontFamily,
-        } as React.CSSProperties
+        { '--font-red-hat': fontSans.style.fontFamily } as React.CSSProperties
       }
     >
       <div className="grid min-h-screen grid-cols-1 grid-rows-1 bg-slate-200 dark:bg-slate-700 sm:grid-cols-layout">

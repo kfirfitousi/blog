@@ -1,16 +1,18 @@
+const { blogConfig } = require('./config/index.js');
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
 
+  // enable dark mode
+  darkMode: 'class',
+
   plugins: [
     // used for markdown prose styling; see components/mdx-content.tsx
     require('@tailwindcss/typography'),
   ],
-
-  // enable dark mode
-  darkMode: 'class',
 
   theme: {
     screens: {
@@ -18,6 +20,13 @@ module.exports = {
       ...defaultTheme.screens,
     },
     extend: {
+      colors: {
+        // theme colors; edit in config/index.js
+        accent: {
+          DEFAULT: blogConfig.theme?.accentColor?.light || colors.rose[700],
+          dark: blogConfig.theme?.accentColor?.dark || colors.rose[300],
+        },
+      },
       fontFamily: {
         // uses @next/font; see app/layout.tsx
         sans: ['var(--font-red-hat)'],

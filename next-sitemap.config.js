@@ -1,5 +1,7 @@
+const { blogConfig } = require('./config/index.js');
+
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://blog.kfirfitousi.com',
+  siteUrl: blogConfig.url,
   generateRobotsTxt: true,
 };

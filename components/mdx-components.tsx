@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
  * Use <Link> for internal links and <a> for external links and anchors
  * and open external links in a new tab
  */
-export function a({ href, children }: React.HTMLProps<HTMLAnchorElement>) {
+function a({ href, children }: React.HTMLProps<HTMLAnchorElement>) {
   if (href && href.startsWith('/')) {
     return <Link href={href}>{children}</Link>;
   }
@@ -83,11 +83,4 @@ function pre({ children }: React.HTMLProps<HTMLPreElement>) {
   return <CodeBlock>{children}</CodeBlock>;
 }
 
-/**
- * Monospace font component
- */
-function Mono({ children }: React.HTMLProps<HTMLSpanElement>) {
-  return <span className="font-mono">{children}</span>;
-}
-
-export const MdxComponents = { a, p, img, pre, Mono, TableOfContents, Callout };
+export const MDXComponents = { a, p, img, pre, TableOfContents, Callout };

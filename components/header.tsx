@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useSelectedLayoutSegments } from 'next/navigation';
 
-import { useThemeStore } from '@/stores/theme-store';
 import { NavigationBar } from '@/components/navigation-bar';
 import { Toolbar } from '@/components/toolbar';
 import { cn } from '@/lib/utils';
@@ -13,7 +12,6 @@ export function Header() {
   const isPostPage = layoutSegment[0] === 'posts' && !!layoutSegment[1];
   const [scrollTop, setScrollTop] = useState(0);
   const headerRef = useRef<HTMLDivElement>(null);
-  const isSerif = useThemeStore((state) => state.isSerif);
 
   useEffect(() => {
     // sync scroll position with state
@@ -37,7 +35,6 @@ export function Header() {
         headerRef.current && scrollTop > headerRef.current.clientHeight
           ? 'border-b border-b-slate-300 bg-slate-500/10 py-2 dark:border-b-slate-500'
           : 'bg-transparent py-8',
-        isSerif && 'font-serif',
         'flex flex-row items-center justify-between px-4 xs:px-8',
         'transition-[padding,background-color] duration-300 ease-in-out',
         'text-slate-700 backdrop-blur dark:text-rose-50',

@@ -1,3 +1,5 @@
+import { blogConfig } from '@/config';
+
 type SEOProps = {
   title: string;
   description: string;
@@ -14,6 +16,15 @@ export function SEO({
   ogImage,
   ogType = 'website',
 }: SEOProps) {
+  const ogImageUrl = new URL('/api/og', blogConfig.url);
+  ogImageUrl.searchParams.set('title', ogImage?.title || '');
+  ogImageUrl.searchParams.set('subtitle', ogImage?.subtitle || '');
+
+  const twitterHandle = blogConfig.footerLinks?.twitter?.replace(
+    /https?:\/\/(www.)?twitter\.com\//,
+    '@',
+  );
+
   return (
     <>
       <title>{title}</title>
@@ -21,15 +32,14 @@ export function SEO({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
-      <meta
-        property="og:image"
-        content={`https://blog.kfirfitousi.com/api/og?title=${
-          ogImage?.title || ''
-        }&subtitle=${ogImage?.subtitle || ''}`}
-      />
+      <meta property="og:image" content={ogImageUrl.toString()} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@kp2c" />
-      <meta name="twitter:creator" content="@kp2c" />
+      {twitterHandle && (
+        <>
+          <meta name="twitter:site" content={twitterHandle} />
+          <meta name="twitter:creator" content={twitterHandle} />
+        </>
+      )}
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <link
         rel="apple-touch-icon"

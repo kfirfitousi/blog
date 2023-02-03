@@ -6,7 +6,7 @@ import { Pause, Play } from 'lucide-react';
 import Typist from 'react-typist-component';
 import Balancer from 'react-wrap-balancer';
 
-import { useThemeStore } from '@/stores/theme-store';
+import { blogConfig } from '@/config';
 import { cn } from '@/lib/utils';
 
 type TypingState = {
@@ -46,12 +46,9 @@ export function HeroSection() {
     },
   );
 
-  const isSerif = useThemeStore((state) => state.isSerif);
-
   return (
     <section
       className={cn(
-        isSerif && 'font-serif',
         'flex flex-col items-center justify-center space-y-2',
         'relative h-40 w-full rounded-md px-4 shadow-lg',
         'bg-slate-300 dark:bg-slate-800/50',
@@ -87,7 +84,7 @@ export function HeroSection() {
         )}
         {subtitleDone && (
           <Typist typingDelay={100} backspaceDelay={75} pause={isPaused} loop>
-            {topics.map((topic) => (
+            {blogConfig.topics.map((topic) => (
               <span key={topic} className="font-semibold">
                 {topic}
                 <Typist.Delay ms={1000} />
@@ -105,8 +102,8 @@ export function HeroSection() {
           <Play
             className={cn(
               'h-4 w-4',
-              'text-slate-400/50 hover:text-rose-600',
-              'dark:text-rose-50/20 dark:hover:text-rose-400',
+              'text-slate-400/50 hover:text-accent',
+              'dark:text-rose-50/20 dark:hover:text-accent-dark',
             )}
             aria-label="Play animation"
           />
@@ -114,8 +111,8 @@ export function HeroSection() {
           <Pause
             className={cn(
               'h-4 w-4',
-              'text-slate-400/50 hover:text-rose-600',
-              'dark:text-rose-50/20 dark:hover:text-rose-400',
+              'text-slate-400/50 hover:text-accent',
+              'dark:text-rose-50/20 dark:hover:text-accent-dark',
             )}
             aria-label="Pause animation"
           />
@@ -124,12 +121,3 @@ export function HeroSection() {
     </section>
   );
 }
-
-const topics = [
-  'Web Development',
-  'React',
-  'TypeScript',
-  'Next.js',
-  'Design',
-  'Computer Vision',
-];
