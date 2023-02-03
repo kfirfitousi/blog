@@ -52,7 +52,7 @@ export type BlogConfig = {
     };
     /**
      * The themes to use for the code blocks.
-     * Must be a valid Shiki {@link ShikiTheme}.
+     * Must be a valid {@link ShikiTheme}.
      */
     codeBlockTheme?: {
       /**
@@ -72,7 +72,7 @@ export type BlogConfig = {
   giscus: Omit<GiscusProps, 'theme'> & {
     /**
      * The themes to use in the Giscus comment sections.
-     * Must be a valid Giscus {@link GiscusTheme}.
+     * Must be a valid {@link GiscusTheme}.
      */
     theme?: {
       /**
