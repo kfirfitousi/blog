@@ -3,44 +3,46 @@ title: About
 description: I'm a Full Stack Developer experienced with TypeScript, React and Next.js.
 ---
 
-```tsx:about-me.ts
+```ts title="kfir.ts"
 type Kfir = Human & Coder & Gamer;
 
 const kfir: Kfir = {
-  name: "Kfir Fitousi",
-  location: "Israel",
+  name: 'Kfir Fitousi',
+  location: 'Israel',
   occupation: {
-    title: "Computer Science Student",
-    institution: "Academic College of Tel-Aviv Yaffo",
+    title: 'Computer Science Student',
+    institution: 'Academic College of Tel-Aviv Yaffo',
   },
-  languages: ["TypeScript", "JavaScript", "Python"],
+  languages: ['TypeScript', 'JavaScript', 'Python'],
   technologies: {
-    frontEnd: ["React", "Svelte"],
-    backEnd: ["Node.js", "Express.js"],
-    fullStack: ["Next.js", "SvelteKit"],
-    stateManagement: ["Zustand", "React-Query"],
-    testing: ["Jest", "Playwright", "Storybook"],
-    css: ["TailwindCSS"],
+    frontEnd: ['React', 'Svelte'],
+    backEnd: ['Node.js', 'Express.js'],
+    fullStack: ['Next.js', 'SvelteKit'],
+    stateManagement: ['Zustand', 'React-Query'],
+    testing: ['Jest', 'Playwright', 'Storybook'],
+    css: ['TailwindCSS'],
   },
-  games: ["World of Warcraft", "Battlefield", "ContractorsVR"]
+  games: ['World of Warcraft', 'Battlefield', 'ContractorsVR'],
 };
 ```
 
-```tsx:about-me.test.ts
-describe("Kfir", () => {
-  it("makes beautiful designs", () => {
+<br />
+
+```ts title="kfir.test.ts"
+describe('Kfir', () => {
+  it('makes beautiful designs', () => {
     const designs = getDesigns(kfir);
-    expect(designs).toHaveProperty("slick");
-    expect(designs).toHaveProperty("responsive");
-    expect(designs).toHaveProperty("accessible");
+    expect(designs).toHaveProperty('slick');
+    expect(designs).toHaveProperty('responsive');
+    expect(designs).toHaveProperty('accessible');
   });
 
-  it("writes clean code", () => {
+  it('writes clean code', () => {
     const code = getCode(kfir);
-    expect(code).toHaveProperty("readable");
-    expect(code).toHaveProperty("maintainable");
-    expect(code).toHaveProperty("testable");
-    expect(code).toContain("best practices");
+    expect(code).toHaveProperty('readable');
+    expect(code).toHaveProperty('maintainable');
+    expect(code).toHaveProperty('testable');
+    expect(code).toContain('best practices');
   });
 });
 ```
