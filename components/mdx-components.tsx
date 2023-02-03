@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
  * Use <Link> for internal links and <a> for external links and anchors
  * and open external links in a new tab
  */
-export function a({ href, children }: React.HTMLProps<HTMLAnchorElement>) {
+function a({ href, children }: React.HTMLProps<HTMLAnchorElement>) {
   if (href && href.startsWith('/')) {
     return <Link href={href}>{children}</Link>;
   }
