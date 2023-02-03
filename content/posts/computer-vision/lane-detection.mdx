@@ -31,7 +31,7 @@ First, we need a dashcam video to work with. I chose [this one](https://youtu.be
 
 ![Dashcam video frame {{ w: 700, h: 393, cap: "The first frame of the video" }}](/images/computer-vision/lane-detection/first-frame.webp)
 
-Let's import the necessary libraries, `cv2` for OpenCV and `numpy` for working with arrays:
+Let's import the necessary libraries, `cv2{:python}` for OpenCV and `numpy{:python}` for working with arrays:
 
 ```python
 import cv2
@@ -39,9 +39,9 @@ import numpy as np
 ```
 
 We're going to need to extract frames from our video and write them to an output video.  
-We can do this using the `VideoCapture` and `VideoWriter` classes from OpenCV:
+We can do this using the `VideoCapture{:python}` and `VideoWriter{:python}` classes from OpenCV:
 
-```python
+```python showLineNumbers
 def LaneDetect(input, output="output"):
     # create video capture object
     video = cv2.VideoCapture(input)
@@ -60,11 +60,11 @@ def LaneDetect(input, output="output"):
 ```
 
 This creates a capture object that we can use to read frames from the video, and a writer object that we can use to write frames to the output video.  
-We want the output video to have the same framerate and dimensions as the input video, so we use the `get` method to get those values from the capture object and pass them to the writer object.
+We want the output video to have the same framerate and dimensions as the input video, so we use the `get{:python}` method to get those values from the capture object and pass them to the writer object.
 
 Now we can loop through the frames of the video, mess around with them, and write them to the output video:
 
-```python
+```python showLineNumbers {4,14}
 success = True
 while success:
     # read frame
@@ -88,7 +88,7 @@ while success:
 To detect the lanes, we are going to use the [Hough Transform](https://en.wikipedia.org/wiki/Hough_transform), which is a technique for detecting lines in an image. Before using the Hough Transform, it is necessary to preprocess the image.  
 Here is our preprocessing code:
 
-```python
+```python showLineNumbers
 def preprocess(im):
     # make a copy of the image
     res = im.copy()
@@ -129,22 +129,22 @@ In the final step, we can see the edges of the lane markings. Now we can use the
 
 ## Hough Transform
 
-Straight lines are typically represented using the **cartesian coordinate system**. In this system, a line is represented by the equation <Mono>**y = mx + b**</Mono>, where <Mono>**m**</Mono> is the slope and <Mono>**b**</Mono> is the y-intercept.
+Straight lines are typically represented using the **cartesian coordinate system**. In this system, a line is represented by the equation `y = mx + b`, where `m` is the slope and `b` is the y-intercept.
 However, this representation has one major drawback: vertical lines have an infinite slope, which means that they cannot be represented by this equation.  
 Since we need the ability to detect vertical lines, we have to use a different system.  
-The Hough Transform uses the **polar coordinate system** to represent lines. In this system, a line is represented by the equation <Mono>**ρ = xcosθ + ysinθ**</Mono>, where <Mono>**ρ**</Mono> is the distance from the origin and <Mono>**θ**</Mono> is the angle between the <Mono>**ρ**</Mono> line and the x-axis (measured in radians).
+The Hough Transform uses the **polar coordinate system** to represent lines. In this system, a line is represented by the equation `ρ = xcosθ + ysinθ`, where `ρ` is the distance from the origin and `θ` is the angle between the `ρ` line and the x-axis (measured in radians).
 
 ![Polar coordinate system {{ w: 700, h: 393, cap: "The polar coordinate system" }}](/images/computer-vision/lane-detection/polar-coordinates.webp)
 
 <Callout type="note">
 
-In OpenCV, the origin <Mono>(0,0)</Mono> of the image sits at the top left, and not the bottom left as you might expect.
+In OpenCV, the origin (0,0) of the image sits at the top left, and not the bottom left as you might expect.
 
 </Callout>
 
-Left lane markings are either vertical or slanted to the right, so in this representation, their **θ** will be between <Mono>0</Mono> and <Mono>7π/18</Mono> radians (70 degrees). Right lane markings are either vertical or slanted to the left, so their **θ** will be between <Mono>11π/18</Mono> radians (110 degrees) and <Mono>π</Mono> radians (180 degrees).  
-The lines with **θ** between <Mono>7π/18</Mono> and <Mono>11π/18</Mono> radians are horizontal lines, which are not lane markings and can be ignored.  
-We can use this information and the `HoughLines` function to find the left and right lines in the frame:
+Left lane markings are either vertical or slanted to the right, so in this representation, their **θ** will be between `0` and `7π/18` radians (70 degrees). Right lane markings are either vertical or slanted to the left, so their **θ** will be between `11π/18` radians (110 degrees) and `π` radians (180 degrees).  
+The lines with **θ** between `7π/18` and `11π/18` radians are horizontal lines, which are not lane markings and can be ignored.  
+We can use this information and the `HoughLines{:python}` function to find the left and right lines in the frame:
 
 ```python
 left_lines = cv2.HoughLines(
@@ -155,12 +155,12 @@ right_lines = cv2.HoughLines(
 
 We are using the following parameters:
 
-- `ρ` is set to <Mono>1</Mono> - This is the resolution of the <Mono>**ρ**</Mono> parameter. The higher the value, the more accurate the lines will be, but the more lines will be detected.
-- `θ` is set to <Mono>π/180</Mono> (1 degree) - This is the resolution of the <Mono>**θ**</Mono> parameter. The higher the value, the more accurate the lines will be, but the more lines will be detected.
-- `threshold` is set to <Mono>100</Mono> - This is the minimum number of pixels that need to be on a line for it to be detected.
-- `min_theta` and `max_theta` - These are the minimum and maximum values of <Mono>**θ**</Mono> that we want to detect.
+- `rho{:python}` is set to `1` - This is the resolution of the `ρ` parameter. The higher the value, the more accurate the lines will be, but the more lines will be detected.
+- `theta{:python}` is set to `π/180` (1 degree) - This is the resolution of the `θ` parameter. The higher the value, the more accurate the lines will be, but the more lines will be detected.
+- `threshold{:python}` is set to `100` - This is the minimum number of pixels that need to be on a line for it to be detected.
+- `min_theta{:python}` and `max_theta{:python}` - These are the minimum and maximum values of `θ` that we want to detect.
 
-The `HoughLines` function returns a list of lines, each line is a 2d array, and the first element of that array is <Mono>[ρ, θ]</Mono>.
+The `HoughLines` function returns a list of lines, each line is a 2d array, and the first element of that array is `[ρ, θ]`.
 
 ```python
 left_lines = [[[rho1, theta1]], [[rho2, theta2]], ... ]
@@ -176,7 +176,7 @@ line[0][1] # theta of first line
 At this stage, we may have a long list of lines on each side, or we may have no lines at all.  
 If no lines are detected, we can use the previous frame’s lines. Since we know the car isn’t going to move a great distance between frames, the previous frame’s lines are a fairly good estimate – and better than nothing.
 
-```python
+```python showLineNumbers
 if left_lines is None and len(prev_left_lines) > 0:
     left_lines = np.array([[prev_left_lines[-1][0]]])
 # do the same for the right lines
@@ -186,7 +186,7 @@ If we have a list of lines, we employ the following strategy to choose the best 
 
 1. We save the previous frame’s lines, and filter our lists to only include lines that are close to those. This helps removing outliers and makes the lines more stable between frames.
 
-```python
+```python showLineNumbers
 if len(prev_left_lines) > 0:
     close_left_lines = [line for line in left_lines if abs(
         line[0][0] - prev_left_lines[-1][0][0]) < 50 and abs(
@@ -196,9 +196,9 @@ if len(prev_left_lines) > 0:
 # do the same for the right lines
 ```
 
-Here we are filtering the lines to only include lines with a <Mono>**ρ**</Mono> value that is within 50 of the previous frame’s <Mono>**ρ**</Mono> value, and a <Mono>**θ**</Mono> value that is within 0.1 radians of the previous frame’s <Mono>**θ**</Mono> value. We only use this filtered list if it’s not empty.
+Here we are filtering the lines to only include lines with a `ρ` value that is within `50` of the previous frame’s `ρ` value, and a `θ` value that is within `0.1` radians of the previous frame’s `θ` value. We only use this filtered list if it’s not empty.
 
-2. We take the average of the lines. This leaves us with single <Mono>**ρ**</Mono> and <Mono>**θ**</Mono> values for each side.
+2. We take the average of the lines. This leaves us with single `ρ` and `θ` values for each side.
 
 ```python
 left_rho = np.average([line[0][0]
@@ -213,7 +213,7 @@ left_theta = np.average([line[0][1]
 ## Marking the Lanes
 
 Now that we have a line on each side, we can start drawing them on the frame.  
-We don't want to draw the lines directly on the frame, because we want to control their opacity. We can do this by creating a new image to draw on, and then use the `addWeighted` function to add the new frame to the original frame with a specified opacity.
+We don't want to draw the lines directly on the frame, because we want to control their opacity. We can do this by creating a new image to draw on, and then use the `addWeighted{:python}` function to add the new frame to the original frame with a specified opacity.
 
 ```python
 lanes_image = np.zeros_like(frame)
@@ -249,7 +249,7 @@ If we were to draw the lines now, they would extend too far and go beyond the ro
 
 ![Lane lines extend too far {{ w: 700, h: 393, cap: "Lines extend beyond the road and need to be cropped" }}](/images/computer-vision/lane-detection/lines-too-long.webp)
 
-To fix this, we crop the top of the lines to a certain <Mono>**y**</Mono> value, in this case, 1150. We also crop the bottom of the lines to the bottom of the frame, which has a <Mono>**y**</Mono> value of 2200.
+To fix this, we crop the top of the lines to a certain `y` value, in this case, `1150`. We also crop the bottom of the lines to the bottom of the frame, which has a `y` value of `2200`.
 
 ```python
 # crop the top of the lines so they don't extend too far up
@@ -269,13 +269,13 @@ if y4 > 2200:
     y4 = 2200
 ```
 
-Here we are decreasing the <Mono>**y**</Mono> value of the top of the lines to 1150 and using the line formula to find the corresponding <Mono>**x**</Mono> value. We are also increasing the <Mono>**y**</Mono> value of the bottom of the lines to 2200 using the same strategy.
+Here we are decreasing the `y` value of the top of the lines to `1150` and using the line formula to find the corresponding `x` value. We are also increasing the `y` value of the bottom of the lines to `2200` using the same strategy.
 
 Here is what the lines look like after cropping:
 
 ![Cropped lane lines {{ w: 700, h: 393, cap: "Lines are cropped to fit the road" }}](/images/computer-vision/lane-detection/lines-cropped.webp)
 
-To draw the lines, we use the `line` function, which takes the image to draw on, the start and end points, the color, and the line width as arguments.
+To draw the lines, we use the `line{:python}` function, which takes the image to draw on, the start and end points, the color, and the line width as arguments.
 
 ```python
 if left_lines is not None:
@@ -284,7 +284,7 @@ if right_lines is not None:
     cv2.line(lanes_image, (x3, y3), (x4, y4), (255, 0, 0), 10)
 ```
 
-Next, we want fill the area between the lines. We use the `fillPoly` function to draw a polygon using the 4 points we calculated earlier.
+Next, we want fill the area between the lines. We use the `fillPoly{:python}` function to draw a polygon using the 4 points we calculated earlier.
 
 ```python
 if left_lines is not None and right_lines is not None:
@@ -293,7 +293,7 @@ if left_lines is not None and right_lines is not None:
     cv2.fillPoly(lanes_image, [points], (225, 225, 225))
 ```
 
-Finally, we use the `addWeighted` function to add the lanes image on top of the original frame with an opacity of 0.4.
+Finally, we use the `addWeighted{:python}` function to add the lanes image on top of the original frame with an opacity of `0.4`.
 
 ```python
 frame_with_lane_markings = cv2.addWeighted(
@@ -309,7 +309,7 @@ Here is what the final result looks like:
 ## Lane Change Detection
 
 We want to detect when the car is changing lanes, and to which direction.  
-We know that when the car is changing lanes, the <Mono>**ρ**</Mono> values of the lines will change. We can take the average left and right <Mono>**ρ**</Mono> values from the previous 60 frames, and compare them to the current <Mono>**ρ**</Mono> values. If the current <Mono>**ρ**</Mono> values are significantly different from the average, we can assume that the car is changing lanes.
+We know that when the car is changing lanes, the `ρ` values of the lines will change. We can take the average left and right `ρ` values from the previous 60 frames, and compare them to the current `ρ` values. If the current `ρ` values are significantly different from the average, we can assume that the car is changing lanes.
 
 ```python
 left_rho_avg = np.average(
@@ -322,8 +322,8 @@ right_rho_diff = abs(right_rho-right_rho_avg)
 ```
 
 But how can we tell wheter the car is changing lanes to the left or to the right?  
-We notice that when the car is changing lanes to the left, the <Mono>**x**</Mono> value of the bottom of the left line decreases, and when the car is changing lanes to the right, that value increases.  
-So, we also need to find the average <Mono>**x**</Mono> value of the bottom of the left line, which we called <Mono>**x1**</Mono>.
+We notice that when the car is changing lanes to the left, the `x` value of the bottom of the left line decreases, and when the car is changing lanes to the right, that value increases.  
+So, we also need to find the average `x` value of the bottom of the left line, which we called `x1`.
 
 ```python
 x1_avg = np.average(
@@ -346,10 +346,10 @@ if not lane_change_left and not lane_change_right and len(
     prev_x1_values = []
 ```
 
-We use the value 170 as a threshold for the difference between the current <Mono>**ρ**</Mono> values and the average <Mono>**ρ**</Mono> values. If the difference is greater than 170, we assume that the car is changing lanes.  
-When a lane change is detected, we discard the previous left and right lines and the previous <Mono>**x**</Mono> values, since they are no longer relevant. Also, we reset the `lane_change_frames_shown` variable, which keeps track of how many frames have passed since the message was displayed.
+We use the value `170` as a threshold for the difference between the current `ρ` values and the average `ρ` values. If the difference is greater than `170`, we assume that the car is changing lanes.  
+When a lane change is detected, we discard the previous left and right lines and the previous `x` values, since they are no longer relevant. Also, we reset the `lane_change_frames_shown{:python}` variable, which keeps track of how many frames have passed since the message was displayed.
 
-Finally, we use the `putText` function to display a message for 60 frames when the car is changing lanes.
+Finally, we use the `putText{:python}` function to display a message for 60 frames when the car is changing lanes.
 
 ```python
 if lane_change_right or lane_change_left:
@@ -371,5 +371,3 @@ if lane_change_right or lane_change_left:
   className="w-full rounded"
   style={{ aspectRatio: '16/9' }}
 />
-
-Hope you enjoyed reading this post! I plan on writing more about Computer Vision, so stay tuned!

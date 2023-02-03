@@ -59,20 +59,39 @@ pre {
 
 pre > code {
   padding: 1rem !important;
-  background-color: #fff !important;
   overflow-x: auto !important;
 }
 
+code {
+  padding: 0 0.25rem !important;
+  border-radius: 0.25rem !important;
+  font-weight: revert !important;
+}
+
+code::before,
+code::after {
+  content: '' !important;
+}
+
 code[data-theme='dark'] {
+  background-color: #22272e;
   display: none;
 }
 
 html.dark code[data-theme='dark'] {
-  background-color: #22272e !important;
+  display: inline-block;
+}
+
+html.dark pre > code[data-theme='dark'] {
   display: grid;
 }
 
 code[data-theme='light'] {
+  background-color: #fff;
+  display: inline-block;
+}
+
+pre > code[data-theme='light'] {
   display: grid;
 }
 
@@ -117,8 +136,8 @@ html.dark [data-rehype-pretty-code-title] {
 
 [data-rehype-pretty-code-title] + pre,
 [data-rehype-pretty-code-title] + pre > code {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
 }
 
 code .word {
