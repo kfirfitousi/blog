@@ -3,7 +3,7 @@
 /** @type {import('./types').BlogConfig} */
 const blogConfig = {
   url: 'https://blog.kfirfitousi.com',
-  title: 'kfir/blog›',
+  title: '‹kfir/blog›',
   titleParts: ['kfir', 'blog'],
   author: 'Kfir Fitousi',
   descriptions: {
