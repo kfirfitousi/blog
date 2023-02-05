@@ -5,15 +5,27 @@ import { compareDesc } from 'date-fns';
 import { blogConfig } from '@/config';
 import { PostPaginator } from '@/components/post-paginator';
 
+const title = `${blogConfig.title} | Posts`;
+
+const ogImage = {
+  url: `${blogConfig.url}/api/og?title=Posts`,
+};
+
 export const metadata: Metadata = {
-  title: `${blogConfig.title} | Posts`,
+  title,
   description: blogConfig.descriptions.posts,
   openGraph: {
     type: 'website',
     url: `${blogConfig.url}/posts`,
-    title: { absolute: `${blogConfig.title} | Posts` },
+    title: { absolute: title },
     description: blogConfig.descriptions.posts,
-    images: [{ url: `${blogConfig.url}/api/og?title=Posts` }],
+    images: [ogImage],
+  },
+  twitter: {
+    title,
+    description: blogConfig.descriptions.posts,
+    images: ogImage,
+    card: 'summary_large_image',
   },
 };
 

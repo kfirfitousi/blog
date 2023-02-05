@@ -20,23 +20,33 @@ export async function generateStaticParams(): Promise<PageProps['params'][]> {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { title, description, slug } = allPages.find(
-    ({ slug }) => slug === params.slug.join('/'),
-  ) || {
+  const page = allPages.find(({ slug }) => slug === params.slug.join('/')) || {
     title: 'Page Not Found',
     description: 'Page not found',
-    slug: '',
+    url: blogConfig.url,
+  };
+
+  const title = `${blogConfig.title} | ${page.title}`;
+
+  const ogImage = {
+    url: `${blogConfig.url}/api/og?title=${page.title}`,
   };
 
   return {
-    title: `${blogConfig.title} | ${title}`,
-    description,
+    title,
+    description: page.description,
     openGraph: {
       type: 'website',
-      url: `${blogConfig.url}/${slug}`,
-      title: { absolute: `${blogConfig.title} | ${title}` },
-      description,
-      images: [{ url: `${blogConfig.url}/api/og?title=${title}` }],
+      url: `${blogConfig.url}${page.url}`,
+      title: { absolute: title },
+      description: page.description,
+      images: [ogImage],
+    },
+    twitter: {
+      title,
+      description: page.description,
+      images: ogImage,
+      card: 'summary_large_image',
     },
   };
 }

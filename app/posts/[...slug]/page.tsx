@@ -24,25 +24,35 @@ export async function generateStaticParams(): Promise<
 export async function generateMetadata({
   params,
 }: PostPageProps): Promise<Metadata> {
-  const { title, excerpt, slug } = allPosts.find(
-    ({ slug }) => slug === params.slug.join('/'),
-  ) || {
+  const post = allPosts.find(({ slug }) => slug === params.slug.join('/')) || {
     title: 'Post Not Found',
     excerpt: 'Post not found',
-    slug: '',
+    url: blogConfig.url,
+    date: new Date().toISOString(),
+  };
+
+  const title = `${blogConfig.title} | ${post.title}`;
+
+  const ogImage = {
+    url: `${blogConfig.url}/api/og?title=${post.title}&subtitle=${post.excerpt}`,
   };
 
   return {
-    title: `${blogConfig.title} | ${title}`,
-    description: excerpt,
+    title,
+    description: post.excerpt,
     openGraph: {
       type: 'article',
-      url: `${blogConfig.url}/posts/${slug}`,
-      title: { absolute: `${blogConfig.title} | ${title}` },
-      description: excerpt,
-      images: [
-        { url: `${blogConfig.url}/api/og?title=${title}&subtitle=${excerpt}` },
-      ],
+      url: `${blogConfig.url}${post.url}`,
+      title: { absolute: title },
+      description: post.excerpt,
+      publishedTime: post.date,
+      images: [ogImage],
+    },
+    twitter: {
+      title: title,
+      description: post.excerpt,
+      images: ogImage,
+      card: 'summary_large_image',
     },
   };
 }

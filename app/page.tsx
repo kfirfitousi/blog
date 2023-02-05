@@ -8,6 +8,10 @@ import { Button } from '@/components/button';
 import { HeroSection } from '@/components/hero-section';
 import { PostCard } from '@/components/post-card';
 
+const ogImage = {
+  url: `${blogConfig.url}/api/og`,
+};
+
 export const metadata: Metadata = {
   title: blogConfig.title,
   description: blogConfig.descriptions.home,
@@ -16,7 +20,13 @@ export const metadata: Metadata = {
     url: blogConfig.url,
     title: { absolute: blogConfig.title },
     description: blogConfig.descriptions.home,
-    images: [{ url: `${blogConfig.url}/api/og` }],
+    images: [ogImage],
+  },
+  twitter: {
+    title: blogConfig.title,
+    description: blogConfig.descriptions.home,
+    images: ogImage,
+    card: 'summary_large_image',
   },
 };
 

@@ -11,10 +11,6 @@ const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  twitter: {
-    title: blogConfig.title,
-    card: 'summary_large_image',
-  },
   icons: [
     {
       rel: 'apple-touch-icon',
