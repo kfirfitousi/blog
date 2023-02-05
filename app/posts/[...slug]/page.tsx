@@ -26,8 +26,8 @@ export async function generateMetadata({
 }: PostPageProps): Promise<Metadata> {
   const post = allPosts.find(({ slug }) => slug === params.slug.join('/')) || {
     title: 'Post Not Found',
-    excerpt: 'Post not found',
-    url: blogConfig.url,
+    excerpt: '',
+    url: '/posts',
     date: new Date().toISOString(),
   };
 
@@ -49,7 +49,7 @@ export async function generateMetadata({
       images: [ogImage],
     },
     twitter: {
-      title: title,
+      title,
       description: post.excerpt,
       images: ogImage,
       card: 'summary_large_image',

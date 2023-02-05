@@ -22,8 +22,8 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const page = allPages.find(({ slug }) => slug === params.slug.join('/')) || {
     title: 'Page Not Found',
-    description: 'Page not found',
-    url: blogConfig.url,
+    description: '',
+    url: '/',
   };
 
   const title = `${blogConfig.title} | ${page.title}`;
