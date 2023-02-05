@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
+import { type Metadata } from 'next/types';
 import { allPosts } from 'contentlayer/generated';
 
+import { blogConfig } from '@/config';
 import { Comments } from '@/components/comments';
 import { MDXContent } from '@/components/mdx-content';
 import { PostIntro } from '@/components/post-intro';
@@ -17,6 +19,32 @@ export async function generateStaticParams(): Promise<
   return allPosts.map(({ slug }) => ({
     slug: slug.split('/'),
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: PostPageProps): Promise<Metadata> {
+  const { title, excerpt, slug } = allPosts.find(
+    ({ slug }) => slug === params.slug.join('/'),
+  ) || {
+    title: 'Post Not Found',
+    excerpt: 'Post not found',
+    slug: '',
+  };
+
+  return {
+    title: `${blogConfig.title} | ${title}`,
+    description: excerpt,
+    openGraph: {
+      type: 'article',
+      url: `${blogConfig.url}/posts/${slug}`,
+      title: { absolute: `${blogConfig.title} | ${title}` },
+      description: excerpt,
+      images: [
+        { url: `${blogConfig.url}/api/og?title=${title}&subtitle=${excerpt}` },
+      ],
+    },
+  };
 }
 
 export default function PostPage({ params }: PostPageProps) {
