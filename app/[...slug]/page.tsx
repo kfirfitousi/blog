@@ -17,9 +17,7 @@ export async function generateStaticParams(): Promise<PageProps['params'][]> {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export function generateMetadata({ params }: PageProps): Metadata {
   const page = allPages.find(({ slug }) => slug === params.slug.join('/')) || {
     title: 'Page Not Found',
     description: '',

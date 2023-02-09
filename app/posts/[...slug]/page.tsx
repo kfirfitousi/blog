@@ -21,9 +21,7 @@ export async function generateStaticParams(): Promise<
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: PostPageProps): Promise<Metadata> {
+export function generateMetadata({ params }: PostPageProps): Metadata {
   const post = allPosts.find(({ slug }) => slug === params.slug.join('/')) || {
     title: 'Post Not Found',
     excerpt: '',
