@@ -124,7 +124,7 @@ Our app should look like this now:
 Now let's add the parallax effect to our component.  
 We want the red box to move as normal as we scroll, the yellow box to move faster and the green box to move even faster.
 
-To achieve this, we need to track the scroll progress of the wrapper div of our `<Parallax>{:tsx}` component. We can do this using the `useScroll{:tsx}` hook from Framer Motion:
+To achieve this, we need to track the scroll progress of the wrapper div of our `<Parallax>{:tsx}` component. We can do this using the `useScroll{:.fn}` hook from Framer Motion:
 
 ```tsx title="/src/components/parallax.tsx" showLineNumbers {5,7}
 import { useRef } from 'react';
@@ -145,10 +145,10 @@ export default function Parallax() {
 }
 ```
 
-We created a `ref{:tsx}` for the wrapper div and passed it to the `useScroll{:tsx}` hook as the target element.  
-Now `scrollYProgress{:tsx}` tracks the scroll progress of the wrapper div: when it's at the top of the screen, the value is `0`, and the value will transition to `1` as it reaches the bottom of the screen.
+We created a `ref{:.const}` for the wrapper div and passed it to the `useScroll{:.fn}` hook as the target element.  
+Now `scrollYProgress{:.const}` tracks the scroll progress of the wrapper div: when it's at the top of the screen, the value is `0`, and the value will transition to `1` as it reaches the bottom of the screen.
 
-Next, we define a function called `useParallax{:tsx}`:
+Next, we define a function called `useParallax{:.fn}`:
 
 ```tsx title="/src/components/parallax.tsx"
 function useParallax(value: MotionValue<number>, distance: number) {
@@ -156,7 +156,7 @@ function useParallax(value: MotionValue<number>, distance: number) {
 }
 ```
 
-To understand what this function does, we need to understand what the `useTransform{:tsx}` hook does.
+To understand what this function does, we need to understand what the `useTransform{:.fn}` hook does.
 
 ```tsx
 function useTransform<I, O>(
@@ -167,8 +167,8 @@ function useTransform<I, O>(
 ): MotionValue<O>;
 ```
 
-`useTransform{:tsx}` creates a `MotionValue{:tsx}` that transforms the output of another `MotionValue{:tsx}`. A motion value can be `opacity`, `scale`, `x`, `y`, etc.  
-In the following example, the value of `opacity` will be `1` when `x` is `0`, transition to `0` when `x` is `100` and transition back to `1` when `x` is `200`.
+`useTransform{:.fn}` creates a `MotionValue{:.type}` that transforms the output of another `MotionValue{:.type}`. A motion value can be `opacity{:.const}`, `scale{:.const}`, `x{:.const}`, `y{:.const}`, etc.  
+In the following example, the value of `opacity{:.const}` will be `1` when `x{:.const}` is `0`, transition to `0` when `x{:.const}` is `100` and transition back to `1` when `x{:.const}` is `200`.
 
 ```tsx {3}
 export const MyComponent = () => {
@@ -179,10 +179,10 @@ export const MyComponent = () => {
 };
 ```
 
-In our `useParallax{:tsx}` function, we are using `useTransform{:tsx}` to transform the `value` passed to the function.  
-When `value` is `0`, the output will be `-distance`, and it will transition to `distance` when `value` is `1`.
+In our `useParallax{:.fn}` function, we are using `useTransform{:.fn}` to transform the `value{:tsx}` passed to the function.  
+When `value{:tsx}` is `0`, the output will be `-distance`, and it will transition to `distance` when `value` is `1`.
 
-The value we are going to pass to `useParallax{:tsx}` is the `scrollYProgress{:tsx}` of the wrapper div:
+The value we are going to pass to `useParallax{:.fn}` is the `scrollYProgress{:.const}` of the wrapper div:
 
 ```tsx title="/src/components/parallax.tsx"
 const yYellow = useParallax(scrollYProgress, 300);
@@ -191,9 +191,9 @@ const yGreen = useParallax(scrollYProgress, 600);
 
 This means that:
 
-- When the wrapper div is at the top of the screen, `scrollYProgress{:tsx}` is `0`, therefore `yYellow{:tsx}` and `yGreen{:tsx}` will be `-300` and `-600` respectively.
-- When the wrapper div is at the middle of the screen, `scrollYProgress{:tsx}` is `0.5`, therefore `yYellow{:tsx}` and `yGreen{:tsx}` will both be `0`.
-- When the wrapper div is at the bottom of the screen, `scrollYProgress{:tsx}` is `1`, therefore `yYellow{:tsx}` and `yGreen{:tsx}` will be `300` and `600` respectively.
+- When the wrapper div is at the top of the screen, `scrollYProgress{:.const}` is `0`, therefore `yYellow{:tsx}` and `yGreen{:tsx}` will be `-300` and `-600` respectively.
+- When the wrapper div is at the middle of the screen, `scrollYProgress{:.const}` is `0.5`, therefore `yYellow{:tsx}` and `yGreen{:tsx}` will both be `0`.
+- When the wrapper div is at the bottom of the screen, `scrollYProgress{:.const}` is `1`, therefore `yYellow{:tsx}` and `yGreen{:tsx}` will be `300` and `600` respectively.
 
 All we have to do now is pass the `yYellow{:tsx}` and `yGreen{:tsx}` values to the `y` property of the yellow and green boxes respectively:
 
@@ -218,7 +218,7 @@ export default function Parallax() {
 }
 ```
 
-We also set the inital value of `y` to `0` so the boxes are positioned correctly when the page loads.
+We also set the inital value of `y{:tsx}` to `0` so the boxes are positioned correctly when the page loads.
 
 That's it! We have successfully added a parallax effect to our component.
 
