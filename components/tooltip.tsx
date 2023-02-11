@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Tooltip as ReactTooltip,
   type ITooltip as TooltipProps,
