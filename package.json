@@ -43,7 +43,7 @@
     "shiki": "^0.14.0",
     "tailwind-merge": "^1.9.1",
     "unified": "^10.1.2",
-    "zustand": "^4.3.2"
+    "zustand": "^4.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
