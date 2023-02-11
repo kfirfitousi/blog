@@ -39,7 +39,7 @@ specifiers:
   grapheme-splitter: ^1.0.4
   hastscript: ^7.2.0
   jest: ^29.4.2
-  lucide-react: ^0.109.0
+  lucide-react: ^0.112.0
   next: 13.1.6
   next-contentlayer: ^0.3.0
   next-sitemap: ^3.1.49
@@ -85,7 +85,7 @@ dependencies:
   eslint-plugin-tailwindcss: 3.8.3_tailwindcss@3.2.4
   grapheme-splitter: 1.0.4
   hastscript: 7.2.0
-  lucide-react: 0.109.0_react@18.2.0
+  lucide-react: 0.112.0_react@18.2.0
   next: 13.1.6_pjwopsidmaokadturxaafygjp4
   next-contentlayer: 0.3.0_3vryta7zmbcsw4rrqf4axjqggm
   next-sitemap: 3.1.49_dlcnecpznf2wc36zwuq5m2ie5q
@@ -9921,8 +9921,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-react/0.109.0_react@18.2.0:
-    resolution: {integrity: sha512-CXBQnHSd/EHaSN+Bs9T73jgCbjb/0IVykFG7NvWjk+kG2skiEgXeIIJjpkta2DVSORy8u6RXN2WZuryiuNmC0Q==}
+  /lucide-react/0.112.0_react@18.2.0:
+    resolution: {integrity: sha512-+glJwNv7bv6I6WOb8RRbaVHJdaoaV/KWV44ag/EpAoSsWxSUML5RP8hA+9O188RoEv9ZFMx1l+7HPwTDnt0L/Q==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
