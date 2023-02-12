@@ -24,31 +24,34 @@ export async function generateStaticParams(): Promise<
 export function generateMetadata({ params }: PostPageProps): Metadata {
   const post = allPosts.find(({ slug }) => slug === params.slug.join('/')) || {
     title: 'Post Not Found',
-    excerpt: '',
+    excerpt: null,
     url: '/posts',
     date: new Date().toISOString(),
   };
 
-  const title = `${blogConfig.title} | ${post.title}`;
-
   const ogImage = {
-    url: `${blogConfig.url}/api/og?title=${post.title}&subtitle=${post.excerpt}`,
+    url: `${blogConfig.url}/api/og?title=${post.title}&subtitle=${
+      post.excerpt ?? ''
+    }`,
   };
 
+  const description = post.excerpt ?? 'Post Not Found';
+
   return {
-    title,
-    description: post.excerpt,
+    title: post.title,
+    description,
     openGraph: {
       type: 'article',
       url: `${blogConfig.url}${post.url}`,
-      title: { absolute: title },
-      description: post.excerpt,
+      // @ts-ignore (this should be ok but typescript no likey)
+      title: post.title,
+      description,
       publishedTime: post.date,
       images: [ogImage],
     },
     twitter: {
-      title,
-      description: post.excerpt,
+      title: post.title,
+      description,
       images: ogImage,
       card: 'summary_large_image',
     },

@@ -13,17 +13,14 @@ const ogImage = {
 };
 
 export const metadata: Metadata = {
-  title: blogConfig.title,
   description: blogConfig.descriptions.home,
   openGraph: {
     type: 'website',
     url: blogConfig.url,
-    title: { absolute: blogConfig.title },
     description: blogConfig.descriptions.home,
     images: [ogImage],
   },
   twitter: {
-    title: blogConfig.title,
     description: blogConfig.descriptions.home,
     images: ogImage,
     card: 'summary_large_image',

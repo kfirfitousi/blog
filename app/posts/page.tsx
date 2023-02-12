@@ -5,24 +5,24 @@ import { compareDesc } from 'date-fns';
 import { blogConfig } from '@/config';
 import { PostPaginator } from '@/components/post-paginator';
 
-const title = `${blogConfig.title} | Posts`;
-
 const ogImage = {
   url: `${blogConfig.url}/api/og?title=Posts`,
 };
 
 export const metadata: Metadata = {
-  title,
+  title: 'Posts',
   description: blogConfig.descriptions.posts,
   openGraph: {
+    // @ts-ignore (this should be ok but typescript no likey)
     type: 'website',
     url: `${blogConfig.url}/posts`,
-    title: { absolute: title },
+    // @ts-ignore (this should also be ok)
+    title: 'Posts',
     description: blogConfig.descriptions.posts,
     images: [ogImage],
   },
   twitter: {
-    title,
+    title: 'Posts',
     description: blogConfig.descriptions.posts,
     images: ogImage,
     card: 'summary_large_image',

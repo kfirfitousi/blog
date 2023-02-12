@@ -20,28 +20,28 @@ export async function generateStaticParams(): Promise<PageProps['params'][]> {
 export function generateMetadata({ params }: PageProps): Metadata {
   const page = allPages.find(({ slug }) => slug === params.slug.join('/')) || {
     title: 'Page Not Found',
-    description: '',
+    description: 'Page Not Found',
     url: '/',
   };
-
-  const title = `${blogConfig.title} | ${page.title}`;
 
   const ogImage = {
     url: `${blogConfig.url}/api/og?title=${page.title}`,
   };
 
   return {
-    title,
+    title: page.title,
     description: page.description,
     openGraph: {
+      // @ts-ignore (this should be ok but typescript no likey)
       type: 'website',
       url: `${blogConfig.url}${page.url}`,
-      title: { absolute: title },
+      // @ts-ignore (this should also be ok)
+      title: page.title,
       description: page.description,
       images: [ogImage],
     },
     twitter: {
-      title,
+      title: page.title,
       description: page.description,
       images: ogImage,
       card: 'summary_large_image',
