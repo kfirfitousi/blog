@@ -8,20 +8,22 @@ import { Button } from '@/components/button';
 import { HeroSection } from '@/components/hero-section';
 import { PostCard } from '@/components/post-card';
 
+const { description } = blogConfig.pages.home;
+
 const ogImage = {
   url: `${blogConfig.url}/api/og`,
 };
 
 export const metadata: Metadata = {
-  description: blogConfig.descriptions.home,
+  description,
   openGraph: {
     type: 'website',
     url: blogConfig.url,
-    description: blogConfig.descriptions.home,
+    description,
     images: [ogImage],
   },
   twitter: {
-    description: blogConfig.descriptions.home,
+    description,
     images: ogImage,
     card: 'summary_large_image',
   },

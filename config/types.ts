@@ -2,9 +2,10 @@ import { type GiscusProps, type Theme as GiscusTheme } from '@giscus/react';
 import { type Theme as ShikiTheme } from 'shiki';
 
 /**
- * This type represents the configuration of the blog.
- * This should not be edited, unless you wish to add additional configurations.
+ * This file contains types that represent the configuration of the blog.
+ * It should not be edited, unless you wish to add additional configurations.
  */
+
 export type BlogConfig = {
   /**
    * The URL of the blog.
@@ -12,8 +13,8 @@ export type BlogConfig = {
    */
   url: string;
   /**
-   * The name of the blog. Visible in the header and the OG image.
-   * Also used as the prefix for the `<title>` in the `<head>` of each page.
+   * The title of the blog. Visible in the header and the OG image.
+   * Also used as the prefix for the title of each page.
    */
   title: string;
   /**
@@ -27,11 +28,34 @@ export type BlogConfig = {
    */
   author: string;
   /**
-   * The descriptions for the home page and the posts page.
+   * The two main pages of the blog, the home page and the posts page.
+   * To add a markdown page (e.g. about, contact, etc.),
+   * simply add a new file to the `content/pages` directory.
    */
-  descriptions: {
-    home: string;
-    posts: string;
+  pages: {
+    home: {
+      url: '/';
+      /**
+       * The description of the home page.
+       */
+      description: string;
+    };
+    posts: {
+      /**
+       * The URL of the posts page.
+       * If you want to use a different URL,
+       * make sure to rename the `app/posts` directory to match.
+       */
+      url: `/${string}`;
+      /**
+       * The title of the posts page.
+       */
+      title: string;
+      /**
+       * The description of the posts page.
+       */
+      description: string;
+    };
   };
   /**
    * Customize the blog's theme.

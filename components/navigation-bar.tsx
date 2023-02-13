@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { allPages } from 'contentlayer/generated';
 
 import { BlogTitle } from '@/components/blog-title';
 import { cn } from '@/lib/utils';
@@ -11,25 +12,28 @@ export function NavigationBar({ className }: NavigationBarProps) {
   return (
     <nav
       className={cn(
-        'flex h-8 flex-row items-center justify-start max-xs:text-sm sm:justify-center',
+        'flex h-8 flex-row items-center space-x-2 max-xs:text-sm sm:space-x-4',
         className,
       )}
     >
+      <Link href="/">
+        <BlogTitle />
+      </Link>
       <Link
         href="/posts"
-        className="order-2 mr-2 font-semibold hover:text-accent dark:hover:text-accent-dark xs:mr-4 sm:order-1"
+        className="font-semibold hover:text-accent dark:hover:text-accent-dark"
       >
         Posts
       </Link>
-      <Link href="/" className="order-1 mr-2 xs:mr-4 sm:order-2">
-        <BlogTitle className="text-lg" />
-      </Link>
-      <Link
-        href="/about"
-        className="order-3 font-semibold hover:text-accent dark:hover:text-accent-dark"
-      >
-        About
-      </Link>
+      {allPages.map((page) => (
+        <Link
+          href={page.url}
+          key={page._id}
+          className="font-semibold hover:text-accent dark:hover:text-accent-dark"
+        >
+          {page.title}
+        </Link>
+      ))}
     </nav>
   );
 }

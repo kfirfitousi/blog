@@ -40,7 +40,7 @@ module.exports = {
       gridTemplateColumns: {
         // main layout grid columns (left column, main, right column)
         // see app/layout.tsx
-        layout: '1fr minmax(640px, 1024px) 1fr',
+        layout: '1fr minmax(640px, 800px) 1fr',
       },
       animation: {
         // border animation used in components/post-card.tsx

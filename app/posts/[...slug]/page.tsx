@@ -22,7 +22,9 @@ export async function generateStaticParams(): Promise<
 }
 
 export function generateMetadata({ params }: PostPageProps): Metadata {
-  const post = allPosts.find(({ slug }) => slug === params.slug.join('/')) || {
+  const { title, excerpt, url, date } = allPosts.find(
+    ({ slug }) => slug === params.slug.join('/'),
+  ) || {
     title: 'Post Not Found',
     excerpt: null,
     url: '/posts',
@@ -30,27 +32,25 @@ export function generateMetadata({ params }: PostPageProps): Metadata {
   };
 
   const ogImage = {
-    url: `${blogConfig.url}/api/og?title=${post.title}&subtitle=${
-      post.excerpt ?? ''
-    }`,
+    url: `${blogConfig.url}/api/og?title=${title}&subtitle=${excerpt ?? ''}`,
   };
 
-  const description = post.excerpt ?? 'Post Not Found';
+  const description = excerpt ?? 'Post Not Found';
 
   return {
-    title: post.title,
+    title,
     description,
     openGraph: {
       type: 'article',
-      url: `${blogConfig.url}${post.url}`,
+      url: `${blogConfig.url}${url}`,
       // @ts-ignore (this should be ok but typescript no likey)
-      title: post.title,
+      title,
       description,
-      publishedTime: post.date,
+      publishedTime: date,
       images: [ogImage],
     },
     twitter: {
-      title: post.title,
+      title,
       description,
       images: ogImage,
       card: 'summary_large_image',
