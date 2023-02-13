@@ -93,10 +93,10 @@ Note that we're using a custom component called `<Card>{:tsx}` in the post. We'l
 ## Defining Types
 
 Let's head over to `/app/page.tsx`, the home page of our app, and where we'll be rendering our post.  
-We'll define 2 types, `Frontmatter{:tsx}` and `Post{:tsx}`:
+We'll define 2 types, `Frontmatter{:.type}` and `Post{:.type}`:
 
-- `Frontmatter{:tsx}` will define which properties we want to extract from the frontmatter of our MDX files. In this case, we'll extract the `title` and `date`.
-- `Post{:tsx}` will define the shape of our post. It will contain the serialized MDX content and the frontmatter.
+- `Frontmatter{:.type}` will define which properties we want to extract from the frontmatter of our MDX files. In this case, we'll extract the `title{:tsx}` and `date{:tsx}`.
+- `Post{:.type}` will define the shape of our post. It will contain the serialized MDX content and the frontmatter.
 
 ```tsx title="/app/page.tsx" showLineNumbers
 import { type MDXRemoteSerializeResult } from 'next-mdx-remote';
@@ -114,7 +114,7 @@ type Post<TFrontmatter> = {
 
 ## Serializing the Post
 
-Next, we'll define an async function called `getPost{:tsx}` that takes a filepath, and returns a `Post{:tsx}` object by reading the file from the filesystem and serializing the MDX content.
+Next, we'll define an `async function{:tsx}` called `getPost{:.fn}` that takes a filepath, and returns a `Post{:.type}` object by reading the file from the filesystem and serializing the MDX content.
 
 ```tsx title="/app/page.tsx" showLineNumbers {4,8,13-15,21-24}
 // ...
@@ -146,7 +146,7 @@ async function getPost(filepath: string): Promise<Post<Frontmatter>> {
 
 ## Getting the Post Inside a Page Component
 
-Now let's get this post inside our `<Home>{:tsx}` component. We'll have to change the `<Home>{:tsx}` component to be an [async server component](https://beta.nextjs.org/docs/data-fetching/fetching#asyncawait-in-server-components) so we can use `await{:tsx}` in the top level of the component.
+Now let's get this post inside our `<Home>{:tsx}` component. We'll have to change the `<Home>{:tsx}` component to be an [`async{:.keyword}` server component](https://beta.nextjs.org/docs/data-fetching/fetching#asyncawait-in-server-components) so we can use `await{:tsx}` in the top level of the component.
 
 ```tsx title="/app/page.tsx" showLineNumbers {3,7,8}
 export default async function Home() {
@@ -194,7 +194,7 @@ All this component does is render the `<MDXRemote>{:tsx}` component.
 
 ![Meme {{ w: 500, h: 747 }}](/images/web-dev/mdx-nextjs-13/meme.webp)
 
-If we want to add custom components to our posts, we can do so by passing a `components{:tsx}` prop:
+If we want to add custom components to our posts, we can do so by passing a `components{:.prop}` prop:
 
 ```tsx title="/app/mdx-content.tsx" showLineNumbers /MdxComponents/1 /components={MdxComponents}/
 // ...
@@ -253,7 +253,7 @@ That's it! We've successfully rendered an MDX file on the page using next-mdx-re
 ## Conclusion and Next Steps
 
 In this article, we've only scratched the surface of using next-mdx-remote with Next.js 13.  
-To make an actual blog, we might want to move our `getPost{:tsx}` function to a file called `/lib/mdx.ts` (or similar) and add two more functions: `getAllPosts{:tsx}`, which returns all of the posts in our blog, and `getAllMdxFiles{:tsx}`, which returns all of the MDX files in the content directory.
+To make an actual blog, we might want to move our `getPost{:.fn}` function to a file called `/lib/mdx.ts` (or similar) and add two more functions: `getAllPosts{:.fn}`, which returns all of the posts in our blog, and `getAllMdxFiles{:.fn}`, which returns all of the MDX files in the content directory.
 
 We can then leverage Next.js 13's [Dynamic Segments](https://beta.nextjs.org/docs/routing/defining-routes#dynamic-segments) and [Static Params Generation](https://beta.nextjs.org/docs/data-fetching/generating-static-params) to create a dynamic route for each post, and render the post's content on the page.
 

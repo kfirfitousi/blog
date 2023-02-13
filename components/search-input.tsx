@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
 
 import { useSearchStore } from '@/stores/search-store';
@@ -13,30 +12,24 @@ type SearchInputProps = {
 export function SearchInput({ hasResults }: SearchInputProps) {
   const query = useSearchStore((state) => state.query);
   const setQuery = useSearchStore((state) => state.setQuery);
-  const inputRef = useRef<HTMLInputElement>(null!);
-
-  useEffect(() => {
-    // focus input when search is opened
-    inputRef.current.focus();
-  }, []);
 
   return (
     <>
       <input
-        ref={inputRef}
         type="text"
+        autoFocus
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder={
+          placeholders[Math.floor(Math.random() * placeholders.length)]
+        }
         className={cn(
           'w-full rounded border px-2 placeholder:opacity-50',
           hasResults ? 'sm:text-2xl' : 'sm:text-4xl',
           'border-slate-400 bg-slate-100 text-slate-700',
           'dark:border-slate-500 dark:bg-slate-700 dark:text-rose-50',
         )}
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
         aria-label="Search Posts"
-        placeholder={
-          placeholders[Math.floor(Math.random() * placeholders.length)]
-        }
       />
       {query && (
         <button

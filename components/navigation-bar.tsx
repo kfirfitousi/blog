@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { allPages } from 'contentlayer/generated';
 
 import { BlogTitle } from '@/components/blog-title';
 import { cn } from '@/lib/utils';
+import { allPages } from '../.contentlayer/generated';
 
 type NavigationBarProps = {
   className?: string;
