@@ -12,7 +12,7 @@
     "style:all": "pnpm run style:lint && pnpm run style:prettier",
     "format": "prettier --write '**/*.{js,jsx,ts,tsx}'",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "npx contentlayer build && storybook build"
   },
   "dependencies": {
     "@giscus/react": "^2.2.6",
@@ -28,7 +28,7 @@
     "grapheme-splitter": "^1.0.4",
     "hastscript": "^7.2.0",
     "lucide-react": "^0.112.0",
-    "next": "13.1.6",
+    "next": "13.1.7-canary.10",
     "next-contentlayer": "^0.3.0",
     "next-sitemap": "^3.1.52",
     "react": "18.2.0",

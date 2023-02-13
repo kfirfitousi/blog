@@ -1,10 +1,33 @@
+import { type Metadata } from 'next/types';
 import { allPosts } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
 import { FileText } from 'lucide-react';
 
+import { blogConfig } from '@/config';
 import { Button } from '@/components/button';
 import { HeroSection } from '@/components/hero-section';
 import { PostCard } from '@/components/post-card';
+
+const { description } = blogConfig.pages.home;
+
+const ogImage = {
+  url: `${blogConfig.url}/api/og`,
+};
+
+export const metadata: Metadata = {
+  description,
+  openGraph: {
+    type: 'website',
+    url: blogConfig.url,
+    description,
+    images: [ogImage],
+  },
+  twitter: {
+    description,
+    images: ogImage,
+    card: 'summary_large_image',
+  },
+};
 
 export default function Home() {
   const latestPosts = allPosts

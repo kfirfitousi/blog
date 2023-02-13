@@ -6,10 +6,18 @@ const blogConfig = {
   title: '‹kfir/blog›',
   titleParts: ['kfir', 'blog'],
   author: 'Kfir Fitousi',
-  descriptions: {
-    home: "My name is Kfir and I'm a Full Stack Developer. Welcome to my personal dev blog! I write about Web Development and other topics I'm interested in.",
-    posts:
-      "All my blog posts. I write about Web Development and other topics I'm interested in.",
+  pages: {
+    home: {
+      url: '/',
+      description:
+        "My name is Kfir and I'm a Full Stack Developer. Welcome to my personal dev blog! I write about Web Development and other topics I'm interested in.",
+    },
+    posts: {
+      url: '/posts',
+      title: 'Posts',
+      description:
+        "All my blog posts. I write about Web Development and other topics I'm interested in.",
+    },
   },
   theme: {
     accentColor: {

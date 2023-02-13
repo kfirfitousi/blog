@@ -40,12 +40,7 @@ export function Header() {
         'text-slate-700 backdrop-blur dark:text-rose-50',
       )}
     >
-      <NavigationBar
-        className={cn(
-          isPostPage ? 'sm:ml-[136px]' : 'sm:ml-20',
-          'flex-grow mix-blend-color-dodge max-xs:mr-2',
-        )}
-      />
+      <NavigationBar className="flex-grow mix-blend-color-dodge max-xs:mr-2" />
       <Toolbar fontControls={isPostPage} className="ml-auto" />
     </header>
   );
