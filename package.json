@@ -12,7 +12,7 @@
     "style:all": "pnpm run style:lint && pnpm run style:prettier",
     "format": "prettier --write '**/*.{js,jsx,ts,tsx}'",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "npx contentlayer build && storybook build"
   },
   "dependencies": {
     "@giscus/react": "^2.2.6",
