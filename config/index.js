@@ -8,7 +8,6 @@ const blogConfig = {
   author: 'Kfir Fitousi',
   pages: {
     home: {
-      url: '/',
       description:
         "My name is Kfir and I'm a Full Stack Developer. Welcome to my personal dev blog! I write about Web Development and other topics I'm interested in.",
     },

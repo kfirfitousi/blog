@@ -1,15 +1,17 @@
-import { type GiscusProps, type Theme as GiscusTheme } from '@giscus/react';
-import { type Theme as ShikiTheme } from 'shiki';
+import type { GiscusProps, Theme as GiscusTheme } from '@giscus/react';
+import type { Theme as ShikiTheme } from 'shiki';
 
 /**
- * This file contains types that represent the configuration of the blog.
+ * This type represents the configuration of the blog.
  * It should not be edited, unless you wish to add additional configurations.
  */
-
 export type BlogConfig = {
   /**
    * The URL of the blog.
-   * Used as the base URL for the OG image and as the siteUrl in the sitemap.
+   * You can use localhost while developing, but make sure to change it to the actual URL when deploying.
+   * Should not include a trailing slash.
+   * @example 'https://blog.kfirfitousi.com'
+   * @example 'http://localhost:3000'
    */
   url: string;
   /**
@@ -34,7 +36,13 @@ export type BlogConfig = {
    */
   pages: {
     home: {
-      url: '/';
+      /**
+       * The title of the home page (the part after the pipe).
+       * When omitted, only the blog's name is used (without the pipe).
+       * @example 'Home' --> '‹blog/name› | Home'
+       * @example undefined --> '‹blog/name›'
+       */
+      title?: string;
       /**
        * The description of the home page.
        */
@@ -48,7 +56,7 @@ export type BlogConfig = {
        */
       url: `/${string}`;
       /**
-       * The title of the posts page.
+       * The title of the posts page (the part after the pipe).
        */
       title: string;
       /**
@@ -68,11 +76,11 @@ export type BlogConfig = {
       /**
        * @default #be123c // rose-700
        */
-      light?: string;
+      light?: `#${string}`;
       /**
        * @default #fda4af // rose-300
        */
-      dark?: string;
+      dark?: `#${string}`;
     };
     /**
      * The themes to use for the code blocks.

@@ -8,17 +8,21 @@ import { Button } from '@/components/button';
 import { HeroSection } from '@/components/hero-section';
 import { PostCard } from '@/components/post-card';
 
-const { description } = blogConfig.pages.home;
+const { title, description } = blogConfig.pages.home;
 
 const ogImage = {
   url: `${blogConfig.url}/api/og`,
 };
 
 export const metadata: Metadata = {
+  title,
   description,
   openGraph: {
+    // @ts-ignore (this should be ok but typescript no likey)
     type: 'website',
     url: blogConfig.url,
+    // @ts-ignore (this should also be ok)
+    title,
     description,
     images: [ogImage],
   },
