@@ -1,5 +1,10 @@
 // @ts-check
 
+/**
+ * The blog's configuration. Start here after cloning the repo.
+ * Hovering over the properties (in an editor like VSCode) will provide additional information about them.
+ */
+
 /** @type {import('./types').BlogConfig} */
 const blogConfig = {
   url: 'https://blog.kfirfitousi.com',
@@ -8,8 +13,9 @@ const blogConfig = {
   author: 'Kfir Fitousi',
   pages: {
     home: {
+      title: 'Web Development Blog by Kfir Fitousi',
       description:
-        "My name is Kfir and I'm a Full Stack Developer. Welcome to my personal dev blog! I write about Web Development and other topics I'm interested in.",
+        "My name is Kfir and I'm a Full Stack Developer. Welcome to my dev blog! I write about Web Development and other topics I'm interested in.",
     },
     posts: {
       url: '/posts',
