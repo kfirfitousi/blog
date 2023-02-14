@@ -3,25 +3,26 @@
 import { useEffect, useRef, useState } from 'react';
 import { useSelectedLayoutSegments } from 'next/navigation';
 
+import { blogConfig } from '@/config';
 import { NavigationBar } from '@/components/navigation-bar';
 import { Toolbar } from '@/components/toolbar';
 import { cn } from '@/lib/utils';
 
 export function Header() {
-  const layoutSegment = useSelectedLayoutSegments();
-  const isPostPage = layoutSegment[0] === 'posts' && !!layoutSegment[1];
   const [scrollTop, setScrollTop] = useState(0);
   const headerRef = useRef<HTMLDivElement>(null);
+  const layoutSegment = useSelectedLayoutSegments();
+  const isPostPage =
+    layoutSegment[0] === blogConfig.pages.posts.url.substring(1) &&
+    !!layoutSegment[1];
 
   useEffect(() => {
     // sync scroll position with state
-    setScrollTop(document.documentElement.scrollTop || document.body.scrollTop);
+    setScrollTop(document.documentElement.scrollTop);
 
     // update state on scroll
     const handleScroll = () => {
-      setScrollTop(
-        document.documentElement.scrollTop || document.body.scrollTop,
-      );
+      setScrollTop(document.documentElement.scrollTop);
     };
     document.addEventListener('scroll', handleScroll);
 
@@ -33,7 +34,7 @@ export function Header() {
       ref={headerRef}
       className={cn(
         headerRef.current && scrollTop > headerRef.current.clientHeight
-          ? 'border-b border-b-slate-300 bg-slate-500/10 py-2 dark:border-b-slate-500'
+          ? 'border-b border-b-slate-300 bg-slate-500/20 py-2 dark:border-b-slate-600'
           : 'bg-transparent py-8',
         'flex flex-row items-center justify-between px-4 xs:px-8',
         'transition-[padding,background-color] duration-300 ease-in-out',
