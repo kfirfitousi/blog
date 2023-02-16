@@ -60,7 +60,7 @@ code::after {
 }
 
 code[data-theme='dark'] {
-  @apply hidden bg-[#22272e];
+  @apply hidden bg-slate-800;
 }
 
 html.dark code[data-theme='dark'] {
@@ -84,7 +84,7 @@ html.dark code[data-theme='light'] {
 }
 
 [data-rehype-pretty-code-title] {
-  @apply mx-auto w-full max-w-3xl rounded-t-lg bg-slate-100 px-2 py-1 font-mono text-slate-600;
+  @apply mx-auto w-full max-w-3xl rounded-t-lg bg-slate-100 px-4 py-1 font-mono text-slate-600;
 }
 
 [data-rehype-pretty-code-title][data-theme='dark'] {
@@ -104,7 +104,7 @@ html.dark [data-rehype-pretty-code-title][data-theme='light'] {
 }
 
 html.dark [data-rehype-pretty-code-title] {
-  @apply bg-[#1e2228] text-slate-400;
+  @apply bg-slate-900/70 text-slate-400;
 }
 
 [data-rehype-pretty-code-title] + pre,
@@ -123,7 +123,7 @@ code .word {
 
 html.dark code > .line.highlighted,
 html.dark code .word {
-  @apply bg-zinc-700;
+  @apply bg-slate-700;
 }
 
 code[data-line-numbers] {

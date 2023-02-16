@@ -28,7 +28,7 @@ export function PostCard({ post }: PostCardProps) {
       <article
         className={cn(
           'flex h-fit w-full flex-col space-y-4 rounded',
-          'relative z-10 m-[2px] py-3 pl-10 pr-6 shadow-lg hover:shadow-xl',
+          'relative z-10 m-0.5 py-3 pl-10 pr-6 shadow-lg hover:shadow-xl',
           'bg-slate-100/95 dark:bg-slate-600/90',
         )}
       >
