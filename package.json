@@ -43,6 +43,7 @@
     "shiki": "^0.14.1",
     "tailwind-merge": "^1.9.1",
     "unified": "^10.1.2",
+    "vitest": "^0.28.5",
     "zustand": "^4.3.3"
   },
   "devDependencies": {
