@@ -1,8 +1,8 @@
 import '@/styles/globals.css';
 import 'react-tooltip/dist/react-tooltip.css';
+import { Newsreader, Red_Hat_Display } from 'next/font/google';
 import { type Metadata } from 'next/types';
 import { allPosts } from 'contentlayer/generated';
-import { Newsreader, Red_Hat_Display } from '@next/font/google';
 
 import { blogConfig } from '@/config';
 import { Analytics } from '@/components/analytics';
