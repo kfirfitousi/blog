@@ -59,7 +59,7 @@ specifiers:
   storybook: ^7.0.0-beta.28
   storybook-tailwind-dark-mode: ^1.0.15
   style-loader: ^3.3.1
-  tailwind-merge: ^1.9.1
+  tailwind-merge: ^1.10.0
   tailwindcss: ^3.2.7
   ts-node: ^10.9.1
   typescript: ^4.9.5
@@ -95,7 +95,7 @@ dependencies:
   rehype-slug: 5.1.0
   remark-gfm: 3.0.1
   shiki: 0.14.1
-  tailwind-merge: 1.9.1
+  tailwind-merge: 1.10.0
   unified: 10.1.2
   vitest: 0.28.5
   zustand: 4.3.3_react@18.2.0
@@ -12494,8 +12494,8 @@ packages:
       tslib: 2.4.1
     dev: false
 
-  /tailwind-merge/1.9.1:
-    resolution: {integrity: sha512-ED9MkiUHlmfh58EC1xHRqXcH1IQyRtmDP0AmXlugYkP2tvfu7ejtjFEHJLJt93mQ7ZJkcqSIgm9M394bq5vOJg==}
+  /tailwind-merge/1.10.0:
+    resolution: {integrity: sha512-WFnDXSS4kFTZwjKg5/oZSGzBRU/l+qcbv5NVTzLUQvJ9yovDAP05h0F2+ZFW0Lw9EcgRoc2AfURUdZvnEFrXKg==}
     dev: false
 
   /tailwindcss/3.2.7_aesdjsunmf4wiehhujt67my7tu:
