@@ -34,10 +34,8 @@ export function generateMetadata({ params }: PageProps): Metadata {
     title,
     description,
     openGraph: {
-      // @ts-ignore (this should be ok but typescript no likey)
       type: 'website',
       url: `${blogConfig.url}${url}`,
-      // @ts-ignore (this should also be ok)
       title,
       description,
       images: [ogImage],

@@ -43,7 +43,6 @@ export function generateMetadata({ params }: PostPageProps): Metadata {
     openGraph: {
       type: 'article',
       url: `${blogConfig.url}${url}`,
-      // @ts-ignore (this should be ok but typescript no likey)
       title,
       description,
       publishedTime: date,
