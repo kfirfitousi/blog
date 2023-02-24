@@ -64,7 +64,7 @@
     "@storybook/theming": "7.0.0-beta.29",
     "@storybook/types": "7.0.0-alpha.44",
     "@tailwindcss/typography": "^0.5.9",
-    "@types/node": "18.13.0",
+    "@types/node": "18.14.1",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.10",
     "autoprefixer": "^10.4.13",
