@@ -49,7 +49,7 @@
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@ianvs/prettier-plugin-sort-imports": "^3.7.1",
-    "@next/env": "^13.1.6",
+    "@next/env": "^13.2.1",
     "@storybook/addon-essentials": "^7.0.0-beta.28",
     "@storybook/addon-interactions": "^7.0.0-beta.28",
     "@storybook/addon-links": "^7.0.0-beta.28",
