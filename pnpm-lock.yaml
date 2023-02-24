@@ -5,7 +5,6 @@ specifiers:
   '@giscus/react': ^2.2.6
   '@ianvs/prettier-plugin-sort-imports': ^3.7.1
   '@next/env': ^13.2.1
-  '@next/font': ^13.2.1
   '@storybook/addon-essentials': ^7.0.0-beta.28
   '@storybook/addon-interactions': ^7.0.0-beta.28
   '@storybook/addon-links': ^7.0.0-beta.28
@@ -70,7 +69,6 @@ specifiers:
 
 dependencies:
   '@giscus/react': 2.2.6_biqbaboplfbrettd7655fr4n2y
-  '@next/font': 13.2.1
   '@vercel/analytics': 0.1.10_react@18.2.0
   '@vercel/og': 0.1.0
   clsx: 1.2.1
@@ -2731,6 +2729,7 @@ packages:
 
   /@next/font/13.2.1:
     resolution: {integrity: sha512-4sergLt7xp9+mZuKME/xM4tLlHGTcmL7naCq0qCTcAlof6NnttshYgiLOdhSiy0NcI+/yM3BjvdEk++O96UzTg==}
+    dev: true
 
   /@next/swc-android-arm-eabi/13.2.1:
     resolution: {integrity: sha512-Yua7mUpEd1wzIT6Jjl3dpRizIfGp9NR4F2xeRuQv+ae+SDI1Em2WyM9m46UL+oeW5GpMiEHoaBagr47RScZFmQ==}
