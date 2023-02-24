@@ -8,7 +8,7 @@ import { PostPaginator } from '@/components/post-paginator';
 const { url, title, description } = blogConfig.pages.posts;
 
 const ogImage = {
-  url: `${blogConfig.url}/api/og?title=${title}`,
+  url: `${blogConfig.url}/og?title=${title}`,
 };
 
 export const metadata: Metadata = {

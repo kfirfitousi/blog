@@ -32,7 +32,7 @@ export function generateMetadata({ params }: PostPageProps): Metadata {
   };
 
   const ogImage = {
-    url: `${blogConfig.url}/api/og?title=${title}&subtitle=${excerpt ?? ''}`,
+    url: `${blogConfig.url}/og?title=${title}&subtitle=${excerpt ?? ''}`,
   };
 
   const description = excerpt ?? 'Post Not Found';

@@ -27,7 +27,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
   };
 
   const ogImage = {
-    url: `${blogConfig.url}/api/og?title=${title}`,
+    url: `${blogConfig.url}/og?title=${title}`,
   };
 
   return {

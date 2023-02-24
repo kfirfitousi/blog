@@ -11,7 +11,7 @@ import { PostCard } from '@/components/post-card';
 const { title, description } = blogConfig.pages.home;
 
 const ogImage = {
-  url: `${blogConfig.url}/api/og`,
+  url: `${blogConfig.url}/og`,
 };
 
 export const metadata: Metadata = {

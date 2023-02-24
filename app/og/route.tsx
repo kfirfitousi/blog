@@ -21,7 +21,7 @@ const fontBold = fetch(
   new URL('../../public/assets/RedHatDisplay-Bold.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer());
 
-export default async function handler(req: NextRequest) {
+export async function GET(req: NextRequest) {
   const fontRegularData = await fontRegular;
   const fontSemiBoldData = await fontSemiBold;
   const fontBoldData = await fontBold;
