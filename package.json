@@ -37,7 +37,7 @@
     "react-typist-component": "^1.0.5",
     "react-wrap-balancer": "^0.4.0",
     "rehype-autolink-headings": "^6.1.1",
-    "rehype-pretty-code": "^0.9.3",
+    "rehype-pretty-code": "^0.9.4",
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "shiki": "^0.14.1",
