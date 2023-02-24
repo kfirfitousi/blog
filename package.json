@@ -17,7 +17,7 @@
   "dependencies": {
     "@giscus/react": "^2.2.6",
     "@next/font": "^13.2.1",
-    "@vercel/analytics": "^0.1.8",
+    "@vercel/analytics": "^0.1.10",
     "@vercel/og": "^0.0.22",
     "clsx": "^1.2.1",
     "contentlayer": "^0.3.0",
