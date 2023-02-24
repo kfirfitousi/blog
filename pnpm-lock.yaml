@@ -33,7 +33,7 @@ specifiers:
   date-fns: ^2.29.3
   eslint: 8.34.0
   eslint-config-next: 13.2.1
-  eslint-plugin-storybook: ^0.6.10
+  eslint-plugin-storybook: ^0.6.11
   eslint-plugin-tailwindcss: ^3.9.0
   grapheme-splitter: ^1.0.4
   hastscript: ^7.2.0
@@ -123,7 +123,7 @@ devDependencies:
   '@types/react-dom': 18.0.10
   autoprefixer: 10.4.13_postcss@8.4.21
   css-loader: 6.7.3_webpack@5.75.0
-  eslint-plugin-storybook: 0.6.10_7kw3g6rralp5ps6mg3uyzz6azm
+  eslint-plugin-storybook: 0.6.11_7kw3g6rralp5ps6mg3uyzz6azm
   eslint-plugin-tailwindcss: 3.9.0_tailwindcss@3.2.7
   postcss: 8.4.21
   postcss-loader: 7.0.2_6jdsrmfenkuhhw3gx4zvjlznce
@@ -7470,8 +7470,8 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: false
 
-  /eslint-plugin-storybook/0.6.10_7kw3g6rralp5ps6mg3uyzz6azm:
-    resolution: {integrity: sha512-3DKXRey06EhwnTKaG6fgMqGTy4C3z6Ikyv6VVixO5BvaExWQe3yGWIAufrC2Et0OaAMIaMwx9KWjqb/Wq+JxPg==}
+  /eslint-plugin-storybook/0.6.11_7kw3g6rralp5ps6mg3uyzz6azm:
+    resolution: {integrity: sha512-lIVmCqQgA0bhcuS1yWYBFrnPHBKPEQI+LHPDtlN81UE1/17onCqgwUW7Nyt7gS2OHjCAiOR4npjTGEoe0hssKw==}
     engines: {node: 12.x || 14.x || >= 16}
     peerDependencies:
       eslint: '>=6'
