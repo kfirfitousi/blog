@@ -5,19 +5,20 @@ specifiers:
   '@giscus/react': ^2.2.6
   '@ianvs/prettier-plugin-sort-imports': ^3.7.1
   '@next/env': ^13.2.3
+  '@next/font': ^13.2.3
   '@storybook/addon-essentials': ^7.0.0-beta.28
   '@storybook/addon-interactions': ^7.0.0-beta.28
   '@storybook/addon-links': ^7.0.0-beta.28
-  '@storybook/addons': 7.0.0-beta.29
-  '@storybook/api': 7.0.0-beta.29
-  '@storybook/blocks': ^7.0.0-beta.28
-  '@storybook/components': 7.0.0-beta.29
-  '@storybook/core-events': 7.0.0-beta.29
+  '@storybook/addons': ^7.0.0-beta.29
+  '@storybook/api': ^7.0.0-beta.29
+  '@storybook/blocks': ^7.0.0-alpha.8
+  '@storybook/components': ^7.0.0-beta.29
+  '@storybook/core-events': ^7.0.0-beta.29
   '@storybook/nextjs': ^7.0.0-beta.15
   '@storybook/react': ^7.0.0-beta.28
   '@storybook/testing-library': ^0.0.14-next.1
-  '@storybook/theming': 7.0.0-beta.29
-  '@storybook/types': 7.0.0-alpha.44
+  '@storybook/theming': ^7.0.0-beta.29
+  '@storybook/types': ^7.0.0-alpha.44
   '@tailwindcss/typography': ^0.5.9
   '@types/node': 18.14.1
   '@types/react': 18.0.28
@@ -69,6 +70,7 @@ specifiers:
 
 dependencies:
   '@giscus/react': 2.2.6_biqbaboplfbrettd7655fr4n2y
+  '@next/font': 13.2.3
   '@vercel/analytics': 0.1.10_react@18.2.0
   '@vercel/og': 0.1.0
   clsx: 1.2.1
@@ -2727,9 +2729,8 @@ packages:
       glob: 7.1.7
     dev: false
 
-  /@next/font/13.2.1:
-    resolution: {integrity: sha512-4sergLt7xp9+mZuKME/xM4tLlHGTcmL7naCq0qCTcAlof6NnttshYgiLOdhSiy0NcI+/yM3BjvdEk++O96UzTg==}
-    dev: true
+  /@next/font/13.2.3:
+    resolution: {integrity: sha512-7EHzk0f7FVYICLUZTpyPk93IfcTUao++Xt1Sgb+Zk5dVOCYHabqLtlF5ywSoXIqyFlo0qlshEBxsrzHAGTWkDw==}
 
   /@next/swc-android-arm-eabi/13.2.3:
     resolution: {integrity: sha512-mykdVaAXX/gm+eFO2kPeVjnOCKwanJ9mV2U0lsUGLrEdMUifPUjiXKc6qFAIs08PvmTMOLMNnUxqhGsJlWGKSw==}
@@ -3903,10 +3904,10 @@ packages:
       '@types/node': 16.18.11
       '@types/pretty-hrtime': 1.0.1
       chalk: 4.1.2
-      esbuild: 0.16.10
-      esbuild-register: 3.4.2_esbuild@0.16.10
+      esbuild: 0.16.17
+      esbuild-register: 3.4.2_esbuild@0.16.17
       express: 4.18.2
-      file-system-cache: 2.0.1
+      file-system-cache: 2.0.2
       find-up: 5.0.0
       fs-extra: 9.1.0
       glob: 7.1.7
@@ -4231,7 +4232,7 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.21.0
-      '@next/font': 13.2.1
+      '@next/font': 13.2.3
       '@storybook/addon-actions': 7.0.0-beta.15_biqbaboplfbrettd7655fr4n2y
       '@storybook/builder-webpack5': 7.0.0-beta.15_ygqkwb4gg3aean7xjfdauovyqq
       '@storybook/core-common': 7.0.0-beta.15
@@ -4682,7 +4683,7 @@ packages:
       '@types/babel__core': 7.1.20
       '@types/express': 4.17.15
       express: 4.18.2
-      file-system-cache: 2.0.1
+      file-system-cache: 2.0.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -7153,6 +7154,17 @@ packages:
     dependencies:
       debug: 4.3.4
       esbuild: 0.16.10
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /esbuild-register/3.4.2_esbuild@0.16.17:
+    resolution: {integrity: sha512-kG/XyTDyz6+YDuyfB9ZoSIOOmgyFCH+xPRtsCa8W85HLRV5Csp+o3jWVbOSHgSLfyLc5DmP+KFDNwty4mEjC+Q==}
+    peerDependencies:
+      esbuild: '>=0.12 <1'
+    dependencies:
+      debug: 4.3.4
+      esbuild: 0.16.17
     transitivePeerDependencies:
       - supports-color
     dev: true

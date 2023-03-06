@@ -1,7 +1,6 @@
 import '@/styles/globals.css';
 import 'react-tooltip/dist/react-tooltip.css';
-import React from 'react';
-import { Red_Hat_Display } from 'next/font/google';
+import { Red_Hat_Display } from '@next/font/google';
 import type { Decorator, Parameters } from '@storybook/react';
 import type { GlobalTypes } from '@storybook/types';
 
@@ -13,9 +12,7 @@ const fontSans = Red_Hat_Display({
 });
 
 export const parameters: Parameters = {
-  nextjs: {
-    appDirectory: true,
-  },
+  nextjs: { appDirectory: true },
   layout: 'fullscreen',
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
