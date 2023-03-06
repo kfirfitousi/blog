@@ -19,7 +19,7 @@ export function SearchResults({ query, results }: SearchResultsProps) {
   return (
     <ul className="flex flex-col overflow-scroll">
       {results.map((post) => {
-        const dateTime = formatDateTime(post.date);
+        const publishedDate = formatDateTime(post.date);
 
         return (
           <li
@@ -42,7 +42,7 @@ export function SearchResults({ query, results }: SearchResultsProps) {
                 {highlightSearchQuery(query, post.excerpt)}
               </span>
               <span className="text-sm text-slate-600 dark:text-slate-300">
-                {dateTime.asString} · {dateTime.asRelativeTimeString}
+                {publishedDate.asString} · {publishedDate.asRelativeTimeString}
               </span>
             </Link>
           </li>

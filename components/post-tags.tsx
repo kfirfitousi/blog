@@ -1,9 +1,7 @@
-import { type Post } from 'contentlayer/generated';
-
 import { cn } from '@/lib/utils';
 
 interface PostTagsProps {
-  tags: Post['tags'];
+  tags: string[];
   className?: string;
 }
 

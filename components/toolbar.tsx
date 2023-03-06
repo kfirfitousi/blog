@@ -129,7 +129,7 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
         <Tooltip
           anchorId="theme-toggle"
           place="bottom"
-          content={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+          content={`Switch to ${isDark ? 'light' : 'dark'} mode`}
         />
       </button>
     </div>

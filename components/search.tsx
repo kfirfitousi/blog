@@ -65,7 +65,7 @@ export function Search({ posts }: SearchProps) {
       <SearchResults query={query} results={results} />
 
       {results.length > 0 && (
-        <hr className="my-2 hidden border-slate-400 dark:border-slate-500 sm:block" />
+        <hr className="my-2 border-slate-400 dark:border-slate-500 max-xs:hidden" />
       )}
 
       <SearchTags

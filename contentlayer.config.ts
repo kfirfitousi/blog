@@ -18,6 +18,7 @@ import { blogConfig } from './config';
 const computedFields: ComputedFields = {
   slug: {
     type: 'string',
+    description: 'The slug of the post, e.g. my-topic/my-post',
     resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
   },
 };
@@ -34,7 +35,7 @@ export const Post = defineDocumentType(() => ({
     },
     date: {
       type: 'date',
-      description: 'The date of the post',
+      description: 'When the post was published',
       required: true,
     },
     excerpt: {
@@ -45,13 +46,14 @@ export const Post = defineDocumentType(() => ({
     tags: {
       type: 'list',
       of: { type: 'string' },
-      description: 'Tags for the post',
+      description: 'A list of keywords that relate to the post',
       required: true,
     },
   },
   computedFields: {
     url: {
       type: 'string',
+      description: 'The URL of the post, e.g. /posts/my-post',
       resolve: (post) => `/${post._raw.flattenedPath}`,
     },
     ...computedFields,
@@ -77,6 +79,7 @@ export const Page = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
+      description: 'The URL of the page, e.g. /about',
       resolve: (post) =>
         `/${post._raw.flattenedPath.split('/').slice(1).join('/')}`,
     },
@@ -88,10 +91,21 @@ export default makeSource({
   contentDirPath: './content',
   documentTypes: [Post, Page],
   mdx: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [
+      /**
+       * Adds support for GitHub Flavored Markdown
+       */
+      remarkGfm,
+    ],
     rehypePlugins: [
+      /**
+       * Adds ids to headings
+       */
       rehypeSlug,
       [
+        /**
+         * Adds auto-linking button after h1, h2, h3 headings
+         */
         rehypeAutolinkHeadings,
         {
           behavior: 'append',
@@ -120,11 +134,15 @@ export default makeSource({
         } satisfies Partial<AutolinkOptions>,
       ],
       [
+        /**
+         * Enhances code blocks with syntax highlighting, line numbers,
+         * titles, and allows highlighting specific lines and words
+         */
         rehypePrettyCode,
         {
-          theme: {
-            light: blogConfig.theme?.codeBlockTheme?.light || 'github-light',
-            dark: blogConfig.theme?.codeBlockTheme?.dark || 'github-dark',
+          theme: blogConfig.theme?.codeBlockTheme || {
+            light: 'github-light',
+            dark: 'github-dark',
           },
           onVisitLine(node) {
             // Prevent lines from collapsing in `display: grid` mode, and

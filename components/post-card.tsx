@@ -14,7 +14,7 @@ type PostCardProps = {
 };
 
 export function PostCard({ post }: PostCardProps) {
-  const dateTime = formatDateTime(post.date);
+  const publishedDate = formatDateTime(post.date);
 
   return (
     <Link
@@ -36,7 +36,7 @@ export function PostCard({ post }: PostCardProps) {
           <h2 className="text-2xl font-bold leading-normal text-slate-800 dark:text-rose-50 sm:text-3xl">
             <Balancer>
               {post.title}
-              {dateTime.isFresh && (
+              {publishedDate.isFresh && (
                 <>
                   {' '}
                   <sup className="text-base font-semibold text-accent dark:text-accent-dark">
@@ -46,17 +46,15 @@ export function PostCard({ post }: PostCardProps) {
               )}
             </Balancer>
           </h2>
-
           <p className="text-slate-700 dark:text-rose-50">
             <Balancer>{post.excerpt}</Balancer>
           </p>
-
           <p className="inline-flex items-center space-x-1 text-slate-600/90 dark:text-rose-50/80">
             <Calendar className="h-4 w-4 self-baseline" aria-hidden />
             <span className="text-sm">
-              Published {dateTime.asString}{' '}
-              <span className="hidden opacity-95 xs:inline">
-                · {dateTime.asRelativeTimeString}
+              Published {publishedDate.asString}{' '}
+              <span className="opacity-95 max-xs:hidden">
+                · {publishedDate.asRelativeTimeString}
               </span>
             </span>
           </p>
@@ -65,7 +63,7 @@ export function PostCard({ post }: PostCardProps) {
       </article>
       <div
         className={cn(
-          'absolute inset-0 z-20 my-auto h-[calc(100%_-_4px)] w-4 rounded-l',
+          'absolute inset-0 z-20 my-auto h-[calc(100%_-_0.25rem)] w-4 rounded-l',
           'group-hover:animate-border group-focus:animate-border-fast',
           'bg-slate-700 dark:bg-rose-50',
         )}
