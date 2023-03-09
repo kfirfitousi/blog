@@ -10,8 +10,8 @@ tags:
   - traits
 ---
 
-In this article we'll be implementing FizzBuzz in Rust `🦀`.  
-We'll start with a naive implementation, and then we'll refactor it to make it more reusable. Along the way, we'll learn about Rust's enums and traits and use TypeScript for comparison.
+In this article we'll be implementing FizzBuzz in Rust `🦀`  
+We'll start with a naive implementation, and then we'll refactor it to make it more reusable. Along the way, we'll learn about Rust's `enum{:rust}`s and `trait{:rust}`s and play around with `match{:rust}` expressions, while using TypeScript for comparison.
 
 <Callout type="note">
 
@@ -163,7 +163,7 @@ fn fizzbuzz(number: u32) {
 }
 ```
 
-This is pretty straightforward. We loop through the numbers from `1{:rust}` to the given `number{:rust}`, and print the appropriate string. However, it's not very reusable. What if we wanted to print `"Foo"{:rust}` when the number is divisible by 7 but not 3 or 5? Our code would get messy pretty quickly.
+This is pretty straightforward. We loop through the numbers from `1{:rust}` to the given `number{:rust}`, and print the appropriate string. However, it's not very reusable. What if we wanted to print `"FooBuzz"{:rust}` when the number is divisible by 5 and 7 but not 3? Our code would get messy pretty quickly.
 
 Now let's try to make our FizzBuzz more reusable by introducing enums and traits.
 
@@ -201,7 +201,7 @@ impl FizzBuzz {
 }
 ```
 
-The `match{:rust}` expression used in the `new{:.fn}` method is functionally equivalent to the `if{:rust}` statement we used in our naive implementation, it's just more readable in my opinion.
+We use pattern matching to match the tuple `(number % 3 == 0, number % 5 == 0){:rust}` to the different variants of `FizzBuzz{:rust}`. For example, if `number{:rust}` is `15{:rust}`, then the tuple will be `(true, true){:rust}` because `15{:rust}` is divisible by both `3{:rust}` and `5{:rust}`. This will match the first arm of the `match{:rust}` expression, which will return the `FizzBuzz::FizzBuzz{:rust}` variant.
 
 Now that we have a way to construct `FizzBuzz{:rust}` variants, we need a way to print them. We'll do this by implementing the `Display{:rust}` trait.
 We can bring this trait to scope by adding `use std::fmt::{Display, Formatter, Result};{:rust}` to the top of our file.
@@ -278,7 +278,7 @@ impl FizzBuzz {
 }
 ```
 
-Notice how our match expression is derived directly from the requirements table.
+Notice how our match expression is derived directly from the rules table. This is a good example of how Rust's pattern matching can be used to make code more readable.
 
 Lastly, we need to update the `Display{:rust}` trait implementation to print the new variants.
 
