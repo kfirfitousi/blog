@@ -58,6 +58,7 @@ const blogConfig = {
     'React',
     'TypeScript',
     'Next.js',
+    'Rust',
     'Design',
     'Computer Vision',
   ],

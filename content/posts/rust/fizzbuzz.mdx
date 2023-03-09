@@ -1,0 +1,310 @@
+---
+title: 'FizzBuzz: The Rusty Way'
+excerpt: Implementing FizzBuzz in Rust, and learning about enums and traits along the way.
+date: '2023-03-09'
+tags:
+  - 🦀
+  - rust
+  - fizzbuzz
+  - enums
+  - traits
+---
+
+In this article we'll be implementing FizzBuzz in Rust `🦀`.  
+We'll start with a naive implementation, and then we'll refactor it to make it more reusable. Along the way, we'll learn about Rust's enums and traits and use TypeScript for comparison.
+
+<Callout type="note">
+
+I'm still learning Rust, so if you see any mistakes or have any suggestions, please let me know in the comments!
+
+</Callout>
+
+<TableOfContents>
+
+- [Enums in Rust](#enums-in-rust)
+- [Traits in Rust](#traits-in-rust)
+- [FizzBuzz: The Naive Way](#fizzbuzz-the-naive-way)
+- [FizzBuzz: The Rusty Way](#fizzbuzz-the-rusty-way)
+- [Extending FizzBuzz](#extending-fizzbuzz)
+
+</TableOfContents>
+
+## Enums in Rust
+
+One thing that stood out to me when learning Rust, was that unlike TypeScript enums, Rust enums are acutally useful.
+If you're already familiar with Rust, you probably know Rust's `Result{:rust}` and `Option{:rust}` enums. If you're not, don't worry, we'll go over them right now.
+
+The `Result{:rust}` enum is used to represent the result of a function that may fail. It has two variants: `Ok{:rust}` and `Err{:rust}`.
+
+```rust
+enum Result<T, E> {
+  Ok(T),
+  Err(E),
+}
+```
+
+When a function returns a `Result{:rust}`, whoever calls it knows they should handle both cases. This is a great way to ensure that errors are handled, and that the program doesn't just crash. In contrast, TypeScript doesn't have a way to enforce error handling, or even to represent the possibility of an error in the type system, so it all comes down to developer discipline and documentation.
+
+One way to handle enums is to use a `match{:rust}` expression. This is similar to a `switch{:tsx}` statement in TypeScript, but it's more powerful. `match{:rust}` is exhaustive, which means that you have to handle every case, and the compiler will yell at you if you don't.
+
+```rust showLineNumbers /i32/2 /()/1
+//                    return type   error type
+//                             \     /
+fn may_fail(x: i32) -> Result<i32, ()> {
+  if x !== 0 {
+    Ok(x)
+  } else {
+    Err(())
+  }
+}
+
+fn main() {
+  match may_fail(42) {
+    // If the function returns the Ok variant,
+    // we unwrap the value inside and call it n.
+    // This is similar to destructuring in TypeScript.
+    Ok(n) => println!("Success: {}", n),
+    // In our case, if the function returns the Err variant,
+    // we don't need to bind it to a variable, so we use _
+    Err(_) => println!("Failure"),
+  }
+}
+```
+
+The `Option{:rust}` enum is similar to `Result{:rust}`, but it's used to represent the possibility of a value. It has two variants: `Some{:rust}` and `None{:rust}`.
+
+```rust
+enum Option<T> {
+  Some(T),
+  None,
+}
+```
+
+While `Result{:rust}` is used to represent the possibility of an error, `Option{:rust}` is used to represent the possibility of a missing value.
+
+```rust showLineNumbers /i32/2
+//                                        return type
+//                                           |
+fn get_first_element(arr: &[i32]) -> Option<i32> {
+  if arr.len() > 0 {
+    Some(arr[0])
+  } else {
+    None
+  }
+}
+
+fn main() {
+  let arr = [1, 2, 3];
+  match get_first_element(&arr) {
+    // If the function returns the Some variant,
+    // we unwrap the value inside and call it n.
+    Some(n) => println!("Success: {}", n),
+    // The None variant doesn't hold a value.
+    None => println!("Failure"),
+  }
+}
+```
+
+Later, we will create our own enum to represent the possible outputs of FizzBuzz. But first, let's talk about traits.
+
+## Traits in Rust
+
+Traits are similar to interfaces in TypeScript. They're used to define shared behavior between types. For example, we can define a trait called `Animal{:rust}` that has a method called `speak{:.fn}`.
+
+```rust
+trait Animal {
+  fn speak(&self);
+}
+```
+
+We can then implement this trait for any type we want.
+
+```rust showLineNumbers
+struct Dog;
+
+impl Animal for Dog {
+  fn speak(&self) {
+    println!("Woof!");
+  }
+}
+```
+
+Now, any instance of `Dog{:rust}` can call the `speak{:.fn}` method.
+
+```rust showLineNumbers
+let dog = Dog;
+dog.speak(); // Woof!
+```
+
+<Callout type="note">
+
+Rust allows you implement native traits for your custom types, as well as custom traits for native types, which I think is pretty cool.  
+You can also implement traits for enums, which we'll do later.
+
+</Callout>
+
+## FizzBuzz: The Naive Way
+
+Let's forget everything we talked about and try to implement FizzBuzz naively.
+
+```rust showLineNumbers
+fn fizzbuzz(number: u32) {
+  for x in 1..=number {
+    if x % 3 == 0 && x % 5 == 0 {
+      println!("FizzBuzz");
+    } else if x % 3 == 0 {
+      println!("Fizz");
+    } else if x % 5 == 0 {
+      println!("Buzz");
+    } else {
+      println!("{}", i);
+    }
+  }
+}
+```
+
+This is pretty straightforward. We loop through the numbers from `1{:rust}` to the given `number{:rust}`, and print the appropriate string. However, it's not very reusable. What if we wanted to print `"Foo"{:rust}` when the number is divisible by 7 but not 3 or 5? Our code would get messy pretty quickly.
+
+Now let's try to make our FizzBuzz more reusable by introducing enums and traits.
+
+## FizzBuzz: The Rusty Way
+
+Let's start by creating a `FizzBuzz{:rust}` enum. This enum will have 4 variants: `Fizz{:rust}`, `Buzz{:rust}`, `FizzBuzz{:rust}`, and `Number{:rust}`.
+
+```rust
+enum FizzBuzz {
+  Fizz,
+  Buzz,
+  FizzBuzz,
+  Number(u32),
+}
+```
+
+<Callout type="note">
+
+The `Number{:rust}` variant is associated with the `u32{:rust}` type. This means that `FizzBuzz::Number(){:rust}` is a function that constructs an instance of the `Number{:rust}` variant that holds a `u32{:rust}` value. We could have called this variant however we wanted.
+
+</Callout>
+
+Next, we'll associate a method called `new{:.fn}` with the `FizzBuzz{:rust}` enum. This method will take a number and return the appropriate `FizzBuzz{:rust}` variant.
+
+```rust showLineNumbers
+impl FizzBuzz {
+  fn new(number: u32) -> FizzBuzz {
+    match (number % 3 == 0, number % 5 == 0) {
+      (true, true) => FizzBuzz::FizzBuzz,
+      (true, false) => FizzBuzz::Fizz,
+      (false, true) => FizzBuzz::Buzz,
+      (false, false) => FizzBuzz::Number(number),
+    }
+  }
+}
+```
+
+The `match{:rust}` expression used in the `new{:.fn}` method is functionally equivalent to the `if{:rust}` statement we used in our naive implementation, it's just more readable in my opinion.
+
+Now that we have a way to construct `FizzBuzz{:rust}` variants, we need a way to print them. We'll do this by implementing the `Display{:rust}` trait.
+We can bring this trait to scope by adding `use std::fmt::{Display, Formatter, Result};{:rust}` to the top of our file.
+
+```rust showLineNumbers
+impl Display for FizzBuzz {
+    fn fmt(&self, f: &mut Formatter<'_>) -> Result {
+        match self {
+            FizzBuzz::Fizz => write!(f, "Fizz"),
+            FizzBuzz::Buzz => write!(f, "Buzz"),
+            FizzBuzz::FizzBuzz => write!(f, "FizzBuzz"),
+            FizzBuzz::Number(number) => write!(f, "{}", number),
+        }
+    }
+}
+```
+
+The `Display{:rust}` trait is used to print values. The `fmt{:.fn}` method is called when we use the `{}{:rust}` placeholder in a `println!{:rust}` macro.
+
+We can now write our FizzBuzz function as follows:
+
+```rust
+fn fizzbuzz(number: u32) {
+    (1..=number).for_each(|x| println!("{}", FizzBuzz::new(x)))
+}
+```
+
+Very clean! Let's break down what's happening here:
+
+1. We create a range from `1{:rust}` to `number{:rust}` using the `..={:rust}` range syntax.
+2. We call the `for_each{:.fn}` method on the range. This method takes a closure as an argument and calls it for each element in the range.
+3. We construct a `FizzBuzz{:rust}` variant from each number using the `FizzBuzz::new(){:rust}` function.
+4. We print the `FizzBuzz{:rust}` variant using the `println!{:rust}` macro. The `println!{:rust}` macro uses the `Display{:rust}` trait to print values.
+
+## Extending FizzBuzz
+
+Let's say we wanted to extend our FizzBuzz to support the following rules:
+
+![Extended FizzBuzz {{ w: 360 }}](/images/rust/fizzbuzz/extended.webp)
+
+A green cell means that the number is divisible by the corresponding number, and the rightmost column indicates the string to print. For example, if the number is not divisible by 3, 5, or 7, we print the number itself. If the number is divisible by 3 and 7 but not 5, we print `"FizzFoo"{:rust}`.
+
+Let's update our `FizzBuzz{:rust}` enum to include the 4 new variants.
+
+```rust
+enum FizzBuzz {
+  Foo,
+  Bar,
+  Fizz,
+  Buzz,
+  FizzBuzz,
+  FooBuzz,
+  FizzFoo,
+  Number(u32),
+}
+```
+
+Then, we need to update the `FizzBuzz::new(){:rust}` method to return the appropriate variant.
+
+```rust showLineNumbers
+impl FizzBuzz {
+  fn new(number: u32) -> FizzBuzz {
+    match (number % 3 == 0, number % 5 == 0, number % 7 == 0) {
+      (true, true, true) => FizzBuzz::Bar,
+      (true, true, false) => FizzBuzz::FizzBuzz,
+      (true, false, true) => FizzBuzz::FizzFoo,
+      (true, false, false) => FizzBuzz::Fizz,
+      (false, true, true) => FizzBuzz::FooBuzz,
+      (false, true, false) => FizzBuzz::Buzz,
+      (false, false, true) => FizzBuzz::Foo,
+      (false, false, false) => FizzBuzz::Number(number),
+    }
+  }
+}
+```
+
+Notice how our match expression is derived directly from the requirements table.
+
+Lastly, we need to update the `Display{:rust}` trait implementation to print the new variants.
+
+```rust showLineNumbers
+use std::fmt::{Display, Formatter, Result};
+
+impl Display for FizzBuzz {
+    fn fmt(&self, f: &mut Formatter<'_>) -> Result {
+        match self {
+            FizzBuzz::Foo => write!(f, "Foo"),
+            FizzBuzz::Bar => write!(f, "Bar"),
+            FizzBuzz::Fizz => write!(f, "Fizz"),
+            FizzBuzz::Buzz => write!(f, "Buzz"),
+            FizzBuzz::FizzBuzz => write!(f, "FizzBuzz"),
+            FizzBuzz::FooBuzz => write!(f, "FooBuzz"),
+            FizzBuzz::FizzFoo => write!(f, "FizzFoo"),
+            FizzBuzz::Number(number) => write!(f, "{}", number),
+        }
+    }
+}
+```
+
+And we're done! We've implemented an extensible FizzBuzz function that can be modified to support any number of rules.
+
+If you're trying to get into Rust, check out the following resources:
+
+- [Rust Book with quizzes](https://rust-book.cs.brown.edu/) - The official Rust book, modified to include quizzes.
+- [Rust, how do I start?](https://github.com/jondot/rust-how-do-i-start) - Hand curated advice and pointers for getting started with Rust.
+- [rust-learning](https://github.com/ctjhoa/rust-learning) - A bunch of links to blog posts, articles, videos, etc for learning Rust.
