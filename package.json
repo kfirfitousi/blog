@@ -15,7 +15,7 @@
     "build-storybook": "npx contentlayer build && storybook build"
   },
   "dependencies": {
-    "@giscus/react": "^2.2.6",
+    "@giscus/react": "^2.2.8",
     "@next/font": "^13.2.4",
     "@vercel/analytics": "^0.1.10",
     "@vercel/og": "^0.1.0",
