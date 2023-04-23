@@ -5,7 +5,6 @@ specifiers:
   '@giscus/react': ^2.2.6
   '@ianvs/prettier-plugin-sort-imports': ^3.7.1
   '@next/env': ^13.2.3
-  '@next/font': ^13.2.3
   '@storybook/addon-essentials': ^7.0.6
   '@storybook/addon-interactions': ^7.0.6
   '@storybook/addon-links': ^7.0.6
@@ -70,7 +69,6 @@ specifiers:
 
 dependencies:
   '@giscus/react': 2.2.6_biqbaboplfbrettd7655fr4n2y
-  '@next/font': 13.2.3
   '@vercel/analytics': 0.1.10_react@18.2.0
   '@vercel/og': 0.1.0
   clsx: 1.2.1
@@ -112,7 +110,7 @@ devDependencies:
   '@storybook/blocks': 7.0.6_biqbaboplfbrettd7655fr4n2y
   '@storybook/components': 7.0.6_biqbaboplfbrettd7655fr4n2y
   '@storybook/core-events': 7.0.6
-  '@storybook/nextjs': 7.0.6_pbr52tyaexml3v7f65sprvn44m
+  '@storybook/nextjs': 7.0.6_4nyest5ilwkcj6nln5prz44v2u
   '@storybook/react': 7.0.6_ygqkwb4gg3aean7xjfdauovyqq
   '@storybook/testing-library': 0.1.0
   '@storybook/theming': 7.0.6_biqbaboplfbrettd7655fr4n2y
@@ -2847,9 +2845,6 @@ packages:
       glob: 7.1.7
     dev: false
 
-  /@next/font/13.2.3:
-    resolution: {integrity: sha512-7EHzk0f7FVYICLUZTpyPk93IfcTUao++Xt1Sgb+Zk5dVOCYHabqLtlF5ywSoXIqyFlo0qlshEBxsrzHAGTWkDw==}
-
   /@next/swc-android-arm-eabi/13.2.3:
     resolution: {integrity: sha512-mykdVaAXX/gm+eFO2kPeVjnOCKwanJ9mV2U0lsUGLrEdMUifPUjiXKc6qFAIs08PvmTMOLMNnUxqhGsJlWGKSw==}
     engines: {node: '>= 10'}
@@ -4028,7 +4023,7 @@ packages:
     resolution: {integrity: sha512-dBAnEL4HfxxJmv7LdEYUoZlQbWj9APZNIbOaq0tgF8XkxiIbzqvgB0jhL/9UOrysSDbQWBiCRTu2wOVxedGfmw==}
     dev: true
 
-  /@storybook/nextjs/7.0.6_pbr52tyaexml3v7f65sprvn44m:
+  /@storybook/nextjs/7.0.6_4nyest5ilwkcj6nln5prz44v2u:
     resolution: {integrity: sha512-PvJRGHa4TdmdoIYvIzkymlx55P6X1mS4hJRwfLQXfbIL8g9CRzpWCvGAFPYIKuDKfgr6hquUdy4V2OkEWxOeKw==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
@@ -4064,7 +4059,6 @@ packages:
       '@babel/preset-react': 7.18.6_@babel+core@7.21.0
       '@babel/preset-typescript': 7.21.4_@babel+core@7.21.0
       '@babel/runtime': 7.21.0
-      '@next/font': 13.2.3
       '@storybook/addon-actions': 7.0.6_biqbaboplfbrettd7655fr4n2y
       '@storybook/builder-webpack5': 7.0.6_ygqkwb4gg3aean7xjfdauovyqq
       '@storybook/core-common': 7.0.6

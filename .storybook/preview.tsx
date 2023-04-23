@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
 import 'react-tooltip/dist/react-tooltip.css';
-import { Red_Hat_Display } from '@next/font/google';
+import { Red_Hat_Display } from 'next/font/google';
 import type { Decorator, Parameters } from '@storybook/react';
 import type { GlobalTypes } from '@storybook/types';
 
