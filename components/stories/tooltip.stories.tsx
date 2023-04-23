@@ -7,29 +7,23 @@ import { Center } from './decorators';
 const meta: Meta<typeof Tooltip> = {
   title: 'Tooltip',
   component: Tooltip,
-  decorators: [
-    (Story, ctx) => (
-      <>
-        <Github
-          id="github"
-          className="icon-base"
-          data-tooltip-content={ctx.args.content}
-          aria-label={ctx.args.content}
-        />
-        <Story />
-      </>
-    ),
-    Center,
-  ],
+  render: (args) => (
+    <>
+      <Github
+        id="github"
+        className="icon-base"
+        data-tooltip-content={args.content}
+        data-tooltip-id="tooltip"
+        aria-label={args.content}
+      />
+      <Tooltip id="tooltip" {...args} />
+    </>
+  ),
+  decorators: [Center],
+  args: {
+    content: 'My GitHub profile',
+  },
   argTypes: {
-    anchorId: {
-      control: false,
-      defaultValue: 'github',
-    },
-    content: {
-      control: 'text',
-      defaultValue: 'My GitHub profile',
-    },
     place: {
       control: false,
     },

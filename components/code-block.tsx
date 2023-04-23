@@ -30,7 +30,7 @@ export function CodeBlock({ children }: CodeBlockProps) {
     >
       {showCopy && (
         <button
-          className="absolute top-2 right-2 flex h-7 w-7 items-center justify-center rounded bg-white dark:bg-slate-800"
+          className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded bg-white dark:bg-slate-800"
           onClick={copy}
           disabled={isCopied}
         >

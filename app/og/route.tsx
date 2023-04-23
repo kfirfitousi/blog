@@ -1,13 +1,10 @@
-import { type PageConfig } from 'next';
 import { NextRequest } from 'next/server';
 import { ImageResponse } from '@vercel/og';
 import colors from 'tailwindcss/colors';
 
 import { blogConfig } from '@/config';
 
-export const config: PageConfig = {
-  runtime: 'edge',
-};
+export const runtime = 'edge';
 
 const fontRegular = fetch(
   new URL('../../public/assets/RedHatDisplay-Regular.ttf', import.meta.url),

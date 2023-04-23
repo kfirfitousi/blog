@@ -28,7 +28,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        // uses @next/font; see app/layout.tsx
+        // uses next/font; see app/layout.tsx
         sans: ['var(--font-red-hat)'],
         serif: ['var(--font-newsreader)'],
       },
