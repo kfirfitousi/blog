@@ -39,7 +39,7 @@ export const Callout = ({ type, children }: CalloutProps) => {
     >
       <div
         className={cn(
-          'absolute left-3 -top-3 h-6 w-fit rounded-md p-2',
+          'absolute -top-3 left-3 h-6 w-fit rounded-md p-2',
           'flex flex-row items-center justify-center space-x-1',
           type === 'update' &&
             'bg-slate-600 text-slate-300 dark:bg-slate-300 dark:text-slate-600',

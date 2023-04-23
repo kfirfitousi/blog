@@ -122,7 +122,7 @@ export function Footer() {
       </div>
 
       <button
-        className="absolute left-8 bottom-4 h-full w-fit"
+        className="absolute bottom-4 left-8 h-full w-fit"
         onClick={() => {
           document.body.scrollTop = 0;
           document.documentElement.scrollTop = 0;

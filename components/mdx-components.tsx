@@ -48,7 +48,7 @@ function img({ src, alt }: React.HTMLProps<HTMLImageElement>) {
 
   return (
     <figure
-      className="mx-auto mt-3 mb-6 flex h-fit w-fit flex-col rounded bg-slate-300/20 dark:bg-rose-50/25"
+      className="mx-auto mb-6 mt-3 flex h-fit w-fit flex-col rounded bg-slate-300/20 dark:bg-rose-50/25"
       aria-label={_alt}
     >
       <Image
