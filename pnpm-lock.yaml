@@ -22,7 +22,7 @@ specifiers:
   '@types/node': 18.14.1
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
-  '@vercel/analytics': ^0.1.10
+  '@vercel/analytics': ^1.0.0
   '@vercel/og': ^0.1.0
   autoprefixer: ^10.4.13
   clsx: ^1.2.1
@@ -69,7 +69,7 @@ specifiers:
 
 dependencies:
   '@giscus/react': 2.2.6_biqbaboplfbrettd7655fr4n2y
-  '@vercel/analytics': 0.1.10_react@18.2.0
+  '@vercel/analytics': 1.0.0_react@18.2.0
   '@vercel/og': 0.1.0
   clsx: 1.2.1
   contentlayer: 0.3.1
@@ -4799,8 +4799,8 @@ packages:
       eslint-visitor-keys: 3.4.0
     dev: false
 
-  /@vercel/analytics/0.1.10_react@18.2.0:
-    resolution: {integrity: sha512-jjJ8GzcPnQp0cMxpfYoUycMRBtDiaIeyVjZPiEPe99Dj1PdjMzAFYEASiV/hpNsXHkpcNYCveDFh6jnmh0YSDQ==}
+  /@vercel/analytics/1.0.0_react@18.2.0:
+    resolution: {integrity: sha512-RQmj7pv82JwGDHrnKeRc6TtSw2U7rWNubc2IH0ernTzWTj02yr9zvIYiYJeztsBzrJtWv7m8Nz6vxxb+cdEtJw==}
     peerDependencies:
       react: ^16.8||^17||^18
     dependencies:
