@@ -33,7 +33,7 @@ specifiers:
   eslint: 8.39.0
   eslint-config-next: 13.3.1
   eslint-plugin-storybook: ^0.6.11
-  eslint-plugin-tailwindcss: ^3.9.0
+  eslint-plugin-tailwindcss: ^3.11.0
   grapheme-splitter: ^1.0.4
   hastscript: ^7.2.0
   lucide-react: ^0.115.0
@@ -122,7 +122,7 @@ devDependencies:
   autoprefixer: 10.4.13_postcss@8.4.21
   css-loader: 6.7.3_webpack@5.75.0
   eslint-plugin-storybook: 0.6.11_tbtvr3a5zwdiktqy4vlmx63mqq
-  eslint-plugin-tailwindcss: 3.9.0_tailwindcss@3.3.1
+  eslint-plugin-tailwindcss: 3.11.0_tailwindcss@3.3.1
   postcss: 8.4.21
   postcss-loader: 7.0.2_6jdsrmfenkuhhw3gx4zvjlznce
   prettier: 2.8.8
@@ -7019,8 +7019,8 @@ packages:
       - typescript
     dev: true
 
-  /eslint-plugin-tailwindcss/3.9.0_tailwindcss@3.3.1:
-    resolution: {integrity: sha512-uA2/Q0g22i1uGFI/FTBkLCvpc5VpzMZjAJn3/hPqhongG0V7aaRHrFx4LyfOje/b9Q/t9iarx40InrXKf2jC6w==}
+  /eslint-plugin-tailwindcss/3.11.0_tailwindcss@3.3.1:
+    resolution: {integrity: sha512-RaraOG4D6VXutKnoNvFQ4+frTWGJDKtezy1yCrGFS7Um1to/npDNdh2GL19IRoGB/eanbtwhxFXy+xyEw0grAg==}
     engines: {node: '>=12.13.0'}
     peerDependencies:
       tailwindcss: ^3.2.2
