@@ -76,7 +76,7 @@
     "prettier-plugin-tailwindcss": "^0.2.7",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.6",
-    "storybook-tailwind-dark-mode": "^1.0.15",
+    "storybook-tailwind-dark-mode": "^1.0.22",
     "style-loader": "^3.3.2",
     "tailwindcss": "^3.3.1",
     "ts-node": "^10.9.1",

@@ -56,7 +56,7 @@ specifiers:
   remark-gfm: ^3.0.1
   shiki: ^0.14.1
   storybook: ^7.0.6
-  storybook-tailwind-dark-mode: ^1.0.15
+  storybook-tailwind-dark-mode: ^1.0.22
   style-loader: ^3.3.2
   tailwind-merge: ^1.12.0
   tailwindcss: ^3.3.1
@@ -129,7 +129,7 @@ devDependencies:
   prettier-plugin-tailwindcss: 0.2.7_5lfec6lggp737zy5jf5i7nvsxu
   prop-types: 15.8.1
   storybook: 7.0.6
-  storybook-tailwind-dark-mode: 1.0.15_j2qgqxgryeleo2zdsqgoo6wb4e
+  storybook-tailwind-dark-mode: 1.0.22_j2qgqxgryeleo2zdsqgoo6wb4e
   style-loader: 3.3.2_webpack@5.80.0
   tailwindcss: 3.3.1_3fojqsmttcn75cbnzsztj3o6qa
   ts-node: 10.9.1_gfpyv5b3h2oguybx3lu7z4el7a
@@ -11576,15 +11576,15 @@ packages:
     resolution: {integrity: sha512-siT1RiqlfQnGqgT/YzXVUNsom9S0H1OX+dpdGN1xkyYATo4I6sep5NmsRD/40s3IIOvlCq6akxkqG82urIZW1w==}
     dev: true
 
-  /storybook-tailwind-dark-mode/1.0.15_j2qgqxgryeleo2zdsqgoo6wb4e:
-    resolution: {integrity: sha512-rIN8vNqzKYN1wyZLfd1Wm4OwbNsaOJfnyc8gAkXTEMbmwaOF8vzOQMznuVdera4GdRtvCFkhhsf/IcYOkrrg1g==}
+  /storybook-tailwind-dark-mode/1.0.22_j2qgqxgryeleo2zdsqgoo6wb4e:
+    resolution: {integrity: sha512-I0HSVCuvo3OkaGDnCjLM7V1OYmQccrUCAGZ5ZaJfl9s3e93WA6DKFpQRbuoSidci+PTy+KvgrINgE08rA16bWA==}
     peerDependencies:
-      '@storybook/addons': ^6.2.9
-      '@storybook/api': ^6.2.9
-      '@storybook/components': ^6.2.9
-      '@storybook/core-events': ^6.2.9
-      '@storybook/theming': ^6.2.9
-      react: ^16.8.0 || ^17.0.0
+      '@storybook/addons': ^7.0.0
+      '@storybook/api': ^7.0.0
+      '@storybook/components': ^7.0.0
+      '@storybook/core-events': ^7.0.0
+      '@storybook/theming': ^7.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     peerDependenciesMeta:
       react:
