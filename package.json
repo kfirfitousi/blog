@@ -32,7 +32,7 @@
     "next-sitemap": "^3.1.52",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-tooltip": "5.8.3",
+    "react-tooltip": "5.11.1",
     "react-typist-component": "^1.0.5",
     "react-wrap-balancer": "^0.4.0",
     "rehype-autolink-headings": "^6.1.1",

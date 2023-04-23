@@ -47,7 +47,7 @@ specifiers:
   prop-types: ^15.8.1
   react: 18.2.0
   react-dom: 18.2.0
-  react-tooltip: 5.8.3
+  react-tooltip: 5.11.1
   react-typist-component: ^1.0.5
   react-wrap-balancer: ^0.4.0
   rehype-autolink-headings: ^6.1.1
@@ -85,7 +85,7 @@ dependencies:
   next-sitemap: 3.1.52_mqtmeunrog24dxsllgtnpi6qpa
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  react-tooltip: 5.8.3_biqbaboplfbrettd7655fr4n2y
+  react-tooltip: 5.11.1_biqbaboplfbrettd7655fr4n2y
   react-typist-component: 1.0.5_react@18.2.0
   react-wrap-balancer: 0.4.0_react@18.2.0
   rehype-autolink-headings: 6.1.1
@@ -10850,8 +10850,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-tooltip/5.8.3_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-h7maAlm2Xeymc14gWKhhrzsENeB83N65EzZ+AcQIGrOpNE0yefVRJIHhNcWHEJ0FEtf7VZXxtsj5glVXKxEtvA==}
+  /react-tooltip/5.11.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-+2a/DvmOlPQd5e1f3s32E/+vv4Tv4UmPxZfCyeVr4BeY3SRCEKGHiE36jH+UtqxSuRP9TKviwmhow4gNDRXCMQ==}
     peerDependencies:
       react: '>=16.14.0'
       react-dom: '>=16.14.0'

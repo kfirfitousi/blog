@@ -59,10 +59,10 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
             'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
             isSearching && 'text-accent/60 dark:text-accent-dark/80',
           )}
-          data-tooltip-content="Search Posts"
           aria-label="Search Posts"
+          data-tooltip-content="Search Posts"
+          data-tooltip-id="toolbar-tooltip"
         />
-        <Tooltip anchorId="search" />
       </button>
 
       {fontControls && (
@@ -78,10 +78,10 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
                 'icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6',
                 'group-disabled:text-accent/60 dark:group-disabled:text-accent-dark/80',
               )}
-              data-tooltip-content="Decrease font size"
               aria-label="Decrease font size"
+              data-tooltip-content="Decrease font size"
+              data-tooltip-id="toolbar-tooltip"
             />
-            <Tooltip anchorId="decrease-font-size" place="bottom" />
           </button>
           <button
             onClick={increaseFontSize}
@@ -96,8 +96,8 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
               )}
               aria-label="Increase font size"
               data-tooltip-content="Increase font size"
+              data-tooltip-id="toolbar-tooltip"
             />
-            <Tooltip anchorId="increase-font-size" place="bottom" />
           </button>
         </>
       )}
@@ -110,11 +110,16 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
             isSerif && 'text-accent/60 dark:text-accent-dark/80',
           )}
           data-tooltip-content="Toggle serif font"
+          data-tooltip-id="toolbar-tooltip"
           aria-label="Toggle serif font"
         />
-        <Tooltip anchorId="serif" place="bottom" />
       </button>
-      <button onClick={toggleDarkAndApply} id="theme-toggle">
+      <button
+        onClick={toggleDarkAndApply}
+        id="theme-toggle"
+        data-tooltip-content={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+        data-tooltip-id="toolbar-tooltip"
+      >
         {isDark ? (
           <Moon
             className="icon-base h-5 w-5 mix-blend-color-dodge xs:h-6 xs:w-6"
@@ -126,12 +131,9 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
             aria-label="Switch to dark mode"
           />
         )}
-        <Tooltip
-          anchorId="theme-toggle"
-          place="bottom"
-          content={`Switch to ${isDark ? 'light' : 'dark'} mode`}
-        />
       </button>
+
+      <Tooltip id="toolbar-tooltip" />
     </div>
   );
 }
