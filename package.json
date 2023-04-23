@@ -73,7 +73,7 @@
     "postcss": "^8.4.21",
     "postcss-loader": "^7.0.2",
     "prettier": "2.8.4",
-    "prettier-plugin-tailwindcss": "^0.2.3",
+    "prettier-plugin-tailwindcss": "^0.2.7",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.6",
     "storybook-tailwind-dark-mode": "^1.0.15",
