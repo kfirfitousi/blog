@@ -1,17 +1,16 @@
 import { type Post } from 'contentlayer/generated';
-import { dummyArray } from 'contentlayer-mock';
 import { describe, expect, it } from 'vitest';
 
 import { getTagsWithCount, searchPosts } from './search';
 
-const posts = dummyArray<Post>(10, (index) => ({
+const posts = Array.from({ length: 10 }, (_, index) => ({
   title: `Post ${index + 1}`,
   tags: ['tag', `tag${index + 1}`],
   excerpt: `Post ${index + 1} excerpt`,
   date: '2022-01-01',
   slug: `post-${index + 1}`,
   url: `post-${index + 1}`,
-}));
+})) as Post[];
 
 describe('searchPosts', () => {
   it('returns the posts that best match the query', () => {

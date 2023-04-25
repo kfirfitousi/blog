@@ -1,18 +1,17 @@
 import type { Post } from 'contentlayer/generated';
 import type { Meta, StoryObj } from '@storybook/react';
-import { dummyArray } from 'contentlayer-mock';
 
 import { PostPaginator } from '@/components/post-paginator';
 import { Padding } from './decorators';
 
-const posts = dummyArray<Post>(100, (index) => ({
+const posts = Array.from({ length: 100 }, (_, index) => ({
   title: `Post ${index + 1}`,
   excerpt: `This is post ${index + 1}`,
   date: '2022-01-01',
   tags: ['example', 'post', 'tags'],
   url: `/posts/post-${index + 1}`,
   slug: `posts/post-${index + 1}`,
-}));
+})) as Post[];
 
 const meta: Meta<typeof PostPaginator> = {
   title: 'Post Paginator',
