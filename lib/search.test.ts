@@ -10,6 +10,9 @@ const posts = Array.from({ length: 10 }, (_, index) => ({
   date: '2022-01-01',
   slug: `post-${index + 1}`,
   url: `post-${index + 1}`,
+  body: {
+    raw: `Post ${index + 1} body`,
+  },
 })) as Post[];
 
 describe('searchPosts', () => {
